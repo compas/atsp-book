@@ -1,0 +1,1392 @@
+
+
+
+                    ============================
+                       N O N - W E I G H T S    
+                    ============================
+
+
+
+ STATE  (WITH  5 CONFIGURATIONS):
+ -------------------------------
+
+
+ THERE ARE  7 ORBITALS AS FOLLOWS:
+
+       1s  2p  3p 3d2  2s 3d1 3d3
+
+ CONFIGURATION  1 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  2 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  3 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  4 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d1( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           1S0     2D0
+
+ CONFIGURATION  5 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     2D0
+
+
+                    ===================
+                      MCHF  ...  1988
+                    ===================
+
+
+          THE DIMENSIONS FOR THE CURRENT VERSION ARE:
+            NCFG=100       NWF= 30        NO=220
+
+
+
+ Li    2D        3.   220  7  7  5  F  T
+
+          3s1 NOT FOUND IN ELECTRON LIST
+
+          3p1 NOT FOUND IN ELECTRON LIST
+
+          3p2 NOT FOUND IN ELECTRON LIST
+        WAVE FUNCTIONS NOT FOUND FOR  3p
+        WAVE FUNCTIONS NOT FOUND FOR 3d1
+        WAVE FUNCTIONS NOT FOUND FOR 3d3
+
+  F.1D-09.1D-06 12  00.0  0  T  F
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-07
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+          TOTAL ENERGY =       -5.205019097
+
+      WEIGHTS
+  1  0.9414  2 -0.0741  3  0.0003  4 -0.1298  5  0.3022
+
+
+          ITERATION NUMBER  1
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.0D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  4.6D-07
+
+          C( 1s 2s) =    -0.10761   V( 1s 2s) =     5.60877   EPS = 0.019186
+          C( 2p 3p) =     0.21388   V( 2p 3p) =     1.95305   EPS =-0.025000
+          E( 3p 2p) =     1.99078   E( 2p 3p) =     0.01233
+          E( 2s 1s) =    -0.19383   E( 1s 2s) =    -0.02097
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>= 1.3D-03
+                     1s      7.1773466     10.3420666   1.2629296    2.62D-02
+      < 2p| 3p>=-1.2D-01
+                     2p      0.4167766      1.1495294   1.2000766    7.91D-02
+      < 2p| 3p>=-4.3D-01
+                     3p      0.9253585      2.1954642   1.3627192**  3.46D-01
+                    3d2      1.9415138      0.3387317  10.4924027**  5.41D-01
+      < 1s| 2s>=-7.8D-03
+                     2s      1.0829351      2.2235542   1.0101679**  1.90D-02
+                    3d1      0.3443269      0.2888714   1.1886452**  1.01D-01
+                    3d3      0.2084797      0.1663174   1.6735343**  2.00D-01
+
+
+          TOTAL ENERGY =       -5.226722533
+
+      WEIGHTS
+  1  0.9036  2 -0.0814  3  0.0574  4 -0.1385  5  0.3930
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2p :WEIGHTED MAXIMUM CHANGE =  1.05D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.4D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  9.2D-07
+
+          C( 1s 2s) =    -0.01165   V( 1s 2s) =     5.34491   EPS = 0.002179
+          C( 2p 3p) =    -0.03289   V( 2p 3p) =     1.36596   EPS = 0.024077
+          E( 3p 2p) =     1.69016   E( 2p 3p) =     0.01385
+          E( 2s 1s) =    -0.11328   E( 1s 2s) =    -0.01952
+
+                     EL         ED             AZ           NORM       DPM
+      < 2s| 1s>=-1.2D-04
+                     1s      7.3910713     10.3608272   1.0024719    1.72D-03
+      < 2p| 3p>= 4.7D-04
+                     2p      0.4662906      1.1913653   1.0003700    1.07D-03
+      < 2p| 3p>=-2.3D-03
+                     3p      1.0163106      2.1192527   0.9968919**  9.46D-03
+                    3d2      1.1001612      0.4538201   0.9725927**  8.70D-02
+      < 1s| 2s>= 2.7D-03
+                     2s      1.0191780      2.2987144   0.9970625**  2.01D-02
+                    3d1      0.3515635      0.2959019   0.9821548**  1.67D-02
+                    3d3      0.2442588      0.2066603   0.9325222**  4.55D-02
+
+
+          TOTAL ENERGY =       -5.227743730
+
+      WEIGHTS
+  1  0.9130  2 -0.0817  3  0.0549  4 -0.1358  5  0.3720
+
+      LEAST SELF-CONSISTENT FUNCTION IS 3d3 :WEIGHTED MAXIMUM CHANGE =  1.78D-02
+
+
+          ITERATION NUMBER  3
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  2.0D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  1.8D-06
+
+          C( 1s 2s) =     0.00144   V( 1s 2s) =     5.41965   EPS =-0.000265
+          C( 2p 3p) =    -0.00861   V( 2p 3p) =     1.41947   EPS = 0.006065
+          E( 3p 2p) =     1.66874   E( 2p 3p) =     0.01338
+          E( 2s 1s) =    -0.12346   E( 1s 2s) =    -0.01936
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>=-5.7D-05
+                     1s      7.3677875     10.3595362   0.9999622    8.82D-05
+      < 2p| 3p>= 2.4D-03
+                     2p      0.4657360      1.1991953   0.9999745    2.01D-03
+      < 2p| 3p>=-5.1D-03
+                     3p      1.0217306      2.1366686   0.9969611**  6.09D-03
+                    3d2      1.1946463      0.4896043   0.9928595**  1.59D-02
+      < 1s| 2s>=-2.0D-04
+                     2s      1.0282232      2.3048695   1.0002477**  1.40D-03
+                    3d1      0.3613673      0.3069812   0.9913577**  6.68D-03
+                    3d3      0.2424000      0.2067352   0.9990649**  7.79D-04
+
+
+          TOTAL ENERGY =       -5.227789228
+
+      WEIGHTS
+  1  0.9130  2 -0.0806  3  0.0544  4 -0.1351  5  0.3725
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2p :WEIGHTED MAXIMUM CHANGE =  2.59D-03
+
+
+          ITERATION NUMBER  4
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  2.7D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  3.7D-06
+
+          C( 1s 2s) =     0.00018   V( 1s 2s) =     5.41495   EPS =-0.000034
+          C( 2p 3p) =    -0.00001   V( 2p 3p) =     1.42979   EPS = 0.000004
+          E( 3p 2p) =     1.68744   E( 2p 3p) =     0.01314
+          E( 2s 1s) =    -0.12156   E( 1s 2s) =    -0.01908
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>= 6.8D-07
+                     1s      7.3665615     10.3596152   1.0000079    1.71D-05
+      < 2p| 3p>= 9.9D-05
+                     2p      0.4651113      1.1989615   0.9999902    1.34D-04
+      < 2p| 3p>=-4.6D-04
+                     3p      1.0336689      2.1463552   0.9988510**  1.75D-03
+                    3d2      1.2072756      0.4969291   0.9984298**  3.23D-03
+      < 1s| 2s>= 2.5D-06
+                     2s      1.0282414      2.3056995   0.9999886**  1.09D-04
+                    3d1      0.3603610      0.3067896   1.0005488**  4.26D-04
+                    3d3      0.2419937      0.2064284   1.0006195**  3.58D-04
+
+
+          TOTAL ENERGY =       -5.227789653
+
+      WEIGHTS
+  1  0.9129  2 -0.0804  3  0.0542  4 -0.1351  5  0.3728
+
+      LEAST SELF-CONSISTENT FUNCTION IS 3d2 :WEIGHTED MAXIMUM CHANGE =  2.49D-04
+
+
+          ITERATION NUMBER  5
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  3.8D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  7.3D-06
+
+          C( 1s 2s) =    -0.00002   V( 1s 2s) =     5.41495   EPS = 0.000003
+          C( 2p 3p) =    -0.00007   V( 2p 3p) =     1.43430   EPS = 0.000052
+          E( 3p 2p) =     1.69137   E( 2p 3p) =     0.01311
+          E( 2s 1s) =    -0.12148   E( 1s 2s) =    -0.01910
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>=-4.8D-07
+                     1s      7.3664916     10.3596260   1.0000001    5.91D-07
+      < 2p| 3p>= 2.4D-05
+                     2p      0.4650679      1.1990736   0.9999960    3.27D-05
+      < 2p| 3p>=-1.1D-04
+                     3p      1.0353580      2.1482974   0.9997685**  3.64D-04
+                    3d2      1.2109886      0.4986341   0.9995755**  8.18D-04
+      < 1s| 2s>= 2.4D-06
+                     2s      1.0281335      2.3058508   0.9999897**  2.93D-05
+                    3d1      0.3603689      0.3068130   0.9999623**  3.05D-05
+                    3d3      0.2419726      0.2064472   0.9999996**  5.82D-06
+
+
+          TOTAL ENERGY =       -5.227789677
+
+      WEIGHTS
+  1  0.9129  2 -0.0803  3  0.0542  4 -0.1351  5  0.3728
+
+      LEAST SELF-CONSISTENT FUNCTION IS 3d2 :WEIGHTED MAXIMUM CHANGE =  6.28D-05
+
+
+          ITERATION NUMBER  6
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  5.4D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  1.5D-05
+
+          C( 1s 2s) =     0.00000   V( 1s 2s) =     5.41495   EPS = 0.000000
+          C( 2p 3p) =    -0.00003   V( 2p 3p) =     1.43525   EPS = 0.000022
+          E( 3p 2p) =     1.69208   E( 2p 3p) =     0.01310
+          E( 2s 1s) =    -0.12147   E( 1s 2s) =    -0.01910
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>=-2.0D-07
+                     1s      7.3664307     10.3596234   0.9999998    2.94D-07
+      < 2p| 3p>= 8.6D-06
+                     2p      0.4650545      1.1991140   0.9999989    9.00D-06
+      < 2p| 3p>=-2.8D-05
+                     3p      1.0357028      2.1487150   0.9999490**  8.07D-05
+                    3d2      1.2119889      0.4990604   0.9998954**  2.02D-04
+      < 1s| 2s>= 5.7D-08
+                     2s      1.0281356      2.3058925   0.9999986**  4.42D-06
+                    3d1      0.3603786      0.3068326   0.9999814**  1.45D-05
+                    3d3      0.2419693      0.2064534   0.9999909**  5.84D-06
+
+
+          TOTAL ENERGY =       -5.227789679
+
+      WEIGHTS
+  1  0.9129  2 -0.0803  3  0.0542  4 -0.1351  5  0.3728
+
+      LEAST SELF-CONSISTENT FUNCTION IS 3d2 :WEIGHTED MAXIMUM CHANGE =  1.55D-05
+
+
+          ITERATION NUMBER  7
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  7.5D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  2.9D-05
+
+          C( 1s 2s) =     0.00000   V( 1s 2s) =     5.41495   EPS = 0.000000
+          C( 2p 3p) =    -0.00001   V( 2p 3p) =     1.43525   EPS = 0.000005
+          E( 3p 2p) =     1.69225   E( 2p 3p) =     0.01310
+          E( 2s 1s) =    -0.12146   E( 1s 2s) =    -0.01910
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>=-4.5D-08
+                     1s      7.3664150     10.3596229   1.0000000    5.43D-08
+      < 2p| 3p>= 1.9D-06
+                     2p      0.4650505      1.1991222   0.9999998    2.04D-06
+      < 2p| 3p>=-6.4D-06
+                     3p      1.0357914      2.1488155   0.9999878**  1.92D-05
+                    3d2      1.2122299      0.4991646   0.9999748**  4.89D-05
+      < 1s| 2s>=-6.4D-08
+                     2s      1.0281373      2.3058994   0.9999999**  5.69D-07
+                    3d1      0.3603806      0.3068370   0.9999962**  2.93D-06
+                    3d3      0.2419683      0.2064544   0.9999987**  8.90D-07
+
+
+          TOTAL ENERGY =       -5.227789679
+
+      WEIGHTS
+  1  0.9129  2 -0.0803  3  0.0542  4 -0.1351  5  0.3728
+
+      LEAST SELF-CONSISTENT FUNCTION IS 3d2 :WEIGHTED MAXIMUM CHANGE =  3.75D-06
+
+
+          ITERATION NUMBER  8
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.1D-09
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  5.9D-05
+
+          C( 1s 2s) =     0.00000   V( 1s 2s) =     5.41495   EPS = 0.000000
+          C( 2p 3p) =     0.00000   V( 2p 3p) =     1.43525   EPS = 0.000001
+          E( 3p 2p) =     1.69229   E( 2p 3p) =     0.01310
+          E( 2s 1s) =    -0.12146   E( 1s 2s) =    -0.01910
+
+                     EL         ED             AZ           NORM       DPM
+      < 1s| 2s>=-1.0D-08
+                     1s      7.3664117     10.3596228   1.0000000    1.26D-08
+      < 2p| 3p>= 4.4D-07
+                     2p      0.4650497      1.1991240   0.9999999    4.73D-07
+      < 2p| 3p>=-1.5D-06
+                     3p      1.0358110      2.1488388   0.9999972**  4.43D-06
+                    3d2      1.2122855      0.4991896   0.9999940**  1.17D-05
+      < 1s| 2s>=-1.2D-08
+                     2s      1.0281374      2.3059005   1.0000000**  8.70D-08
+                    3d1      0.3603803      0.3068377   0.9999995**  3.74D-07
+                    3d3      0.2419680      0.2064546   0.9999997**  1.81D-07
+
+
+          TOTAL ENERGY =       -5.227789679
+
+      WEIGHTS
+  1  0.9129  2 -0.0803  3  0.0542  4 -0.1351  5  0.3728
+
+
+     ENERGY (a.u.)
+     ------
+           Total                  -5.227789679
+           Potential             -10.455578873
+           Kinetic                 5.227789194
+           Ratio                   2.000000093
+   Li    2D        -5.2277897
+
+  1s( 1)  2p( 2)                         0.9129013
+     2S1     1D2     2D0                                                
+  1s( 1)  3p( 2)                        -0.0803082
+     2S1     1D2     2D0                                                
+  1s( 1) 3d2( 2)                         0.0541911
+     2S1     1D2     2D0                                                
+  1s( 1)  2s( 1) 3d1( 1)                -0.1351134
+     2S1     2S1     2D1     1S0     2D0                                
+  1s( 1)  2s( 1) 3d3( 1)                 0.3727861
+     2S1     2S1     2D1     3S0     2D0                                
+  1s( 2) kdc( 1)                         1.0
+     1S0     2D1     2D0
+
+
+
+                    ============================
+                       N O N - W E I G H T S    
+                    ============================
+
+
+
+ STATE  (WITH  6 CONFIGURATIONS):
+ -------------------------------
+
+
+ THERE ARE  8 ORBITALS AS FOLLOWS:
+
+       1s  2p  3p 3d2  2s 3d1 3d3 kdc
+
+ CONFIGURATION  1 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  2 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  3 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  4 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d1( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           1S0     2D0
+
+ CONFIGURATION  5 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     2D0
+
+ CONFIGURATION  6 ( OCCUPIED ORBITALS= 2 ):  1s( 2) kdc( 1)
+                           COUPLING SCHEME:     1S0     2D1
+                                                           2D0
+
+
+          ============================================
+                  A U T O _ I O N I Z A T I O N       
+          ============================================
+
+
+          THE DIMENSIONS FOR THE CURRENT VERSION ARE:
+             NCD=100       NWD= 30        NO=220
+
+
+
+ Li    2D        3.   220  8  1  6  F  T
+
+  F.0D+00.1D-05 20  00.0  5  F
+
+
+ *** CALCULATIONS FOR k^2 =   4.01725
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+ Outer region reduced by           93points in CSOLVE. 
+  End of range:    16.06089943036627      au.
+                    kdc      0.0070780      0.7874451   0.7874451 c  2.70D-01
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0166828      0.8331957   1.0581001 c  5.49D-02
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.49D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162580      0.8316465   0.9981406 c  1.86D-03
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.86D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162707      0.8316908   1.0000533 c  5.33D-05
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.33D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162704      0.8316896   0.9999985 c  1.50D-06
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.50D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162704      0.8316896   1.0000000 c  4.23D-08
+
+          ====================================
+              AUTOIONIZATION CALCULATION       
+          ====================================
+
+
+
+
+          Energy of Target:   -7.23641520
+
+          Continuum State:
+          ===============
+
+            1s( 2) kdc( 1)                        
+               1S0     2D1     2D0                                                
+
+
+
+          Continuum electron: k^2/2=   2.00863 au.
+          =======================================
+
+
+          Discrete State, main component:
+          ------------------------------
+
+     1        1s( 1)  2p( 2)                        
+                 2S1     1D2     2D0                                                
+
+          Auto-ionization Data
+          --------------------
+
+                     Interaction, V       =  -8.2674E-03 au
+                     Half-Line Width      =   2.1473E-04 au
+                                              5.8427E-03 ev
+                                              4.7127E+01 cm-1
+                     Auto-ionization rate =   1.7754E+13 s-1
+                     Half-Life            =   5.6324E-14 s
+
+
+
+                    =======================
+                     B R E I T - P A U L I 
+                    =======================
+
+
+
+
+
+ THE TYPE OF CALCULATION IS DEFINED BY THE FOLLOWING PARAMETERS - 
+      BREIT-PAULI OPERATORS             IREL   = 2
+      PHASE CONVENTION PARAMETER        ICSTAS = 1
+
+1
+
+
+
+                             ---------------------
+                             THE CONFIGURATION SET
+                             ---------------------
+
+
+
+
+
+ STATE  (WITH 28 CONFIGURATIONS):
+ -------------------------------
+
+
+ THERE ARE  7 ORBITALS AS FOLLOWS:
+
+       1s  2p  3p  2s 3d1 3d3 3d2
+
+ CONFIGURATION  1 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION  2 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  3 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           2P0
+
+ CONFIGURATION  4 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           4P0
+
+ CONFIGURATION  5 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           1P0     2S0
+
+ CONFIGURATION  6 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           1P0     2P0
+
+ CONFIGURATION  7 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           1P0     2D0
+
+ CONFIGURATION  8 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     2S0
+
+ CONFIGURATION  9 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     2P0
+
+ CONFIGURATION 10 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     2D0
+
+ CONFIGURATION 11 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     4S0
+
+ CONFIGURATION 12 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     4P0
+
+ CONFIGURATION 13 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     4D0
+
+ CONFIGURATION 14 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION 15 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION 16 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           2P0
+
+ CONFIGURATION 17 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           4P0
+
+ CONFIGURATION 18 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d1( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           1S0     2D0
+
+ CONFIGURATION 19 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     2D0
+
+ CONFIGURATION 20 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     4D0
+
+ CONFIGURATION 21 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION 22 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION 23 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1G2
+                                                           2G0
+
+ CONFIGURATION 24 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           2P0
+
+ CONFIGURATION 25 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           4P0
+
+ CONFIGURATION 26 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3F2
+                                                           2F0
+
+ CONFIGURATION 27 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3F2
+                                                           4F0
+
+ CONFIGURATION 28 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2s( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+
+ MATRIX ELEMENTS CONSTRUCTED USING THE SPHERICAL HARMONIC PHASE CONVENTION OF
+
+                CONDON AND SHORTLEY, THEORY OF ATOMIC STRUCTURE
+                -----------------------------------------------
+
+
+
+
+                    ===========================
+                     CONFIGURATION INTERACTION 
+                    ===========================
+
+
+
+   ATOM = Li       Z =  3.
+
+
+
+    4 EIGENVALUES FOUND 
+
+    -5.39668456  1s.2s(2)_2S
+   0.397512  0.000000  0.000000  0.000000 -0.050413  0.000000  0.000000
+   0.045947  0.000000  0.000000  0.000000  0.000000  0.000000 -0.006540
+   0.000000  0.000000  0.000000  0.000000  0.000000  0.000000 -0.008653
+   0.000000  0.000000  0.000000  0.000000  0.000000  0.000000  0.914994
+
+    -5.24065009  1s.2p(2)3P2_4P
+   0.000000  0.000000  0.000000  0.991675  0.000000  0.000000  0.000000
+   0.000000  0.000000  0.000000  0.000000  0.064151  0.000000  0.000000
+   0.000000  0.000000 -0.077395  0.000000  0.000000  0.000000  0.000000
+   0.000000  0.000000  0.000000  0.080464  0.000000  0.000000  0.000000
+
+    -5.23021420  1s.2p(2)1D2_2D
+   0.000000  0.910292  0.000000  0.000000  0.000000  0.000000 -0.071202
+   0.000000  0.000000 -0.037461  0.000000  0.000000  0.000000  0.000000
+  -0.082923  0.000000  0.000000 -0.129366  0.371975  0.000000  0.000000
+   0.054023  0.000000  0.000000  0.000000  0.000000  0.000000  0.000000
+
+    -5.20802819  1s.2p(2)3P2_2P
+   0.000000  0.000000  0.987629  0.000000  0.000000  0.020953  0.000000
+   0.000000 -0.108868  0.000000  0.000000  0.000000  0.000000  0.000000
+   0.000000 -0.074998  0.000000  0.000000  0.000000  0.000000  0.000000
+   0.000000  0.000000  0.081694  0.000000  0.000000  0.000000  0.000000
+
+
+    2 EIGENVALUES FOUND 
+
+    -5.24065401  1s.2p(2)3P2_4P
+   0.000000 -0.000811  0.000000  0.991675  0.000000  0.000000  0.000028
+   0.000000  0.000000 -0.000018  0.000000  0.064162  0.000013  0.000000
+   0.000073  0.000000 -0.077391  0.000112 -0.000307  0.000005  0.000000
+  -0.000050  0.000000  0.000000  0.080462  0.000000 -0.000001  0.000000
+
+    -5.23022497  1s.2p(2)1D2_2D
+   0.000000  0.910302  0.000000  0.000871  0.000000  0.000000 -0.071190
+   0.000000  0.000000 -0.037422  0.000000  0.000032 -0.000053  0.000000
+  -0.082925  0.000000 -0.000069 -0.129365  0.371956 -0.000003  0.000000
+   0.054024  0.000000  0.000000  0.000071 -0.000001  0.000001  0.000000
+
+
+    3 EIGENVALUES FOUND 
+
+    -5.24064354  1s.2p(2)3P2_4P
+   0.000000  0.000421 -0.000426  0.991676  0.000000 -0.000027 -0.000072
+   0.000000  0.000003 -0.000028 -0.000001  0.064133 -0.000028  0.000000
+  -0.000040  0.000035 -0.077398 -0.000060  0.000161  0.000014  0.000000
+   0.000025  0.000000 -0.000036  0.080466  0.000000  0.000000  0.000000
+
+    -5.23019804  1s.2p(2)1D2_2D
+   0.000000  0.910277 -0.000303 -0.000459  0.000000  0.000008 -0.071220
+   0.000000 -0.000028 -0.037519  0.000021 -0.000020 -0.000006  0.000000
+  -0.082919  0.000024  0.000034 -0.129367  0.372002 -0.000004  0.000000
+   0.054020  0.000000 -0.000025 -0.000038  0.000000  0.000001  0.000000
+
+    -5.20802270  1s.2p(2)3P2_2P
+   0.000000  0.000270  0.987629  0.000427  0.000000  0.020936  0.000039
+   0.000000 -0.108867  0.000002 -0.000080 -0.000008  0.000046  0.000000
+  -0.000023 -0.074994 -0.000030 -0.000040  0.000132 -0.000006  0.000000
+   0.000014  0.000000  0.081693  0.000034  0.000000  0.000000  0.000000
+
+
+    3 EIGENVALUES FOUND 
+
+    -5.39668456  1s.2s(2)_2S
+   0.397512  0.000000 -0.000022  0.000038 -0.050413  0.000003  0.000000
+   0.045947 -0.000020  0.000000  0.000000  0.000014 -0.000008 -0.006540
+   0.000000  0.000001 -0.000001  0.000000  0.000000 -0.000008 -0.008653
+   0.000000  0.000000 -0.000001  0.000003  0.000000  0.000000  0.914994
+
+    -5.24065152  1s.2p(2)3P2_4P
+   0.000071  0.000000 -0.000147  0.991675  0.000066  0.000007  0.000000
+   0.000060 -0.000031  0.000000  0.000000  0.064152 -0.000029 -0.000012
+   0.000000  0.000010 -0.077399  0.000000  0.000000  0.000011  0.000018
+   0.000000  0.000000 -0.000012  0.080466  0.000000  0.000000 -0.000073
+
+    -5.20803918  1s.2p(2)3P2_2P
+  -0.000082  0.000000  0.987627  0.000143  0.000077  0.020987  0.000000
+   0.000032 -0.108870  0.000000  0.000000 -0.000005  0.000124  0.000017
+   0.000000 -0.075005 -0.000012  0.000000  0.000000 -0.000007 -0.000019
+   0.000000  0.000000  0.081695  0.000012  0.000000  0.000000  0.000060
+
+
+
+                    ============================
+                       N O N - W E I G H T S    
+                    ============================
+
+
+
+ STATE  (WITH 29 CONFIGURATIONS):
+ -------------------------------
+
+
+ THERE ARE  8 ORBITALS AS FOLLOWS:
+
+       1s  2p  3p  2s 3d1 3d3 3d2 kdc
+
+ CONFIGURATION  1 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION  2 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  3 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           2P0
+
+ CONFIGURATION  4 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           4P0
+
+ CONFIGURATION  5 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           1P0     2S0
+
+ CONFIGURATION  6 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           1P0     2P0
+
+ CONFIGURATION  7 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           1P0     2D0
+
+ CONFIGURATION  8 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     2S0
+
+ CONFIGURATION  9 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     2P0
+
+ CONFIGURATION 10 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     2D0
+
+ CONFIGURATION 11 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     4S0
+
+ CONFIGURATION 12 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     4P0
+
+ CONFIGURATION 13 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2p( 1)  3p( 1)
+                           COUPLING SCHEME:     2S1     2P1     2P1
+                                                           3P0     4D0
+
+ CONFIGURATION 14 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION 15 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION 16 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           2P0
+
+ CONFIGURATION 17 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           4P0
+
+ CONFIGURATION 18 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d1( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           1S0     2D0
+
+ CONFIGURATION 19 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     2D0
+
+ CONFIGURATION 20 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     4D0
+
+ CONFIGURATION 21 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION 22 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION 23 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1G2
+                                                           2G0
+
+ CONFIGURATION 24 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           2P0
+
+ CONFIGURATION 25 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3P2
+                                                           4P0
+
+ CONFIGURATION 26 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3F2
+                                                           2F0
+
+ CONFIGURATION 27 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     3F2
+                                                           4F0
+
+ CONFIGURATION 28 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2s( 2)
+                           COUPLING SCHEME:     2S1     1S0
+                                                           2S0
+
+ CONFIGURATION 29 ( OCCUPIED ORBITALS= 2 ):  1s( 2) kdc( 1)
+                           COUPLING SCHEME:     1S0     2D1
+                                                           2D0
+
+
+          ============================================
+                  A U T O _ I O N I Z A T I O N       
+          ============================================
+
+
+          THE DIMENSIONS FOR THE CURRENT VERSION ARE:
+             NCD=100       NWD= 30        NO=220
+
+
+
+ Li    LSJ       3.   220  8  1 29  F  T
+
+  F.0D+00.1D-05 20  00.0 28  F
+
+
+ *** CALCULATIONS FOR k^2 =   3.99259
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+ Outer region reduced by           93points in CSOLVE. 
+  End of range:    16.06089943036627      au.
+                    kdc      0.0070227      0.7830293   0.7830293 c  2.77D-01
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0165765      0.8285622   1.0581496 c  5.50D-02
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.50D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161535      0.8270186   0.9981370 c  1.87D-03
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.87D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161662      0.8270628   1.0000535 c  5.35D-05
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.35D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161659      0.8270616   0.9999985 c  1.51D-06
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.51D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161659      0.8270616   1.0000000 c  4.25D-08
+
+
+ *** CALCULATIONS FOR k^2 =   4.01345
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by           93points in CSOLVE. 
+  End of range:    16.06089943036627      au.
+                    kdc      0.0162775      0.8310325   1.0048011 c  4.78D-03
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  4.78D-03
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162538      0.8309739   0.9999296 c  7.04D-05
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  7.04D-05
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162543      0.8309754   1.0000018 c  1.80D-06
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.80D-06
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162543      0.8309754   1.0000000 c  5.00D-08
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.00D-08
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162543      0.8309754   1.0000000 c  1.40D-09
+
+
+ *** CALCULATIONS FOR k^2 =   3.99261
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by           93points in CSOLVE. 
+  End of range:    16.06089943036627      au.
+                    kdc      0.0161429      0.8270088   0.9952266 c  4.80D-03
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  4.80D-03
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161664      0.8270670   1.0000703 c  7.03D-05
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  7.03D-05
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161660      0.8270655   0.9999982 c  1.80D-06
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.80D-06
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161660      0.8270656   1.0000000 c  5.00D-08
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.00D-08
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0161660      0.8270656   1.0000000 c  1.40D-09
+
+
+ *** CALCULATIONS FOR k^2 =   4.01350
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by           93points in CSOLVE. 
+  End of range:    16.06089943036627      au.
+                    kdc      0.0162778      0.8310427   1.0048087 c  4.79D-03
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  4.79D-03
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162541      0.8309840   0.9999295 c  7.05D-05
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  7.05D-05
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162545      0.8309855   1.0000018 c  1.80D-06
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.80D-06
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162545      0.8309855   0.9999999 c  5.00D-08
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  5.00D-08
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0162545      0.8309855   1.0000000 c  1.41D-09
+
+
+ *** CALCULATIONS FOR k^2 =   4.05785
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by           93points in CSOLVE. 
+  End of range:    16.06089943036627      au.
+                    kdc      0.0164920      0.8394337   1.0101665 c  1.01D-02
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.01D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0164413      0.8393084   0.9998507 c  1.49D-04
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.49D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0164422      0.8393116   1.0000038 c  3.80D-06
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  3.80D-06
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0164422      0.8393115   0.9999999 c  1.06D-07
+
+      LEAST SELF-CONSISTENT FUNCTION IS kdc :WEIGHTED MAXIMUM CHANGE =  1.06D-07
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kdc      0.0164422      0.8393115   1.0000000 c  2.96D-09
+
+          ====================================
+              AUTOIONIZATION CALCULATION       
+          ====================================
+
+
+
+
+          Energy of Target:   -7.23694760
+
+          Continuum State:
+          ===============
+
+            1s( 2) kdc( 1)                        
+               1S0     2D1     2D0                                                
+
+
+
+          Continuum electron: k^2/2=   1.99629 au.
+          =======================================
+
+
+          Discrete State, main component:
+          ------------------------------
+
+     4        1s( 1)  2p( 2)                        2*J =  5
+                 2S1     3P2     4P0                                                
+
+          Auto-ionization Data
+          --------------------
+
+                     Interaction, V       =   7.8287E-06 au
+                     Half-Line Width      =   1.9254E-10 au
+                                              5.2390E-09 ev
+                                              4.2258E-05 cm-1
+                     Auto-ionization rate =   1.5920E+07 s-1
+                     Half-Life            =   6.2814E-08 s
+
+
+
+
+          Continuum electron: k^2/2=   2.00672 au.
+          =======================================
+
+
+          Discrete State, main component:
+          ------------------------------
+
+     2        1s( 1)  2p( 2)                        2*J =  5
+                 2S1     1D2     2D0                                                
+
+          Auto-ionization Data
+          --------------------
+
+                     Interaction, V       =  -8.1518E-03 au
+                     Half-Line Width      =   2.0876E-04 au
+                                              5.6804E-03 ev
+                                              4.5818E+01 cm-1
+                     Auto-ionization rate =   1.7261E+13 s-1
+                     Half-Life            =   5.7933E-14 s
+
+
+
+
+          Continuum electron: k^2/2=   1.99630 au.
+          =======================================
+
+
+          Discrete State, main component:
+          ------------------------------
+
+     4        1s( 1)  2p( 2)                        2*J =  3
+                 2S1     3P2     4P0                                                
+
+          Auto-ionization Data
+          --------------------
+
+                     Interaction, V       =  -3.9455E-06 au
+                     Half-Line Width      =   4.8904E-11 au
+                                              1.3307E-09 ev
+                                              1.0733E-05 cm-1
+                     Auto-ionization rate =   4.0436E+06 s-1
+                     Half-Life            =   2.4730E-07 s
+
+
+
+
+          Continuum electron: k^2/2=   2.00675 au.
+          =======================================
+
+
+          Discrete State, main component:
+          ------------------------------
+
+     2        1s( 1)  2p( 2)                        2*J =  3
+                 2S1     1D2     2D0                                                
+
+          Auto-ionization Data
+          --------------------
+
+                     Interaction, V       =  -8.1502E-03 au
+                     Half-Line Width      =   2.0868E-04 au
+                                              5.6782E-03 ev
+                                              4.5800E+01 cm-1
+                     Auto-ionization rate =   1.7255E+13 s-1
+                     Half-Life            =   5.7955E-14 s
+
+
+
+
+          Continuum electron: k^2/2=   2.02892 au.
+          =======================================
+
+
+          Discrete State, main component:
+          ------------------------------
+
+     3        1s( 1)  2p( 2)                        2*J =  3
+                 2S1     3P2     2P0                                                
+
+          Auto-ionization Data
+          --------------------
+
+                     Interaction, V       =  -2.0758E-06 au
+                     Half-Line Width      =   1.3537E-11 au
+                                              3.6834E-10 ev
+                                              2.9710E-06 cm-1
+                     Auto-ionization rate =   1.1193E+06 s-1
+                     Half-Life            =   8.9343E-07 s
+
+

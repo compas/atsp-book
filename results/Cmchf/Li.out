@@ -1,0 +1,2284 @@
+
+
+
+
+
+
+
+                      =============================
+                       H A R T R E E - F O C K . 96
+                      =============================
+
+
+               THE DIMENSIONS FOR THE CURRENT VERSION ARE:
+                          NWF= 20        NO=220
+
+
+
+ START OF CASE
+ =============
+
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   T
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-08
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+
+
+          ITERATION NUMBER  1
+          ----------------
+
+          SCF CONVERGENCE CRITERIA (SCFTOL*SQRT(Z*NWF)) =   1.7D-08
+
+
+                     EL         ED             AZ           NORM       DPM
+                     1s      5.4984410      9.8724725   1.0000000*   3.32D-01
+                     1s      5.4311981      9.3413186   1.0000000*   6.98D-02
+                     1s      5.5691345      9.2929838   1.0000000*   8.56D-03
+
+
+          ITERATION NUMBER  2
+          ----------------
+
+          SCF CONVERGENCE CRITERIA (SCFTOL*SQRT(Z*NWF)) =   3.5D-08
+
+
+                     EL         ED             AZ           NORM       DPM
+                     1s      5.5794299      9.2734717   1.0000000*   2.91D-03
+                     1s      5.5835689      9.2689714   1.0000000*   6.80D-04
+                     1s      5.5845803      9.2684736   1.0000000*   1.06D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+
+          SCF CONVERGENCE CRITERIA (SCFTOL*SQRT(Z*NWF)) =   6.9D-08
+
+
+                     EL         ED             AZ           NORM       DPM
+                     1s      5.5847191      9.2684701   1.0000000*   1.28D-05
+                     1s      5.5847284      9.2684739   1.0000000*   1.43D-06
+
+
+          ITERATION NUMBER  4
+          ----------------
+
+          SCF CONVERGENCE CRITERIA (SCFTOL*SQRT(Z*NWF)) =   1.4D-07
+
+
+                     EL         ED             AZ           NORM       DPM
+                     1s      5.5847288      9.2684742   1.0000000*   1.40D-07
+                     1s      5.5847288      9.2684742   1.0000000*   9.95D-09
+
+
+          ITERATION NUMBER  5
+          ----------------
+
+          SCF CONVERGENCE CRITERIA (SCFTOL*SQRT(Z*NWF)) =   2.8D-07
+
+
+                     EL         ED             AZ           NORM       DPM
+                     1s      5.5847288      9.2684742   1.0000000*   5.43D-10
+
+
+ END OF CASE
+ ===========
+
+
+
+
+
+                    ============================
+                       N O N - W E I G H T S    
+                    ============================
+
+
+
+ STATE  (WITH  5 CONFIGURATIONS):
+ -------------------------------
+
+
+ THERE ARE  7 ORBITALS AS FOLLOWS:
+
+       1s  2p  3p 3d2  2s 3d1 3d3
+
+ CONFIGURATION  1 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  2 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  3 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  4 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d1( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           1S0     2D0
+
+ CONFIGURATION  5 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     2D0
+
+
+                    ===================
+                      MCHF  ...  1988
+                    ===================
+
+
+          THE DIMENSIONS FOR THE CURRENT VERSION ARE:
+            NCFG=100       NWF= 30        NO=220
+
+
+
+ Li    2D        3.   220  7  6  5  F  T
+        WAVE FUNCTIONS NOT FOUND FOR  2p
+        WAVE FUNCTIONS NOT FOUND FOR  3p
+        WAVE FUNCTIONS NOT FOUND FOR 3d2
+        WAVE FUNCTIONS NOT FOUND FOR  2s
+        WAVE FUNCTIONS NOT FOUND FOR 3d1
+        WAVE FUNCTIONS NOT FOUND FOR 3d3
+
+  F.1D-09.1D-06 12  00.0  0  T  F
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-07
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+          TOTAL ENERGY =       -4.766308549
+
+      WEIGHTS
+  1  0.7751  2 -0.1240  3  0.1133  4 -0.4892  5 -0.3629
+
+
+          ITERATION NUMBER  1
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.0D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  4.6D-07
+
+          C( 2p 3p) =     0.59690   V( 2p 3p) =    -0.38905   EPS = 0.025000
+          E( 3p 2p) =     0.21775   E( 2p 3p) =     0.00557
+          E( 2s 1s) =    -0.17746   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+          ED =  -0.263461; ADJUSTED TO ALLOWED MINIMUM ENERGY
+      < 2p| 3p>=-5.0D-01
+                     2p      0.4409081      2.7100352   0.1481463    2.60D-01
+      < 2p| 3p>= 9.7D-01
+                     3p      0.5773820      1.7269841   4.2804828**  7.70D-01
+                    3d2      0.5562774      0.4330904   1.0133803**  2.05D-02
+      < 1s| 2s>= 1.3D-03
+                     2s      0.3125018     -2.9505530   0.1062859**  1.03D+00
+          ED =  -0.031895; ADJUSTED TO ALLOWED MINIMUM ENERGY
+                    3d1      0.0009494     -0.0014145  58.9900313**  5.71D-01
+          ED =  -0.159152; ADJUSTED TO ALLOWED MINIMUM ENERGY
+                    3d3      0.0009494      0.0012311  80.3121499**  5.63D-01
+      < 1s| 2s>= 2.2D-09
+
+
+          TOTAL ENERGY =       -5.068105327
+
+      WEIGHTS
+  1  0.9950  2 -0.0259  3  0.0964  4  0.0002  5  0.0005
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2s :WEIGHTED MAXIMUM CHANGE =  6.25D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.4D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  9.2D-07
+
+          C( 2p 3p) =    -0.38392   V( 2p 3p) =     2.21017   EPS = 0.025000
+          E( 3p 2p) =     5.38286   E( 2p 3p) =     0.00314
+          E( 2s 1s) =    -0.87253   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>=-1.1D-01
+                     2p      0.3465579      0.9904137   7.2637225    2.00D-01
+      < 2p| 3p>=-1.6D-01
+                     3p      2.1828533      1.3534189   1.5264424**  4.75D-01
+                    3d2      1.0084387      0.3373271   1.0010109**  2.12D-02
+      < 1s| 2s>=-1.5D-03
+                     2s      1.9261014      2.0740396   3.2919053**  7.44D-01
+                    3d1      4.0701888     -0.4732924  85.0258508**  6.19D-01
+                    3d3      3.5112104      0.4613331  92.3547803**  6.17D-01
+
+
+          TOTAL ENERGY =       -5.160509465
+
+      WEIGHTS
+  1  0.9655  2 -0.0971  3  0.0679  4  0.0999  5  0.2094
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2p :WEIGHTED MAXIMUM CHANGE =  2.81D-01
+
+
+          ITERATION NUMBER  3
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  2.0D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  1.8D-06
+
+          C( 2p 3p) =    -0.15529   V( 2p 3p) =     1.34308   EPS = 0.025000
+          E( 3p 2p) =     1.40531   E( 2p 3p) =     0.01407
+          E( 2s 1s) =     0.04744   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>= 1.3D-01
+                     2p      0.4730403      1.2939106   1.0808995    6.77D-02
+      < 2p| 3p>= 2.4D-01
+                     3p      0.9024817      2.0479284   1.0324821**  2.13D-01
+                    3d2      1.1116828      0.4698324   0.9731205**  8.42D-02
+      < 1s| 2s>= 1.4D-02
+                     2s      1.2660960      2.8674057   1.0247998**  9.83D-02
+                    3d1      0.4183522     -0.3550460   1.2554600**  1.49D-01
+                    3d3      0.2920593      0.2475959   1.4877802**  2.02D-01
+
+
+          TOTAL ENERGY =       -5.178059542
+
+      WEIGHTS
+  1  0.9229  2 -0.0825  3  0.0561  4  0.1155  5  0.3535
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2p :WEIGHTED MAXIMUM CHANGE =  9.25D-02
+
+
+          ITERATION NUMBER  4
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  2.7D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  3.7D-06
+
+          C( 2p 3p) =     0.04273   V( 2p 3p) =     1.43759   EPS =-0.025000
+          E( 3p 2p) =     1.68962   E( 2p 3p) =     0.01361
+          E( 2s 1s) =     0.25924   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>=-9.7D-03
+                     2p      0.4648149      1.2516368   1.0022262    5.03D-03
+      < 2p| 3p>=-1.2D-02
+                     3p      1.0461413      2.2356258   0.9929715**  1.88D-02
+                    3d2      1.1960508      0.5121284   0.9942570**  1.47D-02
+      < 1s| 2s>=-3.1D-04
+                     2s      1.0589452      3.0403761   0.9968456**  1.73D-02
+                    3d1      0.4159153     -0.3441830   1.0151933**  1.30D-02
+                    3d3      0.2279016      0.1966129   1.1403725**  6.50D-02
+
+
+          TOTAL ENERGY =       -5.179387651
+
+      WEIGHTS
+  1  0.9064  2 -0.0807  3  0.0536  4  0.1106  5  0.3960
+
+      LEAST SELF-CONSISTENT FUNCTION IS 3d3 :WEIGHTED MAXIMUM CHANGE =  2.29D-02
+
+
+          ITERATION NUMBER  5
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  3.8D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  7.3D-06
+
+          C( 2p 3p) =     0.00023   V( 2p 3p) =     1.43324   EPS =-0.000160
+          E( 3p 2p) =     1.72076   E( 2p 3p) =     0.01365
+          E( 2s 1s) =     0.31579   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>=-1.0D-03
+                     2p      0.4691183      1.2529683   1.0000914    8.99D-04
+      < 2p| 3p>= 1.9D-03
+                     3p      1.0496285      2.2386849   0.9999241**  1.14D-03
+                    3d2      1.2211465      0.5265020   0.9948858**  9.11D-03
+      < 1s| 2s>=-1.3D-05
+                     2s      1.0400463      3.1155311   0.9966504**  9.00D-03
+                    3d1      0.4306859     -0.3494724   0.9933824**  6.03D-03
+                    3d3      0.2246353      0.1947486   1.0072273**  3.93D-03
+
+
+          TOTAL ENERGY =       -5.179427016
+
+      WEIGHTS
+  1  0.9049  2 -0.0809  3  0.0529  4  0.1081  5  0.4001
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2s :WEIGHTED MAXIMUM CHANGE =  3.70D-03
+
+
+          ITERATION NUMBER  6
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  5.4D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  1.5D-05
+
+          C( 2p 3p) =    -0.00125   V( 2p 3p) =     1.43031   EPS = 0.000875
+          E( 3p 2p) =     1.71033   E( 2p 3p) =     0.01369
+          E( 2s 1s) =     0.32804   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>= 6.8D-05
+                     2p      0.4692253      1.2544483   1.0000124    9.75D-05
+      < 2p| 3p>= 4.2D-05
+                     3p      1.0461532      2.2371355   1.0001302**  3.22D-04
+                    3d2      1.2366627      0.5310939   0.9989732**  1.85D-03
+      < 1s| 2s>=-1.9D-06
+                     2s      1.0399703      3.1312390   0.9991816**  1.68D-03
+                    3d1      0.4385833     -0.3536854   0.9963439**  3.21D-03
+                    3d3      0.2234773      0.1940636   1.0019289**  1.01D-03
+
+
+          TOTAL ENERGY =       -5.179429294
+
+      WEIGHTS
+  1  0.9046  2 -0.0809  3  0.0528  4  0.1074  5  0.4011
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2s :WEIGHTED MAXIMUM CHANGE =  6.97D-04
+
+
+          ITERATION NUMBER  7
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  7.5D-10
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  2.9D-05
+
+          C( 2p 3p) =    -0.00015   V( 2p 3p) =     1.42859   EPS = 0.000105
+          E( 3p 2p) =     1.70925   E( 2p 3p) =     0.01368
+          E( 2s 1s) =     0.33077   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>=-4.9D-06
+                     2p      0.4691791      1.2545853   1.0000042    1.71D-05
+      < 2p| 3p>= 3.7D-05
+                     3p      1.0463107      2.2371541   0.9999976**  4.54D-05
+                    3d2      1.2389824      0.5319713   0.9998399**  2.98D-04
+      < 1s| 2s>=-4.9D-07
+                     2s      1.0399242      3.1347170   0.9998129**  3.71D-04
+                    3d1      0.4399778     -0.3544490   0.9993665**  5.55D-04
+                    3d3      0.2232419      0.1938932   1.0004376**  2.30D-04
+
+
+          TOTAL ENERGY =       -5.179429378
+
+      WEIGHTS
+  1  0.9045  2 -0.0809  3  0.0528  4  0.1073  5  0.4013
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2s :WEIGHTED MAXIMUM CHANGE =  1.54D-04
+
+
+          ITERATION NUMBER  8
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.1D-09
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  5.9D-05
+
+          C( 2p 3p) =    -0.00003   V( 2p 3p) =     1.42859   EPS = 0.000023
+          E( 3p 2p) =     1.70907   E( 2p 3p) =     0.01368
+          E( 2s 1s) =     0.33136   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>=-1.2D-06
+                     2p      0.4691739      1.2546196   1.0000008    3.11D-06
+      < 2p| 3p>= 6.8D-06
+                     3p      1.0463158      2.2371602   0.9999990**  8.28D-06
+                    3d2      1.2393992      0.5321180   0.9999741**  4.63D-05
+      < 1s| 2s>=-7.6D-08
+                     2s      1.0399094      3.1354644   0.9999594**  8.01D-05
+                    3d1      0.4403068     -0.3546205   0.9998527**  1.29D-04
+                    3d3      0.2231944      0.1938607   1.0000873**  4.62D-05
+
+
+          TOTAL ENERGY =       -5.179429382
+
+      WEIGHTS
+  1  0.9045  2 -0.0809  3  0.0528  4  0.1072  5  0.4014
+
+      LEAST SELF-CONSISTENT FUNCTION IS  2s :WEIGHTED MAXIMUM CHANGE =  3.33D-05
+
+
+          ITERATION NUMBER  9
+          ----------------
+
+          CONVERGENCE CRITERIA:ENERGY  (CFGTOL)            =  1.5D-09
+                              :FUNCTION(SCFTOL*SQRT(Z*NWF))=  1.2D-04
+
+          C( 2p 3p) =    -0.00001   V( 2p 3p) =     1.42859   EPS = 0.000005
+          E( 3p 2p) =     1.70902   E( 2p 3p) =     0.01368
+          E( 2s 1s) =     0.33149   E( 1s 2s) =     0.00001
+
+                     EL         ED             AZ           NORM       DPM
+      < 2p| 3p>=-1.0D-07
+                     2p      0.4691728      1.2546274   1.0000001    5.41D-07
+      < 2p| 3p>= 1.2D-06
+                     3p      1.0463112      2.2371595   1.0000000**  1.85D-06
+                    3d2      1.2394540      0.5321378   0.9999975**  4.57D-06
+      < 1s| 2s>=-2.6D-09
+                     2s      1.0399071      3.1356232   0.9999914**  1.70D-05
+                    3d1      0.4403744     -0.3546567   0.9999693**  2.68D-05
+                    3d3      0.2231844      0.1938540   1.0000179**  9.47D-06
+
+
+          TOTAL ENERGY =       -5.179429383
+
+      WEIGHTS
+  1  0.9045  2 -0.0809  3  0.0528  4  0.1072  5  0.4014
+
+
+     ENERGY (a.u.)
+     ------
+           Total                  -5.179429383
+           Potential              -9.613257057
+           Kinetic                 4.433827674
+           Ratio                   2.168162086
+
+
+
+                    ============================
+                       N O N - W E I G H T S    
+                    ============================
+
+
+
+ STATE  (WITH  6 CONFIGURATIONS):
+ -------------------------------
+
+
+ THERE ARE  8 ORBITALS AS FOLLOWS:
+
+       1s  2p  3p 3d2  2s 3d1 3d3 kd4
+
+ CONFIGURATION  1 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  2p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  2 ( OCCUPIED ORBITALS= 2 ):  1s( 1)  3p( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  3 ( OCCUPIED ORBITALS= 2 ):  1s( 1) 3d2( 2)
+                           COUPLING SCHEME:     2S1     1D2
+                                                           2D0
+
+ CONFIGURATION  4 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d1( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           1S0     2D0
+
+ CONFIGURATION  5 ( OCCUPIED ORBITALS= 3 ):  1s( 1)  2s( 1) 3d3( 1)
+                           COUPLING SCHEME:     2S1     2S1     2D1
+                                                           3S0     2D0
+
+ CONFIGURATION  6 ( OCCUPIED ORBITALS= 2 ):  1s( 2) kd4( 1)
+                           COUPLING SCHEME:     1S0     2D1
+                                                           2D1
+
+
+                    =======================
+                     UNIX  CMCHF  ...  1987
+                    =======================
+
+
+          THE DIMENSIONS FOR THE CURRENT VERSION ARE:
+            NCFG=  0       NWF= 30        NO=220
+
+
+
+ Li    2D        3.   220  8  1  6  F  T
+
+  F.0D+00.1D-05 20  00.0  5  F
+
+
+ *** CALCULATIONS FOR k^2 =    4.0000
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.1229733      0.9533753   0.9533753 c  1.00D+00
+
+   1    0.143992   2    0.024238   3    0.006172   4    0.031137   5    0.037995
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0330449      0.8669395   0.9093370 c  2.72D+00
+
+   1    0.149490   2    0.023993   3    0.006313   4    0.031909   5    0.039133
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.72D+00
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0349489      0.8700420   1.0035788 c  5.45D-02
+
+   1    0.149406   2    0.024007   3    0.006312   4    0.031901   5    0.039119
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.45D-02
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0348793      0.8699180   0.9998574 c  2.00D-03
+
+   1    0.149408   2    0.024006   3    0.006312   4    0.031901   5    0.039119
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.00D-03
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0348821      0.8699230   1.0000057 c  7.90D-05
+
+   1    0.149408   2    0.024006   3    0.006312   4    0.031901   5    0.039119
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  7.90D-05
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0348820      0.8699228   0.9999998 c  3.17D-06
+
+   1    0.149408   2    0.024006   3    0.006312   4    0.031901   5    0.039119
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.17D-06
+
+
+          ITERATION NUMBER  6
+          ----------------
+          CONVERGENCE CRITERIA =  3.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0348820      0.8699228   1.0000000 c  1.27D-07
+
+   1    0.149408   2    0.024006   3    0.006312   4    0.031901   5    0.039119
+
+
+ *** CALCULATIONS FOR k^2 =    4.0100
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.162915   2    0.023073   3    0.007112   4    0.033757   5    0.044471
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0354041      0.8723360   1.0027740 c  1.47D-02
+
+   1    0.162634   2    0.023074   3    0.007104   4    0.033715   5    0.044410
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.47D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0353423      0.8722484   0.9998996 c  1.75D-03
+
+   1    0.162638   2    0.023074   3    0.007104   4    0.033716   5    0.044411
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.75D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0353444      0.8722520   1.0000041 c  5.85D-05
+
+   1    0.162638   2    0.023074   3    0.007104   4    0.033716   5    0.044411
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.85D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0353443      0.8722519   0.9999998 c  2.32D-06
+
+   1    0.162638   2    0.023074   3    0.007104   4    0.033716   5    0.044411
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.32D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0353443      0.8722519   1.0000000 c  9.42D-08
+
+   1    0.162638   2    0.023074   3    0.007104   4    0.033716   5    0.044411
+
+
+ *** CALCULATIONS FOR k^2 =    4.0200
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.178955   2    0.021893   3    0.008070   4    0.035915   5    0.050978
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0359506      0.8747476   1.0028612 c  1.69D-02
+
+   1    0.178635   2    0.021896   3    0.008060   4    0.035867   5    0.050904
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.69D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0358841      0.8746538   0.9998928 c  1.85D-03
+
+   1    0.178640   2    0.021895   3    0.008061   4    0.035868   5    0.050905
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.85D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0358864      0.8746577   1.0000045 c  6.38D-05
+
+   1    0.178640   2    0.021895   3    0.008061   4    0.035868   5    0.050905
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  6.38D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0358863      0.8746576   0.9999998 c  2.58D-06
+
+   1    0.178640   2    0.021895   3    0.008061   4    0.035868   5    0.050905
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.58D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0358863      0.8746576   1.0000000 c  1.06D-07
+
+   1    0.178640   2    0.021895   3    0.008061   4    0.035868   5    0.050905
+
+
+ *** CALCULATIONS FOR k^2 =    4.0300
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.198763   2    0.020377   3    0.009250   4    0.038528   5    0.059128
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0366064      0.8772647   1.0029808 c  1.97D-02
+
+   1    0.198391   2    0.020384   3    0.009237   4    0.038474   5    0.059034
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.97D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0365337      0.8771627   0.9998837 c  1.99D-03
+
+   1    0.198397   2    0.020384   3    0.009237   4    0.038474   5    0.059036
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.99D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0365363      0.8771671   1.0000050 c  7.09D-05
+
+   1    0.198397   2    0.020384   3    0.009237   4    0.038474   5    0.059036
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  7.09D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0365362      0.8771669   0.9999998 c  2.93D-06
+
+   1    0.198397   2    0.020384   3    0.009237   4    0.038474   5    0.059036
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.93D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0365362      0.8771669   1.0000000 c  1.24D-07
+
+   1    0.198397   2    0.020384   3    0.009237   4    0.038474   5    0.059036
+
+
+ *** CALCULATIONS FOR k^2 =    4.0400
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.223860   2    0.018391   3    0.010740   4    0.041778   5    0.069593
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0374158      0.8799300   1.0031500 c  2.35D-02
+
+   1    0.223413   2    0.018403   3    0.010724   4    0.041714   5    0.069472
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.35D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0373343      0.8798163   0.9998709 c  2.18D-03
+
+   1    0.223421   2    0.018402   3    0.010724   4    0.041715   5    0.069474
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.18D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0373374      0.8798213   1.0000057 c  8.11D-05
+
+   1    0.223421   2    0.018402   3    0.010724   4    0.041715   5    0.069474
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  8.11D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0373372      0.8798211   0.9999998 c  3.45D-06
+
+   1    0.223421   2    0.018402   3    0.010724   4    0.041715   5    0.069474
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.45D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0373372      0.8798211   1.0000000 c  1.50D-07
+
+   1    0.223421   2    0.018402   3    0.010724   4    0.041715   5    0.069474
+
+
+ *** CALCULATIONS FOR k^2 =    4.0500
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.256711   2    0.015713   3    0.012685   4    0.045957   5    0.083466
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0384505      0.8828123   1.0033998 c  2.90D-02
+
+   1    0.256153   2    0.015732   3    0.012663   4    0.045878   5    0.083304
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.90D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0383560      0.8826816   0.9998519 c  2.46D-03
+
+   1    0.256163   2    0.015731   3    0.012663   4    0.045880   5    0.083307
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.46D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0383597      0.8826876   1.0000068 c  9.65D-05
+
+   1    0.256163   2    0.015731   3    0.012663   4    0.045879   5    0.083307
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  9.65D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0383595      0.8826873   0.9999997 c  4.26D-06
+
+   1    0.256163   2    0.015731   3    0.012663   4    0.045879   5    0.083307
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.26D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0383595      0.8826873   1.0000000 c  1.91D-07
+
+   1    0.256163   2    0.015731   3    0.012663   4    0.045879   5    0.083307
+
+
+ *** CALCULATIONS FOR k^2 =    4.0600
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.301607   2    0.011958   3    0.015335   4    0.051575   5    0.102650
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0398357      0.8860321   1.0037894 c  3.71D-02
+
+   1    0.300865   2    0.011990   3    0.015304   4    0.051472   5    0.102419
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.71D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0397203      0.8858743   0.9998218 c  2.90D-03
+
+   1    0.300881   2    0.011989   3    0.015304   4    0.051474   5    0.102424
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.90D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0397252      0.8858818   1.0000085 c  1.21D-04
+
+   1    0.300880   2    0.011989   3    0.015304   4    0.051474   5    0.102424
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.21D-04
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0397249      0.8858815   0.9999996 c  5.63D-06
+
+   1    0.300880   2    0.011989   3    0.015304   4    0.051474   5    0.102424
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.63D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0397250      0.8858815   1.0000000 c  2.65D-07
+
+   1    0.300880   2    0.011989   3    0.015304   4    0.051474   5    0.102424
+
+
+ *** CALCULATIONS FOR k^2 =    4.0700
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.366721   2    0.006395   3    0.019169   4    0.059599   5    0.130772
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0418107      0.8898192   1.0044449 c  4.99D-02
+
+   1    0.365641   2    0.006451   3    0.019120   4    0.059453   5    0.130413
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.99D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0416585      0.8896140   0.9997694 c  3.65D-03
+
+   1    0.365669   2    0.006449   3    0.019121   4    0.059456   5    0.130422
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.65D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0416654      0.8896245   1.0000118 c  1.67D-04
+
+   1    0.365668   2    0.006449   3    0.019121   4    0.059456   5    0.130422
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.67D-04
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0416651      0.8896240   0.9999994 c  8.27D-06
+
+   1    0.365668   2    0.006449   3    0.019121   4    0.059456   5    0.130422
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  8.27D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0416651      0.8896240   1.0000000 c  4.15D-07
+
+   1    0.365668   2    0.006449   3    0.019121   4    0.059456   5    0.130422
+
+
+ *** CALCULATIONS FOR k^2 =    4.0800
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.469810   2   -0.002569   3    0.025224   4    0.072136   5    0.175718
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0448985      0.8946747   1.0056774 c  7.20D-02
+
+   1    0.467997   2   -0.002459   3    0.025135   4    0.071895   5    0.175072
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  7.20D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0446703      0.8943743   0.9996642 c  5.11D-03
+
+   1    0.468053   2   -0.002463   3    0.025137   4    0.071903   5    0.175093
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.11D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0446820      0.8943912   1.0000190 c  2.64D-04
+
+   1    0.468051   2   -0.002463   3    0.025137   4    0.071902   5    0.175092
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.64D-04
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0446814      0.8943903   0.9999989 c  1.44D-05
+
+   1    0.468051   2   -0.002463   3    0.025137   4    0.071902   5    0.175092
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.44D-05
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0446814      0.8943904   1.0000001 c  7.99D-07
+
+   1    0.468051   2   -0.002463   3    0.025137   4    0.071902   5    0.175092
+
+
+ *** CALCULATIONS FOR k^2 =    4.0900
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    0.658121   2   -0.019165   3    0.036258   4    0.094782   5    0.258466
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0505056      0.9019410   1.0084423 c  1.15D-01
+
+   1    0.654203   2   -0.018892   3    0.036054   4    0.094277   5    0.256975
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.15D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0500746      0.9013968   0.9993966 c  8.61D-03
+
+   1    0.654369   2   -0.018905   3    0.036063   4    0.094298   5    0.257038
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  8.61D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0501014      0.9014328   1.0000400 c  5.35D-04
+
+   1    0.654359   2   -0.018905   3    0.036062   4    0.094297   5    0.257034
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.35D-04
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0500997      0.9014305   0.9999974 c  3.46D-05
+
+   1    0.654360   2   -0.018905   3    0.036062   4    0.094297   5    0.257034
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.46D-05
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0500998      0.9014306   1.0000002 c  2.24D-06
+
+   1    0.654360   2   -0.018905   3    0.036062   4    0.094297   5    0.257034
+
+
+ *** CALCULATIONS FOR k^2 =    4.1000
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    1.113415   2   -0.059670   3    0.062887   4    0.149079   5    0.459717
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0641635      0.9168496   1.0171050 c  2.19D-01
+
+   1    1.099233   2   -0.058564   3    0.062109   4    0.147307   5    0.453956
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.19D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0628386      0.9153025   0.9983126 c  2.11D-02
+
+   1    1.100217   2   -0.058643   3    0.062163   4    0.147429   5    0.454355
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.11D-02
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0629546      0.9154423   1.0001527 c  1.84D-03
+
+   1    1.100133   2   -0.058637   3    0.062158   4    0.147419   5    0.454321
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.84D-03
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0629443      0.9154298   0.9999864 c  1.64D-04
+
+   1    1.100141   2   -0.058637   3    0.062159   4    0.147420   5    0.454324
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.64D-04
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0629452      0.9154309   1.0000012 c  1.46D-05
+
+   1    1.100140   2   -0.058637   3    0.062159   4    0.147420   5    0.454324
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.46D-05
+
+
+          ITERATION NUMBER  6
+          ----------------
+          CONVERGENCE CRITERIA =  3.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0629451      0.9154308   0.9999999 c  1.31D-06
+
+   1    1.100140   2   -0.058637   3    0.062159   4    0.147420   5    0.454324
+
+
+ *** CALCULATIONS FOR k^2 =    4.1100
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1    3.836123   2   -0.303113   3    0.221898   4    0.472137   5    1.667352
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.1534349      0.9999291   1.0923045 c  5.90D-01
+
+   1    3.528160   2   -0.276679   3    0.204209   4    0.435000   5    1.534037
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.90D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1299839      0.9776251   0.9776944 c  1.80D-01
+
+   1    3.605051   2   -0.283272   3    0.208626   4    0.444274   5    1.567323
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.80D-01
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1355425      0.9829837   1.0054813 c  4.10D-02
+
+   1    3.587044   2   -0.281727   3    0.207591   4    0.442103   5    1.559528
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.10D-02
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1341948      0.9816870   0.9986809 c  1.00D-02
+
+   1    3.591420   2   -0.282102   3    0.207843   4    0.442630   5    1.561423
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.00D-02
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1345199      0.9820000   1.0003188 c  2.42D-03
+
+   1    3.590365   2   -0.282012   3    0.207782   4    0.442503   5    1.560966
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.42D-03
+
+
+          ITERATION NUMBER  6
+          ----------------
+          CONVERGENCE CRITERIA =  3.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1344414      0.9819244   0.9999230 c  5.84D-04
+
+   1    3.590620   2   -0.282034   3    0.207797   4    0.442534   5    1.561076
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.84D-04
+
+
+          ITERATION NUMBER  7
+          ----------------
+          CONVERGENCE CRITERIA =  4.8D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1344603      0.9819427   1.0000186 c  1.41D-04
+
+   1    3.590558   2   -0.282028   3    0.207793   4    0.442527   5    1.561050
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.41D-04
+
+
+          ITERATION NUMBER  8
+          ----------------
+          CONVERGENCE CRITERIA =  6.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1344558      0.9819383   0.9999955 c  3.40D-05
+
+   1    3.590573   2   -0.282030   3    0.207794   4    0.442528   5    1.561056
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.40D-05
+
+
+          ITERATION NUMBER  9
+          ----------------
+          CONVERGENCE CRITERIA =  8.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1344569      0.9819393   1.0000011 c  8.22D-06
+
+   1    3.590570   2   -0.282029   3    0.207794   4    0.442528   5    1.561054
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  8.22D-06
+
+
+          ITERATION NUMBER 10
+          ----------------
+          CONVERGENCE CRITERIA =  1.1D-05
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.1344566      0.9819391   0.9999997 c  1.99D-06
+
+   1    3.590570   2   -0.282029   3    0.207794   4    0.442528   5    1.561055
+
+
+ *** CALCULATIONS FOR k^2 =    4.1200
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -2.343560   2    0.249195   3   -0.138568   4   -0.260560   5   -1.073308
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4     -0.0276824      0.8278665   0.8430935 c  5.86D+00
+
+   1   -2.672512   2    0.280226   3   -0.158244   4   -0.298576   5   -1.224977
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.86D+00
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0438753      0.8137553   0.9829548 c  3.69D-01
+
+   1   -2.706760   2    0.283442   3   -0.160293   4   -0.302538   5   -1.240766
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.69D-01
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0457422      0.8120780   0.9979387 c  4.08D-02
+
+   1   -2.710616   2    0.283803   3   -0.160523   4   -0.302985   5   -1.242544
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.08D-02
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0459627      0.8118802   0.9997565 c  4.80D-03
+
+   1   -2.711071   2    0.283846   3   -0.160551   4   -0.303037   5   -1.242754
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.80D-03
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0459887      0.8118568   0.9999712 c  5.67D-04
+
+   1   -2.711125   2    0.283851   3   -0.160554   4   -0.303044   5   -1.242778
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.67D-04
+
+
+          ITERATION NUMBER  6
+          ----------------
+          CONVERGENCE CRITERIA =  3.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0459918      0.8118540   0.9999966 c  6.70D-05
+
+   1   -2.711131   2    0.283851   3   -0.160554   4   -0.303044   5   -1.242781
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  6.70D-05
+
+
+          ITERATION NUMBER  7
+          ----------------
+          CONVERGENCE CRITERIA =  4.8D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0459922      0.8118537   0.9999996 c  7.93D-06
+
+   1   -2.711132   2    0.283851   3   -0.160554   4   -0.303044   5   -1.242782
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  7.93D-06
+
+
+          ITERATION NUMBER  8
+          ----------------
+          CONVERGENCE CRITERIA =  6.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4     -0.0459922      0.8118537   1.0000000 c  9.38D-07
+
+   1   -2.711132   2    0.283851   3   -0.160554   4   -0.303044   5   -1.242782
+
+
+ *** CALCULATIONS FOR k^2 =    4.1300
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -1.009365   2    0.131916   3   -0.061175   4   -0.100872   5   -0.488973
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0020701      0.8633767   1.0634634 c  2.32D+01
+
+   1   -0.975127   2    0.128499   3   -0.059037   4   -0.097058   5   -0.472088
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.32D+01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0038344      0.8641270   1.0008691 c  4.60D-01
+
+   1   -0.973186   2    0.128292   3   -0.058917   4   -0.096847   5   -0.471138
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.60D-01
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0038914      0.8641670   1.0000462 c  1.46D-02
+
+   1   -0.973132   2    0.128287   3   -0.058913   4   -0.096841   5   -0.471111
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.46D-02
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0038933      0.8641680   1.0000012 c  4.89D-04
+
+   1   -0.973130   2    0.128286   3   -0.058913   4   -0.096841   5   -0.471110
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.89D-04
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0038933      0.8641681   1.0000000 c  1.60D-05
+
+   1   -0.973130   2    0.128286   3   -0.058913   4   -0.096841   5   -0.471110
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.60D-05
+
+
+          ITERATION NUMBER  6
+          ----------------
+          CONVERGENCE CRITERIA =  3.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0038933      0.8641681   1.0000000 c  5.29D-07
+
+   1   -0.973130   2    0.128286   3   -0.058913   4   -0.096841   5   -0.471110
+
+
+ *** CALCULATIONS FOR k^2 =    4.1400
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.592786   2    0.094579   3   -0.036667   4   -0.051304   5   -0.303726
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0148638      0.8770906   1.0149537 c  7.38D-01
+
+   1   -0.587262   2    0.093971   3   -0.036307   4   -0.050722   5   -0.300806
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  7.38D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0150281      0.8770198   0.9999193 c  1.09D-02
+
+   1   -0.587092   2    0.093950   3   -0.036297   4   -0.050705   5   -0.300718
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.09D-02
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0150311      0.8770235   1.0000042 c  2.03D-04
+
+   1   -0.587091   2    0.093950   3   -0.036297   4   -0.050705   5   -0.300717
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.03D-04
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0150311      0.8770235   1.0000000 c  2.60D-06
+
+   1   -0.587091   2    0.093950   3   -0.036297   4   -0.050705   5   -0.300717
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.60D-06
+
+
+          ITERATION NUMBER  5
+          ----------------
+          CONVERGENCE CRITERIA =  2.9D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0150311      0.8770235   1.0000000 c  5.17D-08
+
+   1   -0.587091   2    0.093950   3   -0.036297   4   -0.050705   5   -0.300717
+
+
+ *** CALCULATIONS FOR k^2 =    4.1500
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.419214   2    0.079253   3   -0.026449   4   -0.030335   5   -0.227705
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0199609      0.8838409   1.0077733 c  2.47D-01
+
+   1   -0.417145   2    0.079002   3   -0.026308   4   -0.030130   5   -0.226527
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.47D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0199859      0.8837521   0.9998996 c  1.25D-03
+
+   1   -0.417102   2    0.078996   3   -0.026305   4   -0.030126   5   -0.226503
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.25D-03
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0199867      0.8837543   1.0000024 c  4.22D-05
+
+   1   -0.417102   2    0.078996   3   -0.026305   4   -0.030126   5   -0.226503
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  4.22D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0199867      0.8837542   0.9999999 c  2.64D-07
+
+   1   -0.417102   2    0.078996   3   -0.026305   4   -0.030126   5   -0.226503
+
+
+ *** CALCULATIONS FOR k^2 =    4.1600
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.322390   2    0.070848   3   -0.020723   4   -0.018404   5   -0.186067
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0228265      0.8884768   1.0053438 c  1.24D-01
+
+   1   -0.321301   2    0.070702   3   -0.020645   4   -0.018305   5   -0.185395
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  1.24D-01
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0228204      0.8883984   0.9999118 c  2.67D-04
+
+   1   -0.321284   2    0.070699   3   -0.020644   4   -0.018303   5   -0.185385
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.67D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0228210      0.8884002   1.0000020 c  2.59D-05
+
+   1   -0.321284   2    0.070699   3   -0.020644   4   -0.018303   5   -0.185385
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.59D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0228210      0.8884002   1.0000000 c  4.81D-07
+
+   1   -0.321284   2    0.070699   3   -0.020644   4   -0.018303   5   -0.185385
+
+
+ *** CALCULATIONS FOR k^2 =    4.1700
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.260352   2    0.065575   3   -0.017028   4   -0.010558   5   -0.160064
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          104points in CSOLVE. 
+  End of range:    8.075927404203659      au.
+                    kd4      0.0246941      0.8921576   1.0042294 c  7.59D-02
+
+   1   -0.259663   2    0.065473   3   -0.016976   4   -0.010501   5   -0.159602
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  7.59D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0246775      0.8920878   0.9999218 c  6.71D-04
+
+   1   -0.259655   2    0.065471   3   -0.016976   4   -0.010500   5   -0.159597
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  6.71D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0246781      0.8920895   1.0000019 c  2.25D-05
+
+   1   -0.259655   2    0.065471   3   -0.016976   4   -0.010500   5   -0.159597
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.25D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0246780      0.8920894   1.0000000 c  5.29D-07
+
+   1   -0.259655   2    0.065471   3   -0.016976   4   -0.010500   5   -0.159597
+
+
+ *** CALCULATIONS FOR k^2 =    4.1800
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.217064   2    0.061991   3   -0.014424   4   -0.004899   5   -0.142557
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          105points in CSOLVE. 
+  End of range:    7.586631697842242      au.
+                    kd4      0.0260262      0.8953236   1.0036254 c  5.18D-02
+
+   1   -0.216578   2    0.061911   3   -0.014386   4   -0.004863   5   -0.142201
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  5.18D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0260050      0.8952596   0.9999285 c  8.16D-04
+
+   1   -0.216573   2    0.061910   3   -0.014385   4   -0.004863   5   -0.142199
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  8.16D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0260055      0.8952611   1.0000018 c  2.15D-05
+
+   1   -0.216573   2    0.061910   3   -0.014385   4   -0.004863   5   -0.142199
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.15D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0260055      0.8952611   1.0000000 c  5.55D-07
+
+   1   -0.216573   2    0.061910   3   -0.014385   4   -0.004863   5   -0.142199
+
+
+ *** CALCULATIONS FOR k^2 =    4.1900
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.185034   2    0.059419   3   -0.012471   4   -0.000537   5   -0.130225
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          105points in CSOLVE. 
+  End of range:    7.586631697842242      au.
+                    kd4      0.0270377      0.8981806   1.0032611 c  3.82D-02
+
+   1   -0.184665   2    0.059352   3   -0.012441   4   -0.000514   5   -0.129930
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  3.82D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0270140      0.8981202   0.9999328 c  8.81D-04
+
+   1   -0.184662   2    0.059351   3   -0.012441   4   -0.000514   5   -0.129928
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  8.81D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0270145      0.8981218   1.0000017 c  2.13D-05
+
+   1   -0.184662   2    0.059351   3   -0.012441   4   -0.000514   5   -0.129928
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.13D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0270145      0.8981217   1.0000000 c  5.76D-07
+
+   1   -0.184662   2    0.059351   3   -0.012441   4   -0.000514   5   -0.129928
+
+
+ *** CALCULATIONS FOR k^2 =    4.2000
+
+
+
+
+          WEAK ORTHOGONALIZATION DURING THE SCF CYCLE=   F
+          ACCELERATING PARAMETER FOR MCHF ITERATION  = 0.00
+          SCF CONVERGENCE TOLERANCE (FUNCTIONS)      = 1.00D-06
+          NUMBER OF POINTS IN THE MAXIMUM RANGE      = 220
+          RELATIVISTIC DIAGONAL  ENERGY CORRECTIONS  =   F
+
+
+
+   1   -0.160278   2    0.057501   3   -0.010935   4    0.003001   5   -0.121317
+
+
+          ITERATION NUMBER  1
+          ----------------
+          CONVERGENCE CRITERIA =  1.0D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+ Outer region reduced by          105points in CSOLVE. 
+  End of range:    7.586631697842242      au.
+                    kd4      0.0278428      0.9008378   1.0030242 c  2.97D-02
+
+   1   -0.159985   2    0.057443   3   -0.010910   4    0.003016   5   -0.121059
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.97D-02
+
+
+          ITERATION NUMBER  2
+          ----------------
+          CONVERGENCE CRITERIA =  1.3D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0278173      0.9007798   0.9999356 c  9.17D-04
+
+   1   -0.159984   2    0.057442   3   -0.010910   4    0.003016   5   -0.121058
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  9.17D-04
+
+
+          ITERATION NUMBER  3
+          ----------------
+          CONVERGENCE CRITERIA =  1.7D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0278179      0.9007813   1.0000017 c  2.14D-05
+
+   1   -0.159984   2    0.057442   3   -0.010910   4    0.003016   5   -0.121058
+
+      LEAST SELF-CONSISTENT FUNCTION IS kd4 :WEIGHTED MAXIMUM CHANGE =  2.14D-05
+
+
+          ITERATION NUMBER  4
+          ----------------
+          CONVERGENCE CRITERIA =  2.2D-06
+
+
+                     EL      ED/DELTA          AZ           NORM       DPM
+                    kd4      0.0278179      0.9007813   1.0000000 c  5.96D-07
+
+   1   -0.159984   2    0.057442   3   -0.010910   4    0.003016   5   -0.121058
+    k^2         sum(c^2)      delta       delta/pi
+  4.000000    0.0254869    0.034882    0.011103
+  4.010000    0.0301431    0.035344    0.011250
+  4.020000    0.0363344    0.035886    0.011423
+  4.030000    0.0448276    0.036536    0.011630
+  4.040000    0.0569372    0.037337    0.011885
+  4.050000    0.0750724    0.038360    0.012210
+  4.060000    0.1040472    0.039725    0.012645
+  4.070000    0.1546650    0.041665    0.013262
+  4.080000    0.2555366    0.044681    0.014223
+  4.090000    0.5048030    0.050100    0.015947
+  4.100000    1.4457532    0.062945    0.020036
+  4.110000   15.6476383    0.134457    0.042799
+  4.120000    9.0929298   -0.045992   -0.014640
+  4.130000    1.1982327    0.003893    0.001239
+  4.140000    0.4478214    0.015031    0.004785
+  4.150000    0.2331178    0.019987    0.006362
+  4.160000    0.1433510    0.022821    0.007264
+  4.170000    0.0975767    0.024678    0.007855
+  4.180000    0.0711879    0.026005    0.008278
+  4.190000    0.0546592    0.027015    0.008599
+  4.200000    0.0436775    0.027818    0.008855
