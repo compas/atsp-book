@@ -6,26 +6,12 @@
 #  ....  Location of libraries and binaries
 LIB = ../../bin
 
-#  ....  Compiler for SUN, DEC, SGI, ..
-#FC = f77
-
-#  ....  Compiler for IBM AIX
-#FC = xlf
-
-#  .... Compiler for Portland Group
-FC = pgf77
-
-#  ....  Flags to be added for compilation SGI
-#FFLAGS =  -O  -static
-
-# ....  Flags to be added for compilation on SUN, IBM AIX
-#FFLAGS = -O
-
-#  .... Flags to be added for compilaton on DEC ALpha
-#FFLAGS = -O4 -r4 -non_shared -static -align dcommon  -convert big_endian
+# Compiler and flags
+FC     = gfortran
+FFLAGS = -O2 -std=legacy
+PFLAGS = $(FFLAGS)
 
 #  ....  Make the RADial library for 30 orbitals
-
 #   ...  Definitions for the RAD Libraries
 
 RADSRC =  dyk.f ecore.f grad.f hl.f hlc.f quadr.f quads.f\

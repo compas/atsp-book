@@ -13,27 +13,14 @@ LIB_ANG_COM_RAD6 = $(LIB)/libang.a -lcom -lrad6 -lcom
 #  ....  Location of libraries and binaries
 LIB = ../bin
 
-#  ....  PGI Compiler
-FC = pgf77
+# Compiler and flags
+FC     = gfortran
+FFLAGS = -O2 -std=legacy
+PFLAGS = $(FFLAGS)
 
-#  ....  Compiler for SUN, DEC, SGI, ..
-#FC = f77
-
-#  ....  Compiler for IBM AIX
-#FC = xlf
-
-#  ....  Flags to be added for compilation SGI
-#FFLAGS =  -O  -static
-#PFLAGS = -O  -static
-
-# ....  Flags to be added for compilation on SUN, IBM AIX
-#FFLAGS = -O2
-#PFLAGS = -O2
-#PFLAGS = -g
-
-#  .... Flags to be added for compilaton on DEC ALpha
-#FFLAGS = -O4 -r4 -non_shared -static -align dcommon -assume noacc -convert big_endian
-#PFLAGS = -O2 -r4 -non_shared -static -align dcommon -assume noacc -convert big_endian
+all: \
+	Comp Condens Levels Lines Plotw Printw Relabel Terms \
+	Auto Breit Cmchf Ci Gencl HF Hfs Iso Lsjtr Lstr Mchf Mltpol Nonh Photo
 
 #
 #  ...  Make the UTILITIES

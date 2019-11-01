@@ -6,25 +6,10 @@
 #  ....  Location of libraries and binaries
 LIB = ../../bin
 
-#  ....  Compiler for SUN, DEC, SGI, ..
-#FC = f77
-
-#  ....  Compiler for IBM AIX
-#FC = xlf
-
-#  .... Compiler for Portland Group
-FC = pgf77
-
-#  ....  Flags to be added for compilation SGI
-#FFLAGS =  -O  -static
-
-# ....  Flags to be added for compilation on SUN, IBM AIX
-#FFLAGS = -O
-
-#  .... Flags to be added for compilaton on DEC ALpha
-#FFLAGS = -O4 -r4 -non_shared -static -align dcommon  -convert big_endian
-
-#
+# Compiler and flags
+FC     = gfortran
+FFLAGS = -O2 -std=legacy
+PFLAGS = $(FFLAGS)
 
 COMSRC  = acurat.f bisect.f bwint.f ca.f cb.f eptr.f factrl.f fk.f gk.f\
 	  gracah.f hnorm.f hwf.f inita.f initr.f intact.f lineqn.f\

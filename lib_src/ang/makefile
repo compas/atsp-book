@@ -5,29 +5,12 @@
 
 LIB = ../../bin
 
-#  ....  Compiler for SUN, DEC, SGI, ..
-#FC = f77
-
-#  ....  Compiler for IBM AIX
-#FC = xlf
-
-#  .... Compiler for Portland Group
-FC = pgf77
-
-#  ....  Flags to be added for compilation SGI
-#FFLAGS =  -O  -static
-
-# ....  Flags to be added for compilation on SUN, IBM AIX
-#FFLAGS = -O
-#PFLAGS = -O2
-
-#  .... Flags to be added for compilaton on DEC ALpha
-#FFLAGS = -O4 -r4 -non_shared -static -align dcommon  -convert big_endian
-#PFLAGS = -O2 -r4 -non_shared -static -align dcommon  -convert big_endian
-
+# Compiler and flags
+FC     = gfortran
+FFLAGS = -O2 -std=legacy
+PFLAGS = $(FFLAGS)
 
 #    ... Definitions for the ANGular library
-
 ANGSRC  = analy1.f analy2.f cfgin2.f cfgn1.f cfgo1.f cfgtst.f \
           cfp.f cfpd.f cfpf.f cfpp.f find.f gstate.f initt.f \
 	  mumdad.f ntab1.f orth.f qsort.f save.f \
