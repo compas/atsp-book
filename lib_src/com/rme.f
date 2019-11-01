@@ -19,7 +19,7 @@
        ELSE IF ( K .EQ. 0) THEN
          RME = 2*L+1
          RME = DSQRT(RME)
-       ELSE 
+       ELSE
          I2G=L+LP+K
          IG=I2G/2
          IF (I2G - 2*IG .NE. 0) THEN

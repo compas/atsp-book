@@ -16,7 +16,7 @@ LIB = ../../bin
 FC = pgf77
 
 #  ....  Flags to be added for compilation SGI
-#FFLAGS =  -O  -static 
+#FFLAGS =  -O  -static
 
 # ....  Flags to be added for compilation on SUN, IBM AIX
 #FFLAGS = -O
@@ -38,4 +38,3 @@ RADOBJS = dyk.o ecore.o grad.o hl.o hlc.o quadr.o quads.o\
 librad6.a : $(RADOBJS)
 	 ar r librad6.a $(RADOBJS)
 	 mv librad6.a $(LIB)
-

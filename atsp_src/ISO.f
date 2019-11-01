@@ -410,7 +410,7 @@
 *
 
 *
-* ****   DETERMINE THE RYDBERG CONSTANT AND F(Z) PARAMETER 
+* ****   DETERMINE THE RYDBERG CONSTANT AND F(Z) PARAMETER
 *
       WRITE(ERR,'(/1X,A)') 'Default Rydberg constant (y/n)'
       READ(IN,'(A1)') YES

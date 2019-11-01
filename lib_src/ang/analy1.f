@@ -1,16 +1,16 @@
-*      
+*
 *     Routines for MCHF_LIB_ANG
 *
 *                   C O P Y R I G H T -- 1994
 *
 *     Computer Physics Communication, Vol. 64, 399-405 (1991)
 *
-*     NOTE:  This file contains routines for programs using one atomic 
+*     NOTE:  This file contains routines for programs using one atomic
 *            state and two atomic states as in transitions. The COMMONS
 *            are different, thus there will be warning messages if this
-*	     file compiled without first using fsplit.
+*            file compiled without first using fsplit.
 *     ------------------------------------------------------------------
-*	A N A L Y S E 1
+*       A N A L Y S E 1
 *     ------------------------------------------------------------------
 *
       SUBROUTINE ANALY1(IREAD,IWRITE,NCLOSD,MAXORB,N,NCFG,NOCCSH,LIST,
@@ -53,7 +53,7 @@
 *
          NCFG = NCFG + 1
          IF (NCFG .GT. NCD )
-     :	    WRITE(IWRITE,'(A,I5)') ' TOO MANY CONFIGURATIONS: MAX=',NCD
+     :      WRITE(IWRITE,'(A,I5)') ' TOO MANY CONFIGURATIONS: MAX=',NCD
          J = 2
          I = 0
  30      IF (LINE(J:J+2) .NE. '   ' .AND. I.LT.(5)) THEN
@@ -67,9 +67,9 @@
                IF ( OF(K) .NE. EL(I) ) THEN
                   K = K+1
                   IF (K .GT. NWD) THEN
-		     WRITE(IWRITE,*) ' TOO MANY ELECTRONS: MAX=',NWD
-		     STOP
-		  END IF
+                     WRITE(IWRITE,*) ' TOO MANY ELECTRONS: MAX=',NWD
+                     STOP
+                  END IF
                   GO TO 40
                  ELSE
                   IEL(I) = K

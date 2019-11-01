@@ -1,11 +1,11 @@
 *
 *     ------------------------------------------------------------------
-*	C F G I N 2
+*       C F G I N 2
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CFGIN2(MCFG,KCFG,LORTH,INPUT)
 *
-*	Read two sets of configurations and determine the orthogonality
+*       Read two sets of configurations and determine the orthogonality
 *       conditions between them
 *
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -26,7 +26,7 @@
      1 5X,21(1X,A3):/5X,21(1X,A3))
 *
 *     The "readonly" option is needed on some computers when the
-*     two files are in fact the same.  Others ignore the option 
+*     two files are in fact the same.  Others ignore the option
 *     which is OK in most cases.
 *     Microsoft Fortran requires "READ" instead of "READONLY"
 *     OPEN(UNIT=1,FILE=INPUT(1),STATUS='OLD',READONLY)

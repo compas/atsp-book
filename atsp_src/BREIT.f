@@ -1,6 +1,6 @@
 ************************************************************************
 *
-	PROGRAM BREIT
+        PROGRAM BREIT
 *
 *             C O P Y R I G H T -- 1994
 *
@@ -11,7 +11,7 @@
 *                   August, 1982
 *
 *     Computer Physics Communications, Vol. 64, 455--472 (1991).
-*     
+*
 *     CLSHBW corrected Jan, 1997
 ************************************************************************
 *
@@ -75,9 +75,9 @@
       IWRITE=6
       IOUT = 7
       DO 2 I = 1,8
-	 ISC(I) = 10 + I
-	 NCOUNT(I) = 0
-	 OPEN(UNIT=ISC(I),STATUS='SCRATCH',FORM='UNFORMATTED')
+         ISC(I) = 10 + I
+         NCOUNT(I) = 0
+         OPEN(UNIT=ISC(I),STATUS='SCRATCH',FORM='UNFORMATTED')
     2 CONTINUE
       NAME(1) = 'cfg.inp'
       NAME(2) = 'int.lst'
@@ -87,7 +87,7 @@ CSUN     call getarg(1,NAME(1))
 CSUN     if (i .eq. 2) call getarg(2,NAME(2))
 CSUN  end if
       OPEN(UNIT=IOUT,FILE=NAME(2),STATUS='UNKNOWN')
-          
+
       NIJ = 0
       NHDEL=10
       MXIHSH=(10)
@@ -197,7 +197,7 @@ CDBG  WRITE(IWRITE,78) NBUG6,NBUG7
      :         ' configurations, how many at the end are new? ',
      :         ' How many configurations define the zero-order set?'
          READ (5,*) NEW,NZERO
-	 IF (NEW .EQ. 0) NEW = NCFG
+         IF (NEW .EQ. 0) NEW = NCFG
          ISTART = NCFG - NEW + 1
          IF (NZERO .eq. 0) NZERO = NCFG
          IF (IREL .NE. 0 .AND. NZERO .NE. NCFG) THEN
@@ -231,7 +231,7 @@ CDBG  WRITE(IWRITE,78) NBUG6,NBUG7
 * ...  Start the calculation
 *
    67 DO 6 JA = ISTART, NCFG
-	  IF (IFULL .EQ. 0) WRITE(0,'(A,I5)') ' JA =',JA
+          IF (IFULL .EQ. 0) WRITE(0,'(A,I5)') ' JA =',JA
       DO 7 JB=1, JA
       INCL = .FALSE.
       IF (JB.LE.NZERO.AND.IRFST(JB).EQ.1) INCL = .TRUE.
@@ -294,7 +294,7 @@ CDBG  WRITE(IWRITE,78) NBUG6,NBUG7
       END
 *
 *     ------------------------------------------------------------------
-*	A C N F I G
+*       A C N F I G
 *     ------------------------------------------------------------------
 *
       SUBROUTINE ACNFIG(INPUT)
@@ -350,7 +350,7 @@ CDBG  WRITE(IWRITE,78) NBUG6,NBUG7
       END
 *
 *     ------------------------------------------------------------------
-*	A L L A D D
+*       A L L A D D
 *     ------------------------------------------------------------------
 *
       SUBROUTINE ALLADD(IHSH,M3,M4,M5,M6,M7,M8,M9,M10,
@@ -375,7 +375,7 @@ CDBG  WRITE(IWRITE,78) NBUG6,NBUG7
       END
 *
 *     ------------------------------------------------------------------
-*	B L O C K   D A T A
+*       B L O C K   D A T A
 *     ------------------------------------------------------------------
 *
       BLOCK DATA
@@ -393,7 +393,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	B L M W A T
+*       B L M W A T
 *     ------------------------------------------------------------------
 *
       SUBROUTINE BLMWAT(IRHO,ISIG)
@@ -495,7 +495,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	C H O P
+*       C H O P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CHOP
@@ -531,7 +531,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	C L S H B W
+*       C L S H B W
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CLSHBW(ISIG,ISIGP,IRHO)
@@ -605,12 +605,12 @@ C
      :                             IAJCMP(JSIGP),IAJCLD(1)
          ENDIF
       ELSE
-	 IF (IFULL.NE.0) 
+         IF (IFULL.NE.0)
      :      WRITE(IWRITE,3)D11NK,K,IAJCMP(JSIG),IAJCMP(JRHO),
      :                             IAJCMP(JSIGP),IAJCMP(JRHO)
 *        WRITE(JSC1,303) D11NK,K,IAJCMP(JSIG),IAJCMP(JRHO),JA,
 *    :                           IAJCMP(JSIGP),IAJCMP(JRHO),JB
-	 CALL SAVE(6,D11NK,K,JSIG,JRHO,JSIGP,JRHO,JA,JB,0)
+         CALL SAVE(6,D11NK,K,JSIG,JRHO,JSIGP,JRHO,JA,JB,0)
       ENDIF
       IF(LA.EQ.LB)THEN
          KE1=3
@@ -649,7 +649,7 @@ C
      :                              IAJCLD(I),IAJCMP(JSIGP)
          ENDIF
       ELSE
-	 IF (IFULL.NE.0) THEN
+         IF (IFULL.NE.0) THEN
             WRITE(IWRITE,3)E01N2,K2,IAJCMP(JSIG),IAJCMP(JRHO),
      :                              IAJCMP(JRHO),IAJCMP(JSIGP)
             WRITE(IWRITE,3)E01NK,K,IAJCMP(JRHO),IAJCMP(JSIG),
@@ -658,7 +658,7 @@ C
      :                              IAJCMP(JSIGP),IAJCMP(JRHO)
             WRITE(IWRITE,4)E10VK,K1,IAJCMP(JSIG),IAJCMP(JRHO),
      :                              IAJCMP(JRHO),IAJCMP(JSIGP)
-	 END IF
+         END IF
 *        WRITE(JSC1,303)E01N2,K2,IAJCMP(JSIG),IAJCMP(JRHO),JA,
 *    :                           IAJCMP(JRHO),IAJCMP(JSIGP),JB
 *        WRITE(JSC1,303)E01NK,K,IAJCMP(JRHO),IAJCMP(JSIG),JA,
@@ -667,10 +667,10 @@ C
 *    :                           IAJCMP(JSIGP),IAJCMP(JRHO),JB
 *        WRITE(JSC2,304)E10VK,K1,IAJCMP(JSIG),IAJCMP(JRHO),JA,
 *    :                           IAJCMP(JRHO),IAJCMP(JSIGP),JB
-	 CALL SAVE(6,E01N2,K2,JSIG,JRHO,JRHO,JSIGP,JA,JB,0)
-	 CALL SAVE(6,E01NK,K,JRHO,JSIG,JSIGP,JRHO,JA,JB,0)
-	 CALL SAVE(7,E01VK,K1,JRHO,JSIG,JSIGP,JRHO,JA,JB,0)
-	 CALL SAVE(7,E10VK,K1,JSIG,JRHO,JRHO,JSIGP,JA,JB,0)
+         CALL SAVE(6,E01N2,K2,JSIG,JRHO,JRHO,JSIGP,JA,JB,0)
+         CALL SAVE(6,E01NK,K,JRHO,JSIG,JSIGP,JRHO,JA,JB,0)
+         CALL SAVE(7,E01VK,K1,JRHO,JSIG,JSIGP,JRHO,JA,JB,0)
+         CALL SAVE(7,E10VK,K1,JSIG,JRHO,JRHO,JSIGP,JA,JB,0)
       ENDIF
     1 CONTINUE
       IF(IRHO.EQ.0)THEN
@@ -685,7 +685,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	C L S H E L
+*       C L S H E L
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CLSHEL (ISIG, ISIGP, IRHO )
@@ -830,7 +830,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	F A N O
+*       F A N O
 *     ------------------------------------------------------------------
 *
       SUBROUTINE FANO(IRHO,ISIG,IRHOP,ISIGP,JA,JB,INCL)
@@ -956,7 +956,7 @@ C
 *
 * --- Set the FAIL parameters .FALSE. initially so that NJGRAF can
 *     be called
-*     
+*
       FAILSD = .FALSE.
       FAILSE = .FALSE.
       FAILAD = .FALSE.
@@ -1240,7 +1240,7 @@ c     PRINT*,' JJ2 = ',JJ2,' JJ1 = ',JJ1,' JJ4 = ',JJ4,' JJ3 = ',JJ3
       GO TO 78
 
 89    CONTINUE
-      
+
       IF (.NOT.FAILSD) THEN
         IF (ISPIND.NE.2) THEN
           CALL NJGRAF(SPINDT,FAILSD)
@@ -1289,7 +1289,7 @@ C
       GO TO 94
 
 92    CONTINUE
- 
+
       IF (.NOT.FAILSE) THEN
         IF (ISPINE.NE.2) THEN
           CALL NJGRAF(SPINEX,FAILSE)
@@ -1346,7 +1346,7 @@ C
 
       IF (.NOT.FAILAD) THEN
         DO 114 JK1=KD1,KD2,2
-c	PRINT *,' IN DO 114..., JK1 = ',JK1
+c       PRINT *,' IN DO 114..., JK1 = ',JK1
 
           J1(NJ1S)=2*JK1-1
           IF (IANGD.NE.2) THEN
@@ -1485,7 +1485,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	H 0 W T S
+*       H 0 W T S
 *     ------------------------------------------------------------------
 *
       SUBROUTINE H0WTS
@@ -1708,7 +1708,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       NJ1S=M11
       NJ23S=M4
       DO 100 J = 1,M11
-	 FREE(J) = .FALSE.
+         FREE(J) = .FALSE.
   100 CONTINUE
       IF(IBUG1.LT.1.OR.IBUG3.EQ.1) GO TO 77
       WRITE(IWRITE,306) (J1(J),J=1,M11)
@@ -1768,7 +1768,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	J 2 3 A N G
+*       J 2 3 A N G
 *     ------------------------------------------------------------------
 *
       SUBROUTINE J23ANG(IRHO,ISIG,IRHOP,ISIGP,JANGDI)
@@ -1862,11 +1862,11 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       J3(J,K)=J3ANG(I1)
     5 CONTINUE
     4 CONTINUE
-      GO TO 3 
+      GO TO 3
       END
 *
 *     ------------------------------------------------------------------
-*	J 2 3 S P 1
+*       J 2 3 S P 1
 *     ------------------------------------------------------------------
 *
       SUBROUTINE J23SP1(J23REL)
@@ -1941,11 +1941,11 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
 *
 * --- Special Case: IHSH = 1
 *
-	  IF (IHSH .EQ. 1) THEN
-		 J3(2,3) = M12
-		 J3(4,1) = M12
-		 J3(4,3) = M10
-	  END IF
+          IF (IHSH .EQ. 1) THEN
+                 J3(2,3) = M12
+                 J3(4,1) = M12
+                 J3(4,3) = M10
+          END IF
 *
 * --- STORE THE ARRAYS J2 AND J3 FOR FUTURE RESETTING OF J2 AND J3
 *
@@ -1979,7 +1979,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	J 2 3 S P N
+*       J 2 3 S P N
 *     ------------------------------------------------------------------
 *
       SUBROUTINE J23SPN(IRHO,ISIG,IRHOP,ISIGP,JSNDIR)
@@ -2130,7 +2130,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	K L I M
+*       K L I M
 *     ------------------------------------------------------------------
 *
       SUBROUTINE KLIM(L1,L2,L3,L4,L,KA,KB)
@@ -2147,7 +2147,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	M A G I N T
+*       M A G I N T
 *     ------------------------------------------------------------------
 *
       SUBROUTINE MAGINT(LET1,LET2,LET3,JVAL)
@@ -2166,9 +2166,9 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
      : THE SPIN-ORBIT AND THE SPIN-OTHER-ORBIT INTERACTIONS)
    23 FORMAT(/1X,104H TRIANGULAR RELATION (L,LL,KA) IS NOT SATISFIED FOR
      : THE SPIN-ORBIT AND THE SPIN-OTHER-ORBIT INTERACTIONS)
-   26 FORMAT(/1X,77H TRIANGULAR RELATION (S,SS,KA) IS NOT SATISFIED FOR 
+   26 FORMAT(/1X,77H TRIANGULAR RELATION (S,SS,KA) IS NOT SATISFIED FOR
      :THE SPIN-SPIN INTERACTION)
-   27 FORMAT(/1X,77H TRIANGULAR RELATION (L,LL,KA) IS NOT SATISFIED FOR 
+   27 FORMAT(/1X,77H TRIANGULAR RELATION (L,LL,KA) IS NOT SATISFIED FOR
      :THE SPIN-SPIN INTERACTION)
    31 FORMAT(/1X,83H TRIANGULAR RELATION BETWEEN J VALUE AND THE TOTAL A
      :NGULAR MOMENTA IS NOT SATISFIED)
@@ -2238,7 +2238,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	M E K E E P
+*       M E K E E P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE MEKEEP(IRHO,ISIG,IRHOP,ISIGP)
@@ -2258,7 +2258,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	M E R E S T
+*       M E R E S T
 *     ------------------------------------------------------------------
 *
       SUBROUTINE MEREST(IRHO,ISIG,IRHOP,ISIGP)
@@ -2278,7 +2278,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	M O D J 2 3
+*       M O D J 2 3
 *     ------------------------------------------------------------------
 *
       SUBROUTINE MODJ23(K)
@@ -2338,7 +2338,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	M O D R E L
+*       M O D R E L
 *     ------------------------------------------------------------------
 *
       SUBROUTINE MODREL
@@ -2371,7 +2371,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	O R T H O G
+*       O R T H O G
 *     ------------------------------------------------------------------
 *
       SUBROUTINE ORTHOG(LET,INCL)
@@ -2454,7 +2454,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 
 *     ------------------------------------------------------------------
-*	O U T L S J
+*       O U T L S J
 *     ------------------------------------------------------------------
 *
       SUBROUTINE OUTLSJ
@@ -2480,7 +2480,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
    10 FORMAT(1X,A1,I2,'(',A3,',',A3,')',I5)
    11 FORMAT(1X,A1,I2,'(',2A3,',',2A3,')',I5)
    12 FORMAT(1X,A1,2X,'(',A3,',',A3,')',I5)
-*     
+*
 *     Format for Coefficients
 *
    20 FORMAT(F14.8,A1,3I3)
@@ -2493,108 +2493,108 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
 * --- TERMINATE  INTEGERAL LISTS and Rewind
 *
       DO 1 J = 1,8
-	 ENDFILE(UNIT=ISC(J))
-	 REWIND(UNIT=ISC(J))
+         ENDFILE(UNIT=ISC(J))
+         REWIND(UNIT=ISC(J))
     1 CONTINUE
 *
 *     Test if current dimensions are big enough
 *
       N = MAX(NF,NG,NR,NL,NZ,NN,NV,NS)
       IF (N .GT. NCDIM4) THEN
-	 WRITE(0,'(A/A,I10)') ' NCDIM4 dimension in OUTLSJ too small',
+         WRITE(0,'(A/A,I10)') ' NCDIM4 dimension in OUTLSJ too small',
      :    ' Must be increased to at least',N
-	 STOP 1
+         STOP 1
       END IF
 *
 *===  Begin processing data
 *
       NINT = 0
       DO 100 ICASE = 1,8
-	 N = NCOUNT(ICASE)
-	 IF (ICASE .NE. 3 .AND. ICASE .NE. 4) THEN
-	    DO 102 J = 1,N
-	      READ(ISC(ICASE)) C(J),IPACK(J),JA(J),JB(J)
+         N = NCOUNT(ICASE)
+         IF (ICASE .NE. 3 .AND. ICASE .NE. 4) THEN
+            DO 102 J = 1,N
+              READ(ISC(ICASE)) C(J),IPACK(J),JA(J),JB(J)
   102       CONTINUE
-	 ELSE 
-	    DO 104 J = 1,N
-	       READ(ISC(ICASE)) C(J),IPACK(J),JA(J),JB(J),IPTR(J)
+         ELSE
+            DO 104 J = 1,N
+               READ(ISC(ICASE)) C(J),IPACK(J),JA(J),JB(J),IPTR(J)
   104       CONTINUE
-	 END IF
-	 CALL QSORT(N,IPACK,IPT,ISTACK,LSTACK,IERR)
-	 IF (IERR .EQ. 1) THEN
-	    WRITE(0,*) ' Stack dimension not large enough for sort'
-	    STOP 1
-	 END IF
+         END IF
+         CALL QSORT(N,IPACK,IPT,ISTACK,LSTACK,IERR)
+         IF (IERR .EQ. 1) THEN
+            WRITE(0,*) ' Stack dimension not large enough for sort'
+            STOP 1
+         END IF
 *
 *        Output the list of integrals with pointers to the data
 *
-	 LAST = 0
+         LAST = 0
   110    J = LAST +1
-	 LAST = J
-	 IF (J .LE. N) THEN
+         LAST = J
+         IF (J .LE. N) THEN
 *
 *          Unpack electron data
 *
            K = IPACK(IPT(J))
-   	   I4 = MOD(K,64)
-   	   K = K/64
-     	   IF (ICASE.LE.2 .OR. ICASE.EQ.4 .OR. ICASE.EQ.5) THEN
-   	     I2 = MOD(K,64)
-   	     K = K/64
-	   ELSE
-	      I3 = MOD(K,64)
-	      K = K/64
-	      I2 = MOD(K,64)
-	      K = K/64
-	      I1 = MOD(K,64)
-	      K = K/64
-	      IF (ICASE .GT. 5) K = K - 1
-	   END IF
+           I4 = MOD(K,64)
+           K = K/64
+           IF (ICASE.LE.2 .OR. ICASE.EQ.4 .OR. ICASE.EQ.5) THEN
+             I2 = MOD(K,64)
+             K = K/64
+           ELSE
+              I3 = MOD(K,64)
+              K = K/64
+              I2 = MOD(K,64)
+              K = K/64
+              I1 = MOD(K,64)
+              K = K/64
+              IF (ICASE .GT. 5) K = K - 1
+           END IF
 *
 *           Find  last item in the list with this integral
-*           
+*
   120      LAST = LAST + 1
            IF (LAST .LE. N) THEN
              IF (IPACK(IPT(J)) .EQ. IPACK(IPT(LAST))) GO TO 120
            END IF
            LAST = LAST -1
-	   NINT = NINT + 1
+           NINT = NINT + 1
            IF (ICASE .LE. 2) THEN
              WRITE(IOUT,10) INT(ICASE),K,IAJCMP(I2),IAJCMP(I4),LAST
            ELSE IF (ICASE .EQ. 4 .OR. ICASE .EQ. 5) THEN
              WRITE(IOUT,12) INT(ICASE),IAJCMP(I2),IAJCMP(I4),LAST
            ELSE
-	     DO 140 J = 1,4
-	       IF (II(J) .LT. 32) THEN
-	         IEL(J) = IAJCMP(II(J))
-	       ELSE
-	         IEL(J) = IAJCLD(64-II(J))
-	       END IF
+             DO 140 J = 1,4
+               IF (II(J) .LT. 32) THEN
+                 IEL(J) = IAJCMP(II(J))
+               ELSE
+                 IEL(J) = IAJCLD(64-II(J))
+               END IF
   140        CONTINUE
-	     WRITE(IOUT,11) INT(ICASE),K,(IEL(J),J=1,4),LAST
+             WRITE(IOUT,11) INT(ICASE),K,(IEL(J),J=1,4),LAST
            END IF
-	   GO TO 110
-	END IF
-        WRITE(IOUT,31) 
+           GO TO 110
+        END IF
+        WRITE(IOUT,31)
 *
 *             Write out the data for the integrals
 *
         DO 150 J = 1,N
-  	  K = IPT(J)
+          K = IPT(J)
           WRITE(IOUT,20) C(K),INT(ICASE),JA(K),JB(K)
   150   CONTINUE
-        WRITE(IOUT,30) 
-	IF (ICASE .EQ. 2) THEN
-          WRITE(IOUT,31) 
-          WRITE(IOUT,31) 
-	END IF
+        WRITE(IOUT,30)
+        IF (ICASE .EQ. 2) THEN
+          WRITE(IOUT,31)
+          WRITE(IOUT,31)
+        END IF
   100 CONTINUE
       WRITE(0,*) 'The total number of integrals =',NINT
       RETURN
       END
 *     MCHF_BREIT (Part 2 of 2)
 *     ------------------------------------------------------------------
-*	P R N T W T
+*       P R N T W T
 *     ------------------------------------------------------------------
 *
       SUBROUTINE PRNTWT(IRHO,ISIG,IRHOP,ISIGP)
@@ -2750,7 +2750,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	R A D W T S
+*       R A D W T S
 *     ------------------------------------------------------------------
 *
       SUBROUTINE RADWTS(IRHO,ISIG,IRHOP,ISIGP,ICOUNT)
@@ -3050,7 +3050,7 @@ c     PRINT *,' AMULT(JK1) = ',AMULT(JK1)
       END
 *
 *     ------------------------------------------------------------------
-*	R E D U C E
+*       R E D U C E
 *     ------------------------------------------------------------------
 *
       SUBROUTINE REDUCE(IRHO,ISIG,IRHOP,ISIGP,LESSEN)
@@ -3205,7 +3205,7 @@ C
      + K9CPAE(KFLN),JSM6AE(KFLS),JSM4AE(KFLS,KFLW),JSM5AE(KFLS,KFLW),
      + IN6JAE(KFLW)
 C
-*  
+*
       COMMON/DEBUG/IBUG1,IBUG2,IBUG3,NBUG6,NBUG7,IFULL
       COMMON/CONSTS/ZERO,TENTH,HALF,ONE,TWO,THREE,FOUR,SEVEN,ELEVEN,EPS
       COMMON/COUPLE/NJ1S,NJ23S,J1(KFL1),J2(KFL2,3),J3(KFL2,3),FREE(KFL1)
@@ -3250,7 +3250,7 @@ C
       IF (ICALL.EQ.0) THEN
          I = 2
          CALL SETJ1(I,IRHO,ISIG,IRHOP,ISIGP,
-     :        			  0,0,KK1,KK2,KK3,KK4)
+     :                            0,0,KK1,KK2,KK3,KK4)
          MLIMIT=M16
          NJ1S=M8+11
          NJ23S=M18+1
@@ -3263,9 +3263,9 @@ C
          FREE(M17) = .TRUE.
          FREE(M21) = .TRUE.
          FREE(NJ1S) = .TRUE.
-		 J1(M17) = 1
-		 J1(M21) = 1
-		 J1(NJ1S) = 1
+                 J1(M17) = 1
+                 J1(M21) = 1
+                 J1(NJ1S) = 1
          J23REL=0
          CALL J23SP1(J23REL)
 cdbg print*,(j1(ik),ik=1,nj1s)
@@ -3292,7 +3292,7 @@ C ICI KNJAE
 *
       I=3
       CALL SETJ1(I,IRHO,ISIG,IRHOP,ISIGP,0,0,KK1,KK2,
-     :                                KK3,KK4)		       
+     :                                KK3,KK4)
       J1(M15)=2
       J1(M16)=2
       MLIMIT=M16
@@ -3309,9 +3309,9 @@ C ICI KNJAE
              FREE(M17) = .TRUE.
              FREE(M21) = .TRUE.
              FREE(NJ1S) = .TRUE.
-		     J1(M17) = 1
-		     J1(M21) = 1
-		     J1(NJ1S) = 1
+                     J1(M17) = 1
+                     J1(M21) = 1
+                     J1(NJ1S) = 1
              J23REL=0
              CALL J23SP1(J23REL)
 cdbg  print*,(j1(ik),ik=1,nj1s)
@@ -3767,7 +3767,7 @@ C ICI GENSUMAE
       END
 *
 *     ------------------------------------------------------------------
-*	R K W T S
+*       R K W T S
 *     ------------------------------------------------------------------
 *
       SUBROUTINE RKWTS(ICOUNT,JA,JB,INCL)
@@ -3992,7 +3992,7 @@ C ICI GENSUMAE
       END
 *
 *     ------------------------------------------------------------------
-*	R M E C L L
+*       R M E C L L
 *     ------------------------------------------------------------------
 *
       SUBROUTINE RMECLL(L,LP,K,K1,RMECL)
@@ -4020,7 +4020,7 @@ C ICI GENSUMAE
       END
 *
 *     ------------------------------------------------------------------
-*	S E T J 1
+*       S E T J 1
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SETJ1(K,IRHO,ISIG,IRHOP,ISIGP,ITST1,ITST2,K1,K2,K3,K4)
@@ -4111,7 +4111,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S E T M
+*       S E T M
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SETM
@@ -4142,7 +4142,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S E T U P
+*       S E T U P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SETUP(JA,JB)
@@ -4290,16 +4290,16 @@ C
 *     COUPLING FORMED HAS THE SAME  L,S  VALUES AS THIS OCCUPIED SHELL,
 *     SINCE WE COUPLE THE SHELL TO A DUMMY SINGLET S.
 *
-         IF(IC .LE.1) THEN 
-	    I2 = 1
+         IF(IC .LE.1) THEN
+            I2 = 1
          ELSE
-	    I2 = NOCCSH(JC)+IC-1
+            I2 = NOCCSH(JC)+IC-1
          END IF
          JD = J1QNRD(I2,JC)
          IF (IC .LE. 1) THEN
-	    J1QN(I2HSH,1,I) = 0
+            J1QN(I2HSH,1,I) = 0
          ELSE
-	    J1QN(I2HSH,1,I) = MOD(JD,64)
+            J1QN(I2HSH,1,I) = MOD(JD,64)
          END IF
          JD = JD/64
          J1QN(I2HSH,2,I) = MOD(JD, 64)
@@ -4328,7 +4328,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S K L I M
+*       S K L I M
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SKLIM(LET)
@@ -4361,7 +4361,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S O O P A R
+*       S O O P A R
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SOOPAR(XMULT1)
@@ -4479,7 +4479,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S O O R E D
+*       S O O R E D
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SOORED
@@ -4578,7 +4578,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S O O Z E R
+*       S O O Z E R
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SOOZER
@@ -4619,7 +4619,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S P N O R B
+*       S P N O R B
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SPNORB(ICOUNT,JA,JB)
@@ -4712,7 +4712,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S S P A R
+*       S S P A R
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SSPAR(XMULT1)
@@ -4814,7 +4814,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S S R E D
+*       S S R E D
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SSRED
@@ -4897,7 +4897,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*	S S Z E R O
+*       S S Z E R O
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SSZERO
@@ -4938,7 +4938,7 @@ C
 *
 *
 *     ------------------------------------------------------------------
-*	U S E E A V
+*       U S E E A V
 *     ------------------------------------------------------------------
 *
       SUBROUTINE USEEAV(IRHO,ISIG)

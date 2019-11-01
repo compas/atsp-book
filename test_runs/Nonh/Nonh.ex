@@ -1,7 +1,7 @@
 #
 #   Script (command) file illustrating the use of the Nonh program
 #
-#   Case 1.  
+#   Case 1.
 #
 #..... Step 1. Remove cfg.inp and then create cfg.inp
 #

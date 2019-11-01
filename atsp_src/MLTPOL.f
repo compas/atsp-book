@@ -1,6 +1,6 @@
 ***********************************************************************
 *
-	PROGRAM MLTPOL
+        PROGRAM MLTPOL
 *
 *               C O P Y R I G H T -- 1994
 *
@@ -63,9 +63,9 @@ CDBG :         ' NBUG6  =',I3,' (DEBUG IN TENSOR PACKAGE)'//)
       IOUT=7
 CSUN      i = iargc()
 CSUN      if (i .gt. 0) then
-CSUN    	 call getarg(1,OUTPUT)
+CSUN             call getarg(1,OUTPUT)
 CSUN      else
-        	 OUTPUT= 'mltpol.lst'
+                 OUTPUT= 'mltpol.lst'
 CSUN      end if
       OPEN(UNIT=IOUT, FILE=OUTPUT,STATUS='UNKNOWN')
 *
@@ -88,13 +88,13 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       WRITE(0,*) 'Name of Final State'
       READ (5,'(A)') NAME(2)
       Do 12 I = 1,2
-    	 J = INDEX(NAME(I),' ')
-    	 IF (J .NE. 0) THEN
-    		NAME(I) = NAME(I)(1:J-1)//'.c'
-    	 ELSE
-    		WRITE(0,*) ' Names may not start with blanks'
-    		GO TO 11
-		 END IF
+         J = INDEX(NAME(I),' ')
+         IF (J .NE. 0) THEN
+                NAME(I) = NAME(I)(1:J-1)//'.c'
+         ELSE
+                WRITE(0,*) ' Names may not start with blanks'
+                GO TO 11
+                 END IF
 12    Continue
       CALL CFGIN2(MCFG,KCFG,.FALSE.,NAME)
       CALL ORTH
@@ -182,7 +182,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	C N D E N S
+*       C N D E N S
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CNDENS(I1L)
@@ -263,7 +263,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	M A T C H
+*       M A T C H
 *     ------------------------------------------------------------------
 *
       INTEGER FUNCTION MATCH(IA, IB, IC, ID)
@@ -434,7 +434,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	N O R T B P
+*       N O R T B P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE NORTBP(JA,JB)
@@ -525,7 +525,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	N S C R A P
+*       N S C R A P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE NSCRAP(IX,IRS,IR1)
@@ -545,7 +545,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	P I K U P 1
+*       P I K U P 1
 *     ------------------------------------------------------------------
 *
       SUBROUTINE PIKUP1(IX,IRS,MU,NU,IR1,IR2,IC1,IC2)
@@ -572,7 +572,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	P I K U P 2
+*       P I K U P 2
 *     ------------------------------------------------------------------
 *
       SUBROUTINE PIKUP2(IX,IRS,IR1,IMU,IR2,IC2)
@@ -594,7 +594,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	P R N T M L
+*       P R N T M L
 *     ------------------------------------------------------------------
 *
       SUBROUTINE PRNTML(IRHO,ISIG,VSHELL,VSHEL2)
@@ -672,7 +672,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	B L O C K    D A T A
+*       B L O C K    D A T A
 *     ------------------------------------------------------------------
 *
       BLOCK DATA RCONST
@@ -695,7 +695,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	S C R A P
+*       S C R A P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SCRAP(IX,IRS,IR1)
@@ -717,7 +717,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	S E T U P
+*       S E T U P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE SETUP(JA,JB)
@@ -877,15 +877,15 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
 *     SINCE WE COUPLE THE SHELL TO A DUMMY SINGLET S.
 *
          IF(IC .LE.1) THEN
-	    I2 = 1
+            I2 = 1
          ELSE
-	    I2 = NOCCSH(JC)+IC-1
+            I2 = NOCCSH(JC)+IC-1
          END IF
          JD = J1QNRD(I2,JC)
          IF (IC .LE. 1) THEN
-	    J1QN(I2HSH,1,I) = 0
+            J1QN(I2HSH,1,I) = 0
          ELSE
-	    J1QN(I2HSH,1,I) = MOD(JD,64)
+            J1QN(I2HSH,1,I) = MOD(JD,64)
          END IF
          JD = JD/64
          J1QN(I2HSH,2,I) = MOD(JD, 64)
@@ -914,7 +914,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       END
 *
 *     ------------------------------------------------------------------
-*	T E N S O R
+*       T E N S O R
 *     ------------------------------------------------------------------
 *
       SUBROUTINE TENSOR(KA,KB,ISPIN,IRHO,ISIG)
@@ -1612,7 +1612,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
       IF(JBAR(NU,KK).NE.JPBAR(NUP,KK)) GO TO 79
   937 CONTINUE
    77 DO 78 I = 1,NJ1S
-	FREE(I) = .FALSE.
+        FREE(I) = .FALSE.
    78 CONTINUE
       CALL NJGRAF(RECUP,FAIL)
       GO TO 81
@@ -1640,7 +1640,7 @@ CDBG  WRITE(IWRITE,8) IBUG3,NBUG6
 *     EVALUATE ORBITAL AND SPIN RECOUPLING COEFFICIENTS
 *
       DO 500 I = 1,NJ1S
-	 FREE(I) = .FALSE.
+         FREE(I) = .FALSE.
   500 CONTINUE
 *
       CALL NJGRAF(RECUP,FAIL)

@@ -1,5 +1,5 @@
 *     ------------------------------------------------------------------
-*		CONTINUUM PROGRAM
+*               CONTINUUM PROGRAM
 *
 *       Written by :  Charlotte Froese Fischer
 *                     Department of Computer Science
@@ -62,17 +62,17 @@
       REAL times(2),rtime,dtime
 *
 *  ***** Define unit numbers and open files *********************
-*								*
-*	 UNIT NUMBERS AND FILE NAMES MAY BE MACHINE		*
-*	 DEPENDENT. CHECK THE FOLLOWING SECTION. 		*
-*								*
-*	 IN - Standard input unit, normally the terminal	*
-*	 OUT- Standard output unit, normally the terminal	*
-*	 PRI- Printer output unit or file.			*
-*								*
-	IN = 5
-	OUT = 6
-	PRI = 3
+*                                                               *
+*        UNIT NUMBERS AND FILE NAMES MAY BE MACHINE             *
+*        DEPENDENT. CHECK THE FOLLOWING SECTION.                *
+*                                                               *
+*        IN - Standard input unit, normally the terminal        *
+*        OUT- Standard output unit, normally the terminal       *
+*        PRI- Printer output unit or file.                      *
+*                                                               *
+        IN = 5
+        OUT = 6
+        PRI = 3
 *
 *  *****  WRITE OUT HEADER
 *
@@ -91,9 +91,9 @@
 *
       CALL INITA
       CALL INITR
-*								*
+*                                                               *
 *  ***** IN THE OPEN STATEMENTS CHECK FOR VALID FILE NAMES ******
-*								*
+*                                                               *
 1     WRITE(ERR,'(//A/A//)') ' START OF CASE',' ============='
       DO 37 J = 1,7
          IOU(J) = 0
@@ -134,13 +134,13 @@
 *      The following is a non-standard procedure for timing a
 *     calculation.  It may be deleted or replaced.
 *
-*	  RTIME = DTIME(TIMES)
+*         RTIME = DTIME(TIMES)
 *
       FAIL = .FALSE.
       DO 4 I=1,(30)
       DPM(I) = D10
       IEPTR(I) = 0
-     
+
 4     CONTINUE
       DO 5 I = 1,(98)
          IJE(I) = 0
@@ -148,7 +148,7 @@
 *
 *  *****  DETERMINE DATA ABOUT THE PROBLEM
 *
-	iend= - 1
+        iend= - 1
 
       CALL CDATA(Etarget,nort,ELORT,iend)
 
@@ -188,18 +188,18 @@
 2     FORMAT(/L3,2D6.1,2I3,F3.1,I3,L3)
 *
 *
-11	ekk = e(nwf,nwf)
-	if( ekk .ge. d0 ) goto 7
+11      ekk = e(nwf,nwf)
+        if( ekk .ge. d0 ) goto 7
       WRITE(OUT,'(//A,F15.7/)') ' *** CALCULATIONS FOR k^2 =',-EKK
       WRITE(ERR,'(//A,F15.7/)') ' *** CALCULATIONS FOR k^2 =',-EKK
 
-	call  CSCF(Etarget,EKK,ACFG,SCFTOL,PRINT,nort,elort,iend)
+        call  CSCF(Etarget,EKK,ACFG,SCFTOL,PRINT,nort,elort,iend)
         CALL CDATA(Etarget,nort,ELORT,iend)
 
-	if( iend .le. 0 ) goto 11
-22	WRITE(ERR,'(//A)') ' continue for other energies? '
+        if( iend .le. 0 ) goto 11
+22      WRITE(ERR,'(//A)') ' continue for other energies? '
          READ(IN,'(A)') ANS
-         IF (ANS .ne. 'Y' .and. ANS .ne. 'y') goto 6 
+         IF (ANS .ne. 'Y' .and. ANS .ne. 'y') goto 6
 
 *     Determine the range of values for K*K
 *
@@ -224,7 +224,7 @@
 *  *****  DETERMINE END OF CASE
 *
 6     CONTINUE
-*    
+*
 *     ON systems where dtime is implemented, these are useful
 *     RTIME = DTIME(TIMES)
 *     WRITE(ERR,'(//A/A//A/3F12.3//)') ' END OF CASE',' ===========',
@@ -278,18 +278,18 @@
 
       if( nend .eq. -1 ) goto 5
 cxi
-cxi	read configuration weight for another continuum orbital energy
+cxi     read configuration weight for another continuum orbital energy
 cxi
 
-	nend = 0
-	read(IUC,'(A)', end=99) string
-	read(IUC,'(A)', end=99) string
-	do 77 nc = 1, ncfg
-	read(IUC,'(A40,F10.8)', end=99) string, WT(NC)
-	read(IUC,'(A)', end=99) string
-77	continue
-	read(IUC,'(A)', end=99) string
-	goto 28
+        nend = 0
+        read(IUC,'(A)', end=99) string
+        read(IUC,'(A)', end=99) string
+        do 77 nc = 1, ncfg
+        read(IUC,'(A40,F10.8)', end=99) string, WT(NC)
+        read(IUC,'(A)', end=99) string
+77      continue
+        read(IUC,'(A)', end=99) string
+        goto 28
 
 *
 *  *****  First time to enter CDATA,  READ 'ATOM' CARD
@@ -318,7 +318,7 @@ cxi
  3    READ(IUC,'(A40,F10.8)',END=10) STRING,W
       IF (STRING(1:1) .NE. '*' .AND. STRING(1:3) .NE. '   ') THEN
          NCFG = NCFG+1
-	if( w .eq. 0.d0 ) w = 1.d0
+        if( w .eq. 0.d0 ) w = 1.d0
          IF (NCFG .LE. (NCD) ) THEN
             CONFIG(NCFG) = STRING
             WT(NCFG) = W
@@ -329,7 +329,7 @@ cxi
          END IF
       END IF
 10    CONTINUE
-	  ID = -1
+          ID = -1
 *
 *  *****  DETERMINE NCLOSD SHELLS
 *
@@ -349,7 +349,7 @@ cxi
          METH(I) = 1
          ACC(I) = D0
          IND(I) = 0
-	 SUM(I) = 4*L(I)+2
+         SUM(I) = 4*L(I)+2
          IF (IUF .NE. 0)  IND(I) = -1
          IF( I .LT. 18) GO TO 12
          STOP ' TOO MANY CLOSED SHELLS: MAX = 18'
@@ -385,9 +385,9 @@ cxi
                EL(MAXORB) = EL1
                IF ((EL1(1:1) .EQ. 'k' .OR. EL1(2:2) .EQ. 'k' .OR.
      :            EL1(1:1) .EQ. 'n' .OR. EL1(2:2) .EQ. 'n') ) then
-               		korb = k
-			if( ID .EQ. -1) ID = NC-1
-		endif
+                        korb = k
+                        if( ID .EQ. -1) ID = NC-1
+                endif
 
             END IF
             J = J+8
@@ -396,24 +396,24 @@ cxi
          NOCCSH(NC) = I
 
    15 CONTINUE
-	  IF (ID .EQ. -1) THEN
-	    WRITE(ERR,*) ' STOP in DATA: No continuume function found'
-	     CALL EXIT(1)
-	  END IF
+          IF (ID .EQ. -1) THEN
+            WRITE(ERR,*) ' STOP in DATA: No continuume function found'
+             CALL EXIT(1)
+          END IF
 *
 *  *****  The list of electrons has been determined
 *
       NWF = MAXORB
 cxi
-cxi	move the continuum orbital to the last
+cxi     move the continuum orbital to the last
 cxi
-	if( korb .ne. nwf ) then
-	  el1 = el(korb)
-	  do 82 j=korb,nwf-1
-	  el(j) = el(j+1)
-82	  continue
-	  el(nwf) = el1
-	endif
+        if( korb .ne. nwf ) then
+          el1 = el(korb)
+          do 82 j=korb,nwf-1
+          el(j) = el(j+1)
+82        continue
+          el(nwf) = el1
+        endif
 
       WRITE(ERR,19) MAXORB,(EL(J),J=1,MAXORB)
    19 FORMAT(/' There are ',I3,' orbitals as follows:'/(1X,18(1X,A3)))
@@ -467,28 +467,28 @@ cxi
       IB = NWF - NIT + 1
       WRITE(ERR,'(/,A)') ' Default electron parameters ? (Y/N) '
       READ '(A)', ANS
-      IF ( ANS.NE.'Y' .AND. ANS.NE.'y' .AND. NIT.NE.0) then 
-	WRITE(ERR,*)
+      IF ( ANS.NE.'Y' .AND. ANS.NE.'y' .AND. NIT.NE.0) then
+        WRITE(ERR,*)
      :   ' S, IND, METH, ACC for electrons to be varied (free-format)'
       ENDIF
 
       DO 20 I = NCLOSD+1,NWF
-     	 IF (ANS.EQ.'Y' .OR. ANS.EQ.'y' .OR. I.LT.IB) THEN
-	   S(I) = SS
-	   METH(I) = 3
-	   ACC(I) = D0
-	   IND(I) = 0
-	   IF (IUF .NE. 0) IND(I) = -1
+         IF (ANS.EQ.'Y' .OR. ANS.EQ.'y' .OR. I.LT.IB) THEN
+           S(I) = SS
+           METH(I) = 3
+           ACC(I) = D0
+           IND(I) = 0
+           IF (IUF .NE. 0) IND(I) = -1
          ELSE
             WRITE(ERR,*) EL(I)
             READ(IN,*) S(I),IND(I),METH(I),ACC(I)
-    	 END IF
+         END IF
          VARIED(I) = .TRUE.
          J = 2
          IF (EL(I)(1:1) .EQ. ' ') J = 3
          L(I) = LVAL(EL(I)(J:J))
          N(I) = ICHAR(EL(I)(J-1:J-1)) - ICHAR('1') + 1
-	 IF (EL(I)(J-1:J-1) .EQ. 'n') METH(I) = 5
+         IF (EL(I)(J-1:J-1) .EQ. 'n') METH(I) = 5
  20   CONTINUE
 *
 *  *****  CHECK METHOD AND SET ORTHOGONALITY
@@ -505,7 +505,7 @@ cxi
           AZ(NWF) = D1
           MAX(NWF) = NO
       END IF
-	DO 35 NC = 1,NCFG
+        DO 35 NC = 1,NCFG
          STRING = CONFIG(NC)
          J = 2
          I = 0
@@ -529,8 +529,8 @@ cxi
                J2 = IELI(I2)
                IF (L(J1) .EQ. L(J2) ) THEN
                     CALL EIJSET(J1,J2,1.D-5)
-		    CALL EIJSET(J2,J1,1.D-5)
-	 	 END IF
+                    CALL EIJSET(J2,J1,1.D-5)
+                 END IF
    33       CONTINUE
    34    CONTINUE
    35 CONTINUE
@@ -546,10 +546,10 @@ cxi
       DO 38 I = 2,NWF
          DO 39 J = 1,I-1
             IF (L(I) .EQ. L(J) .AND. SETORT(EL(I),EL(J)) ) THEN
-		C = 1.D-5
-		IF (I.LE.NCLOSD .AND. J.LE.NCLOSD) C = 1.D-10
-	        CALL EIJSET(I,J,C)
-		CALL EIJSET(J,I,C)
+                C = 1.D-5
+                IF (I.LE.NCLOSD .AND. J.LE.NCLOSD) C = 1.D-10
+                CALL EIJSET(I,J,C)
+                CALL EIJSET(J,I,C)
             END IF
    39    CONTINUE
    38  CONTINUE
@@ -557,18 +557,18 @@ cxi
 *  *****  DETERMINE ADDITIONAL ORTHOGONALITY PAIRS
 *
       if( nend .eq. 0 ) then
-	do 87 i = 1, NORT
-	    EL1 = ELORT(I,1)
-    	    EL2 = ELORT(I,2)
-	    CALL EPTR(EL,EL1,I1,*99)
+        do 87 i = 1, NORT
+            EL1 = ELORT(I,1)
+            EL2 = ELORT(I,2)
+            CALL EPTR(EL,EL1,I1,*99)
             CALL EPTR(EL,EL2,I2,*99)
-	    CALL EIJSET(I1,I2,1.D-5)
-	    CALL EIJSET(I2,I1,1.D-5)
-87	continue
-	goto 66
+            CALL EIJSET(I1,I2,1.D-5)
+            CALL EIJSET(I2,I1,1.D-5)
+87      continue
+        goto 66
       endif
 
-      I = 0 
+      I = 0
       IF ( IUC .NE. IN) THEN
    40    READ(IUC,1,END=50) EL1,EL2
 
@@ -581,8 +581,8 @@ cxi
 
             CALL EPTR(EL,EL1,I1,*99)
             CALL EPTR(EL,EL2,I2,*99)
-	    CALL EIJSET(I1,I2,1.D-5)
-	    CALL EIJSET(I2,I1,1.D-5)
+            CALL EIJSET(I1,I2,1.D-5)
+            CALL EIJSET(I2,I1,1.D-5)
 
             GO TO 40
          END IF
@@ -639,44 +639,44 @@ cxi
 *
 *  *****  INITIALIZE ARRAYS, IF NECESSARY
 *
-	if( nend .eq. 0 ) then
-cxi	
-cxi	keep core and target orbitals unchanged
+        if( nend .eq. 0 ) then
 cxi
-	   do 83 i = 1, nwf 
-	     if( i .lt. ib ) then
-         	   ind(I) = 1
-	     else
-		   ind(i) = - 1
-	     endif
-83	  continue
-	endif
+cxi     keep core and target orbitals unchanged
+cxi
+           do 83 i = 1, nwf
+             if( i .lt. ib ) then
+                   ind(I) = 1
+             else
+                   ind(i) = - 1
+             endif
+83        continue
+        endif
 
       CALL WAVEFN(nend)
 
       if( nend .ne. -1 ) return
 
       DO 100 I=1,6
-	 INTPTR(I) = 0
+         INTPTR(I) = 0
 100   CONTINUE
 *
       IF (IUD .NE. IN) CALL INTGRL
 *
 *  *****  DEFINE SUM(I)
 *
-	IBEGIN = INTPTR(5)+1
-	IEND = INTPTR(6)
-	DO 80 I = IBEGIN,IEND
-	   IF (IEL(I,1).EQ.IEL(I,2)) SUM(IEL(I,1)) = -2*COEF(I)
- 80	CONTINUE
+        IBEGIN = INTPTR(5)+1
+        IEND = INTPTR(6)
+        DO 80 I = IBEGIN,IEND
+           IF (IEL(I,1).EQ.IEL(I,2)) SUM(IEL(I,1)) = -2*COEF(I)
+ 80     CONTINUE
 
 *
       RETURN
 99    if( nend .eq. -1 ) then
-	STOP
+        STOP
       else
-	nend = 1
-	return
+        nend = 1
+        return
       endif
       END
 *
@@ -788,7 +788,7 @@ cxi
 24     P(J,I) = D0
 *
 *  *****  CHECK THE ORTHOGONALIZATION
-* 
+*
 26    NN = NWF
       IF (OMIT) NN = IB - 1
       IBEGIN = 1
@@ -1183,12 +1183,12 @@ cxi
 *       C N M R V
 *     ------------------------------------------------------------------
 *
-* 	CNMRV Solves the differential equation
+*       CNMRV Solves the differential equation
 *
 *               y" = FK y + X
-*	
-*	In two different regions - inner (1,NJ+1) and outer (NJ+2,M) - by
-*	outwards integration.
+*
+*       In two different regions - inner (1,NJ+1) and outer (NJ+2,M) - by
+*       outwards integration.
 *
 *
       SUBROUTINE CNMRV(NJ,M,M0,AZZ,FK,X,FH,XH,PH,PDE)
@@ -1198,10 +1198,10 @@ cxi
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :  ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
 c
-c	starting from JH=5, JH corresponding to J=NJ+2, 
-c	two points each J, JH=2*(J-NJ) + 1
-c	R(J) --> rh(JH)
-cxi	comment by Jinhua Xi
+c       starting from JH=5, JH corresponding to J=NJ+2,
+c       two points each J, JH=2*(J-NJ) + 1
+c       R(J) --> rh(JH)
+cxi     comment by Jinhua Xi
 
 *
 *
@@ -1254,7 +1254,7 @@ cxi	comment by Jinhua Xi
         DO 22 K = 1,2
           G3 = FH(JH)
           Y3 = (Y2+Y2-Y1 + (D10*G2*Y2 + G1*Y1) + XH(JH-1)) / (D1 - G3)
-	  ph(jh) = y3
+          ph(jh) = y3
           Y1 = Y2
           Y2 = Y3
           G1 = G2
@@ -1266,27 +1266,27 @@ cxi	comment by Jinhua Xi
       END
 *
 *     ------------------------------------------------------------------
-*       		C O U L O M
+*                       C O U L O M
 *     ------------------------------------------------------------------
 *
-*	This subroutine handles three different tasks:
+*       This subroutine handles three different tasks:
 *
-*	  1) Computes and stores the FK function;
+*         1) Computes and stores the FK function;
 *
-* 	  	FK(r) =[-2(Z-YR(r))*r + (l+.5)**2 + (k*r)**2]CH
+*               FK(r) =[-2(Z-YR(r))*r + (l+.5)**2 + (k*r)**2]CH
 *
-*	     It will remain constant for the rest of the calculations.
+*            It will remain constant for the rest of the calculations.
 *
-*	  2) Determines the onset of the asymptotic, Coulomb region, as
-*	     the classical turning point, R(NJ).
+*         2) Determines the onset of the asymptotic, Coulomb region, as
+*            the classical turning point, R(NJ).
 *
 *         3) Determines the point, R(MP)>R(NJ), outside which the potential
 *            could be described as Zeff/r, ie the change in YR is negligible.
 *
-*	  4) Interpolates FK, to obtain and store FH, in the asymptotic
-*	     region. (That is between R(NJ) and R(MM), where MM =
-*	     MIN(NO-2,NJ+99)) The FK functions is determined in the normal
-*	     grid points, while the FH is defined for Half the stepsize.
+*         4) Interpolates FK, to obtain and store FH, in the asymptotic
+*            region. (That is between R(NJ) and R(MM), where MM =
+*            MIN(NO-2,NJ+99)) The FK functions is determined in the normal
+*            grid points, while the FH is defined for Half the stepsize.
 *
       SUBROUTINE COULOM(I,EKK)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -1322,7 +1322,7 @@ cxi	comment by Jinhua Xi
 *
 *        1) Compute the direct function, FK.
 *
-	NJM=0
+        NJM=0
       DO 4 J = 1,M
 
       if( dabs( yrno-yr(j) ) .lt. 1.d-7 .and. NJM .eq. 0 ) NJM=J
@@ -1536,23 +1536,23 @@ cxi      DO 3 I = NCLOSD+1,NWF
 
 
 cxi================================================================
-cxi	Nstart is the first orbital position to be written to wfn.out.
-cxi	We need only to write the target orbitals once for the 
-cxi	first continuum orbitel energy.
-cxi	BUT if so, we need to modify PHOTO, PHOTO reads all target
-cxi	and channel orbitals for each energy
+cxi     Nstart is the first orbital position to be written to wfn.out.
+cxi     We need only to write the target orbitals once for the
+cxi     first continuum orbitel energy.
+cxi     BUT if so, we need to modify PHOTO, PHOTO reads all target
+cxi     and channel orbitals for each energy
 cxi
-cxi	IF you want to use wfn.out as wfn.inp again, then you need
-cxi	to set Nstart = 1 when nend = - 1
+cxi     IF you want to use wfn.out as wfn.inp again, then you need
+cxi     to set Nstart = 1 when nend = - 1
 cxi
-	Nstart = IB 
-	if( nend .eq. -1 )  Nstart = 1
+        Nstart = IB
+        if( nend .eq. -1 )  Nstart = 1
 cxi
 cxi===============================================================
-cxi	
-cxi	Nstart = NCLOSD + 1    !!! PHOTO requires so
+cxi
+cxi     Nstart = NCLOSD + 1    !!! PHOTO requires so
 
-	PI = dacos(-1.d0)
+        PI = dacos(-1.d0)
       ETOTAL = Etarget - D5*EKK
       TOL = DSQRT(Z)*1.D-5
       Z2 = SCFTOL
@@ -1634,7 +1634,7 @@ cxi	Nstart = NCLOSD + 1    !!! PHOTO requires so
 6     CALL ORTHOG
       CALL CUPDATE
       PCONV = DPM(NWF) .LE. Z2 .and. DP1 .LE. Z2
-12    IF (.NOT. (NCFG .EQ. 1 .OR. ID.EQ.0)) 
+12    IF (.NOT. (NCFG .EQ. 1 .OR. ID.EQ.0))
      :   CALL CDIAG(ETOTAL,ACFG,PCONV)
       IF (PCONV) GO TO 17
 *
@@ -1659,20 +1659,20 @@ cxi	Nstart = NCLOSD + 1    !!! PHOTO requires so
          WRITE(OUC,46) ATOM,TERM,Etarget,ETOTAL,delta,-EKK
 46       FORMAT(3X,2A6,4F14.7)
          WRITE(OUC,'(18(1X,A3))') (EL(J),J=1,NCLOSD)
-cxi	
-cxi	get the sum of wt^2
 cxi
-	 wtol=0.d0
+cxi     get the sum of wt^2
+cxi
+         wtol=0.d0
          DO 47 J = 1,NCFG
 
-	 if( j .le. id ) wtol = wtol + wt(j)*wt(j)
+         if( j .le. id ) wtol = wtol + wt(j)*wt(j)
 cxi==========================================================
-cxi	these two lines are used to confine the data for output
-cxi	you can comment out these two lines, and modify the 
-cxi	format statement 648 .
+cxi     these two lines are used to confine the data for output
+cxi     you can comment out these two lines, and modify the
+cxi     format statement 648 .
 cxi
-	if( wt(j) .gt. 999.999999 ) wt(j) = 999.999999
-	if( wt(j) .lt. -99.999999 ) wt(j) = -99.999999
+        if( wt(j) .gt. 999.999999 ) wt(j) = 999.999999
+        if( wt(j) .lt. -99.999999 ) wt(j) = -99.999999
 cxi===========================================================
 
          WRITE(3,648) J,CONFIG(J),WT(J),(COUPLE(J,JJ),JJ=1,9)
@@ -1683,19 +1683,19 @@ cxi===========================================================
 
 
       if( nend .eq. -1 ) then
-	nend = 0
+        nend = 0
 cxi
 cxi==========================================================
 cxi
-cxi	if you include the following lines, the output file
-cxi	cfg.out can be used as input file cfg.inp again, 
+cxi     if you include the following lines, the output file
+cxi     cfg.out can be used as input file cfg.inp again,
 cxi
-cxi	The PHOTO program has been modified to fit this 
-cxi	format requirement
+cxi     The PHOTO program has been modified to fit this
+cxi     format requirement
 cxi
-	do 55 j=1,nort
-	write(OUC,'(1x,A3,1x,A3)' ) ELORT(j,1),ELORT(J,2)
-55	continue	
+        do 55 j=1,nort
+        write(OUC,'(1x,A3,1x,A3)' ) ELORT(j,1),ELORT(J,2)
+55      continue
          WRITE (OUC,'(A)') '****'
 cxi==========================================================
 cxi
@@ -1709,10 +1709,10 @@ cxi
 105   FORMAT(//10X,'NUMBER OF FUNCTIONS ITERATED          =',I6/
      1         10X,'MAXIMUM WEIGHTED CHANGE IN FUNCTIONS  =',D10.2)
 cxi
-cxi	save useful informations seperately, in file phase.out
-cxi	unit = 31
+cxi     save useful informations seperately, in file phase.out
+cxi     unit = 31
 cxi
-	write(31,'(F10.6,F13.7,2F12.6)') 
+        write(31,'(F10.6,F13.7,2F12.6)')
      :           -sngl(ekk),sngl(wtol),sngl(delta),sngl(delta/pi)
 
       RETURN
@@ -1725,31 +1725,31 @@ cxi
 *       CSOLVE performs the following tasks:
 *
 *         1) Computes the Exchange function, X(r), by calling CXCH.
-*	  2) Redefines the outer region;
+*         2) Redefines the outer region;
 *            * Initialization stage (IX = 0) - first call:
-*	       reduce outer region (MAX(NWF) -> M) if step size is too
+*              reduce outer region (MAX(NWF) -> M) if step size is too
 *              big (R(I) - R(I-1) > 2/K) and where NJ <= M <= MAX(NWF).
 *              M-NJ is also, by dimensions, bound to be less than 130.
 *            * During SCF-cycle (IX = 1):
-*              find MJ; MP < MJ < M and 
-*			X(r)/FK(r) < 0.0025 if R > R(MJ).
-*              This will be used to calculate phase shift. If MJ = M 
+*              find MJ; MP < MJ < M and
+*                       X(r)/FK(r) < 0.0025 if R > R(MJ).
+*              This will be used to calculate phase shift. If MJ = M
 *              the X function might be truncated -> warning.
-*	  3) Interpolates X(r) to XH(r), for half the step size, in 
+*         3) Interpolates X(r) to XH(r), for half the step size, in
 *            the azymptotic region; r(NJ) <= r <= r(M).
-*	  4) Prepares for the Numerov method of solving the 
-*	     differential equation, both in azymptotic and inner region.
-*	  5) Solves the differential equation, by calling CNMRV.
-*	  6) Calculates the phase shift and renormalization, by using
-*	     regular, FC, and irregular, GC, Coulomb functions, as
-*	     obtained from RCWFN. Renormalizes the continuumfunction.
-*	  7) Orthogonalize the continuum function.
-*	The following subroutines are called in the different
-*	steps:
-*	  1) CXCH
-*	  5) CNMRV
-*	  6) FGCOUL 
-*	
+*         4) Prepares for the Numerov method of solving the
+*            differential equation, both in azymptotic and inner region.
+*         5) Solves the differential equation, by calling CNMRV.
+*         6) Calculates the phase shift and renormalization, by using
+*            regular, FC, and irregular, GC, Coulomb functions, as
+*            obtained from RCWFN. Renormalizes the continuumfunction.
+*         7) Orthogonalize the continuum function.
+*       The following subroutines are called in the different
+*       steps:
+*         1) CXCH
+*         5) CNMRV
+*         6) FGCOUL
+*
 *
       SUBROUTINE CSOLVE(I,DELTA)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -1808,11 +1808,11 @@ CORRECTION: ??
           IF (M .GT. MP) GO TO 5
         END IF
         IF (M .LT. MAX(NWF)) THEN
-	  WRITE(OUT,*) 'Outer region reduced by ',MAX(NWF)-M,'points',
+          WRITE(OUT,*) 'Outer region reduced by ',MAX(NWF)-M,'points',
      :                 ' in CSOLVE. '
-	END IF
+        END IF
         MJ = M
-	print *, ' End of range: ', r(m), ' au.'
+        print *, ' End of range: ', r(m), ' au.'
       ELSE
 2       IF (ABS(X(MJ)/FK(MJ)) .LT. 0.0025) THEN
           MJ = MJ-1
@@ -1827,7 +1827,7 @@ CORRECTION: ??
       IF (MJ .EQ. M .AND. IX.NE.0) THEN
         WRITE(OUT,'(/1X,A,I4)')
      :       'WARNING: Outer region may be truncated. M = MJ =',M
-	WRITE(OUT,'(A)') 
+        WRITE(OUT,'(A)')
      :       '          Exchange function not small at M!'
       ELSE
         IX = 1
@@ -1840,11 +1840,11 @@ CORRECTION: ??
       JH = 1
       DO 3 J = NJ,M
         XH(JH) = X(J)
-	rh(jh) = r(j)
-	r2h(jh) = r2(j)
+        rh(jh) = r(j)
+        r2h(jh) = r2(j)
         XH(JH+1) = (9.*(X(J)+X(J+1)) -X(J-1)-X(J+2))/D16
-	rh(jh+1) = r(j)*ehh
-	r2h(jh+1) = r2(j)*e2hh
+        rh(jh+1) = r(j)*ehh
+        r2h(jh+1) = r2(j)*e2hh
         JH = JH + 2
 3     CONTINUE
 *
@@ -1909,27 +1909,27 @@ CORRECTION: ??
 
       PDE(1) = PDE(1) + XY/(D2*CC)
       PDE(2) = PDE(2) + XP/(D2*CC)
-	
+
 *
 *  *****  Solve the differential equation.
-* 
+*
       CALL CNMRV(NJ,M,1,AZ(I),FK,X,FH,XH,PH,PDE)
 
        CALL FGCOUL(I,M,CN,DELTA)
 
 cxi
-cxi	note: the sign of the overlop depends on cn, 
-cxi	because we need to adjust the off-diagonal parameters
-cxi	repeatedly to find a zero overlap, we can not change the sign of
-cxi	the wavefunction
-cxi	so, save the sign in cnn
+cxi     note: the sign of the overlop depends on cn,
+cxi     because we need to adjust the off-diagonal parameters
+cxi     repeatedly to find a zero overlap, we can not change the sign of
+cxi     the wavefunction
+cxi     so, save the sign in cnn
 cxi
        if( cn .lt. 0.d0 ) then
-	  cnn = -1.d0
-	  cn = - cn
-	else
-	  cnn = 1.d0
-	endif
+          cnn = -1.d0
+          cn = - cn
+        else
+          cnn = 1.d0
+        endif
 
 *
 * ***** Renormalise.
@@ -1945,8 +1945,8 @@ cxi
 13    CONTINUE
       AZ(I) = (1.d0 - acc(i))*AZ(i) + acc(i)*AZD
 cxi
-cxi	if the acc(i) is used, the wavefunction needs to be
-cxi	re-normalized
+cxi     if the acc(i) is used, the wavefunction needs to be
+cxi     re-normalized
 cxi
       MAX(I) = M
 *
@@ -1959,7 +1959,7 @@ cxi
 cxi
 cxi the first orthogonal requirements, use new approach
 cxi
-	if( e(i,ji) .eq. 0.d0  .or. dabs(cc) .lt. 1.d-7) goto 65 
+        if( e(i,ji) .eq. 0.d0  .or. dabs(cc) .lt. 1.d-7) goto 65
 
         AZ(I) = AZ(I) - CC*AZ(JI)
         DO 51 J = 1,M
@@ -1969,15 +1969,15 @@ cxi
 65        WRITE(OUT,63) EL(JI),EL(I),CC
 63      FORMAT(6X,'<',A3,'|',A3,'>=',1PD8.1 )
 c
-cxi	re-normalize the wavefunction
+cxi     re-normalize the wavefunction
 cxi
-	cnn= cnn*pde(M)/P(M,i)
-	Az(i) = cnn*Az(i)
-	do 52 j = 1,m
-	    p(j,i) = cnn*p(j,i)
+        cnn= cnn*pde(M)/P(M,i)
+        Az(i) = cnn*Az(i)
+        do 52 j = 1,m
+            p(j,i) = cnn*p(j,i)
 52      continue
 cxi
-cxi	normalize the off diagonal parameters
+cxi     normalize the off diagonal parameters
 cxi
         IP = IP+1
         IF (IP .LE. IEPTR(I)) GO TO 50
@@ -1990,7 +1990,7 @@ cxi
       DPM(I) = DP
       WRITE(OUT,17) EL(I),DELTA,AZ(I),CN,'c',DP
 17    FORMAT(20X,A3,2F15.7,F12.7,A2,1PD10.2)
-      return	
+      return
       END
 
 
@@ -2154,14 +2154,14 @@ C
 *        Omit if one of the orbitals is a continuum orbital.
 *        Value(i) should remain zero in this case
 *
-	 IF (IEL(I,1) .EQ. NWF .OR. IEL(I,2) .EQ. NWF) GO TO 1
+         IF (IEL(I,1) .EQ. NWF .OR. IEL(I,2) .EQ. NWF) GO TO 1
          IF (VARIED(IEL(I,1)) .OR. VARIED(IEL(I,2))) THEN
             IF (I .LE. INTPTR(1)) THEN
-	         VALUE(I) = FK(IEL(I,1),IEL(I,2),KVAL(I),REL)
+                 VALUE(I) = FK(IEL(I,1),IEL(I,2),KVAL(I),REL)
               ELSE IF (I .LE. INTPTR(2)) THEN
-      		 VALUE(I) = GK(IEL(I,1),IEL(I,2),KVAL(I),REL)
+                 VALUE(I) = GK(IEL(I,1),IEL(I,2),KVAL(I),REL)
             ELSE
-       		 VALUE(I) = QUADR(IEL(I,1),IEL(I,2),0)**KVAL(I)
+                 VALUE(I) = QUADR(IEL(I,1),IEL(I,2),0)**KVAL(I)
             END IF
          END IF
   1   CONTINUE
@@ -2194,7 +2194,7 @@ C
       IBEGIN = IEND + 1
       IEND = INTPTR(6)
       DO 20 I = IBEGIN,IEND
-	 IF (IEL(I,1) .EQ. NWF .OR. IEL(I,2) .EQ. NWF) GO TO 20
+         IF (IEL(I,1) .EQ. NWF .OR. IEL(I,2) .EQ. NWF) GO TO 20
          IF (VARIED(IEL(I,1)) .OR. VARIED(IEL(I,2)))
      :                VALUE(I) = HLC(EL,IEL(I,1),IEL(I,2),REL)
  20   CONTINUE
@@ -2212,7 +2212,7 @@ C
  40   CONTINUE
 *      print *, ' Values of Integrals'
 *      do 100 i = 1, intptr(6)
-*	print *, i, (iel(i,j),j=1,4), value(i)
+*       print *, i, (iel(i,j),j=1,4), value(i)
 *100   continue
 *      print *, ' Value of EC =', ec
       END
@@ -2395,7 +2395,7 @@ C
 * *****  IP is the location in which EIJ should be stored
 *        Move other data
 *
-     
+
       DO 40 JJ = (98)-1,IP,-1
          IJE(JJ+1) = IJE(JJ)
          EIJ(JJ+1) = EIJ(JJ)
@@ -2698,7 +2698,7 @@ C
 *
       INTEGER IN,OUT,ERR,PRI,OUC,OUD,OUF,OUH
       COMMON /INOUT/ IN,OUT,ERR,PRI,IUC,IUD,IUF,OUC,OUD,OUF,OUH
-*    
+*
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
 *
@@ -2839,7 +2839,7 @@ C
 *
       SUBROUTINE ORTHOG
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
       INTEGER IN,OUT,ERR,PRI,OUC,OUD,OUF,OUH
       COMMON /INOUT/ IN,OUT,ERR,PRI,IUC,IUD,IUF,OUC,OUD,OUF,OUH
@@ -2853,31 +2853,31 @@ C
         COMMON /RADIAL/R(NOD),RR(NOD),R2(NOD),P(NOD,NWD),YK(NOD),YR(NOD)
      :          ,X(NOD),AZ(NWD),L(NWD),MAX(NWD),N(NWD)
 *
-	LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
+        LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
         COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
 *
         COMMON /WAVE/EC,ED,AZD,PDE(NOD),SUM(NWD),S(NWD),DPM(NWD),
      :         ACC(NWD),METH(NWD),IEPTR(NWD),IJE(98),EIJ(98),VIJ(98),IPR
 *
-	LOGICAL DIAG
-	COMMON AC(20,20),BC(20)
+        LOGICAL DIAG
+        COMMON AC(20,20),BC(20)
 *
       IF (NWF .EQ. 1 .OR. IB .GT. NWF) RETURN
       II = MAX0(2,IB)
       DO 2 I = II,NWF
          DIAG = .TRUE.
-	 IBEGIN = IEPTR(I-1)+1
-	 IP = IBEGIN
-	 IJ = 0
- 60	 JV = IJE(IP)
-	 IF (JV .LT. I .AND. IP .LE. IEPTR(I)) THEN
-	    IJ = IJ+1
-	    IF ( IJ .GT. (NWD)) 
+         IBEGIN = IEPTR(I-1)+1
+         IP = IBEGIN
+         IJ = 0
+ 60      JV = IJE(IP)
+         IF (JV .LT. I .AND. IP .LE. IEPTR(I)) THEN
+            IJ = IJ+1
+            IF ( IJ .GT. (NWD))
      :          STOP ' TOO MANY ORTHOGONALITY CONDITIONS'
             BC(IJ) = QUADR(I,JV,0)
             AC(IJ,IJ) = D1
             DO 62 JJ = IBEGIN,IP-1
-	       IK = JJ - IBEGIN + 1
+               IK = JJ - IBEGIN + 1
                IF (E(IJE(IP),IJE(JJ)) .NE. D0 ) THEN
                   AC(IJ,IK) = D0
                   AC(IK,IJ) = D0
@@ -2887,15 +2887,15 @@ C
                   DIAG = .FALSE.
                END IF
 62          CONTINUE
-	    IP = IP+1
-	    GO TO 60
-	 END IF
+            IP = IP+1
+            GO TO 60
+         END IF
       IF ( IJ .GT. 0) THEN
          IF ( .NOT. DIAG .AND. IJ.GT.1) CALL LINEQN(20,IJ,AC,BC)
          M = MAX(I)
          AZZ = AZ(I)
-	 IP = IBEGIN
-	 CTOTAL = D0
+         IP = IBEGIN
+         CTOTAL = D0
          DO 65 JJ = 1,IJ
             C = BC(JJ)
             IF (DABS(C) .GT. 1.D-10) THEN
@@ -2906,17 +2906,17 @@ C
                   P(J,I) = P(J,I) - C*P(J,IJE(IP))
 64             CONTINUE
                AZZ = AZZ - C*AZ(IJE(IP))
-	    END IF
-	    IP = IP + 1
-	    CTOTAL = CTOTAL + ABS(C)
+            END IF
+            IP = IP + 1
+            CTOTAL = CTOTAL + ABS(C)
 65       CONTINUE
 
 
-	 IF (CTOTAL .GT. 1.D-10  ) THEN
+         IF (CTOTAL .GT. 1.D-10  ) THEN
 c
-c	only for bound orbitals
+c       only for bound orbitals
 c
-	    if( e(i,i) .gt. d0 ) then
+            if( e(i,i) .gt. d0 ) then
 
             PNN = DSQRT(QUADR(I,I,0))
             DO 66 JJ = 1,M
@@ -2930,11 +2930,11 @@ c
                   GO TO 67
             END IF
             MAX(I) = M
-	    endif
+            endif
 
             AZ(I) = AZZ
-	    VARIED(I) = .TRUE.
-	 END IF
+            VARIED(I) = .TRUE.
+         END IF
       END IF
 2     CONTINUE
       END
@@ -3052,7 +3052,7 @@ C
 *   iterated appear last in the list.
 *
         SUBROUTINE REORD(OF, ELC, NWF, IERR)
-	PARAMETER (NWD=30)
+        PARAMETER (NWD=30)
         CHARACTER*3 OF(NWD), ELC
 *
         IERR = 1
@@ -3402,14 +3402,14 @@ C
 C  *****  GENERATE ARRAYS FOR R,R*R AND SQRT(R) WITH A CONSTANT MESH
 C  *****  SIZE IN THE LOG(Z*R) VARIABLE
 C
-	if( nend .eq. -1 ) then
+        if( nend .eq. -1 ) then
       DO 1 I=1,NO
       R(I)= DEXP(RHO)/Z
       RR(I) = R(I)*R(I)
       R2(I) = DSQRT(R(I))
 1     RHO = RHO + H
       RHO = RHO - NO*H
-	endif
+        endif
 C
 C  ***** READ THE WAVEFUNCTIONS
 C
@@ -3417,10 +3417,10 @@ C
 2     READ(IUF,END=5) AT,TT,EL1,MM,ZT,ETI,EKI,AZI,(PT(J),J=1,MM)
 
 cxi
-cxi	wavefunctions for each continuum energy are ended by a line
-cxi	with MM=0
+cxi     wavefunctions for each continuum energy are ended by a line
+cxi     with MM=0
 cxi
-	if( mm .eq. 0 ) goto 5
+        if( mm .eq. 0 ) goto 5
       M = MIN0(NO,MM)
       CALL EPTR(EL,EL1,I,*2)
       IF ( I .GT. 0 .AND. IND(I) .EQ. -1) THEN
@@ -3489,8 +3489,8 @@ C
       IF (E(I,II) .EQ. D0) GO TO 6
       PN = QUADR(I,II,0)
       if (abs(pn) .gt. 1.d0) then
-	write(out,*) ' Overlap greater than unity: ', i,ii,pn
-	stop
+        write(out,*) ' Overlap greater than unity: ', i,ii,pn
+        stop
       end if
       IF ( DABS(PN) .GT. 1.D-8 ) THEN
          PNN = DSQRT(D1 - PN*PN)
@@ -3813,7 +3813,7 @@ C
         END
 *
 *     ------------------------------------------------------------------
-*      FGCOUL  
+*      FGCOUL
 *     ------------------------------------------------------------------
 *
       SUBROUTINE FGCOUL(I,M,cn,delta)
@@ -3835,10 +3835,10 @@ C
       LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
       COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
       COMMON /CONTIN/FK(NOD),FH(260),XH(260),rh(260),r2h(260),ph(260),
-     :		     CD,FL,ZL,ZF,V,NJ,MJ,MP,IX
+     :               CD,FL,ZL,ZF,V,NJ,MJ,MP,IX
       COMMON /COULFG/FKC(NOD),XC(NOD),PDC(NOD),FHC(260),PHC(260),NJM
-	dimension xhc(260)
-      data ED0,LL0 / 1.d0, -1 / 
+        dimension xhc(260)
+      data ED0,LL0 / 1.d0, -1 /
 
       PI = ACOS(-D1)
       PII = PI + PI
@@ -3847,20 +3847,20 @@ C
 
       K = SQRT(-ED)
 
-	ifirst = 0
-	if( ed .eq. ed0 .and. ll .eq. ll0 ) ifirst = 1
+        ifirst = 0
+        if( ed .eq. ed0 .and. ll .eq. ll0 ) ifirst = 1
 
-	if( ifirst .eq. 1 ) goto 10 
+        if( ifirst .eq. 1 ) goto 10
 
-	it =1 
-	  azd = d1
-	  do j=1,no
-		pdc(j)= d0
-      		xc(j)=0.d0
-	  enddo
+        it =1
+          azd = d1
+          do j=1,no
+                pdc(j)= d0
+                xc(j)=0.d0
+          enddo
 
-	  ed0 = ed
-	  ll0 = ll
+          ed0 = ed
+          ll0 = ll
 
 *
 * ***** iv) Compute starting values from series expansion
@@ -3881,16 +3881,16 @@ C
        xhc(j)=0.d0
        enddo
 
-2      CALL CNMRV(NJ,MM,1,AZD,FKC,XC,FHC,XHC,PHC,PDC) 
+2      CALL CNMRV(NJ,MM,1,AZD,FKC,XC,FHC,XHC,PHC,PDC)
 
-      if( it .eq. 3 ) goto 10 
+      if( it .eq. 3 ) goto 10
 
 *
 *
 * ***** iii) Add the deferred difference correction to the exchange
 * *****      for the outward integration region
 *
-	it = it + 1
+        it = it + 1
 
       X1 =    PDC(1)*FKC(1)
       X2 =    PDC(2)*FKC(2)
@@ -3908,7 +3908,7 @@ C
       XC(2) = R(2)**RL*(XC(5)/R(5)**RL - D3*(XC(4)/R(4)**RL -
      :     XC(3)/R(3)**RL))
 
-	goto 2
+        goto 2
 
 *
 * ***** From the Coulomb functions we calculate the phase shift and
@@ -3916,21 +3916,21 @@ C
 *
 10      H60 = 2.d0/(60.d0*H)
 
-	MJ = MAX0(NJ+2,NJM)
-	MJ = MAX0(MJ,MP)
-	if( MJ .gt. M - 4 ) MJ = M - 4
-	
+        MJ = MAX0(NJ+2,NJM)
+        MJ = MAX0(MJ,MP)
+        if( MJ .gt. M - 4 ) MJ = M - 4
 
-95	MJ = MJ + 2
 
-	if( MJ .gt. M-2 ) then
-	write(ERR,*) 
-     : 	' Failed in Calculating Coulomb Functions, R(M) too small '
-	write(ERR,*) ' R(M) =', R(M)
-	stop
-	endif
+95      MJ = MJ + 2
 
-	MJH = 2*(MJ-NJ)+1
+        if( MJ .gt. M-2 ) then
+        write(ERR,*)
+     :  ' Failed in Calculating Coulomb Functions, R(M) too small '
+        write(ERR,*) ' R(M) =', R(M)
+        stop
+        endif
+
+        MJH = 2*(MJ-NJ)+1
 cc
       DO 90 J = MJH-1,MJH
       xval = RH(j)
@@ -3938,175 +3938,175 @@ cc
 
 
 c
-c	y'(r)
+c       y'(r)
 c
-	dyval = ( PHC(J+3) - PHC(J-3) - 9.d0*( PHC(J+2)-PHC(J-2) ) 
-     :	           + 45.d0*( PHC(J+1) - PHC(J-1) ) )*h60
-	dyval = ( dyval + 0.5d0*PHC(J) )/R2h(J)
+        dyval = ( PHC(J+3) - PHC(J-3) - 9.d0*( PHC(J+2)-PHC(J-2) )
+     :             + 45.d0*( PHC(J+1) - PHC(J-1) ) )*h60
+        dyval = ( dyval + 0.5d0*PHC(J) )/R2h(J)
 
-	CALL  fgwkb(k,zf,ll,xval,yval,dyval,f2,df,g2,dg,ierr)
-	if( ierr .ne. 0 ) goto 95
+        CALL  fgwkb(k,zf,ll,xval,yval,dyval,f2,df,g2,dg,ierr)
+        if( ierr .ne. 0 ) goto 95
 
-	if( J .eq. MJH-1 ) then 
-          F1 = f2 
+        if( J .eq. MJH-1 ) then
+          F1 = f2
           G1 = G2
-	endif
-	
+        endif
+
 90    CONTINUE
 
       DNUM = R2h(MJH)*PH(MJH)*F1 - R2H(MJH-1)*PH(MJH-1)*F2
       DENO = R2h(MJH-1)*PH(MJH-1)*G2 - R2H(MJH)*PH(MJH)*G1
       DELTA = ATAN( DNUM/DENO )
       AMP = R2H(MJH)*PH(MJH)/(F2 + G2*(DNUM/DENO) )
-      CN = COS(DELTA) / AMP 
+      CN = COS(DELTA) / AMP
       END
 *     ------------------------------------------------------------------
 *           F G W K B
 *     ------------------------------------------------------------------
 *
-*	This routine determines the energy normalized 
-*	Coulomb functions F , and G,
-*	and their derivatives F' , G' , with respect to r
+*       This routine determines the energy normalized
+*       Coulomb functions F , and G,
+*       and their derivatives F' , G' , with respect to r
 *
-*	Normalization obtained using the  WKB method as proposed by 
-*	Liu, Xi, and Li, PRA48, 228(1993)
+*       Normalization obtained using the  WKB method as proposed by
+*       Liu, Xi, and Li, PRA48, 228(1993)
 *
 *       Written my Jinhua Xi, December, 1994
 *     ------------------------------------------------------------------
 *
-*	F  =  sin( phi) * sqrt(2/pi k)
+*       F  =  sin( phi) * sqrt(2/pi k)
 *
-	subroutine fgwkb(ek,z,l,r,yr,dyr,f,df,g,dg,ierr)
-	Implicit double precision (a-h,o-z)
-      	data pi,pii/3.141592653589793d0,6.283185307179586d0/
+        subroutine fgwkb(ek,z,l,r,yr,dyr,f,df,g,dg,ierr)
+        Implicit double precision (a-h,o-z)
+        data pi,pii/3.141592653589793d0,6.283185307179586d0/
 
-	ierr=0
-	call  wkb(ek,z,l,r,zeta,dz,deltaz)
+        ierr=0
+        call  wkb(ek,z,l,r,zeta,dz,deltaz)
 
 
-	if( dabs(deltaz) .gt. 1.d-4 ) ierr=1
-	if( dabs(deltaz) .gt. 1.d-1) then
-		ierr=2
-		return
-	endif
+        if( dabs(deltaz) .gt. 1.d-4 ) ierr=1
+        if( dabs(deltaz) .gt. 1.d-1) then
+                ierr=2
+                return
+        endif
 *
-*	determine the phase function phi(r) and the
-*	normalization constant 
+*       determine the phase function phi(r) and the
+*       normalization constant
 *
-	 dzz = 0.5d0*dz/zeta
-	 pn= dsqrt(2.d0/pi/zeta)
+         dzz = 0.5d0*dz/zeta
+         pn= dsqrt(2.d0/pi/zeta)
 *
 
-	 phi = atan( zeta/(dyr/yr + dzz) )
-	 if( sin(phi)*yr .lt. 0.d0 ) phi =phi + pi 
+         phi = atan( zeta/(dyr/yr + dzz) )
+         if( sin(phi)*yr .lt. 0.d0 ) phi =phi + pi
 
-	 if( phi .lt. 0.d0 ) phi=phi+pii
-	 if( phi .gt. pii ) phi = phi - pii  
+         if( phi .lt. 0.d0 ) phi=phi+pii
+         if( phi .gt. pii ) phi = phi - pii
 c
-c	for Coulomb potential , get the F, G, F',G'
+c       for Coulomb potential , get the F, G, F',G'
 c
-	 f  =   dsin(phi)*pn
-	 g  =   dcos(phi)*pn
-	 df =   zeta*g - dzz*f
-	 dg = - zeta*f - dzz*g
-	return 
-	end
+         f  =   dsin(phi)*pn
+         g  =   dcos(phi)*pn
+         df =   zeta*g - dzz*f
+         dg = - zeta*f - dzz*g
+        return
+        end
 *
 *     ------------------------------------------------------------------
 *           W K B
 *     ------------------------------------------------------------------
 *
-*	This routine performs the WKB iteration proposed by 
-*	Liu, Xi, and Li, PRA48, 228(1993)
+*       This routine performs the WKB iteration proposed by
+*       Liu, Xi, and Li, PRA48, 228(1993)
 *
 *       The exact formulas for the iterative procedure were
-*       derived by C. F. Fischer, using the MAPLE Symbol 
+*       derived by C. F. Fischer, using the MAPLE Symbol
 *       manipulation package.
-*	
-*	This routine is called by asympn and fgwkb.
-*	asympn: determines phase and normalization,
-*		as proposed by LXL paper
-*	fgwkb:  computes only f,g, f',g' 
+*
+*       This routine is called by asympn and fgwkb.
+*       asympn: determines phase and normalization,
+*               as proposed by LXL paper
+*       fgwkb:  computes only f,g, f',g'
 *
 *       Written by C. F. Fischer, July, 1994
 *       Modified by Jinhua Xi, December, 1994
 *     ------------------------------------------------------------------
 
-	subroutine wkb(ek,z,l,r,zeta,dz,deltaz)
-	Implicit double precision (a-h,o-z)
-	double precision w(0:8), u(0:8,0:4)
+        subroutine wkb(ek,z,l,r,zeta,dz,deltaz)
+        Implicit double precision (a-h,o-z)
+        double precision w(0:8), u(0:8,0:4)
 cxi
-cxi	it is ABSOLUTELY necessary to initiate the arrays
-cxi	if you would like to have a correct result. 
-cxi	
-	do 1 i=0,8
-	  w(i)=0.d0
-	  do 2 j=0,4
-	    u(i,j)=0.d0
+cxi     it is ABSOLUTELY necessary to initiate the arrays
+cxi     if you would like to have a correct result.
+cxi
+        do 1 i=0,8
+          w(i)=0.d0
+          do 2 j=0,4
+            u(i,j)=0.d0
   2       continue
 1       continue
 cxi
-cxi	...................................................
+cxi     ...................................................
 cxi
-	a= 2*z/r
-	b= -l*(l+1)/r/r
-	ekk=ek*ek
-	w(0) = ekk + a + b
-	if( w(0) .lt. 0.3d0*ekk ) then
-		write(*,*) '  in WKB: r-value too small, r=', r
-		deltaz=99.d0
-		return
-	endif
+        a= 2*z/r
+        b= -l*(l+1)/r/r
+        ekk=ek*ek
+        w(0) = ekk + a + b
+        if( w(0) .lt. 0.3d0*ekk ) then
+                write(*,*) '  in WKB: r-value too small, r=', r
+                deltaz=99.d0
+                return
+        endif
 
-	u(0,0) = w(0)
-	do 10 i = 1,8
-	  a = -i*a/r
-	  b = -(i+1)*b/r
-	  w(i) = a+b
-	  u(i,0) = w(i)/w(0)
-10	continue
-	do 20 j = 0,3
+        u(0,0) = w(0)
+        do 10 i = 1,8
+          a = -i*a/r
+          b = -(i+1)*b/r
+          w(i) = a+b
+          u(i,0) = w(i)/w(0)
+10      continue
+        do 20 j = 0,3
            u(0,j+1) = w(0) + (5*u(1,j)**2 -4*u(2,j))/16.d0
-	   do 30 i = 1, 6-2*j
+           do 30 i = 1, 6-2*j
 
-	     if (i .eq. 1) then
-	       u(1,j+1) = 7*u(1,j)*u(2,j)-5*u(1,j)**3 -2*u(3,j)
+             if (i .eq. 1) then
+               u(1,j+1) = 7*u(1,j)*u(2,j)-5*u(1,j)**3 -2*u(3,j)
 
-	     else if (i .eq. 2) then
-	       u(2,j+1) = 7*u(2,j)**2 -29*u(1,j)**2*u(2,j) + 
+             else if (i .eq. 2) then
+               u(2,j+1) = 7*u(2,j)**2 -29*u(1,j)**2*u(2,j) +
      :                    9*u(1,j)*u(3,j) +15*u(1,j)**4 -2*u(4,j)
 
-	     else if (i .eq. 3) then
-	       u(3,j+1) = 23*u(2,j)*u(3,j) -72*u(2,j)**2*u(1,j) +
+             else if (i .eq. 3) then
+               u(3,j+1) = 23*u(2,j)*u(3,j) -72*u(2,j)**2*u(1,j) +
      :                    147*u(1,j)**3*u(2,j) - 47*u(1,j)**3*u(2,j) +
      :                    11*u(1,j)*u(4,j) - 15*u(1,j)**5 -2*u(5,j)
              else if (i .eq. 4) then
-	       u(4,j+1) = 23*u(3,j)**2 -284*u(2,j)*u(3,j)*u(1,j) +
+               u(4,j+1) = 23*u(3,j)**2 -284*u(2,j)*u(3,j)*u(1,j) +
      :                    34*u(2,j)*u(4,j) + 657*(u(2,j)*u(1,j))**2 -
      :                    72*u(2,j)**3 - 888*u(1,j)**4*u(2,j) +
      :                    288*u(1,j)**3*u(3,j) -69*u(1,j)**2*u(4,j) +
      :                    13*u(1,j)*u(5,j) + 300*u(1,j)**6 - 2*u(6,j)
 
-	     else if (i .eq. 5) then
+             else if (i .eq. 5) then
 
-	       u(5,j+1) = -2*u(7,j) + 3030*u(2,j)*u(3,j)*u(1,j)**2 -
+               u(5,j+1) = -2*u(7,j) + 3030*u(2,j)*u(3,j)*u(1,j)**2 -
      :                    490*u(2,j)*u(4,j)*u(1,j) -
      :                    500*u(2,j)**2*u(3,j) +47*u(2,j)*u(5,j) -
      :                    2040*u(1,j)**4*u(3,j) +495*u(1,3)**3*u(4,j) -
      :                    95*u(1,j)**2*u(5,j) +15*u(1,j)*u(6,j) -
-     :                    1800*u(1,j)**7 +80*u(3,j)*u(4,j)- 
+     :                    1800*u(1,j)**7 +80*u(3,j)*u(4,j)-
      :                    330*u(3,j)**2*u(1,j) -
-     :                    6180*u(2,j)**2*u(1,j)**3 + 
+     :                    6180*u(2,j)**2*u(1,j)**3 +
      :                    1530*u(2,j)**3*u(1,j) + 6240*u(1,j)**5*u(2,j)
 
-	     else if (i .eq. 6) then
-	       u(6,j+1) = -2*u(8,j) + 62100*u(2,j)**2*u(1,j)**4 -
+             else if (i .eq. 6) then
+               u(6,j+1) = -2*u(8,j) + 62100*u(2,j)**2*u(1,j)**4 -
      :                    24660*u(2,j)**3*u(1,j)**2 +
      :                    4020*u(3,j)**2*u(1,j)**2 -
      :                    32640*u(2,j)*u(3,j)*u(1,j)**3 +
      :                    5985*u(2,j)*u(4,j)*u(1,j)**2 +
      :                    12150*u(2,j)**2*u(3,j)*u(1,j) -
-     :                    1310*u(3,j)*u(4,j)*u(1,j) - 
+     :                    1310*u(3,j)*u(4,j)*u(1,j) -
      :                    774*u(2,j)*u(5,j)*u(1,j) -
      :                    990*u(2,j)**2*u(4,j) -1330*u(2,j)*u(3,j)**2 +
      :                    16440*u(1,j)**5*u(3,j) +17*u(7,j)*u(1,j) +
@@ -4114,20 +4114,20 @@ cxi
      :                    4020*u(1,j)**4*u(1,4) + 780*u(1,j)**3*u(5,j) -
      :                    125*u(1,j)**2*u(6,j) -50040*u(1,j)**6*u(2,j) +
      :                    12600*u(1,j)**8 +80*u(4,j)**2 + 1530*u(2,j)**4
-	    end if
-	    u(i,j+1) = (w(i) + u(i,j+1)/8.d0)/u(0,j+1)
+            end if
+            u(i,j+1) = (w(i) + u(i,j+1)/8.d0)/u(0,j+1)
 
   30      continue
-20 	continue
+20      continue
 
-	if( u(0,3) .le. 0.d0 .or. u(0,4) .le. 0.d0 ) then
-		write(*,*) '  in WKB: r-value too small, r=', r
-		deltaz=99.d0
-		return
-	endif
-	zeta = sqrt(u(0,4))
-	dz = (w(1)+(7*u(1,3)*u(2,3)-5*u(1,3)**3-2*u(3,2))/8)/(2*zeta)
-	deltaz = zeta - sqrt(u(0,3))
+        if( u(0,3) .le. 0.d0 .or. u(0,4) .le. 0.d0 ) then
+                write(*,*) '  in WKB: r-value too small, r=', r
+                deltaz=99.d0
+                return
+        endif
+        zeta = sqrt(u(0,4))
+        dz = (w(1)+(7*u(1,3)*u(2,3)-5*u(1,3)**3-2*u(3,2))/8)/(2*zeta)
+        deltaz = zeta - sqrt(u(0,3))
 
-	return 
-	end
+        return
+        end

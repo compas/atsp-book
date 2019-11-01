@@ -16,7 +16,7 @@ LIB = ../../bin
 FC = pgf77
 
 #  ....  Flags to be added for compilation SGI
-#FFLAGS =  -O  -static 
+#FFLAGS =  -O  -static
 
 # ....  Flags to be added for compilation on SUN, IBM AIX
 #FFLAGS = -O
@@ -42,5 +42,3 @@ COMOBJS = acurat.o bisect.o bwint.o ca.o cb.o eptr.o factrl.o fk.o gk.o\
 libcom.a : $(COMOBJS)
 	ar r libcom.a $(COMOBJS)
 	mv libcom.a $(LIB)
-
-

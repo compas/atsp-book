@@ -20,8 +20,8 @@
         LOGICAL KEEP(800)
         DATA KEEP/800*.TRUE./
         DATA V/800*0.D0/
- 
- 
+
+
         WRITE(0,'(//A/A/A/A/A)') ' Selection Process:','    1  name.c',
      :        '    2  name.l','    3  name.j','    4  User Defined'
         WRITE(0,'(//A/A/A/A)') ' List to be condensed: ',
@@ -35,17 +35,17 @@ CSUN    if ( iarg .eq. 0) then
 CSUN    else
 CSUN       call getarg(1,name)
 CSUN    end if
-	j = index(name,' ')
-	infile = name(1:j-1)//'.c'
- 
+        j = index(name,' ')
+        infile = name(1:j-1)//'.c'
+
         OPEN(UNIT=1,FILE=infile,STATUS='OLD')
- 
+
         OUTFILE = 'cfg.out'
         OPEN(UNIT=3,FILE=OUTFILE,STATUS='UNKNOWN')
- 
+
         READ(1,'(A72/A72)') HEADER, CLSDSH
         WRITE(3,'(A72/A72)') HEADER, CLSDSH
- 
+
         I = 1
  10     READ(1,'(A40,F10.8)',END=20) CONFIG(I),U(I)
         IF (CONFIG(I)(1:1) .EQ. '*') GO TO 20
@@ -53,7 +53,7 @@ CSUN    end if
         READ(1,'(A72)') COUPLE(I)
         I = I+1
         IF (I .LE. (800)) GO TO 10
- 
+
  20     N = I-1
         IF (ICASE .EQ. 2 .OR. ICASE .EQ. 3) THEN
               IF (ICASE .EQ. 2) THEN
@@ -62,7 +62,7 @@ CSUN    end if
               INFILE =NAME(1:j-1)//'.j'
            END IF
            OPEN(UNIT=2,FILE=INFILE,STATUS='OLD')
-	   READ(2,'(A)') HEADER
+           READ(2,'(A)') HEADER
 25         READ(2,'(//22X,I4)',END=45) NUMBER
            DO 30 J = 1,NUMBER
               READ(2,'(//(7F10.6))') (U(I),I=1,N)
@@ -77,7 +77,7 @@ CSUN    end if
               V(I) = 1.D0
  32        CONTINUE
            WRITE(0,'(A/A)') ' Enter the index of the configurations to'
-	   
+
      :         ,' be deleted  (five at a time, terminate with a zero)'
            M = 1
  34        WRITE(0,'(I3,A2)') M,': '
@@ -92,60 +92,60 @@ CSUN    end if
  35        CONTINUE
            GO TO 34
         END IF
- 
+
  36     TOL = 1.D-8
         IF (.NOT.(ICASE .EQ. 4)) THEN
            WRITE(0,'(//A)')' Tolerance for acceptance -- FORMAT(F): '
            READ(5,*) TOL
         END IF
-	CALL SORT(N,V,IP)
+        CALL SORT(N,V,IP)
         DO 70 II = 1,N
-	   I = IP(II)
+           I = IP(II)
            IF (V(I) .GE. TOL) THEN
                 K = 72
 72              IF (COUPLE(I)(K:K) .EQ. ' ') THEN
                    K = K-1
                    GO TO 72
                 END IF
-		IF (ICASE .EQ. 1 .OR. ICASE .EQ. 4) THEN
+                IF (ICASE .EQ. 1 .OR. ICASE .EQ. 4) THEN
                   WRITE(3,71) CONFIG(I),U(I),COUPLE(I)
-		ELSE
+                ELSE
                   WRITE(3,71) CONFIG(I),V(I),COUPLE(I)
-		END IF
+                END IF
            ELSE
                 KEEP(I) = .FALSE.
            END IF
  71        FORMAT(A40,F10.7/A72)
  70     CONTINUE
- 
+
         IF (ICASE .EQ. 2 .OR. ICASE .EQ. 3)  CLOSE(UNIT=2)
         CLOSE(UNIT=3)
         IF (ILIST .EQ. 3) STOP
- 
+
         NINT = 8
            OUTFILE = 'int.out'
         IF (ILIST .EQ. 1) THEN
            INFILE = 'int.lst'
         ELSE
-	   j = index(name,' ')
-	   infile = name(1:j-1)//'.i'
+           j = index(name,' ')
+           infile = name(1:j-1)//'.i'
         END IF
- 
+
         OPEN(UNIT=2,FILE=INFILE,STATUS='OLD')
         OPEN(UNIT=3,FILE=OUTFILE,STATUS='UNKNOWN')
- 
+
         READ(2,'(A72)') HEADER
         WRITE(3,'(A72)') HEADER
- 
+
   1     FORMAT(A21,I3,A4,I3,A1)
   2     FORMAT(A24,I3,A7,I3,A)
   3     FORMAT(A19,I3,A4,I3,A)
   4     FORMAT(A19,I3,A4,I3,A1)
   5     FORMAT(A24,I3,A7,I3,A1)
- 
- 
+
+
         DO 100 INT = 1,NINT
- 
+
            IF (INT .LE. 2) THEN
 201             READ(2,1) S21,IH,S4,JH,S1
                 IF (IH .EQ. 0) GO TO 99
@@ -200,22 +200,22 @@ CSUN    end if
 *       S O R T
 *--------------------------------------------------------------
 *
-	SUBROUTINE SORT(N,V,IP)
-	IMPLICIT DOUBLE PRECISION (A-H,O-Z)
-	DIMENSION V(*),IP(*)
+        SUBROUTINE SORT(N,V,IP)
+        IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+        DIMENSION V(*),IP(*)
 
-	DO 1 I = 1,N
-	   IP(I) = I
+        DO 1 I = 1,N
+           IP(I) = I
   1     CONTINUE
 
-	DO 10 I = 1,N-1
+        DO 10 I = 1,N-1
           JP = I
           DO 12 J = I+1,N
              IF (V(IP(J)) .GT. V(IP(JP))) JP = J
  12       CONTINUE
-	  ITEMP = IP(I)
-	  IP(I) = IP(JP)
-	  IP(JP) = ITEMP
+          ITEMP = IP(I)
+          IP(I) = IP(JP)
+          IP(JP) = ITEMP
  10     CONTINUE
-	END
- 
+        END
+

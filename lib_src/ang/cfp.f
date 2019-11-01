@@ -1,6 +1,6 @@
 *
 *     ------------------------------------------------------------------
-*	C F P
+*       C F P
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CFP(LIJ,N,IVI,ILI,ISI,IVJ,ILJ,ISJ,COEFP)
@@ -20,7 +20,7 @@
 *     ARE INCLUDED, THIS COMPUTED GO TO NEEDS MODIFYING TO ACCOUNT FOR
 *     THIS
 *
-	
+
       GO TO (1,2,3,4,4) K
 *
 * --- FALSE CALL FOR S-SHELLS

@@ -8,7 +8,7 @@
 *          Vanderbilt University
 *          Nashville, TN 37235 USA
 *
-*          K.M.S. Saxena, 
+*          K.M.S. Saxena,
 *          Department of Theoretical Chemistry
 *          University of Alberta
 *
@@ -441,4 +441,3 @@ CSUN  end if
 101   FORMAT(5X,'L(I)-L(J) NOT=0,2 FOR I = ',I2,' AND J = ',I2)
       STOP
       END
-

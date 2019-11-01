@@ -1,6 +1,6 @@
 *
 *     ------------------------------------------------------------------
-*	A N A L Y S 2
+*       A N A L Y S 2
 *     ------------------------------------------------------------------
 *
       SUBROUTINE ANALY2(NCLOSI,NCLOSF,MCFG,KCFG,LIST,LORTH)
@@ -67,8 +67,8 @@
          NCFG = NCFG + 1
          IF (NCFG .GT. (NCD4) ) THEN
             WRITE(IWRITE,*) ' TOO MANY CONFIGURATIONS: MAX=',NCD4
-	    STOP
-	 END IF
+            STOP
+         END IF
          J = 2
          I = 0
  30      IF (LINE(J:J+2) .NE. '   ' .AND. I.LT.(5)) THEN
@@ -82,9 +82,9 @@
                IF ( OF(K,ISTATE) .NE. EL(I) ) THEN
                   K = K+1
                   IF (K .GT. (NWD)) THEN
-		     WRITE(IWRITE,*) ' TOO MANY ELECTRONS: MAX=',NWD
-		     STOP
-		  END IF
+                     WRITE(IWRITE,*) ' TOO MANY ELECTRONS: MAX=',NWD
+                     STOP
+                  END IF
                   GO TO 40
                  ELSE
                   IEL(I) = K
@@ -279,9 +279,9 @@
 *               We have the next electron
 *
                 IF (IORD.GT.(2*NWD)) THEN
-		  WRITE(IWRITE,*) ' Too many electrons: MAX=',2*NWD
-		  STOP
-		END IF
+                  WRITE(IWRITE,*) ' Too many electrons: MAX=',2*NWD
+                  STOP
+                END IF
                 LIST(IORD) = OF(I-IORIG,ISTATE)
                 IORD = IORD+1
                 DO 303 J = 1,IORIG+LASTEL

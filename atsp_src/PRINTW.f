@@ -1,7 +1,7 @@
-*	Program to print wavefunctions
-*	
-*	Created by C. Froese Fischer June 16, 1987
-*	Vanderbilt University
+*       Program to print wavefunctions
+*
+*       Created by C. Froese Fischer June 16, 1987
+*       Vanderbilt University
 
       PROGRAM PRINT
       IMPLICIT REAL*8(A-H,O-Z)
@@ -10,9 +10,9 @@
 *
 *     iarg = iargc()
 *     if (iarg .gt. 0) then
-*	 call getarg(1,NAME)
-*      else 
-	 NAME = 'wfn.inp'
+*        call getarg(1,NAME)
+*      else
+         NAME = 'wfn.inp'
 *     end if
       OPEN(UNIT=3,FILE=NAME,STATUS='OLD',FORM='UNFORMATTED')
       IUF=3

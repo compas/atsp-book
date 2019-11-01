@@ -1,11 +1,11 @@
 *     ------------------------------------------------------------------
-*     		AUTOIONIZATION PROGRAM
+*               AUTOIONIZATION PROGRAM
 *
-*	Written by :	Charlotte Froese Fischer
-*			and
-*			Tomas Brage
-*			Department of Computer Science
-*			Vanderbilt University
+*       Written by :    Charlotte Froese Fischer
+*                       and
+*                       Tomas Brage
+*                       Department of Computer Science
+*                       Vanderbilt University
 *       Modified by:    Jinhua Xi, Vanderbilt University
 *                       December, 1994
 *     ------------------------------------------------------------------
@@ -28,13 +28,13 @@
 *     ------------------------------------------------------------------
 *              M A I N   P R O G R A M
 *     ------------------------------------------------------------------
-*	The main program: 
-*		- sets unit numbers and opens files.
-*		- prompts for type of calculation.
-*		- initializes variabels. (by calling ADATA).
-*		- determines data about problem.
-*		- performs calculations. (by calling CALCAUTO).
-*		
+*       The main program:
+*               - sets unit numbers and opens files.
+*               - prompts for type of calculation.
+*               - initializes variabels. (by calling ADATA).
+*               - determines data about problem.
+*               - performs calculations. (by calling CALCAUTO).
+*
 *
       PROGRAM AUTO
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -72,21 +72,21 @@ CSUN  RTIME = DTIME(TIMES)
 *      OUT- Standard output unit, normally the terminal         *
 *      ERR- Prompts and Error messages, always the terminal     *
 *      PRI- Printer output unit or file.                        *
-*       10- Data file (auto.dat).				*
+*       10- Data file (auto.dat).                               *
 *                                                               *
       IN = 5
       OUT = 6
       ERR = 0
       PRI = 3
-*								*
-*      IUC - Input unit for configuration list.			*
-*      IUD - Input unit for integral list.			*
-*      IUF - Input unit for wave functions.			*
-*     
-*      OUC - Output unit for configuration list. (Not used). 	*
-*      OUD - Output unit for integral list. (Not used).		*
-*      OUF - Output unit for wave functions.			*
-*     
+*                                                               *
+*      IUC - Input unit for configuration list.                 *
+*      IUD - Input unit for integral list.                      *
+*      IUF - Input unit for wave functions.                     *
+*
+*      OUC - Output unit for configuration list. (Not used).    *
+*      OUD - Output unit for integral list. (Not used).         *
+*      OUF - Output unit for wave functions.                    *
+*
       IUC = 21
       IUD = 22
       IUF = 23
@@ -113,7 +113,7 @@ CSUN  RTIME = DTIME(TIMES)
       CALL INITR
 *
 1     WRITE(ERR,'(//A/A//)') ' START OF CASE',' ============='
-*  
+*
 *  ***** Get parameters for the case
 *
 999   NAME(2) = 'int.lst'
@@ -139,14 +139,14 @@ CSUN  RTIME = DTIME(TIMES)
      :              FORM='UNFORMATTED')
       OPEN(UNIT=3, FILE='auto.log',STATUS='UNKNOWN',FORM='formatted')
 *
-*  ************************************************************	
+*  ************************************************************
 *       The input for the discrete state can be made in four
 *       different ways:
-*       ICASE	weights from	ECORE from	EBOUND from
-*	====================================================
-*         1	 .c file	 terminal	 .c file
-*	  2	 .l file	 .c file	 .l file
-*	  3	 .j file	 .c file	 .j file
+*       ICASE   weights from    ECORE from      EBOUND from
+*       ====================================================
+*         1      .c file         terminal        .c file
+*         2      .l file         .c file         .l file
+*         3      .j file         .c file         .j file
 *  ************************************************************
 *
       WRITE(ERR,'(//A/A/A/A)')
@@ -156,7 +156,7 @@ CSUN  RTIME = DTIME(TIMES)
       IF(ICASE.EQ.2) THEN
         OPEN(UNIT=9,FILE=NAME(4),STATUS='OLD')
       ELSE IF(ICASE.EQ.3) THEN
-	OPEN(UNIT=9,FILE=NAME(5),STATUS='OLD')
+        OPEN(UNIT=9,FILE=NAME(5),STATUS='OLD')
       END IF
       OPEN(UNIT=10,FILE='auto.dat',STATUS='UNKNOWN')
 *
@@ -166,7 +166,7 @@ CSUN  RTIME = DTIME(TIMES)
       DO 4 I=1,(NWD)
       DPM(I) = D10
       IEPTR(I) = 0
-     
+
 4     CONTINUE
       DO 5 I = 1,(98)
         IJE(I) = 0
@@ -205,23 +205,23 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *           A D A T A
 *     ------------------------------------------------------------------
 *
-*	ADATA performs the following tasks:
-*	
-*		1) Prompts user for ATOM, TERM, Z.
-*		2) Reads the cfile.
-*		3) interprets the cfile.
-*		4) determine continuum data.
-*		5) interprets configuration data.
-*		6) sets orthogonality constraints.
-*		7) first print outs.
-*		8) Initialize arrays. (wavefunctions and integrals)
-*	
-*	The following routines are called during different stages:
+*       ADATA performs the following tasks:
 *
-*		5) EPTR.
-*		6) EIJSET and EPTR.
-*		7) WAVEFN and ANTGRL.
-*		
+*               1) Prompts user for ATOM, TERM, Z.
+*               2) Reads the cfile.
+*               3) interprets the cfile.
+*               4) determine continuum data.
+*               5) interprets configuration data.
+*               6) sets orthogonality constraints.
+*               7) first print outs.
+*               8) Initialize arrays. (wavefunctions and integrals)
+*
+*       The following routines are called during different stages:
+*
+*               5) EPTR.
+*               6) EIJSET and EPTR.
+*               7) WAVEFN and ANTGRL.
+*
 *
       SUBROUTINE ADATA(ECORE)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -241,7 +241,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *
       INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
       COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
-     :	       ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
+     :         ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
 *
       LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
       COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
@@ -275,7 +275,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       END IF
       TERM = STRING(I+1:I+J-1)
 *     Some compilers do not allow the list directe I/O here.  In such
-*     cases use the following, but then Z must have an overriding 
+*     cases use the following, but then Z must have an overriding
 *     decimal point or expressed as a three digit integer with
 *     leading blanks, if necessary
 *     READ(STRING(I+J+1:),'(F3.0)') Z
@@ -287,7 +287,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       READ(IUC,'(15X,F14.7/18(1X,A3))') ECB,(ELCLSD(I),I=1,18)
       NCFG = 0
     3 READ(IUC,'(A40,F10.8)',END=10) STRING,W
-      
+
       IF (STRING(1:1) .NE. '*' .AND. STRING(1:3) .NE. '   ') THEN
         NCFG = NCFG+1
         IF (NCFG .LE. (NCD) ) THEN
@@ -347,7 +347,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
               K = K+1
               IF (K .GT. (NWD)) THEN
                 WRITE(ERR,*) ' TOO MANY ELECTRONS: MAX=',NWD
-	        STOP 1
+                STOP 1
               END IF
               GO TO 17
             END IF
@@ -370,7 +370,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
         WRITE(ERR,*) ' STOP in ADATA: No continuum function found'
         CALL EXIT(1)
       ELSE IF (ID.EQ.0) THEN
-	ICASE = 4
+        ICASE = 4
       END IF
       IF(ICASE.EQ.1) THEN
         WRITE(ERR,*) ' Give energy of core state (a.u.):'
@@ -392,15 +392,15 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       read (in,'(A)') ans
       if (ans .eq. 'y  ' .or. ans .eq. 'Y  ') then
         NIT = 1
-      else 
-	NIT = 0
+      else
+        NIT = 0
       end if
       IB = NWF - NIT + 1
       DO 20 I = NCLOSD+1,NWF
         S(I) = SS
         METH(I) = 3
         ACC(I) = D0
-        IND(I) =-1 
+        IND(I) =-1
         VARIED(I) = .TRUE.
         J = 2
         IF (EL(I)(1:1) .EQ. ' ') J = 3
@@ -415,7 +415,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       IF (.NOT. (EL1(1:1).EQ.'k' .OR. EL1(2:2).EQ.'k'))
      :     STOP ' Last orbital not a continuum orbital'
 *
-*  *****  Check method and initialize arrays for the continuum 
+*  *****  Check method and initialize arrays for the continuum
 *  *****  electron.
 *
       IF (METH(NWF) .NE. 4) THEN
@@ -452,7 +452,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
             IF (L(J1) .EQ. L(J2) ) THEN
               CALL EIJSET(J1,J2,1.D-5)
               CALL EIJSET(J2,J1,1.D-5)
-	    END IF
+            END IF
    33     CONTINUE
    34   CONTINUE
    35 CONTINUE
@@ -468,10 +468,10 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       DO 38 I = 2,NWF
         DO 39 J = 1,I-1
           IF (L(I) .EQ. L(J) .AND. SETORT(EL(I),EL(J)) ) THEN
-	    C = 1.D-5
-	    IF (I.LE.NCLOSD .AND. J.LE.NCLOSD) C = 1.D-10
-	    CALL EIJSET(I,J,C)
-	    CALL EIJSET(J,I,C)
+            C = 1.D-5
+            IF (I.LE.NCLOSD .AND. J.LE.NCLOSD) C = 1.D-10
+            CALL EIJSET(I,J,C)
+            CALL EIJSET(J,I,C)
           END IF
    39   CONTINUE
    38 CONTINUE
@@ -558,7 +558,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *             NWF                                       NWF
 *   orthogonal not only to P  but also to P , a system of equations
 *                           i              j
-*   must be solved, the exact form depending on whether or not any of 
+*   must be solved, the exact form depending on whether or not any of
 *   the functions are part of the frozen  core.
 *
       SUBROUTINE AGRANGE
@@ -664,30 +664,30 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       END
 *
 *-----------------------------------------------------------------------
-*		A N T G R L
+*               A N T G R L
 *-----------------------------------------------------------------------
 *
 *    Read the integrals that define the energy expression
 *
       SUBROUTINE ANTGRL
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
         INTEGER IN,OUT,ERR,PRI,OUC,OUD,OUF,OUH
         COMMON /INOUT/ IN,OUT,ERR,PRI,IUC,IUD,IUF,OUC,OUD,OUF,OUH
 *
         CHARACTER CONFIG*40,EL*3,ATOM*6,TERM*6,COUPLE*3
-	character*3 eltemp(2)
+        character*3 eltemp(2)
         COMMON /LABEL/CONFIG(NCD),EL(NWD),ATOM,TERM,COUPLE(NCD,9)
 *
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
 *
-	INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
-	PARAMETER (IDIM=550,NCDIM=5000)
-	COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
-     :	       ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
-	CHARACTER END*1, EL1*3, EL2*3, EL3*3, EL4*3
+        INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
+        PARAMETER (IDIM=550,NCDIM=5000)
+        COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
+     :         ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
+        CHARACTER END*1, EL1*3, EL2*3, EL3*3, EL4*3
 *
     1 FORMAT(1X,A1,I2,1X,A3,1X,A3,1X,I5)
     2 FORMAT(1X,A1,I2,1X,2A3,1X,2A3,1X,I5)
@@ -696,97 +696,97 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *
 * ***** READ  THE LIST OF INTEGRALS
 *
-	LAST = 0
-	IC = 1
-	I = 1
-	READ(IUD,'()')
-	DO 10 INT = 1,6
-	  IF (INT.NE.4 .AND. INT.NE.5) THEN
+        LAST = 0
+        IC = 1
+        I = 1
+        READ(IUD,'()')
+        DO 10 INT = 1,6
+          IF (INT.NE.4 .AND. INT.NE.5) THEN
 *
 *            ...F, G, L, or O1 integrals....
 *
-   12	     READ(IUD,1) END, KVAL(I), EL1, EL2, ICPTR
-	     IF (END .EQ. '*') GO TO 16
-    	     CPTR(I) = ICPTR + LAST
+   12        READ(IUD,1) END, KVAL(I), EL1, EL2, ICPTR
+             IF (END .EQ. '*') GO TO 16
+             CPTR(I) = ICPTR + LAST
 
-	     CALL EPTR(EL, EL1,IEL(I,1),*999)
-	     CALL EPTR(EL, EL2,IEL(I,2),*999)
-	     I = I + 1
-	     IF (I .LE. (IDIM) ) GO TO 12
-	     WRITE(ERR,*) ' Too many integrals - MAX =',IDIM
-	     STOP
-	   ELSE
+             CALL EPTR(EL, EL1,IEL(I,1),*999)
+             CALL EPTR(EL, EL2,IEL(I,2),*999)
+             I = I + 1
+             IF (I .LE. (IDIM) ) GO TO 12
+             WRITE(ERR,*) ' Too many integrals - MAX =',IDIM
+             STOP
+           ELSE
    14         IF (INT.EQ.5) THEN
 *
-*	        ... R integrals ...
+*               ... R integrals ...
 *
-     	        READ(IUD,2) END, KVAL(I), EL1, EL2, EL3, EL4, ICPTR
-	     if((el1(1:1).eq.' ' .and. el1(2:2).eq.'k') .or.
+                READ(IUD,2) END, KVAL(I), EL1, EL2, EL3, EL4, ICPTR
+             if((el1(1:1).eq.' ' .and. el1(2:2).eq.'k') .or.
      :        (el3(1:1).eq.' '. and .el3(2:2).eq.'k') .or.
      :        el1(1:1) .eq. 'k' .or. el3(1:1).eq.'k') then
-	       eltemp(1) = el1
-	       eltemp(2) = el3
-	       el1 = el2
-	       el3 = el4
+               eltemp(1) = el1
+               eltemp(2) = el3
+               el1 = el2
+               el3 = el4
                el2 = eltemp(1)
-	       el4 = eltemp(2)
+               el4 = eltemp(2)
              end if
 *
-	      ELSE
+              ELSE
 *
-*	         ... O2 integrals ...
+*                ... O2 integrals ...
 *
-    	     	READ(IUD, 3) END, K1, EL1, EL2, K2, EL3, EL4
-	        KVAL(I) = 64*K1 + K2
-	      END IF
-    	      CPTR(I) = ICPTR + LAST
+                READ(IUD, 3) END, K1, EL1, EL2, K2, EL3, EL4
+                KVAL(I) = 64*K1 + K2
+              END IF
+              CPTR(I) = ICPTR + LAST
 *
-	     IF ( END .EQ. '*') GO TO 16
+             IF ( END .EQ. '*') GO TO 16
              CALL EPTR(EL, EL1, IEL(I,1), *999)
              CALL EPTR(EL, EL2, IEL(I,2), *999)
              CALL EPTR(EL, EL3, IEL(I,3), *999)
              CALL EPTR(EL, EL4, IEL(I,4), *999)
-	     I = I + 1
-	     IF (I .LE. (IDIM) ) GO TO 14
-	     STOP ' Too many integrals - MAX = (IDIM)'
-	  END IF
- 16	  IF (INT .EQ. 3 .OR. INT .EQ. 4) GO TO 18
+             I = I + 1
+             IF (I .LE. (IDIM) ) GO TO 14
+             STOP ' Too many integrals - MAX = (IDIM)'
+          END IF
+ 16       IF (INT .EQ. 3 .OR. INT .EQ. 4) GO TO 18
 *
-*	... Read the data ...
+*       ... Read the data ...
 *
-   20	  READ(IUD,4) COEFF(IC), END, IH(IC), JH(IC), OPTR(IC)
-	  IF ( END .NE. '*') THEN
-	    IF (INT .LE. 2) THEN
-	      COEFF(IC) = ACURAT(COEFF(IC))
-	    ELSE
+   20     READ(IUD,4) COEFF(IC), END, IH(IC), JH(IC), OPTR(IC)
+          IF ( END .NE. '*') THEN
+            IF (INT .LE. 2) THEN
+              COEFF(IC) = ACURAT(COEFF(IC))
+            ELSE
 *
-*	  ... Shift origin for overlap integrals
+*         ... Shift origin for overlap integrals
 *
-	      IF (OPTR(IC).GT.512) THEN
-	        OPTR(IC) = INTPTR(3) + OPTR(IC) - 512
-	      ELSE IF (OPTR(IC).GT.0) THEN
-	        OPTR(IC) = INTPTR(2) + OPTR(IC)
-	      END IF
-	    END IF
-	    IC = IC + 1
-	    IF (IC .LE. NCDIM) GO TO 20
-	    STOP ' Too much data - current dimensions = (NCDIM)'
-	  END IF
+              IF (OPTR(IC).GT.512) THEN
+                OPTR(IC) = INTPTR(3) + OPTR(IC) - 512
+              ELSE IF (OPTR(IC).GT.0) THEN
+                OPTR(IC) = INTPTR(2) + OPTR(IC)
+              END IF
+            END IF
+            IC = IC + 1
+            IF (IC .LE. NCDIM) GO TO 20
+            STOP ' Too much data - current dimensions = (NCDIM)'
+          END IF
 *
-*	... Initialize for next set ..
+*       ... Initialize for next set ..
 *
-   18	  INTPTR(INT) = I-1
-	  LAST = IC-1
-   10 	CONTINUE
-	RETURN
+   18     INTPTR(INT) = I-1
+          LAST = IC-1
+   10   CONTINUE
+        RETURN
 *
   999   WRITE(ERR,*)' Electron in ',END,'-data not found in ',
      :          'configuration list data'
         STOP
-	END
+        END
 *
 *     ------------------------------------------------------------------
-*          A O R T H O 
+*          A O R T H O
 *     ------------------------------------------------------------------
 *
 *       This routine orthogonalizes the set of radial functions when an
@@ -986,21 +986,21 @@ C
 *           A R A T E
 *     ------------------------------------------------------------------
 *
-*	The ARATE subroutine computes an energy matrix, H-E.
-*	From the Golden Rule, the autoionisation rate is calculated as
-*	square of the interaction element:
+*       The ARATE subroutine computes an energy matrix, H-E.
+*       From the Golden Rule, the autoionisation rate is calculated as
+*       square of the interaction element:
 *
-*		Sum C * H  * A
+*               Sum C * H  * A
 *               i,j  i   ij   j
 *
-*	Where C and A is the coefficient vectors for the discrete and the
-*	continuum states respectively. The sum over i runs from 1 to ID
-*	(number of discrete configuration states) and the sum over j runs
-*	from ID+1 to NCFG.
-*	Strictly speeking, the whole matrix is not needed. It is still
-*	calculated for future purposes. The time wasted is minor in most
-*	cases.
-*		
+*       Where C and A is the coefficient vectors for the discrete and the
+*       continuum states respectively. The sum over i runs from 1 to ID
+*       (number of discrete configuration states) and the sum over j runs
+*       from ID+1 to NCFG.
+*       Strictly speeking, the whole matrix is not needed. It is still
+*       calculated for future purposes. The time wasted is minor in most
+*       cases.
+*
 *
       SUBROUTINE ARATE(ETOTAL,ACFG)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -1069,7 +1069,7 @@ C
      :  'Interaction elements (H)'
       DO 17 K = ID+1,NCFG
         WRITE(PRI,'((4X,6F12.7))') (W(I,K),I=1,ID)
- 17   CONTINUE 
+ 17   CONTINUE
       WRITE(PRI,'(/10X,A/(4X,6F12.7))')
      :   'Coefficients - discrete',(WT(I),I=1,ID)
       WRITE(PRI,'(/10X,A/(4X,6F12.7))')
@@ -1110,10 +1110,10 @@ C
 *     -----------------------------------------------------------------
 *
 *       This routine controls the 'SCF' procedure for the continuum
-*	function through the following steps.
+*       function through the following steps.
 
 *    1. Set parameters.
-*       If certain input parameters are zero (or blank) 
+*       If certain input parameters are zero (or blank)
 *       they will be set to their default value.
 *
 *         Parameter       Default Value (set in MAIN).
@@ -1121,11 +1121,11 @@ C
 *         SCFTOL          1.D-6
 *         NSCF            20
 *
-*   	The self-consistency convergence criterion is
+*       The self-consistency convergence criterion is
 *
 *          Z2 =  SCFTOL
 *
-*   	It is increased by a factor 1.3 at the end of each iteration
+*       It is increased by a factor 1.3 at the end of each iteration
 *
 *    2. Call COULOM to calculate direct function in outer region.
 *
@@ -1133,10 +1133,10 @@ C
 *       CSOLVE) and orthogonalize (AORTHO).
 *
 *    4. Do SCF-iterations in the following steps (from 1 to NSCF unless
-*	converged):
+*       converged):
 *            i) Calculates off-diagonal Energy parameters (AGRANGE).
 *            ii) Solve the Differential Equation (CSOLVE).
-*	     iii) Orthogonalize (AORTHO).
+*            iii) Orthogonalize (AORTHO).
 *            iv) Update the integrals (UPDATE).
 *
 *    5. Calculate the autoionization properties (ARATE) and do final
@@ -1404,23 +1404,23 @@ C
 *       C A L C A U T O
 *     ------------------------------------------------------------------
 *
-*	Calcauto performs the following tasks:
-*		1) some printouts.
-*		2) determines maximum range of the discrete orbitals 
-*		   (this will define the maximum R) by searching for an
-*		    MX;	ABS(PJ(R)) < 10**(-5) for all J; 0 < J < NWF
-*		    if R > R(MX).
-*		3) it can follow two branches, depending on the value 
-*		   of ICASE. 
-*	           * If ICASE = 1 or 4:
-*		     all data is known from the array WT and the
-*	             variables ECB and ECORE and we can procede quickly
-*		     to the scf-routine.
-*      	 	   * If ICASE = 2 or 3: 
-*		     it reads in data from unit 9 (.l or .j).
-*		     For each J-value (if ICASE = 2) we do calculation
+*       Calcauto performs the following tasks:
+*               1) some printouts.
+*               2) determines maximum range of the discrete orbitals
+*                  (this will define the maximum R) by searching for an
+*                   MX; ABS(PJ(R)) < 10**(-5) for all J; 0 < J < NWF
+*                   if R > R(MX).
+*               3) it can follow two branches, depending on the value
+*                  of ICASE.
+*                  * If ICASE = 1 or 4:
+*                    all data is known from the array WT and the
+*                    variables ECB and ECORE and we can procede quickly
+*                    to the scf-routine.
+*                  * If ICASE = 2 or 3:
+*                    it reads in data from unit 9 (.l or .j).
+*                    For each J-value (if ICASE = 2) we do calculation
 *                    for all states found (1 to MFOUND) and
-*		     read in weights and discrete energy.
+*                    read in weights and discrete energy.
 *
 *
       SUBROUTINE CALCAUTO(ECORE,ACFG,SCFTOL,PRINT)
@@ -1454,7 +1454,7 @@ C
 *
       CHARACTER*72 HEADER,LSI*2,LSJ*2
       LOGICAL PRINT
-* 
+*
 *  *****  Some printouts.
 *
       IF(ICASE.NE.4) THEN
@@ -1503,11 +1503,11 @@ C
  40     CONTINUE
         IF ( V .NE. D0) THEN
           EKK = 2*(ECORE-EBOUND)
-	  WRITE(10,6) -EKK/2
-	    WRITE(10,'(10X,A)') 
-     :	    '======================================='
-	  WRITE(10,'(//10X,A)') 'Discrete State, main component:'
-	  WRITE(10,'(10X,A)')   '------------------------------'
+          WRITE(10,6) -EKK/2
+            WRITE(10,'(10X,A)')
+     :      '======================================='
+          WRITE(10,'(//10X,A)') 'Discrete State, main component:'
+          WRITE(10,'(10X,A)')   '------------------------------'
           WRITE(OUT,'(//A,F10.5/)') ' *** CALCULATIONS FOR k^2 =',-EKK
           WRITE(10,103) ICFG,CONFIG(ICFG),
      :                  (COUPLE(ICFG,J),J=1,9)
@@ -1531,9 +1531,9 @@ C
 *
       ELSE IF(ICASE.EQ.4) THEN
         EKK = -2*ECB
-	WRITE(10,6) -EKK/2
-	    WRITE(10,'(10X,A)') 
-     :	    '======================================='
+        WRITE(10,6) -EKK/2
+            WRITE(10,'(10X,A)')
+     :      '======================================='
         WRITE(OUT,'(//A,F10.5/)') ' *** CALCULATIONS FOR k^2 =',-EKK
         CALL EIJSET(NWF,NWF,EKK)
 *
@@ -1543,8 +1543,8 @@ C
         MAX(NWF) = MX
         CALL ASCF(ECORE,EKK,ACFG,SCFTOL,PRINT)
 *
-* ***** ICASE = 2(3) 
-* ***** Read in weights and energies from .l (.j) file. 
+* ***** ICASE = 2(3)
+* ***** Read in weights and energies from .l (.j) file.
 * ***** Looping over J-values (goto 10) and states (do 100).
 *
       ELSE
@@ -1567,27 +1567,27 @@ C
  50       CONTINUE
           IF ( V .NE. D0) THEN
             EKK = 2*(ECORE-EBOUND)
-	    WRITE(10,6) -EKK/2
-	    WRITE(10,'(10X,A)') 
-     :	    '======================================='
-	    WRITE(10,'(//10X,A)') 'Discrete State, main component:'
-	    WRITE(10,'(10X,A)')   '------------------------------'
+            WRITE(10,6) -EKK/2
+            WRITE(10,'(10X,A)')
+     :      '======================================='
+            WRITE(10,'(//10X,A)') 'Discrete State, main component:'
+            WRITE(10,'(10X,A)')   '------------------------------'
             WRITE(OUT,'(//A,F10.5/)') ' *** CALCULATIONS FOR k^2 =',-EKK
-	    IF(ICASE.EQ.2) THEN
+            IF(ICASE.EQ.2) THEN
               WRITE(10,103) ICFG,CONFIG(ICFG),
      :                  (COUPLE(ICFG,J),J=1,9)
               WRITE(PRI,103) ICFG,CONFIG(ICFG),
      :                  (COUPLE(ICFG,J),J=1,9)
-	    ELSE
+            ELSE
               WRITE(10,102) ICFG,CONFIG(ICFG),JV,
      :                  (COUPLE(ICFG,J),J=1,9)
               WRITE(PRI,102) ICFG,CONFIG(ICFG),JV,
      :                  (COUPLE(ICFG,J),J=1,9)
-	    END IF
+            END IF
             IF(EKK.GT.D0) THEN
-	      WRITE(OUT,'(/A/)') 'THIS IS A BOUND STATE: E<ECORE'
-	      WRITE(10,'(/A/)') 'This is a bound state: E<ECORE'
-	      GO TO 100
+              WRITE(OUT,'(/A/)') 'THIS IS A BOUND STATE: E<ECORE'
+              WRITE(10,'(/A/)') 'This is a bound state: E<ECORE'
+              GO TO 100
             END IF
  6          FORMAT(//10X,'Continuum electron: k^2/2=',F10.5,' au.')
 102         FORMAT(/3X,I3,6X,A40,'2*J = ',I2/12X,9(5X,A3))
@@ -1609,12 +1609,12 @@ C
 *       C N M R V
 *     ------------------------------------------------------------------
 *
-* 	CNMRV Solves the differential equation
+*       CNMRV Solves the differential equation
 *
 *               y" = FK y + X
-*	
-*	In two different regions - inner (1,NJ+1) and outer (NJ+2,M) - by
-*	outwards integration.
+*
+*       In two different regions - inner (1,NJ+1) and outer (NJ+2,M) - by
+*       outwards integration.
 *
 *
       SUBROUTINE CNMRV(NJ,M,M0,AZZ,FK,X,FH,XH,PH,PDE)
@@ -1624,10 +1624,10 @@ C
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :  ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
 c
-c	starting from JH=5, JH corresponding to J=NJ+2, 
-c	two points each J, JH=2*(J-NJ) + 1
-c	R(J) --> rh(JH)
-cxi	comment by Jinhua Xi
+c       starting from JH=5, JH corresponding to J=NJ+2,
+c       two points each J, JH=2*(J-NJ) + 1
+c       R(J) --> rh(JH)
+cxi     comment by Jinhua Xi
 
 *
 *
@@ -1680,7 +1680,7 @@ cxi	comment by Jinhua Xi
         DO 22 K = 1,2
           G3 = FH(JH)
           Y3 = (Y2+Y2-Y1 + (D10*G2*Y2 + G1*Y1) + XH(JH-1)) / (D1 - G3)
-	  ph(jh) = y3
+          ph(jh) = y3
           Y1 = Y2
           Y2 = Y3
           G1 = G2
@@ -1692,56 +1692,56 @@ cxi	comment by Jinhua Xi
       END
 *
 *----------------------------------------------------------------------
-*	C O E F
+*       C O E F
 *----------------------------------------------------------------------
 *
-*	This function returns the coefficient of a given Slater
+*       This function returns the coefficient of a given Slater
 *  integral in the expansion of the energy
 *
-	DOUBLE PRECISION FUNCTION COEF(INT)
-	IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+        DOUBLE PRECISION FUNCTION COEF(INT)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
 *
-	INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
-	PARAMETER (NCD=100,IDIM=550,NCDIM=5000)
-	COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
-     :	       ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
+        INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
+        PARAMETER (NCD=100,IDIM=550,NCDIM=5000)
+        COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
+     :         ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
 *
-	COEF = 0.D0
-	IBEGIN = 1
-	IF (INT .GT. 1) IBEGIN = CPTR(INT-1)+1
-	IEND = CPTR(INT)
+        COEF = 0.D0
+        IBEGIN = 1
+        IF (INT .GT. 1) IBEGIN = CPTR(INT-1)+1
+        IEND = CPTR(INT)
 
-	DO 1 II = IBEGIN,IEND
-	   T = WT(IH(II))*WT(JH(II))*COEFF(II)
- 	   IF (OPTR(II).NE.0) T = T*VALUE(OPTR(II))
-	   IF (IH(II) .NE. JH(II)) T = T+T
-	   COEF = COEF+T
+        DO 1 II = IBEGIN,IEND
+           T = WT(IH(II))*WT(JH(II))*COEFF(II)
+           IF (OPTR(II).NE.0) T = T*VALUE(OPTR(II))
+           IF (IH(II) .NE. JH(II)) T = T+T
+           COEF = COEF+T
 
-  1	CONTINUE
-	END
+  1     CONTINUE
+        END
 *
 *     ------------------------------------------------------------------
-*       		C O U L O M
+*                       C O U L O M
 *     ------------------------------------------------------------------
 *
-*	This subroutine handles three different tasks:
+*       This subroutine handles three different tasks:
 *
-*	  1) Computes and stores the FK function;
+*         1) Computes and stores the FK function;
 *
-* 	  	FK(r) =[-2(Z-YR(r))*r + (l+.5)**2 + (k*r)**2]CH
+*               FK(r) =[-2(Z-YR(r))*r + (l+.5)**2 + (k*r)**2]CH
 *
-*	     It will remain constant for the rest of the calculations.
+*            It will remain constant for the rest of the calculations.
 *
-*	  2) Determines the onset of the asymptotic, Coulomb region, as
-*	     the classical turning point, R(NJ).
+*         2) Determines the onset of the asymptotic, Coulomb region, as
+*            the classical turning point, R(NJ).
 *
 *         3) Determines the point, R(MP)>R(NJ), outside which the potential
 *            could be described as Zeff/r, ie the change in YR is negligible.
 *
-*	  4) Interpolates FK, to obtain and store FH, in the asymptotic
-*	     region. (That is between R(NJ) and R(MM), where MM =
-*	     MIN(NO-2,NJ+99)) The FK functions is determined in the normal
-*	     grid points, while the FH is defined for Half the stepsize.
+*         4) Interpolates FK, to obtain and store FH, in the asymptotic
+*            region. (That is between R(NJ) and R(MM), where MM =
+*            MIN(NO-2,NJ+99)) The FK functions is determined in the normal
+*            grid points, while the FH is defined for Half the stepsize.
 *
       SUBROUTINE COULOM(I,EKK)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -1777,7 +1777,7 @@ cxi	comment by Jinhua Xi
 *
 *        1) Compute the direct function, FK.
 *
-	NJM=0
+        NJM=0
       DO 4 J = 1,M
 
 cc      write(76, '(2f15.7)') r(j), z-yr(j)
@@ -1832,31 +1832,31 @@ cc      write(76, '(2f15.7)') r(j), z-yr(j)
 *       CSOLVE performs the following tasks:
 *
 *         1) Computes the Exchange function, X(r), by calling CXCH.
-*	  2) Redefines the outer region;
+*         2) Redefines the outer region;
 *            * Initialization stage (IX = 0) - first call:
-*	       reduce outer region (MAX(NWF) -> M) if step size is too
+*              reduce outer region (MAX(NWF) -> M) if step size is too
 *              big (R(I) - R(I-1) > 2/K) and where NJ <= M <= MAX(NWF).
 *              M-NJ is also, by dimensions, bound to be less than 130.
 *            * During SCF-cycle (IX = 1):
-*              find MJ; MP < MJ < M and 
-*			X(r)/FK(r) < 0.0025 if R > R(MJ).
-*              This will be used to calculate phase shift. If MJ = M 
+*              find MJ; MP < MJ < M and
+*                       X(r)/FK(r) < 0.0025 if R > R(MJ).
+*              This will be used to calculate phase shift. If MJ = M
 *              the X function might be truncated -> warning.
-*	  3) Interpolates X(r) to XH(r), for half the step size, in 
+*         3) Interpolates X(r) to XH(r), for half the step size, in
 *            the azymptotic region; r(NJ) <= r <= r(M).
-*	  4) Prepares for the Numerov method of solving the 
-*	     differential equation, both in azymptotic and inner region.
-*	  5) Solves the differential equation, by calling CNMRV.
-*	  6) Calculates the phase shift and renormalization, by using
-*	     regular, FC, and irregular, GC, Coulomb functions; 
-*	     Renormalizes the continuumfunction.
-*	  7) Orthogonalize the continuum function.
-*	The following subroutines are called in the different
-*	steps:
-*	  1) CXCH
-*	  5) CNMRV
-*	  6) FGCOUL 
-*	
+*         4) Prepares for the Numerov method of solving the
+*            differential equation, both in azymptotic and inner region.
+*         5) Solves the differential equation, by calling CNMRV.
+*         6) Calculates the phase shift and renormalization, by using
+*            regular, FC, and irregular, GC, Coulomb functions;
+*            Renormalizes the continuumfunction.
+*         7) Orthogonalize the continuum function.
+*       The following subroutines are called in the different
+*       steps:
+*         1) CXCH
+*         5) CNMRV
+*         6) FGCOUL
+*
 *
       SUBROUTINE CSOLVE(I,DELTA)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -1887,7 +1887,7 @@ cc      write(76, '(2f15.7)') r(j), z-yr(j)
       ekk = -ed
       eK = SQRT(ekk)
 
-	icase = 0
+        icase = 0
       AZD = AZ(I)
       IPR = NWF
       M = MAX(NWF)
@@ -1896,12 +1896,12 @@ cc      write(76, '(2f15.7)') r(j), z-yr(j)
 *
         CALL CXCH(I,3)
 cxi
-cxi	save X(J)  for repeated use with different
-cxi	E(I,J) values
+cxi     save X(J)  for repeated use with different
+cxi     E(I,J) values
 cxi
-	do 12 j=1,no
-	p(j,nwf+1) = X(j)
-12	continue
+        do 12 j=1,no
+        p(j,nwf+1) = X(j)
+12      continue
 
 *
 * ***** Redefine the outer region.
@@ -1913,11 +1913,11 @@ cxi
           IF (M .GT. MP) GO TO 5
         END IF
         IF (M .LT. MAX(NWF)) THEN
-	  WRITE(OUT,*) 'Outer region reduced by ',MAX(NWF)-M,'points',
+          WRITE(OUT,*) 'Outer region reduced by ',MAX(NWF)-M,'points',
      :                 ' in CSOLVE. '
-	END IF
+        END IF
         MJ = M
-	print *, ' End of range: ', r(m), ' au.'
+        print *, ' End of range: ', r(m), ' au.'
       ELSE
 2       IF (ABS(X(MJ)/FK(MJ)) .LT. 0.0025) THEN
           MJ = MJ-1
@@ -1930,12 +1930,12 @@ cxi
         STOP 'In CSOLVE - Too large outer region'
       END IF
       IF (MJ .EQ. M .AND. IX.NE.0) THEN
-		if( icase .eq. 0 ) then 
+                if( icase .eq. 0 ) then
         WRITE(OUT,'(/1X,A,I4)')
      :       'WARNING: Outer region may be truncated. M = MJ =',M
-	WRITE(OUT,'(A)') 
+        WRITE(OUT,'(A)')
      :       '          Exchange function not small at M!'
-		endif
+                endif
       ELSE
         IX = 1
       END IF
@@ -1947,11 +1947,11 @@ cxi
       JH = 1
       DO 3 J = NJ,M
         XH(JH) = X(J)
-	rh(jh) = r(j)
-	r2h(jh) = r2(j)
+        rh(jh) = r(j)
+        r2h(jh) = r2(j)
         XH(JH+1) = (9.*(X(J)+X(J+1)) -X(J-1)-X(J+2))/D16
-	rh(jh+1) = r(j)*ehh
-	r2h(jh+1) = r2(j)*e2hh
+        rh(jh+1) = r(j)*ehh
+        r2h(jh+1) = r2(j)*e2hh
         JH = JH + 2
 3     CONTINUE
 *
@@ -2016,28 +2016,28 @@ cxi
 
       PDE(1) = PDE(1) + XY/(D2*CC)
       PDE(2) = PDE(2) + XP/(D2*CC)
-	
+
 *
 *  *****  Solve the differential equation.
-* 
+*
 cxi
       CALL CNMRV(NJ,M,1,AZ(I),FK,X,FH,XH,PH,PDE)
 
 
        CALL FGCOUL(I,M,CN,DELTA)
 cxi
-cxi	note: the sign of the overlop depends on cn, 
-cxi	because we need to adjust the off-diagonal parameters
-cxi	repeatedly to find a zero overlap, we can not change the sign of
-cxi	the wavefunction
-cxi	so, save the sign in cnn
+cxi     note: the sign of the overlop depends on cn,
+cxi     because we need to adjust the off-diagonal parameters
+cxi     repeatedly to find a zero overlap, we can not change the sign of
+cxi     the wavefunction
+cxi     so, save the sign in cnn
 cxi
        if( cn .lt. 0.d0 ) then
-	  cnn = -1.d0
-	  cn = - cn
-	else
-	  cnn = 1.d0
-	endif
+          cnn = -1.d0
+          cn = - cn
+        else
+          cnn = 1.d0
+        endif
 *
 * ***** Renormalise.
 *
@@ -2052,8 +2052,8 @@ cxi
 13    CONTINUE
       AZ(I) = (1.d0 - acc(i))*AZ(i) + acc(i)*AZD
 cxi
-cxi	if the acc(i) is used, the wavefunction needs to be
-cxi	re-normalized
+cxi     if the acc(i) is used, the wavefunction needs to be
+cxi     re-normalized
 cxi
       MAX(I) = M
 *
@@ -2067,15 +2067,15 @@ cxi
         CC = QUADR(I,JI,0)
 
 
-	if( ip .eq. ibegin ) then
+        if( ip .eq. ibegin ) then
 cxi
 cxi the first orthogonal requirements, use new approach
 cxi
-	if( e(i,ji) .eq. 0.d0  .or. dabs(cc) .lt. 1.d-7) goto 65 
+        if( e(i,ji) .eq. 0.d0  .or. dabs(cc) .lt. 1.d-7) goto 65
 
-	azcc= CC*AZ(JI)/az(i)
-	if( dabs(azcc) .gt. 0.1d0) goto 66 
-	endif
+        azcc= CC*AZ(JI)/az(i)
+        if( dabs(azcc) .gt. 0.1d0) goto 66
+        endif
 
 65        WRITE(OUT,63) EL(JI),EL(I),CC, e(i,ji)
 63      FORMAT(1X,'<',A3,'|',A3,'>=',D8.2, '  eij=',d18.10)
@@ -2085,19 +2085,19 @@ cxi
           P(J,I) = P(J,I) - CC*P(J,JI)
 51      CONTINUE
 c
-cxi	re-normalize the wavefunction
+cxi     re-normalize the wavefunction
 cxi
-	cnn=cnn*pde(M)/P(M,i)
-	if (az(i) .lt. 0.d0) cnn = - cnn 
-	  Az(i) = cnn*Az(i)
-	  do 52 j = 1,m
-	    p(j,i) = cnn*p(j,i)
+        cnn=cnn*pde(M)/P(M,i)
+        if (az(i) .lt. 0.d0) cnn = - cnn
+          Az(i) = cnn*Az(i)
+          do 52 j = 1,m
+            p(j,i) = cnn*p(j,i)
 52        continue
 cxi
-cxi	normalize the off diagonal parameters
+cxi     normalize the off diagonal parameters
 cxi
-	eijv = cn*cnn*e(i,ji)
-	call eijset(i,ji,eijv)
+        eijv = cn*cnn*e(i,ji)
+        call eijset(i,ji,eijv)
 
         IP = IP+1
         IF (IP .LE. IEPTR(I)) GO TO 50
@@ -2110,25 +2110,25 @@ cxi
       WRITE(OUT,17) EL(I),DELTA,AZ(I),CN,'c',DP
 17    FORMAT(20X,A3,2F15.7,F12.7,A2,1PD10.2)
 
-	return	
+        return
 cxi
-cxi	adjusting the off-diagonal parameters E(I,JI)
+cxi     adjusting the off-diagonal parameters E(I,JI)
 cxi
-66	 eijv = e(i,ji)
-	call geteij(icase,eijv,cc)
-	deteij = eijv - e(i,ji) 
-	call eijset(i,ji,eijv)
+66       eijv = e(i,ji)
+        call geteij(icase,eijv,cc)
+        deteij = eijv - e(i,ji)
+        call eijset(i,ji,eijv)
 cxi
-cxi	for new E(i,j) values, always keep updating 
-cxi	the X function
+cxi     for new E(i,j) values, always keep updating
+cxi     the X function
 cxi
-	do 18 j=1,no
-	p(j,nwf+1) = p(j,nwf+1) + deteij*P(j,ji)*rr(j)
-	x(j) = p(j,nwf+1)
-18	continue
-	az(i)= azd
+        do 18 j=1,no
+        p(j,nwf+1) = p(j,nwf+1) + deteij*P(j,ji)*rr(j)
+        x(j) = p(j,nwf+1)
+18      continue
+        az(i)= azd
 
-	goto 678
+        goto 678
       END
 
 *
@@ -2136,10 +2136,10 @@ cxi
 *               C X C H
 *----------------------------------------------------------------------
 *
-*	  This subroutine computes the function X(r) for the continuum
-*	orbital. It includes contributions from Exchange, Configuration
-*	Interaction, One-electron part and off-diagonal Lagrange
-*	Multipiers.
+*         This subroutine computes the function X(r) for the continuum
+*       orbital. It includes contributions from Exchange, Configuration
+*       Interaction, One-electron part and off-diagonal Lagrange
+*       Multipiers.
 *
       SUBROUTINE CXCH(I,IOPT)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -2228,40 +2228,40 @@ C
       END
 *
 *-----------------------------------------------------------------------
-* 		E
+*               E
 *-----------------------------------------------------------------------
 *      Returns the value of the off-diagonal energy parameter
 *  for the (i,j) pair from the data structure.
 *
-	DOUBLE PRECISION FUNCTION E(I,J)
+        DOUBLE PRECISION FUNCTION E(I,J)
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
         COMMON /WAVE/EC,ED,AZD,PDE(NOD),SUM(NWD),S(NWD),DPM(NWD),
      :         ACC(NWD),METH(NWD),IEPTR(NWD),IJE(98),EIJ(98),VIJ(98),IPR
 *
-	IBEGIN = 1
-	IF (I .GT. 1) IBEGIN = IEPTR(I-1) + 1
-	IEND = IEPTR(I)
-	E = 0.D0
-	DO 10 II = IBEGIN,IEND
-	   IF (IJE(II) .EQ. J) THEN
-	      E = EIJ(II)
-	      RETURN
-	   END IF
- 10	CONTINUE
-	END
+        IBEGIN = 1
+        IF (I .GT. 1) IBEGIN = IEPTR(I-1) + 1
+        IEND = IEPTR(I)
+        E = 0.D0
+        DO 10 II = IBEGIN,IEND
+           IF (IJE(II) .EQ. J) THEN
+              E = EIJ(II)
+              RETURN
+           END IF
+ 10     CONTINUE
+        END
 *
 *-----------------------------------------------------------------------
-*		E I J S E T
+*               E I J S E T
 *-----------------------------------------------------------------------
 *
 *      Stores the value of the off-diagonal energy parameter for the
 *   pair (i,j) in the data structure
 *
-	SUBROUTINE EIJSET(I,J,E)
+        SUBROUTINE EIJSET(I,J,E)
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
@@ -2270,55 +2270,55 @@ C
         COMMON /WAVE/EC,ED,AZD,PDE(NOD),SUM(NWD),S(NWD),DPM(NWD),
      :         ACC(NWD),METH(NWD),IEPTR(NWD),IJE(98),EIJ(98),VIJ(98),IPR
 *
-   	IBEGIN = 1
-	IF (I .GT. 1) IBEGIN = IEPTR(I-1)+1
-	IEND = IEPTR(I)
-	DO 10 II = IBEGIN,IEND
-	   IF (IJE(II) .EQ. J) THEN
-	      EIJ(II) = E
-	      RETURN
-	   END IF
+        IBEGIN = 1
+        IF (I .GT. 1) IBEGIN = IEPTR(I-1)+1
+        IEND = IEPTR(I)
+        DO 10 II = IBEGIN,IEND
+           IF (IJE(II) .EQ. J) THEN
+              EIJ(II) = E
+              RETURN
+           END IF
  10     CONTINUE
 *
 * ***** J-value not found - enter into list
 *
-	IF (IJE(98) .NE. 0)
-     : 	 STOP ' Too many off-diagonal energy parameters'
+        IF (IJE(98) .NE. 0)
+     :   STOP ' Too many off-diagonal energy parameters'
 *
 *  ***** Find point at which the insertion should be made
 *
-	IEND = IEPTR(I)
-	IF (IEND .NE. 0) THEN
-	   IP = 1
-	   IF (I .GT. 1) IP = IEPTR(I-1)+1
- 30	   IF (IJE(IP) .LT. J .AND. IP .LE. IEND) THEN
-	      IP = IP + 1
+        IEND = IEPTR(I)
+        IF (IEND .NE. 0) THEN
+           IP = 1
+           IF (I .GT. 1) IP = IEPTR(I-1)+1
+ 30        IF (IJE(IP) .LT. J .AND. IP .LE. IEND) THEN
+              IP = IP + 1
               GO TO 30
-	   END IF
-	ELSE
-	   IP = 1
-	END IF
+           END IF
+        ELSE
+           IP = 1
+        END IF
 *
 * *****  IP is the location in which EIJ should be stored
 *        Move other data
 *
-	
-	DO 40 JJ = (98)-1,IP,-1
-	   IJE(JJ+1) = IJE(JJ)
-	   EIJ(JJ+1) = EIJ(JJ)
- 40	CONTINUE
+
+        DO 40 JJ = (98)-1,IP,-1
+           IJE(JJ+1) = IJE(JJ)
+           EIJ(JJ+1) = EIJ(JJ)
+ 40     CONTINUE
 *
 * ***** Space has been made - insert data
 *
-	IJE(IP) = J
-	EIJ(IP) = E
+        IJE(IP) = J
+        EIJ(IP) = E
 *
 * ***** Update pointers
 *
-	DO 50 II = I,NWF
-	   IEPTR(II) = IEPTR(II) +1
- 50	CONTINUE
-	END
+        DO 50 II = I,NWF
+           IEPTR(II) = IEPTR(II) +1
+ 50     CONTINUE
+        END
 *
 *     ------------------------------------------------------------------
 *        L S T E R M
@@ -2327,10 +2327,10 @@ C
 *       Determine the LS term value from the COUPLE array
 *
         SUBROUTINE LSTERM(COUPLE,I,LS)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
         INTEGER IN,OUT,ERR,PRI,OUC,OUD,OUF,OUH
-	COMMON /INOUT/ IN,OUT,ERR,PRI,IUC,IUD,IUF,OUC,OUD,OUF,OUH
+        COMMON /INOUT/ IN,OUT,ERR,PRI,IUC,IUD,IUF,OUC,OUD,OUF,OUH
         CHARACTER*3 COUPLE(NCD,9),LS*2
 *
         J = 9
@@ -2359,7 +2359,7 @@ C
 *
         SUBROUTINE POTL(I)
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
@@ -2367,12 +2367,12 @@ C
         COMMON /RADIAL/R(NOD),RR(NOD),R2(NOD),P(NOD,NWD),YK(NOD),YR(NOD)
      :          ,X(NOD),AZ(NWD),L(NWD),MAX(NWD),N(NWD)
 *
-	INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
-	PARAMETER (IDIM=550,NCDIM=5000)
-	COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
-     :	       ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
+        INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
+        PARAMETER (IDIM=550,NCDIM=5000)
+        COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
+     :         ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
 *
-	LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
+        LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
         COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
 *
         COMMON /WAVE/EC,ED,AZD,PDE(NOD),SUM(NWD),S(NWD),DPM(NWD),
@@ -2380,50 +2380,50 @@ C
 *
       DO 1 J=1,NO
 1     YR(J) = D0
-	DO 2 J = 1,NWF
-	   IF (I.GT.NCLOSD .AND. J.GT.NCLOSD) GO TO 2
-	   C = SUM(J)
-	   IF ( I.EQ.J ) C = C - D1
-	   CALL YKF(J,J,0,REL)
-	   DO 3 JJ = 1,NO
-	      YR(JJ) = YR(JJ) + C*YK(JJ)
+        DO 2 J = 1,NWF
+           IF (I.GT.NCLOSD .AND. J.GT.NCLOSD) GO TO 2
+           C = SUM(J)
+           IF ( I.EQ.J ) C = C - D1
+           CALL YKF(J,J,0,REL)
+           DO 3 JJ = 1,NO
+              YR(JJ) = YR(JJ) + C*YK(JJ)
 3          CONTINUE
-	   IF ( I.EQ.J .AND. L(I) .GT. 0) THEN
-	      DO 4 K = 2,2*L(I),2
-		 CC = -C*CA(L(I),K)
-		 CALL YKF(I,I,K,REL)
-		 DO 5 JJ = 1,NO
-		    YR(JJ) = YR(JJ) + CC*YK(JJ)
-5		 CONTINUE
-4	      CONTINUE
-	   END IF
-2	CONTINUE
+           IF ( I.EQ.J .AND. L(I) .GT. 0) THEN
+              DO 4 K = 2,2*L(I),2
+                 CC = -C*CA(L(I),K)
+                 CALL YKF(I,I,K,REL)
+                 DO 5 JJ = 1,NO
+                    YR(JJ) = YR(JJ) + CC*YK(JJ)
+5                CONTINUE
+4             CONTINUE
+           END IF
+2       CONTINUE
 *
-	SUMI = SUM(I)
-	IBEGIN = 1
-	IEND = INTPTR(1)
+        SUMI = SUM(I)
+        IBEGIN = 1
+        IEND = INTPTR(1)
 
 
-	DO 10 J = IBEGIN,IEND
-	   IE = 0
-	   IF (IEL(J,1) .EQ. I) THEN
-	      IE = IEL(J,2)
+        DO 10 J = IBEGIN,IEND
+           IE = 0
+           IF (IEL(J,1) .EQ. I) THEN
+              IE = IEL(J,2)
            ELSE IF (IEL(J,2) .EQ. I) THEN
               IE = IEL(J,1)
            END IF
 
            IF (IE .NE. 0) THEN
-	      C = COEF(J)/SUMI
-	      IF (IEL(J,1) .EQ. IEL(J,2)) C = 2*C
+              C = COEF(J)/SUMI
+              IF (IEL(J,1) .EQ. IEL(J,2)) C = 2*C
 
-	      CALL YKF(IE,IE,KVAL(J),REL)
-	      DO 12 JJ = 1,NO
-		 YR(JJ) = YR(JJ) + C*YK(JJ)
- 12	      CONTINUE
+              CALL YKF(IE,IE,KVAL(J),REL)
+              DO 12 JJ = 1,NO
+                 YR(JJ) = YR(JJ) + C*YK(JJ)
+ 12           CONTINUE
 
-	   END IF
- 10	CONTINUE
-	END
+           END IF
+ 10     CONTINUE
+        END
 *
 *     ------------------------------------------------------------------
 *              Q U A D
@@ -2438,7 +2438,7 @@ C
 *
       DOUBLE PRECISION FUNCTION QUAD(I,M,F,G)
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220)
+        PARAMETER (NWD=30,NOD=220)
 *
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
@@ -2446,7 +2446,7 @@ C
         COMMON /RADIAL/R(NOD),RR(NOD),R2(NOD),P(NOD,NWD),YK(NOD),YR(NOD)
      :          ,X(NOD),AZ(NWD),L(NWD),MAX(NWD),N(NWD)
 *
-	DIMENSION F(NOD),G(NOD)
+        DIMENSION F(NOD),G(NOD)
 *
       D = (D1 + D5*Z*R(1))/(H1*(2*L(I) + 3))
       QUAD = RR(1)* F(1)*G(1)*( D -D5)
@@ -2460,10 +2460,10 @@ C
       END
 *
 *---------------------------------------------------------------------
-*		S E T O R T
+*               S E T O R T
 *---------------------------------------------------------------------
 *
-*	Determine if orbitals for electrons (el1, el2) should be
+*       Determine if orbitals for electrons (el1, el2) should be
 *   orthogonal.
 *
       LOGICAL FUNCTION SETORT(EL1,EL2)
@@ -2492,91 +2492,91 @@ C
       END
 *
 *-----------------------------------------------------------------------
-*		U P D A T E
+*               U P D A T E
 *-----------------------------------------------------------------------
 *
-*	Evaluate all integrals where at least on orbital has changed.
+*       Evaluate all integrals where at least on orbital has changed.
 *
-	SUBROUTINE UPDATE
-	IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        SUBROUTINE UPDATE
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
-	INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
-	PARAMETER (IDIM=550,NCDIM=5000)
+        INTEGER KVAL, IEL, CPTR, IH, JH, OPTR
+        PARAMETER (IDIM=550,NCDIM=5000)
 *
         CHARACTER CONFIG*40,EL*3,ATOM*6,TERM*6,COUPLE*3
         COMMON /LABEL/CONFIG(NCD),EL(NWD),ATOM,TERM,COUPLE(NCD,9)
-	COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
-     :	       ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
+        COMMON/STATE/WT(NCD),INTPTR(6),KVAL(IDIM),IEL(IDIM,4),CPTR(IDIM)
+     :         ,VALUE(IDIM),COEFF(NCDIM),IH(NCDIM),JH(NCDIM),OPTR(NCDIM)
 *
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
 *
-	LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
+        LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
         COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
 *
         COMMON /WAVE/EC,ED,AZD,PDE(NOD),SUM(NWD),S(NWD),DPM(NWD),
      :         ACC(NWD),METH(NWD),IEPTR(NWD),IJE(98),EIJ(98),VIJ(98),IPR
 *
-	LOGICAL CHANGE
-	IBEGIN =  1
-	IEND = INTPTR(3)
-	DO 1 I = IBEGIN,IEND
-	   IF (VARIED(IEL(I,1)) .OR. VARIED(IEL(I,2))) THEN
-	      IF (I .LE. INTPTR(1)) THEN
-		 VALUE(I) = FK(IEL(I,1),IEL(I,2),KVAL(I),REL)
+        LOGICAL CHANGE
+        IBEGIN =  1
+        IEND = INTPTR(3)
+        DO 1 I = IBEGIN,IEND
+           IF (VARIED(IEL(I,1)) .OR. VARIED(IEL(I,2))) THEN
+              IF (I .LE. INTPTR(1)) THEN
+                 VALUE(I) = FK(IEL(I,1),IEL(I,2),KVAL(I),REL)
               ELSE IF (I .LE. INTPTR(2)) THEN
-		 VALUE(I) = GK(IEL(I,1),IEL(I,2),KVAL(I),REL)
-	      ELSE
-		 VALUE(I) = QUADR(IEL(I,1),IEL(I,2),0)**KVAL(I)
-	      END IF
-	   END IF
-  1	CONTINUE
+                 VALUE(I) = GK(IEL(I,1),IEL(I,2),KVAL(I),REL)
+              ELSE
+                 VALUE(I) = QUADR(IEL(I,1),IEL(I,2),0)**KVAL(I)
+              END IF
+           END IF
+  1     CONTINUE
 *
-	IBEGIN = IEND + 1
-	IEND = INTPTR(4)
-	DO 30 I = IBEGIN,IEND
-	   CHANGE = .FALSE.
-	   DO 31 J = 1,4
-	     CHANGE = CHANGE .OR. VARIED(IEL(I,J))
- 31	   CONTINUE
-	   IF (CHANGE) THEN
-	      K1 = KVAL(I)/64
-	      K2 = KVAL(I) - 64*K1
+        IBEGIN = IEND + 1
+        IEND = INTPTR(4)
+        DO 30 I = IBEGIN,IEND
+           CHANGE = .FALSE.
+           DO 31 J = 1,4
+             CHANGE = CHANGE .OR. VARIED(IEL(I,J))
+ 31        CONTINUE
+           IF (CHANGE) THEN
+              K1 = KVAL(I)/64
+              K2 = KVAL(I) - 64*K1
               VALUE(I) = QUADR(IEL(I,1),IEL(I,2),0)**K1
      :                  *QUADR(IEL(I,3),IEL(I,4),0)**K2
-	   END IF
- 30	CONTINUE
-	IBEGIN = IEND + 1
-	IEND = INTPTR(5)
-	DO 10 I = IBEGIN,IEND
-	  CHANGE = .FALSE.
-	  DO 11 J = 1,4
-	     CHANGE = CHANGE .OR. VARIED(IEL(I,J))
- 11	  CONTINUE
-	  IF (CHANGE) VALUE(I)
+           END IF
+ 30     CONTINUE
+        IBEGIN = IEND + 1
+        IEND = INTPTR(5)
+        DO 10 I = IBEGIN,IEND
+          CHANGE = .FALSE.
+          DO 11 J = 1,4
+             CHANGE = CHANGE .OR. VARIED(IEL(I,J))
+ 11       CONTINUE
+          IF (CHANGE) VALUE(I)
      :        = RK(IEL(I,1),IEL(I,2),IEL(I,3),IEL(I,4),KVAL(I),REL)
- 10	CONTINUE
+ 10     CONTINUE
 *
-	IBEGIN = IEND + 1
-	IEND = INTPTR(6)
-	DO 20 I = IBEGIN,IEND
-	   IF (VARIED(IEL(I,1)) .OR. VARIED(IEL(I,2))) 
+        IBEGIN = IEND + 1
+        IEND = INTPTR(6)
+        DO 20 I = IBEGIN,IEND
+           IF (VARIED(IEL(I,1)) .OR. VARIED(IEL(I,2)))
      :                VALUE(I) = HLC(EL,IEL(I,1),IEL(I,2),REL)
- 20	CONTINUE
+ 20     CONTINUE
 *
 *      ... Test if any of the core functions have changed
 *
-	CHANGE = .FALSE.
-	DO 35 I = 1,NCLOSD
-	   CHANGE = CHANGE .OR. VARIED(I)
-  35	CONTINUE
-	IF (CHANGE .OR. EC.EQ.D0) CALL ECORE(EL,EC,REL)
+        CHANGE = .FALSE.
+        DO 35 I = 1,NCLOSD
+           CHANGE = CHANGE .OR. VARIED(I)
+  35    CONTINUE
+        IF (CHANGE .OR. EC.EQ.D0) CALL ECORE(EL,EC,REL)
 *
-	DO 40 I = 1,NWF
-	   VARIED(I) = .FALSE.
- 40	CONTINUE
-	END
+        DO 40 I = 1,NWF
+           VARIED(I) = .FALSE.
+ 40     CONTINUE
+        END
 *
 *     ------------------------------------------------------------------
 *              W A V E F N
@@ -2597,7 +2597,7 @@ C
 *
       SUBROUTINE WAVEFN
         IMPLICIT DOUBLE PRECISION(A-H,O-Z)
-	PARAMETER (NWD=30,NOD=220,NCD=100)
+        PARAMETER (NWD=30,NOD=220,NCD=100)
 *
         INTEGER IN,OUT,ERR,PRI,OUC,OUD,OUF,OUH
         COMMON /INOUT/ IN,OUT,ERR,PRI,IUC,IUD,IUF,OUC,OUD,OUF,OUH
@@ -2611,7 +2611,7 @@ C
         COMMON /RADIAL/R(NOD),RR(NOD),R2(NOD),P(NOD,NWD),YK(NOD),YR(NOD)
      :          ,X(NOD),AZ(NWD),L(NWD),MAX(NWD),N(NWD)
 *
-	LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
+        LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
         COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
 *
         COMMON /WAVE/EC,ED,AZD,PDE(NOD),SUM(NWD),S(NWD),DPM(NWD),
@@ -2619,7 +2619,7 @@ C
       COMMON ZZ(NWD),IND(NWD),PN,Z2,FN,M,K,ZT,
      1   ETI,EKI,AZI,PT(NOD),MT
 *
-	CHARACTER EL1*3,AT*6,TT*6,ATM(NWD)*6,TRM(NWD)*6,TITLE*24
+        CHARACTER EL1*3,AT*6,TT*6,ATM(NWD)*6,TRM(NWD)*6,TITLE*24
 *
 *  *****  GENERATE ARRAYS FOR R,R*R AND SQRT(R) WITH A CONSTANT MESH
 *  *****  SIZE IN THE LOG(Z*R) VARIABLE
@@ -2741,7 +2741,7 @@ C
       END
 *
 *     ------------------------------------------------------------------
-*      FGCOUL  
+*      FGCOUL
 *     ------------------------------------------------------------------
 *
       SUBROUTINE FGCOUL(I,M,cn,delta)
@@ -2763,10 +2763,10 @@ C
       LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
       COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
       COMMON /CONTIN/FK(NOD),FH(260),XH(260),rh(260),r2h(260),ph(260),
-     :		     CD,FL,ZL,ZF,V,NJ,MJ,MP,IX
+     :               CD,FL,ZL,ZF,V,NJ,MJ,MP,IX
       COMMON /COULFG/FKC(NOD),XC(NOD),PDC(NOD),FHC(260),PHC(260),NJM
-	dimension xhc(260)
-      data ED0,LL0 / 1.d0, -1 / 
+        dimension xhc(260)
+      data ED0,LL0 / 1.d0, -1 /
 
       PI = ACOS(-D1)
       PII = PI + PI
@@ -2775,20 +2775,20 @@ C
 
       K = SQRT(-ED)
 
-	ifirst = 0
-	if( ed .eq. ed0 .and. ll .eq. ll0 ) ifirst = 1
+        ifirst = 0
+        if( ed .eq. ed0 .and. ll .eq. ll0 ) ifirst = 1
 
-	if( ifirst .eq. 1 ) goto 10 
+        if( ifirst .eq. 1 ) goto 10
 
-	it =1 
-	  azd = d1
-	  do j=1,no
-		pdc(j)= d0
-      		xc(j)=0.d0
-	  enddo
+        it =1
+          azd = d1
+          do j=1,no
+                pdc(j)= d0
+                xc(j)=0.d0
+          enddo
 
-	  ed0 = ed
-	  ll0 = ll
+          ed0 = ed
+          ll0 = ll
 
 *
 * ***** iv) Compute starting values from series expansion
@@ -2809,16 +2809,16 @@ C
        xhc(j)=0.d0
        enddo
 
-2      CALL CNMRV(NJ,MM,1,AZD,FKC,XC,FHC,XHC,PHC,PDC) 
+2      CALL CNMRV(NJ,MM,1,AZD,FKC,XC,FHC,XHC,PHC,PDC)
 
-      if( it .eq. 3 ) goto 10 
+      if( it .eq. 3 ) goto 10
 
 *
 *
 * ***** iii) Add the deferred difference correction to the exchange
 * *****      for the outward integration region
 *
-	it = it + 1
+        it = it + 1
 
       X1 =    PDC(1)*FKC(1)
       X2 =    PDC(2)*FKC(2)
@@ -2836,7 +2836,7 @@ C
       XC(2) = R(2)**RL*(XC(5)/R(5)**RL - D3*(XC(4)/R(4)**RL -
      :     XC(3)/R(3)**RL))
 
-	goto 2
+        goto 2
 
 *
 * ***** From the Coulomb functions we calculate the phase shift and
@@ -2844,21 +2844,21 @@ C
 *
 10      H60 = 2.d0/(60.d0*H)
 
-	MJ = MAX0(NJ+2,NJM)
-	MJ = MAX0(MJ,MP)
-	if( MJ .gt. M - 4 ) MJ = M - 4
-	
+        MJ = MAX0(NJ+2,NJM)
+        MJ = MAX0(MJ,MP)
+        if( MJ .gt. M - 4 ) MJ = M - 4
 
-95	MJ = MJ + 2
 
-	if( MJ .gt. M-2 ) then
-	write(*,*) 
-     : 	' Failed in Calculating Coulomb Functions, R(M) too small '
-	write(*,*) ' R(M) =', R(M)
-	stop
-	endif
+95      MJ = MJ + 2
 
-	MJH = 2*(MJ-NJ)+1
+        if( MJ .gt. M-2 ) then
+        write(*,*)
+     :  ' Failed in Calculating Coulomb Functions, R(M) too small '
+        write(*,*) ' R(M) =', R(M)
+        stop
+        endif
+
+        MJH = 2*(MJ-NJ)+1
 cc
       DO 90 J = MJH-1,MJH
       xval = RH(j)
@@ -2866,179 +2866,179 @@ cc
 
 
 c
-c	y'(r)
+c       y'(r)
 c
-	dyval = ( PHC(J+3) - PHC(J-3) - 9.d0*( PHC(J+2)-PHC(J-2) ) 
-     :	           + 45.d0*( PHC(J+1) - PHC(J-1) ) )*h60
-	dyval = ( dyval + 0.5d0*PHC(J) )/R2h(J)
+        dyval = ( PHC(J+3) - PHC(J-3) - 9.d0*( PHC(J+2)-PHC(J-2) )
+     :             + 45.d0*( PHC(J+1) - PHC(J-1) ) )*h60
+        dyval = ( dyval + 0.5d0*PHC(J) )/R2h(J)
 
-	CALL  fgwkb(k,zf,ll,xval,yval,dyval,f2,df,g2,dg,ierr)
-	if( ierr .ne. 0 ) goto 95
+        CALL  fgwkb(k,zf,ll,xval,yval,dyval,f2,df,g2,dg,ierr)
+        if( ierr .ne. 0 ) goto 95
 
-	if( J .eq. MJH-1 ) then 
-          F1 = f2 
+        if( J .eq. MJH-1 ) then
+          F1 = f2
           G1 = G2
-	endif
-	
+        endif
+
 90    CONTINUE
 
       DNUM = R2h(MJH)*PH(MJH)*F1 - R2H(MJH-1)*PH(MJH-1)*F2
       DENO = R2h(MJH-1)*PH(MJH-1)*G2 - R2H(MJH)*PH(MJH)*G1
       DELTA = ATAN( DNUM/DENO )
       AMP = R2H(MJH)*PH(MJH)/(F2 + G2*(DNUM/DENO) )
-      CN = COS(DELTA) / AMP 
+      CN = COS(DELTA) / AMP
       END
 *     ------------------------------------------------------------------
 *           F G W K B
 *     ------------------------------------------------------------------
 *
-*	This routine determines the energy normalized 
-*	Coulomb functions F , and G,
-*	and their derivatives F' , G' , with respect to r
+*       This routine determines the energy normalized
+*       Coulomb functions F , and G,
+*       and their derivatives F' , G' , with respect to r
 *
-*	Normalization obtained using the  WKB method as proposed by 
-*	Liu, Xi, and Li, PRA48, 228(1993)
+*       Normalization obtained using the  WKB method as proposed by
+*       Liu, Xi, and Li, PRA48, 228(1993)
 *
 *       Written my Jinhua Xi, December, 1994
 *     ------------------------------------------------------------------
 *
-*	F  =  sin( phi) * sqrt(2/pi k)
+*       F  =  sin( phi) * sqrt(2/pi k)
 *
-	subroutine fgwkb(ek,z,l,r,yr,dyr,f,df,g,dg,ierr)
-	Implicit double precision (a-h,o-z)
-      	data pi,pii/3.141592653589793d0,6.283185307179586d0/
+        subroutine fgwkb(ek,z,l,r,yr,dyr,f,df,g,dg,ierr)
+        Implicit double precision (a-h,o-z)
+        data pi,pii/3.141592653589793d0,6.283185307179586d0/
 
-	ierr=0
-	call  wkb(ek,z,l,r,zeta,dz,deltaz)
+        ierr=0
+        call  wkb(ek,z,l,r,zeta,dz,deltaz)
 
 
-	if( dabs(deltaz) .gt. 1.d-4 ) ierr=1
-	if( dabs(deltaz) .gt. 1.d-1) then
-		ierr=2
-		return
-	endif
+        if( dabs(deltaz) .gt. 1.d-4 ) ierr=1
+        if( dabs(deltaz) .gt. 1.d-1) then
+                ierr=2
+                return
+        endif
 *
-*	determine the phase function phi(r) and the
-*	normalization constant 
+*       determine the phase function phi(r) and the
+*       normalization constant
 *
-	 dzz = 0.5d0*dz/zeta
-	 pn= dsqrt(2.d0/pi/zeta)
+         dzz = 0.5d0*dz/zeta
+         pn= dsqrt(2.d0/pi/zeta)
 *
 
-	 phi = atan( zeta/(dyr/yr + dzz) )
-	 if( sin(phi)*yr .lt. 0.d0 ) phi =phi + pi 
+         phi = atan( zeta/(dyr/yr + dzz) )
+         if( sin(phi)*yr .lt. 0.d0 ) phi =phi + pi
 
-	 if( phi .lt. 0.d0 ) phi=phi+pii
-	 if( phi .gt. pii ) phi = phi - pii  
+         if( phi .lt. 0.d0 ) phi=phi+pii
+         if( phi .gt. pii ) phi = phi - pii
 c
-c	for Coulomb potential , get the F, G, F',G'
+c       for Coulomb potential , get the F, G, F',G'
 c
-	 f  =   dsin(phi)*pn
-	 g  =   dcos(phi)*pn
-	 df =   zeta*g - dzz*f
-	 dg = - zeta*f - dzz*g
-	return 
-	end
+         f  =   dsin(phi)*pn
+         g  =   dcos(phi)*pn
+         df =   zeta*g - dzz*f
+         dg = - zeta*f - dzz*g
+        return
+        end
 *
 *     ------------------------------------------------------------------
 *           W K B
 *     ------------------------------------------------------------------
 *
-*	This routine performs the WKB iteration proposed by 
-*	Liu, Xi, and Li, PRA48, 228(1993)
+*       This routine performs the WKB iteration proposed by
+*       Liu, Xi, and Li, PRA48, 228(1993)
 *
 *       The exact formulas for the iterative procedure were
-*       derived by C. F. Fischer, using the MAPLE Symbol 
+*       derived by C. F. Fischer, using the MAPLE Symbol
 *       manipulation package.
-*	
-*	This routine is called by asympn and fgwkb.
-*	asympn: determines phase and normalization,
-*		as proposed by LXL paper
-*	fgwkb:  computes only f,g, f',g' 
+*
+*       This routine is called by asympn and fgwkb.
+*       asympn: determines phase and normalization,
+*               as proposed by LXL paper
+*       fgwkb:  computes only f,g, f',g'
 *
 *       Written by C. F. Fischer, July, 1994
 *       Modified by Jinhua Xi, December, 1994
 *     ------------------------------------------------------------------
 
-	subroutine wkb(ek,z,l,r,zeta,dz,deltaz)
-	Implicit double precision (a-h,o-z)
-	double precision w(0:8), u(0:8,0:4)
+        subroutine wkb(ek,z,l,r,zeta,dz,deltaz)
+        Implicit double precision (a-h,o-z)
+        double precision w(0:8), u(0:8,0:4)
 cxi
-cxi	it is ABSOLUTELY necessary to initiate the arrays
-cxi	if you would like to have a correct result. 
-cxi	
-	do 1 i=0,8
-	  w(i)=0.d0
-	  do 2 j=0,4
-	    u(i,j)=0.d0
+cxi     it is ABSOLUTELY necessary to initiate the arrays
+cxi     if you would like to have a correct result.
+cxi
+        do 1 i=0,8
+          w(i)=0.d0
+          do 2 j=0,4
+            u(i,j)=0.d0
   2       continue
 1       continue
 cxi
-cxi	...................................................
+cxi     ...................................................
 cxi
-	a= 2*z/r
-	b= -l*(l+1)/r/r
-	ekk=ek*ek
-	w(0) = ekk + a + b
-	if( w(0) .lt. 0.3d0*ekk ) then
-		write(*,*) '  in WKB: r-value too small, r=', r
-		deltaz=99.d0
-		return
-	endif
+        a= 2*z/r
+        b= -l*(l+1)/r/r
+        ekk=ek*ek
+        w(0) = ekk + a + b
+        if( w(0) .lt. 0.3d0*ekk ) then
+                write(*,*) '  in WKB: r-value too small, r=', r
+                deltaz=99.d0
+                return
+        endif
 
-	u(0,0) = w(0)
-	do 10 i = 1,8
-	  a = -i*a/r
-	  b = -(i+1)*b/r
-	  w(i) = a+b
-	  u(i,0) = w(i)/w(0)
-10	continue
-	do 20 j = 0,3
+        u(0,0) = w(0)
+        do 10 i = 1,8
+          a = -i*a/r
+          b = -(i+1)*b/r
+          w(i) = a+b
+          u(i,0) = w(i)/w(0)
+10      continue
+        do 20 j = 0,3
            u(0,j+1) = w(0) + (5*u(1,j)**2 -4*u(2,j))/16.d0
-	   do 30 i = 1, 6-2*j
+           do 30 i = 1, 6-2*j
 
-	     if (i .eq. 1) then
-	       u(1,j+1) = 7*u(1,j)*u(2,j)-5*u(1,j)**3 -2*u(3,j)
+             if (i .eq. 1) then
+               u(1,j+1) = 7*u(1,j)*u(2,j)-5*u(1,j)**3 -2*u(3,j)
 
-	     else if (i .eq. 2) then
-	       u(2,j+1) = 7*u(2,j)**2 -29*u(1,j)**2*u(2,j) + 
+             else if (i .eq. 2) then
+               u(2,j+1) = 7*u(2,j)**2 -29*u(1,j)**2*u(2,j) +
      :                    9*u(1,j)*u(3,j) +15*u(1,j)**4 -2*u(4,j)
 
-	     else if (i .eq. 3) then
-	       u(3,j+1) = 23*u(2,j)*u(3,j) -72*u(2,j)**2*u(1,j) +
+             else if (i .eq. 3) then
+               u(3,j+1) = 23*u(2,j)*u(3,j) -72*u(2,j)**2*u(1,j) +
      :                    147*u(1,j)**3*u(2,j) - 47*u(1,j)**3*u(2,j) +
      :                    11*u(1,j)*u(4,j) - 15*u(1,j)**5 -2*u(5,j)
              else if (i .eq. 4) then
-	       u(4,j+1) = 23*u(3,j)**2 -284*u(2,j)*u(3,j)*u(1,j) +
+               u(4,j+1) = 23*u(3,j)**2 -284*u(2,j)*u(3,j)*u(1,j) +
      :                    34*u(2,j)*u(4,j) + 657*(u(2,j)*u(1,j))**2 -
      :                    72*u(2,j)**3 - 888*u(1,j)**4*u(2,j) +
      :                    288*u(1,j)**3*u(3,j) -69*u(1,j)**2*u(4,j) +
      :                    13*u(1,j)*u(5,j) + 300*u(1,j)**6 - 2*u(6,j)
 
-	     else if (i .eq. 5) then
-cxi		do iii=0,8
-cxi	     write(*,'(5d15.5)') (u(iii,jjj), jjj=0,4)
-cxi		enddo
+             else if (i .eq. 5) then
+cxi             do iii=0,8
+cxi          write(*,'(5d15.5)') (u(iii,jjj), jjj=0,4)
+cxi             enddo
 
 
-	       u(5,j+1) = -2*u(7,j) + 3030*u(2,j)*u(3,j)*u(1,j)**2 -
+               u(5,j+1) = -2*u(7,j) + 3030*u(2,j)*u(3,j)*u(1,j)**2 -
      :                    490*u(2,j)*u(4,j)*u(1,j) -
      :                    500*u(2,j)**2*u(3,j) +47*u(2,j)*u(5,j) -
      :                    2040*u(1,j)**4*u(3,j) +495*u(1,3)**3*u(4,j) -
      :                    95*u(1,j)**2*u(5,j) +15*u(1,j)*u(6,j) -
-     :                    1800*u(1,j)**7 +80*u(3,j)*u(4,j)- 
+     :                    1800*u(1,j)**7 +80*u(3,j)*u(4,j)-
      :                    330*u(3,j)**2*u(1,j) -
-     :                    6180*u(2,j)**2*u(1,j)**3 + 
+     :                    6180*u(2,j)**2*u(1,j)**3 +
      :                    1530*u(2,j)**3*u(1,j) + 6240*u(1,j)**5*u(2,j)
 
-	     else if (i .eq. 6) then
-	       u(6,j+1) = -2*u(8,j) + 62100*u(2,j)**2*u(1,j)**4 -
+             else if (i .eq. 6) then
+               u(6,j+1) = -2*u(8,j) + 62100*u(2,j)**2*u(1,j)**4 -
      :                    24660*u(2,j)**3*u(1,j)**2 +
      :                    4020*u(3,j)**2*u(1,j)**2 -
      :                    32640*u(2,j)*u(3,j)*u(1,j)**3 +
      :                    5985*u(2,j)*u(4,j)*u(1,j)**2 +
      :                    12150*u(2,j)**2*u(3,j)*u(1,j) -
-     :                    1310*u(3,j)*u(4,j)*u(1,j) - 
+     :                    1310*u(3,j)*u(4,j)*u(1,j) -
      :                    774*u(2,j)*u(5,j)*u(1,j) -
      :                    990*u(2,j)**2*u(4,j) -1330*u(2,j)*u(3,j)**2 +
      :                    16440*u(1,j)**5*u(3,j) +17*u(7,j)*u(1,j) +
@@ -3046,166 +3046,166 @@ cxi		enddo
      :                    4020*u(1,j)**4*u(1,4) + 780*u(1,j)**3*u(5,j) -
      :                    125*u(1,j)**2*u(6,j) -50040*u(1,j)**6*u(2,j) +
      :                    12600*u(1,j)**8 +80*u(4,j)**2 + 1530*u(2,j)**4
-	    end if
-	    u(i,j+1) = (w(i) + u(i,j+1)/8.d0)/u(0,j+1)
+            end if
+            u(i,j+1) = (w(i) + u(i,j+1)/8.d0)/u(0,j+1)
 
   30      continue
-20 	continue
+20      continue
 
-	if( u(0,3) .le. 0.d0 .or. u(0,4) .le. 0.d0 ) then
-		write(*,*) '  in WKB: r-value too small, r=', r
-		deltaz=99.d0
-		return
-	endif
-	zeta = sqrt(u(0,4))
-	dz = (w(1)+(7*u(1,3)*u(2,3)-5*u(1,3)**3-2*u(3,2))/8)/(2*zeta)
-	deltaz = zeta - sqrt(u(0,3))
+        if( u(0,3) .le. 0.d0 .or. u(0,4) .le. 0.d0 ) then
+                write(*,*) '  in WKB: r-value too small, r=', r
+                deltaz=99.d0
+                return
+        endif
+        zeta = sqrt(u(0,4))
+        dz = (w(1)+(7*u(1,3)*u(2,3)-5*u(1,3)**3-2*u(3,2))/8)/(2*zeta)
+        deltaz = zeta - sqrt(u(0,3))
 
-	return 
-	end
+        return
+        end
 *
 *     ------------------------------------------------------------------
 *           G E T E I J
 *     ------------------------------------------------------------------
 *
-*       This routine adjusts the lagrange multiplier so as to 
+*       This routine adjusts the lagrange multiplier so as to
 *       satisfy the orthogonality condition
 *
-	subroutine geteij(n0,eij,ov)
-	implicit real*8(a-h,o-z)
-	common /saveeij/e1,e2,o1,o2,n
-	
-	EF(e1,e2,o1,o2)  = (e1*o2-e2*o1)/(o2-o1)
-	EFF(e1,e2,eij,k) = (k+1.)*(e1+e2) - (k+k+1.)*eij
-	k0=3
+        subroutine geteij(n0,eij,ov)
+        implicit real*8(a-h,o-z)
+        common /saveeij/e1,e2,o1,o2,n
 
-	if( n0 .ne. 0 ) goto 5 
-	n0=1
-	if( n .eq. 2 ) then
-	   n=1
-	   eij0 = eij
-	   if( eij .gt. e2 ) then
-		eij = e1
-	   else if( eij .lt. e1 ) then
-		eij = e2
-	   else
-	       ediff = e2-e1
-	       eij = eij + ediff
-	   endif
-	   e1=eij0
-	   o1=ov
-	   return
+        EF(e1,e2,o1,o2)  = (e1*o2-e2*o1)/(o2-o1)
+        EFF(e1,e2,eij,k) = (k+1.)*(e1+e2) - (k+k+1.)*eij
+        k0=3
 
-	else
-	   n = 0
-	endif
-5	if( n .eq. 2 ) goto 10 
-	   n = n + 1
+        if( n0 .ne. 0 ) goto 5
+        n0=1
+        if( n .eq. 2 ) then
+           n=1
+           eij0 = eij
+           if( eij .gt. e2 ) then
+                eij = e1
+           else if( eij .lt. e1 ) then
+                eij = e2
+           else
+               ediff = e2-e1
+               eij = eij + ediff
+           endif
+           e1=eij0
+           o1=ov
+           return
 
-	   	if( n .eq. 1 ) then
-		  e1=eij
-	          o1=ov
-	   	  eij  = - 2.d0* dabs(eij)
-	   	  return
-	        else
-		  e2 = eij
-		  o2 = ov
-cxi	let e1 < e2
-cxi
-		  call order12(e1,e2,o1,o2)
+        else
+           n = 0
+        endif
+5       if( n .eq. 2 ) goto 10
+           n = n + 1
 
-		      if( o1*o2 .lt. 0.d0 ) then
-		      	eij = EF(e1,e2,o1,o2)
-		      else
+                if( n .eq. 1 ) then
+                  e1=eij
+                  o1=ov
+                  eij  = - 2.d0* dabs(eij)
+                  return
+                else
+                  e2 = eij
+                  o2 = ov
+cxi     let e1 < e2
 cxi
-cxi	if e0 = e1: eij = e2 + k del, del = e2-e1
-cxi	if e0 = e2: eij = e1 - k del
-cxi	==>: 	    eij = (k+1)(e1+e2) - (2k+1)e
+                  call order12(e1,e2,o1,o2)
+
+                      if( o1*o2 .lt. 0.d0 ) then
+                        eij = EF(e1,e2,o1,o2)
+                      else
 cxi
-		  	eij =EFF(e1,e2,eij,k0) 
-		      endif
-		  return
-		endif
-cxi	
-cxi	already saved 2 eij values
-cxi	the current one is the third one
+cxi     if e0 = e1: eij = e2 + k del, del = e2-e1
+cxi     if e0 = e2: eij = e1 - k del
+cxi     ==>:        eij = (k+1)(e1+e2) - (2k+1)e
+cxi
+                        eij =EFF(e1,e2,eij,k0)
+                      endif
+                  return
+                endif
+cxi
+cxi     already saved 2 eij values
+cxi     the current one is the third one
 cxi
 cxi
-cxi	if level 00000000000000000000000000000000000
+cxi     if level 00000000000000000000000000000000000
 cxi
-10	if( o1*o2 .lt. 0.d0 ) then
-cxi	
-cxi	o1, o2 opposite sign
+10      if( o1*o2 .lt. 0.d0 ) then
 cxi
-	  if( ov*o1 .lt. 0.d0 ) then
-	    e2 = eij
-	    o2 = ov
-	  else if( ov*o2 .lt. 0.d0 ) then
-	    e1 = eij
-	    o1 = ov
-	  else
-	    stop ' imposible case in geteij '
-	  endif
-	  call order12(e1,e2,o1,o2)
-	  eij = EF(e1,e2,o1,o2) 
-	  return
+cxi     o1, o2 opposite sign
 cxi
-cxi	o1, o2 same sign
+          if( ov*o1 .lt. 0.d0 ) then
+            e2 = eij
+            o2 = ov
+          else if( ov*o2 .lt. 0.d0 ) then
+            e1 = eij
+            o1 = ov
+          else
+            stop ' imposible case in geteij '
+          endif
+          call order12(e1,e2,o1,o2)
+          eij = EF(e1,e2,o1,o2)
+          return
 cxi
-cxi	else level 00000000000000000000000000000000000
+cxi     o1, o2 same sign
 cxi
-	else
+cxi     else level 00000000000000000000000000000000000
+cxi
+        else
 cxi..........................................
- 	  if( ov*o1 .lt. 0.d0  ) then
+          if( ov*o1 .lt. 0.d0  ) then
 cxi
-cxi	case: e --- e1 --- e2
+cxi     case: e --- e1 --- e2
 cxi
-	    if( eij .lt. e1 ) then
-		e2 = e1
-		o2 = o1
-		e1 = eij
-		o1 = ov
-	    else
+            if( eij .lt. e1 ) then
+                e2 = e1
+                o2 = o1
+                e1 = eij
+                o1 = ov
+            else
 cxi
-cxi	case: e1 --- e2 --- e
+cxi     case: e1 --- e2 --- e
 cxi
-		e1 = e2
-		o1 = o2
-		e2 = eij
-		o2 = ov
-	    endif
-	    eij =  EF(e1,e2,o1,o2)
-	    return
-	  else
+                e1 = e2
+                o1 = o2
+                e2 = eij
+                o2 = ov
+            endif
+            eij =  EF(e1,e2,o1,o2)
+            return
+          else
 cxi
-cxi	o,o1,o2 same sign
+cxi     o,o1,o2 same sign
 cxi
-	     if( eij .lt. e1 ) then
-		e1 = eij
-		o1 = ov
-	     else
-		e2 = eij
-		o2 = ov
-	     endif
-	     eij = EFF(e1,e2,eij,k0) 
-	     return
-	  endif
+             if( eij .lt. e1 ) then
+                e1 = eij
+                o1 = ov
+             else
+                e2 = eij
+                o2 = ov
+             endif
+             eij = EFF(e1,e2,eij,k0)
+             return
+          endif
 cxi............................................
 cxi
-cxi	endif level 00000000000000000000000000000000000
+cxi     endif level 00000000000000000000000000000000000
 cxi
-	endif
-	end
+        endif
+        end
 
-	subroutine order12(e1,e2,o1,o2)
-	implicit real*8(a-h,o-z)
+        subroutine order12(e1,e2,o1,o2)
+        implicit real*8(a-h,o-z)
 
-	if( e1 .gt. e2 ) then
-	    et = e1
-	    ot = o1
-	    e1 = e2
-	    o1 = o2
-	    e2 = et
-	    o2 = ot
-	endif
-	end
+        if( e1 .gt. e2 ) then
+            et = e1
+            ot = o1
+            e1 = e2
+            o1 = o2
+            e2 = et
+            o2 = ot
+        endif
+        end

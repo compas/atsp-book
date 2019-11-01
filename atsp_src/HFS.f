@@ -1,14 +1,14 @@
 *=======================================================================
 *
 *      A General Program for Computing Magnetic Dipole and
-*      Electric Quadrupole Hyperfine Constants 
+*      Electric Quadrupole Hyperfine Constants
 *
 *               C O P Y R I G H T -- 1994
 *
-*      P. Jonsson and C.G. Wahlstrom, Department of Physics,  
+*      P. Jonsson and C.G. Wahlstrom, Department of Physics,
 *                                     Lund Institute of Technology,
 *                                     P.O. Box 118,S-221 00 Lund
-*                                     Sweden 
+*                                     Sweden
 *      C. Froese Fischer,             Department of Computer Science
 *                                     Vanderbilt University,
 *                                     Nashville, TN 37235
@@ -25,7 +25,7 @@
 *     max NCD=100 configurations (change the parameter NCD
 *     in this routine and in the subroutines in this program unit)
 
-      PROGRAM HFS 
+      PROGRAM HFS
 
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
       PARAMETER (NOD=220,NWD=30,NCD=100,NORD=NWD*(NWD-1)/2)
@@ -86,7 +86,7 @@ CSUN  REAL TIMES(2),DTIME
      : ,8X,10HQuadrupole )
 660   FORMAT(/,A4,2X,A4,2X,F13.5)
 670   FORMAT(/30X,'**',//20X,28HHyperfine parameters in a.u.,
-     : //20X,47Hal             ad             ac             bq ) 
+     : //20X,47Hal             ad             ac             bq )
 680   FORMAT(/,9X,4(F15.5)/)
 
 *     IBUG3   debug in recoupling package
@@ -107,7 +107,7 @@ CDBG  READ(IREAD,*) IBUG3,NBUG6
 
 CSUN  RTIME=DTIME(TIMES)
 
-*     The following section concerns input/output and may be 
+*     The following section concerns input/output and may be
 *     system dependent. Check allowed unit numbers and file name
 *     conventions - modify, if necessary
 
@@ -151,7 +151,7 @@ CDBG     NAME(5)=NAME(1)(1:K-1)//'.m'
       OPEN(UNIT=IOUT, FILE=NAME(4),STATUS='UNKNOWN')
 CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
 
-      WRITE(IOUT,615) 
+      WRITE(IOUT,615)
 
 20    WRITE(ISCW,'(A/A/A/A)') ' Indicate the type of calculation ',
      : ' 0 => diagonal A and B factors only;',
@@ -167,8 +167,8 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
          IF (ANS.EQ.'N'.OR.ANS.EQ.'n') THEN
             HFSPARAM=0
          ELSEIF (ANS.EQ.'Y'.OR.ANS.EQ.'y') THEN
-            HFSPARAM=1 
-         ELSE 
+            HFSPARAM=1
+         ELSE
             GOTO 33
          ENDIF
 30       WRITE(ISCW,*)'Input from an MCHF (M) or CI (C) calculation ?'
@@ -192,11 +192,11 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
          ELSE
             GO TO 35
          ENDIF
-         WRITE(ISCW,*) 'Give the number of the CSF in the CI expansion, 
+         WRITE(ISCW,*) 'Give the number of the CSF in the CI expansion,
      :for which the hfs. is to be calculated. '
          READ(IREAD,*) NR
       ELSE
-         GO TO 30 
+         GO TO 30
       ENDIF
       IF (ICALC.LT.2) THEN
          IF (ICALC.EQ.0) IDIAG=1
@@ -205,23 +205,23 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
          OPEN(UNIT=IREADW,FILE=NAME(3),STATUS='OLD',FORM='UNFORMATTED')
 40       WRITE(ISCW,*) 'Full print-out ? (Y/N) '
          READ(IREAD,'(A)') ANS
-         IF (ANS.EQ.'Y'.OR.ANS.EQ.'y') THEN 
+         IF (ANS.EQ.'Y'.OR.ANS.EQ.'y') THEN
             IPRINT=1
             WRITE(ISCW,*) 'Tolerance for printing (in MHz)'
             READ(IREAD,'(F11.6)') PRIMIN
             WRITE(IOUT,'(A,F11.6,A)') ' Tolerance for printing    '
-     :      ,PRIMIN,' MHz '  
+     :      ,PRIMIN,' MHz '
          ELSEIF (ANS.EQ.'N'.OR.ANS.EQ.'n') THEN
             IPRINT=0
          ELSE
-            GO TO 40 
+            GO TO 40
          ENDIF
 50       WRITE(ISCW,*) 'Give 2*I and nuclear dipole and quadrupole momen
      :ts (in n.m. and barn) '
          READ(IREAD,*) II,DIPM,Q
-         IF (II.EQ.0) GO TO 50 
+         IF (II.EQ.0) GO TO 50
          IF (DABS(DIPM).LT.EPSILO) THEN
-            IF (DABS(Q).LT.EPSILO) GO TO 50 
+            IF (DABS(Q).LT.EPSILO) GO TO 50
          ENDIF
          GI=2.D0*DIPM/DFLOAT(II)
          WRITE(IOUT,'(A,F11.6,A)') ' Nuclear dipole moment     ',DIPM,
@@ -235,7 +235,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
          IDIAG=0
          IMCHF=3
       ELSE
-         GO TO 20 
+         GO TO 20
       ENDIF
 
 *     Set factorials
@@ -244,11 +244,11 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
 
 *     Start to perform the calculations.
 *     Read the configurationlist and print it.
-     
+
       WRITE(ISCW,620)
       CALL CFGN1(NAME(1))
 
-*     Determine L,S,Jmax,Jmin and the LSJ dependent factors for the main 
+*     Determine L,S,Jmax,Jmin and the LSJ dependent factors for the main
 *     configuration. Save the LSJ dependent factors for later use.
 
       CALL LSJ(NR,LL,SS,JJMAX,JJMIN)
@@ -260,7 +260,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
          DIPF1(K)=DIPF(K)
          CONTF1(K)=CONTF(K)
          QUADF1(K)=QUADF(K)
-60    CONTINUE 
+60    CONTINUE
 
 *     Read the J dependent weights of the CSFs and store them in a
 *     vector WT(JI,K1). Read the radial wavefunctions and sort
@@ -268,7 +268,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
 
       IF (INTGR.EQ.1) THEN
          CALL READWT(IMCHF,NCFG,NR,JJMAX,JJMIN,WT)
-         CALL READWFN 
+         CALL READWFN
       ENDIF
 
 *     Calculate and print the contributions to the A and B factors from
@@ -290,15 +290,15 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
             CALL SETUP(JI,JF)
 
 *  Calculate the LSJ dependent factors. In the J independant expansions
-*  the factors are identical for every pair of CSFs and should not be 
-*  recalculated. In J dependant expansions there is no need for  
-*  recalculation when the pair of CSFs has the same LS terms as the 
+*  the factors are identical for every pair of CSFs and should not be
+*  recalculated. In J dependant expansions there is no need for
+*  recalculation when the pair of CSFs has the same LS terms as the
 *  main CSF.
 
             IF (IMCHF.EQ.3) THEN
                CALL LSJ(JI,LL1,SS1,JJ1MAX,JJ1MIN)
                CALL LSJ(JF,LL2,SS2,JJ2MAX,JJ2MIN)
-               IF (LL1.EQ.LL.AND.LL2.EQ.LL.AND.SS1.EQ.SS.AND.SS2.EQ.SS) 
+               IF (LL1.EQ.LL.AND.LL2.EQ.LL.AND.SS1.EQ.SS.AND.SS2.EQ.SS)
      :            THEN
                   DO 90 K=1,NJQ
                      ORBF(K)=ORBF1(K)
@@ -314,12 +314,12 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
 *           Multiply WT(JI,K1) and WT(JF,K2) and save it in a vector
 *           WTJIJF(K)
 
-            IF (INTGR.EQ.1) CALL MULTWT(JI,JF,IMCHF,IDIAG,WT,WTJIJF) 
-            
+            IF (INTGR.EQ.1) CALL MULTWT(JI,JF,IMCHF,IDIAG,WT,WTJIJF)
+
             IREPRI=0
 
             ICOPRI=0
-            IF (SS1.NE.SS2) GOTO 101 
+            IF (SS1.NE.SS2) GOTO 101
             CALL ORBITAL(JI,JF)
             DO 100 N=1,NHY
                IDOPRI=0
@@ -380,7 +380,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
                         CONT=CONTF(K)*VHY(N)
                         CONTRI=WTJIJF(K)*AMHZ*GI*CONT*AZSQR
                         IF ((DABS(CONTRI).GT.PRIMIN.AND.INTGR.EQ.1).
-     1                  AND.(IPRINT.EQ.1)) 
+     1                  AND.(IPRINT.EQ.1))
      2                  CALL PRINT(JI,JF,N,K,WTJIJF(K),3)
                         IF (INTGR.EQ.0)
      1                  CALL PRINT(JI,JF,N,K,0.D0,3)
@@ -406,7 +406,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
                         QUAD=QUADF(K)*VHY(N)
                         CONTRI=WTJIJF(K)*BMHZ*Q*QUAD*RADINT
                         IF ((DABS(CONTRI).GT.PRIMIN.AND.INTGR.EQ.1).
-     1                  AND.(IPRINT.EQ.1))  
+     1                  AND.(IPRINT.EQ.1))
      2                  CALL PRINT(JI,JF,N,K,WTJIJF(K),4)
                         IF (INTGR.EQ.0)
      1                  CALL PRINT(JI,JF,N,K,0.D0,4)
@@ -414,7 +414,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
                         QUADB(K)=QUADB(K)+CONTRI
                      ENDIF
 170               CONTINUE
-               ENDIF 
+               ENDIF
 160         CONTINUE
 
 161         CONTINUE
@@ -467,7 +467,7 @@ CDBG  OPEN(UNIT=ISC(1), FILE=NAME(5),STATUS='UNKNOWN')
           ELSE
              BQ=-QUADB(K)*BL*(2.D0*BL-1.D0)*(BJ+1.D0)*(2.D0*BJ+3.D0)/
      :  (BMHZ*Q*(6.D0*BLJ*BLJ-3.D0*BLJ-2.D0*BL*(BL+1.D0)*BJ*(BJ+1.D0)))
-          ENDIF 
+          ENDIF
          WRITE(IOUT,670)
          WRITE(IOUT,680) AL,AD,AC,BQ
       ENDIF
@@ -484,7 +484,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *     This subroutine reads the radial wavefunctions and sorts them
 *     according to the order in IAJCMP.
 *
-      SUBROUTINE READWFN 
+      SUBROUTINE READWFN
 *
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
       PARAMETER(NOD=220,NWD=30,NCD=100)
@@ -498,7 +498,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       COMMON/STATES/NCFG,MAXORB,IAJCMP(NWD),LJCOMP(NWD),NJCOMP(NWD),
      :NOCCSH(NCD),NELCSH(5,NCD),NOCORB(5,NCD),J1QNRD(9,NCD)
 
-*     Read radial wavefunctions 
+*     Read radial wavefunctions
 
       I=1
 5     READ(IREADW,END=999) AT,TT,SEL(I),MR,Z,ETI,EKI,SAZ(I),
@@ -514,10 +514,10 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
             SMAX(I) = MR
             I = I+1
             IF (I.GT.(60)) STOP ' Too many electrons: max=(30)'
-            GO TO 5   
+            GO TO 5
          ENDIF
 10    CONTINUE
-      GO TO 5 
+      GO TO 5
 999   CONTINUE
       ZED=DBLE(Z)
 
@@ -578,9 +578,9 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *     and saves them in the vector VHY.
 *     The reduced one particle matrix element is calculated as
 *     <l||C2||l'>=((-1)**(l+(l+l'+2)/2))*RME(l,l',2)
-*     The phase of <l||C2||l'> agrees with the conventions in R. Cowan; 
-*     The Theory of Atomic Structure and Spectra. The phase of RME 
-*     agrees with the conventions in Fano and Racah; Irreducible 
+*     The phase of <l||C2||l'> agrees with the conventions in R. Cowan;
+*     The Theory of Atomic Structure and Spectra. The phase of RME
+*     agrees with the conventions in Fano and Racah; Irreducible
 *     Tensorial Sets.
 
       SUBROUTINE QDRPOLE(JI,JF)
@@ -632,7 +632,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
                JNUHY(NHY)=IAJCMP(JJNU)
                JNUPHY(NHY)=IAJCMP(JJNUP)
             ENDIF
-         ENDIF 
+         ENDIF
          NNN=LA+(LA+LB+2)/2
          VHY(NHY)=VVSHELL(IS)*((-1)**NNN)*REDMAT
 10    CONTINUE
@@ -676,7 +676,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
          RETURN
       ENDIF
 
-*     Weights from CI calc. If IMCHF=2 read from <name>.l 
+*     Weights from CI calc. If IMCHF=2 read from <name>.l
 *     else if IMCHF=3 read from <name>.j
 
       J=0
@@ -709,14 +709,14 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 
       IF (IMCHF.EQ.2) THEN
          MAX=0
-         MIN=0 
+         MIN=0
       ENDIF
       IF (JJ.GT.MAX) THEN
          DO 30 K=1,NUMBER*(NRLINES+2)
             READ(IREADJ,*)
 30       CONTINUE
          GO TO 20
-      ENDIF    
+      ENDIF
 
       J=J+1
       N=0
@@ -726,19 +726,19 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       DO 40 I=1,NUMBER
       READ(IREADJ,*)
       READ(IREADJ,400) CFGNR
-      IF (CFGNR.EQ.NR) THEN 
-         N=N+1 
+      IF (CFGNR.EQ.NR) THEN
+         N=N+1
          DO 50 K=1,NNCFG/7
             READ(IREADJ,500) (W(L,J),L=7*(K-1)+1,7*K)
 50       CONTINUE
          IF (NRLL.NE.0) THEN
             READ(IREADJ,500) (W(L,J),L=NNCFG-NRLL+1,NNCFG)
          ENDIF
-      ELSE  
+      ELSE
          DO 60 K=1,NRLINES
             READ(IREADJ,*)
-60       CONTINUE 
-      ENDIF 
+60       CONTINUE
+      ENDIF
 40    CONTINUE
 400   FORMAT(I6)
 500   FORMAT(7F10.7)
@@ -748,13 +748,13 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 9     FORMAT(A,I4,A/A,I4,A/A/A)
       IF (N.EQ.0) THEN
          IF (IMCHF.EQ.2) THEN
-            WRITE(ISCW,6)  'There is no eigenvector in the file <name>.l  
+            WRITE(ISCW,6)  'There is no eigenvector in the file <name>.l
      : that has CSF',NR,' as the','dominating component. Change the numb
-     :er of the dominating component in','the wanted eigenvector to the 
-     :right one according to your','identification and rerun the program  
+     :er of the dominating component in','the wanted eigenvector to the
+     :right one according to your','identification and rerun the program
      :.'
             STOP
-         ELSE 
+         ELSE
             WRITE(ISCW,7)  'There is no eigenvector with 2*J=',JJ,' in t
      :he file <name>.j that has','CSF',NR,' as the dominating component.
      : Change the number of the','dominating component in the wanted eig
@@ -887,7 +887,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 
       NPH2=(LL2+SS2-LL1-SS1)/2
       PHASE=DFLOAT((-1)**NPH2)
-      
+
       DO 10 JJ=JJMIN,JJMAX,2
          IF (JJ.EQ.0) GO TO 10
          JJP=JJ
@@ -988,7 +988,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 
       COMMON/STATES/NCFG,MAXORB,IAJCMP(NWD),LJCOMP(NWD),NJCOMP(NWD),
      :NOCCSH(NCD),NELCSH(5,NCD),NOCORB(5,NCD),J1QNRD(9,NCD)
-      
+
       MI=2*NOCCSH(NR)-1
       MQ=J1QNRD(MI,NR)/64
       LL=MOD(MQ,64)-1
@@ -1003,64 +1003,64 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *     -----------------------------------------------------------------
 *
 *
-      SUBROUTINE NINEJ(I1,I2,I3,I4,I5,I6,I7,I8,I9,XD) 
-      IMPLICIT DOUBLE PRECISION(A-H,O-Z) 
+      SUBROUTINE NINEJ(I1,I2,I3,I4,I5,I6,I7,I8,I9,XD)
+      IMPLICIT DOUBLE PRECISION(A-H,O-Z)
       PARAMETER (KFL1=60,KFL2=12)
 *
       LOGICAL FAIL,FREE
       COMMON/COUPLE/M,N,J1(KFL1),J2(KFL2,3),J3(KFL2,3),FREE(KFL1)
-* 
-*     EVALUATES A 9-J SYMBOL.  THE FIRST NINE ELEMENTS OF THE 
-*     PARAMETER LIST ARE DOUBLE THE ACTUAL J-VALUES 
-* 
-      J1(1)=I1+1 
-      J1(2)=I2+1 
-      J1(3)=I3+1 
-      J1(4)=I4+1 
-      J1(5)=I5+1 
-      J1(6)=I6+1 
-      J1(7)=I7+1 
-      J1(8)=I8+1 
-      J1(9)=I9+1 
-* 
-      J2(1,1)=1 
-      J2(1,2)=2 
-      J2(1,3)=3 
-      J2(2,1)=4 
-      J2(2,2)=5 
-      J2(2,3)=6 
-      J2(3,1)=3 
-      J2(3,2)=6 
-      J2(3,3)=9 
-* 
-      J3(1,1)=1 
-      J3(1,2)=4 
-      J3(1,3)=7 
-      J3(2,1)=2 
-      J3(2,2)=5 
-      J3(2,3)=8 
-      J3(3,1)=7 
-      J3(3,2)=8 
-      J3(3,3)=9 
-* 
-      M=9 
-      N=4 
+*
+*     EVALUATES A 9-J SYMBOL.  THE FIRST NINE ELEMENTS OF THE
+*     PARAMETER LIST ARE DOUBLE THE ACTUAL J-VALUES
+*
+      J1(1)=I1+1
+      J1(2)=I2+1
+      J1(3)=I3+1
+      J1(4)=I4+1
+      J1(5)=I5+1
+      J1(6)=I6+1
+      J1(7)=I7+1
+      J1(8)=I8+1
+      J1(9)=I9+1
+*
+      J2(1,1)=1
+      J2(1,2)=2
+      J2(1,3)=3
+      J2(2,1)=4
+      J2(2,2)=5
+      J2(2,3)=6
+      J2(3,1)=3
+      J2(3,2)=6
+      J2(3,3)=9
+*
+      J3(1,1)=1
+      J3(1,2)=4
+      J3(1,3)=7
+      J3(2,1)=2
+      J3(2,2)=5
+      J3(2,3)=8
+      J3(3,1)=7
+      J3(3,2)=8
+      J3(3,3)=9
+*
+      M=9
+      N=4
       DO 10 I=1,M
          FREE(I) = .FALSE.
 10    CONTINUE
-* 
-      CALL NJGRAF(RECUP,FAIL) 
-* 
-      XD=(I3+1)*(I6+1)*(I7+1)*(I8+1) 
-      XD=RECUP/DSQRT(XD) 
-      RETURN 
-      END 
+*
+      CALL NJGRAF(RECUP,FAIL)
+*
+      XD=(I3+1)*(I6+1)*(I7+1)*(I8+1)
+      XD=RECUP/DSQRT(XD)
+      RETURN
+      END
 *-----------------------------------------------------------------------
 *     O R B I T A L
 *-----------------------------------------------------------------------
 *
 *     This subroutine calculates the quantities
-*     VVSHELL(m)<l(rho)||l1||l(sigma)> 
+*     VVSHELL(m)<l(rho)||l1||l(sigma)>
 *     and saves them in the vector VHY
 
       SUBROUTINE ORBITAL(JI,JF)
@@ -1078,7 +1078,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       COMMON/STATES/NCFG,MAXORB,IAJCMP(NWD),LJCOMP(NWD),NJCOMP(NWD),
      : NOCCSH(NCD),NELCSH(5,NCD),NOCORB(5,NCD),J1QNRD(9,NCD)
 
-      KA=1 
+      KA=1
       KB=0
       ISPIN=0
       NHY=0
@@ -1154,61 +1154,61 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *     Orbital terms
 
 710   FORMAT(15H matrix element,5X,1H<,A3,9H|R**(-3)|,A3,1H>/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :Aorb(MHz))
 720   FORMAT(15H matrix element,5X,1H<,A3,9H|R**(-3)|,A3,1H>
      :,1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :Aorb(MHz))
 730   FORMAT(15H matrix element,
      :5X,1H<,A3,9H|R**(-3)|,A3,1H>,1X,1H<,A3,1H|,A3,3H>**,I2,
      :1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :Aorb(MHz))
 
 *     Spin-dipole terms
 
 740   FORMAT(15H matrix element,5X,1H<,A3,9H|R**(-3)|,A3,1H>/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :Adip(MHz))
 750   FORMAT(15H matrix element,5X,1H<,A3,9H|R**(-3)|,A3,1H>
      :,1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :Adip(MHz))
 760   FORMAT(15H matrix element,
      :5X,1H<,A3,9H|R**(-3)|,A3,1H>,1X,1H<,A3,1H|,A3,3H>**,I2,
      :1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :Adip(MHz))
 
 *     Contact terms
 
 770   FORMAT(15H matrix element,5X,3HAZ(,A3,4H)AZ(,A3,1H)/
-     :2X,69HJ    J'   weight    coeff       matrix element values      A        
+     :2X,69HJ    J'   weight    coeff       matrix element values      A
      :cont(MHz))
 780   FORMAT(15H matrix element,5X,3HAZ(,A3,4H)AZ(,A3,1H)
      :,1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values      A        
+     :2X,69HJ    J'   weight    coeff       matrix element values      A
      :cont(MHz))
 790   FORMAT(15H matrix element,
      :5X,3HAZ(,A3,4H)AZ(,A3,1H),1X,1H<,A3,1H|,A3,3H>**,I2,
      :1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values      A      
+     :2X,69HJ    J'   weight    coeff       matrix element values      A
      :cont(MHz))
 800   FORMAT(15H matrix element,5X,1H<,A3,9H|R**(-3)|,A3,1H>/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
-     :   B(MHz))                                                     
+     :2X,69HJ    J'   weight    coeff       matrix element values
+     :   B(MHz))
 
 *     Quadrupole terms
 
 810   FORMAT(15H matrix element,5X,1H<,A3,9H|R**(-3)|,A3,1H>
      :,1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :   B(MHz))
 820   FORMAT(15H matrix element,
      :5X,1H<,A3,9H|R**(-3)|,A3,1H>,1X,1H<,A3,1H|,A3,3H>**,I2,
      :1X,1H<,A3,1H|,A3,3H>**,I2/
-     :2X,69HJ    J'   weight    coeff       matrix element values               
+     :2X,69HJ    J'   weight    coeff       matrix element values
      :   B(MHz))
 830   FORMAT( A4,X,A4,X,F9.6,X,F9.6,X,F9.4,17X,F12.6,F12.6)
 840   FORMAT( A4,X,A4,X,F9.6,X,F9.6,X,F9.4,X,F7.3,9X,
@@ -1217,7 +1217,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
      :F12.6,F12.6)
 860   FORMAT( A4,X,A4,12X,F10.7)
 
-      IF (IREPRI.NE.1) THEN      
+      IF (IREPRI.NE.1) THEN
          IREPRI=1
          WRITE(IOUT,660) JI,JF
       ENDIF
@@ -1226,11 +1226,11 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 
 *     Orbital term
 
-         IF (ICOPRI.NE.1) THEN     
+         IF (ICOPRI.NE.1) THEN
             WRITE(IOUT,670)
             ICOPRI=1
          ENDIF
-         IF (IDOPRI.NE.1) THEN 
+         IF (IDOPRI.NE.1) THEN
             IDOPRI=1
             IF (NNNOVLP(N).EQ.0) THEN
                WRITE(IOUT,710) JRHY(N),JSHY(N)
@@ -1241,7 +1241,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
                WRITE(IOUT,730) JRHY(N),JSHY(N),JMUHY(N),JMUPHY(N),
      :         IOVEP(1),JNUHY(N),JNUPHY(N),IOVEP(2)
             ENDIF
-         ENDIF 
+         ENDIF
          IF (INTGR.EQ.1) THEN
             IF (NNNOVLP(N).EQ.0) THEN
                 WRITE(IOUT,830) J(K),JP(K),WTJIJF
@@ -1257,14 +1257,14 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
             WRITE(IOUT,860) J(K),JP(K),ORB
          ENDIF
       ELSEIF (ICASE.EQ.2) THEN
- 
+
 *     Spin-dipole term
 
-         IF (ICOPRI.NE.1) THEN     
+         IF (ICOPRI.NE.1) THEN
             WRITE(IOUT,680)
             ICOPRI=1
          ENDIF
-         IF (IDOPRI.NE.1) THEN 
+         IF (IDOPRI.NE.1) THEN
             IDOPRI=1
             IF (NNNOVLP(N).EQ.0) THEN
                WRITE(IOUT,740) JRHY(N),JSHY(N)
@@ -1275,7 +1275,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
                WRITE(IOUT,760) JRHY(N),JSHY(N),JMUHY(N),JMUPHY(N),
      :         IOVEP(1),JNUHY(N),JNUPHY(N),IOVEP(2)
             ENDIF
-         ENDIF 
+         ENDIF
          IF (INTGR.EQ.1) THEN
             IF (NNNOVLP(N).EQ.0) THEN
                 WRITE(IOUT,830) J(K),JP(K),WTJIJF
@@ -1294,22 +1294,22 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 
 *     Contact term
 
-         IF (ICOPRI.NE.1) THEN     
+         IF (ICOPRI.NE.1) THEN
             WRITE(IOUT,690)
             ICOPRI=1
          ENDIF
-         IF (IDOPRI.NE.1) THEN 
+         IF (IDOPRI.NE.1) THEN
             IDOPRI=1
             IF (NNNOVLP(N).EQ.0) THEN
                WRITE(IOUT,770) JRHY(N),JSHY(N)
             ELSEIF (NNNOVLP(N).EQ.1) THEN
                WRITE(IOUT,780) JRHY(N),JSHY(N),JMUHY(N),JMUPHY(N),
-     :         IOVEP(1) 
+     :         IOVEP(1)
             ELSEIF (NNNOVLP(N).GT.1) THEN
                WRITE(IOUT,790) JRHY(N),JSHY(N),JMUHY(N),JMUPHY(N),
      :         IOVEP(1),JNUHY(N),JNUPHY(N),IOVEP(2)
             ENDIF
-         ENDIF 
+         ENDIF
          IF (INTGR.EQ.1) THEN
             IF (NNNOVLP(N).EQ.0) THEN
                WRITE(IOUT,830) J(K),JP(K),WTJIJF,CONT,AZSQR,CONTRI
@@ -1327,11 +1327,11 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 
 *     Quadrupole term
 
-         IF (ICOPRI.NE.1) THEN     
+         IF (ICOPRI.NE.1) THEN
             WRITE(IOUT,700)
             ICOPRI=1
          ENDIF
-         IF (IDOPRI.NE.1) THEN     
+         IF (IDOPRI.NE.1) THEN
             IDOPRI=1
             IF (NNNOVLP(N).EQ.0) THEN
                WRITE(IOUT,800) JRHY(N),JSHY(N)
@@ -1362,10 +1362,10 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       END
 *
 *-----------------------------------------------------------------------
-*     Q U A D R 
+*     Q U A D R
 *-----------------------------------------------------------------------
 *
-*     quadr integrates P(I)*P(J)*R**KK by Simpson's rule 
+*     quadr integrates P(I)*P(J)*R**KK by Simpson's rule
 *
 
       DOUBLE PRECISION FUNCTION QUADR(I,J,KK)
@@ -1374,7 +1374,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       COMMON /PARAT/D0,D1,D2,D3,D4,D5,D6,D10,H,H1,NO,ND
       COMMON/ADATA/MNCFG,MNNN,P(NOD,NWD),R(NOD),RR(NOD),R2(NOD),
      :       ZED,W(NCD),AZ(NWD),L(NWD),MAX(NWD)
-      
+
       Z=ZED
       K = KK + 2
       LI = L(I)
@@ -1469,9 +1469,9 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *     M U L T W T
 *-----------------------------------------------------------------------
 *
-*     The J dependent weights for CSF JI and JF are  multiplied and 
-*     saved in WTJIJF(NJQ). NJQ is a parameter that orders the 
-*     different J and J' combinations. This order agrees with the order 
+*     The J dependent weights for CSF JI and JF are  multiplied and
+*     saved in WTJIJF(NJQ). NJQ is a parameter that orders the
+*     different J and J' combinations. This order agrees with the order
 *     in LSJFACT.
 
       SUBROUTINE MULTWT(JI,JF,IMCHF,IDIAG,WT,WTJIJF)
@@ -1600,7 +1600,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *
       DIMENSION J2STO(KFL2,3),J3STO(KFL2,3),NBAR(KFL2),
      :          JBAR(KFL2,3),JPBAR(KFL2,3)
-  
+
 
 *
 *                       COMMON BLOCKS
@@ -2400,8 +2400,8 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
      : ICOLNU,NORTH,IORDER,NCALLS,LMU,LNU,LMUP,LNUP,JMU,JNU,JMUP,JNUP,
      :     IORTH(NORD)
 *
-* --- Links the co-ordinates of electrons in non-orthogonal subshells 
-*     on the two sides of the martix element, and condenses the angular 
+* --- Links the co-ordinates of electrons in non-orthogonal subshells
+*     on the two sides of the martix element, and condenses the angular
 *     momentum coupling schemes accordingly.
 *
       NJ23ST=NJ23S
@@ -2659,7 +2659,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       COMMON/STATES/NCFG,MAXORB,IAJCMP(NWD),LJCOMP(NWD),
      :NJCOMP(NWD),NOCCSH(NCD),NELCSH(5,NCD),NOCORB(5,NCD),J1QNRD(9,NCD)
 *
-* === Determines, in each of the two configurations JA and JB in a 
+* === Determines, in each of the two configurations JA and JB in a
 *     matrix element, which subshells are non-orthogonal.
 *
   101 FORMAT(/63H INCORRECT NON-ORTHOGONALITY SET UP IN THE MATRIX ELEME
@@ -2995,7 +2995,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *     COUPLING FORMED HAS THE SAME  L,S  VALUES AS THIS OCCUPIED SHELL,
 *     SINCE WE COUPLE THE SHELL TO A DUMMY SINGLET S.
 *
-         IF(IC .LE.1) THEN 
+         IF(IC .LE.1) THEN
             I2 = 1
          ELSE
             I2 = NOCCSH(JC)+IC-1
@@ -3031,7 +3031,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       GO TO 1
   100 CONTINUE
       END
-     
+
 
 *--------------------------------------------------------------------
 *     R A D I A L 1
@@ -3042,7 +3042,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *
 
       SUBROUTINE RADIAL1(N,RADINT,OVLINT1,OVLINT2)
-  
+
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
 
       COMMON/HYPER/NHY,MHY,IRHY(20),ISHY(20),JRHY(20),JSHY(20),VHY(20),
@@ -3068,13 +3068,13 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
 *
 *     This subroutine calculates the radial matrix element
 *     for the Fermi contact term.
-* 
+*
 
       SUBROUTINE RADIAL2(N,AZSQR,OVLINT1,OVLINT2)
-  
+
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
       PARAMETER (NOD=220,NWD=30,NCD=100)
-       
+
       COMMON/ADATA/MNCFG,MNNN,P(NOD,NWD),R(NOD),RR(NOD),R2(NOD),
      :       ZED,W(NCD),AZ(NWD),L(NWD),MAX(NWD)
       COMMON/HYPER/NHY,MHY,IRHY(20),ISHY(20),JRHY(20),JSHY(20),VHY(20),
@@ -3143,7 +3143,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
          IIRHO(IIHSH)=IRHO
          IISIG(IIHSH)=ISIG
          MMU(IIHSH)= MU
-         MMUP(IIHSH)=MUP 
+         MMUP(IIHSH)=MUP
          NNOVLP(IIHSH)=1
       ELSE
          IF (DABS(VSHELL).LT.1.D-14) GO TO 15
@@ -3170,8 +3170,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
          ENDIF
       ENDIF
 *
-*     PRINT OUT THE RESULTS AND OUTPUT THEM ON CHANNEL ISC(1) 
+*     PRINT OUT THE RESULTS AND OUTPUT THEM ON CHANNEL ISC(1)
 *
       RETURN
       END
-

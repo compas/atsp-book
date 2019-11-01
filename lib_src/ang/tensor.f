@@ -1,5 +1,5 @@
 *     ------------------------------------------------------------------
-*	T E N S O R
+*       T E N S O R
 *     ------------------------------------------------------------------
 *
       SUBROUTINE TENSOR(KA,KB,ISPIN,IRHO,ISIG,VSHELL)
@@ -371,7 +371,7 @@
 *     EVALUATE ORBITAL AND SPIN RECOUPLING COEFFICIENTS
 *
   164 DO 500 I = 1,MN1
-	 FREE(I) = .FALSE.
+         FREE(I) = .FALSE.
   500 CONTINUE
 *
       CALL NJGRAF(RECUP,FAIL)

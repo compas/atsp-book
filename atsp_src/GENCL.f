@@ -1,7 +1,7 @@
 *     ------------------------------------------------------------------
-     
+
         PROGRAM GENCL
-*                
+*
 *                C O P Y R I G H T -- 1994
 *
 *                By C. Froese Fischer
@@ -10,14 +10,14 @@
 *                   Nashville, TN 37235 USA
 *
 *                Written: May, 1983
-*    
+*
 *     Computer Physics Communications, Vol. 64, 406--416 (1991).
 *     ------------------------------------------------------------------
 *
 *
 *       This program computes all possible couplings for each member of
 *   the reference set, generates all unique, possible configurations
-     
+
 *   and their couplings  from the active set, and for each replacement,
 *   generates configurations and their couplings, then outputs the
 *   configurations and couplings with given final term(s).
@@ -34,8 +34,8 @@
 *       ii)   List of closed shells ;
 *      iii)   Configurations (FORMAT(5(1X,A3,'(',I2,')'))
 *               and their couplings (FORMAT(9(5X,A3))
-     
-     
+
+
 *   I/O allocation
 *    FILE1(.)  :  Configurations by Active Set  (internal file)
 *    FILE2(.)  :  Configurations by Replacement (internal file)
@@ -69,7 +69,7 @@
      :                 Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,
      :                 Q10,Q11,Q12,Q13,Q14,Q15
         INTEGER        F(NELS),PL,QA(NELS),QB(NELS),VL(NELS)
-	INTEGER        H(NELS)
+        INTEGER        H(NELS)
         INTEGER        LEFT,RIGHT,PARITY,CONST,SFLAG,DFLAG
         COMMON         NF,NR,NFTM,MAX,MIN,PARITY,CONST,NQ
      :                 /BLK0/ORDLA,ORDLZ,ORDUA,ORDUZ,ORD0,ORD9
@@ -81,8 +81,8 @@
      :                       Q10,Q11,Q12,Q13,Q14,Q15
                 COMMON /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
-     
-     
+
+
 ***************
 *       Declaration of variable for the input data
 *
@@ -94,13 +94,13 @@
 *        VIRTUL  = Virtual Set
 *           FTM  = Final Term (NELS)
 *
-     
+
 ***************
 CSUN            i = iargc( )
 CSUN            if (i .eq. 0) then
                    NAME = 'cfg.inp'
 CSUN            else
-CSUN 		   call getarg(1,NAME)
+CSUN               call getarg(1,NAME)
 CSUN            end if
 
 *       Obtain ASCII value for the bound of character and digit
@@ -115,11 +115,11 @@ CSUN            end if
         IFLAG = 0
         SFLAG = 0
         DFLAG = 0
-     
+
 ****************
 *       Disply for the beginning of the program
 *
-     
+
 010     WRITE(0,*)
         WRITE(0,*)
         WRITE(0,*)
@@ -129,7 +129,7 @@ CSUN            end if
         WRITE(0,*)  '            which GENerates a Configuration List'
         WRITE(0,*)
         WRITE(0,*)
-        WRITE(0,*) 
+        WRITE(0,*)
      :'     Type H (Help) to obtain information about the input format '
         WRITE(0,*)
         WRITE(0,*) '     Type <RETURN> if you already know '
@@ -137,7 +137,7 @@ CSUN            end if
         WRITE(0,*) '     -----------------------------------------------
      :---------'
         WRITE(0,*)
-     
+
 ***************
 *       If the user needs to obtain information about input format,
 *    call subroutine HELP .
@@ -146,7 +146,7 @@ CSUN            end if
         I = INDEX(STRL,'H')
         J = INDEX(STRL,'h')
         IF (I.NE.0 .OR. J.NE.0) CALL HELP
-     
+
 ***********************************************************************
 *            READ AND ANALYSIS THE INPUT DATA
 *
@@ -156,9 +156,9 @@ CSUN            end if
 100     WRITE(0,101)
 101     FORMAT(T13,'Header  ?  ' )
         READ(5,'(A)') HEADER
-     
+
                 CH1 = CH3(2:2)
-     
+
 *
 ***************
 *       Input Closed Shell, check if it satisfies the FORMAT(18(1X,A3))
@@ -183,8 +183,8 @@ CSUN            end if
             CALL STRSH(TEMP,4)
             GO TO 115
         END IF
-     
-     
+
+
 ***************
 *          Input Reference Set, and check the input error
 *
@@ -231,7 +231,7 @@ CSUN            end if
                 CALL STRSH(TEMP,RIGHT+1)
                 GO TO 123
             END IF
-     
+
 ***************
 *       The first Reference Set is defined as the standard value
 *
@@ -253,7 +253,7 @@ CSUN            end if
                 ENDIF
             ENDIF
 122     CONTINUE
-     
+
 *******************
 *                  Input Active Set
 *
@@ -264,10 +264,10 @@ CSUN            end if
         J = INDEX(ACT,'b')
         IF (I.NE.0 .OR. J.NE.0) GOTO 120
         IF (ACT .ne. '   ') then
-	   WRITE(ISCW,132)
+           WRITE(ISCW,132)
 132        FORMAT('Type of set generation ?')
            READ *, ITYPE
-	END IF
+        END IF
 ********************
 *                  Input Replacement
 *
@@ -275,7 +275,7 @@ CSUN            end if
 141     FORMAT('      Replacements  ?  ')
         IFLAG = 1
         CALL INPUT (NELS,NREPL,REPL,IFLAG,SFLAG,DFLAG,*130,*150)
-     
+
 ********************
 *       If Replacement = S or D or SD, input Virtual Set
 *
@@ -284,7 +284,7 @@ CSUN            end if
 *       VL  =  Parity for each Qi in Virtual Set
 *
 142     IF (SFLAG.EQ.0 .AND. DFLAG.EQ.0) GOTO 150
-     
+
         WRITE(0,143)
 143     FORMAT ('       Virtual Set  ?  ')
         READ(5,'(A)') VIRTUL
@@ -292,16 +292,16 @@ CSUN            end if
         J = INDEX(TEMP,'     ')
         TEMP(J:J) = ','
         MV = 0
-     
+
 *
 *       Decompose the input of Virtual Set
 *
 144     IF (TEMP(:5) .NE. '     ') THEN
             MV = MV+1
             IF (MV.GT.(NELS)) THEN
-	       WRITE(0,*) ' Virtual set too large: MAX=',NELS
-	       STOP
-	    END IF
+               WRITE(0,*) ' Virtual set too large: MAX=',NELS
+               STOP
+            END IF
             CALL DEL(TEMP)
             J = INDEX(TEMP,',')
             VL(MV) = MOD(LVAL(TEMP(2:2)),2)
@@ -316,7 +316,7 @@ CSUN            end if
             CALL STRSH(TEMP,J+1)
             GO TO 144
         END IF
-     
+
 145     WRITE(0,146)
 146     FORMAT ('  From which shell  ?  ')
         READ(5,'(A)') TEMP
@@ -329,7 +329,7 @@ CSUN            end if
             WRITE(0,*) '    Please input digit for the shell position!'
             GOTO 145
         ENDIF
-     
+
 147     WRITE(0,148)
 148     FORMAT ('    To which shell  ?  ')
         READ(5,'(A)') TEMP
@@ -342,7 +342,7 @@ CSUN            end if
            WRITE(0,*) '     Please input digit for the shell position!'
            GOTO 147
         ENDIF
-     
+
 *******************
 *                    Input Final Terms
 *
@@ -350,11 +350,11 @@ CSUN            end if
 *
 150     WRITE(0,151)
 151     FORMAT ('       Final Terms  ?  ')
-	IFLAG = 0
+        IFLAG = 0
         CALL INPUT (NELS,NFTM,FINAL,IFLAG,SFLAG,DFLAG,*140,*160)
         DO 152 I=1,NFTM
             CH2 = FINAL(I)(:2)
-     
+
 *
 *       Conver the input of lowercase to uppercase
 *
@@ -363,12 +363,12 @@ CSUN            end if
      :           CH2(2:2) = CHAR(N-ORDLA+ORDUA)
             FTM(I) = CH2
 152     CONTINUE
-     
+
 ***********************************************************************
 *       Open the file for CI.LST
 *
 160     OPEN (7,FILE=NAME,STATUS='UNKNOWN')
-     
+
 ***********************************************************************
 *            PRINT OUT ALL INPUT DATA OF THE USER
 *
@@ -407,11 +407,11 @@ CSUN            end if
         DO 182 I=2,NFTM
             WRITE (6,174) I,FINAL(I)
 182     CONTINUE
-     
+
         WRITE (7,183) HEADER
 183     FORMAT (' ',A60)
         WRITE (7,'(1X,A72)') SHELLS
-     
+
 ***********************************************************************
 *                    PROCESS THE REFERENCE SET
 *
@@ -426,7 +426,7 @@ CSUN            end if
             M = 0
             TEMP = REF(NF)
             DO 207 I=1,NELS
-     
+
 ***************
 *       Decompose the input for Reference Set
 *
@@ -438,7 +438,7 @@ CSUN            end if
                 LEFT = INDEX(TEMP,'(')
                 RIGHT = INDEX(TEMP,')')
                 M = M+1
-     
+
 ***************
 *       Convert the input of uppercase to lowercase, and assign initial
 *   values for ELi and Qi
@@ -455,7 +455,7 @@ CSUN            end if
 204         DO 212 J=1,NELS
                 QS(J,NF) = 0
 212         CONTINUE
-     
+
 ***************
 *       Add new electrons to the first configuration
 *
@@ -486,7 +486,7 @@ CSUN            end if
 210            CONTINUE
                MS(NF) = N
             END IF
-     
+
 ****************
 *          Generate all couplings for the reference set
 *          MAX = -5  means the first time to call subroutine COUPLD
@@ -499,7 +499,7 @@ CSUN            end if
                     QB(K) = Q(I)
                 ENDIF
 206         CONTINUE
-     
+
             MAX = -5
             CALL COUPLD (ELB,QB,K,ELC,NC,*500)
             IF (NC .NE. 0) THEN
@@ -508,7 +508,7 @@ CSUN            end if
      : OF THE REFERENCE SET'//)
                 CALL PRINT (ELC,QB,K,NC,1)
             ENDIF
-     
+
 ***************
 *            Compute MAX and MIN value for the finals .
 *            Rule :  MAX = 2*|S+L| ,  MIN = 2*|S-L|
@@ -532,7 +532,7 @@ CSUN            end if
             ENDIF
 201     CONTINUE
         IF (ACT(:5) .EQ. '     ') GOTO 400
-     
+
 ***********************************************************************
 *                    PROCESS THE ACTIVE SET
 *
@@ -547,7 +547,7 @@ CSUN            end if
 *
         MA = 0
 300     TEMP = ACT
-     
+
 ***************
 *       Decompose the input of Active Set, Conver the input of uppercase
 *    to lowercase, assign values to ELA,QA,RL,F .
@@ -561,44 +561,44 @@ CSUN            end if
      :          TEMP(2:2) = CHAR(N-ORDUA+ORDLA)
             ELA(MA) = TEMP(:2)
             RL(MA) = LVAL(TEMP(2:2))
-	    IF (RL(MA) .GT. 3) THEN
-	       F(MA) = 2
-	    ELSE
+            IF (RL(MA) .GT. 3) THEN
+               F(MA) = 2
+            ELSE
                F(MA) = MIN0(const,4*RL(MA)+2)
-	    END IF
+            END IF
             CALL STRSH(TEMP,4)
             GO TO 301
-	ELSE
-	   WRITE(0,*) 
+        ELSE
+           WRITE(0,*)
      :    'Too many electrons in the active set: MAX= 15'
-	   STOP
+           STOP
         END IF
-     
+
 ****************
 *       NELS is maximun value of active electrons
 *
 302     DO 303 I=MA+1,15
             F(I) = 0
 303     CONTINUE
-     
+
 ***************
 *       Generate other possible configurations from the given set
-*       F(I) is the maximum allowed number of electrons 
+*       F(I) is the maximum allowed number of electrons
 *       H(I) is the number of unassigned electrons or ``holes''
 *
-305     IF (itype .eq. 0 ) then 
-	   MINQ1 = 0
-	else if (itype .eq. 1) then
-	   MINQ1 = max0(MIN0(F(1),CONST)-1,0)
-	else if (itype .eq. 2) then
- 	   MINQ1 = max0(MIN0(F(1),CONST)-2,0)
-	else if (itype .eq. 3) then
- 	   MINQ1 = max0(MIN0(F(1),CONST)-3,0)
-	else
-	   WRITE(ISCW,*) ' Unknown type: Re-enter'
-	   READ *, itype
-	   GO TO 305
-	end if
+305     IF (itype .eq. 0 ) then
+           MINQ1 = 0
+        else if (itype .eq. 1) then
+           MINQ1 = max0(MIN0(F(1),CONST)-1,0)
+        else if (itype .eq. 2) then
+           MINQ1 = max0(MIN0(F(1),CONST)-2,0)
+        else if (itype .eq. 3) then
+           MINQ1 = max0(MIN0(F(1),CONST)-3,0)
+        else
+           WRITE(ISCW,*) ' Unknown type: Re-enter'
+           READ *, itype
+           GO TO 305
+        end if
         DO 310 Q1=MIN0(F(1),CONST),MINQ1,-1
          H(1) = MAX0(0,CONST - Q1)
          DO 310 Q2=MIN0(F(2),H(1)),0,-1
@@ -646,7 +646,7 @@ CSUN            end if
 322     FORMAT ('          Closed Shells  :  ',A60/)
         WRITE (6,323) ACT
 323     FORMAT ('             Active Set  :  ',A60/)
-     
+
 ***************
 *       Print all configurations generated from Active Set
 *
@@ -659,7 +659,7 @@ CSUN            end if
             ELSE
                 N = 28
             ENDIF
-     
+
             K = 0
             DO 370 J=1,MA
                 IF (QA(J).NE.0 .OR. MA.EQ.2) THEN
@@ -671,7 +671,7 @@ CSUN            end if
             WRITE (6,327) (ELB(J),QB(J), J=1,K)
 327         FORMAT (T28,5(1X,A3,'(',I2,')'))
 325     CONTINUE
-     
+
 ****************
 *       For each new configuration, generate all possible couplings
 *
@@ -679,7 +679,7 @@ CSUN            end if
         N2 = 0
         DO 328 I=1,NQ
             READ (FILE1(I),326) (QA(J), J=1,MA)
-     
+
 ***************
 *               Omit ELA(i) if corresponding QA(i)=0
 *
@@ -691,7 +691,7 @@ CSUN            end if
                     QB(K) = QA(J)
                 ENDIF
 350         CONTINUE
-     
+
 ****************
 *       Omit configurations which have more than 5 shells
 *
@@ -715,16 +715,16 @@ CSUN            end if
         IF (N2 .NE. 0) PRINT 345, N2
 345     FORMAT (T5,'No final term as your selection for ',I3,
      :' Active set!')
-     
+
 349     IF (NREPL .EQ. 0) GOTO 500
-     
+
 ***********************************************************************
 *                    PROCESS THE REPACEMENTS
 *
 *       STRL  :  String of the left side of '='
 *       STRR  =  String of the right side of '='
 *
-     
+
 400     IF (SFLAG.NE.0 .OR. DFLAG.NE.0) GOTO 450
         N1 = 0
         DO 401 NR=1,NREPL
@@ -732,7 +732,7 @@ CSUN            end if
             J = INDEX(STRR,'=')
             STRL = STRR(1:J-1)
             CALL STRSH(STRR,J+1)
-     
+
 ***************
 *               Decompose the substring on the left of ''=''
 *
@@ -742,7 +742,7 @@ CSUN            end if
 *
             CALL DEL(STRL)
             CALL DECOMP (STRL,ELL,QL,ML)
-     
+
 ***************
 *               Decompose the substring on the right of ''=''
 *
@@ -752,7 +752,7 @@ CSUN            end if
 *
             CALL DEL(STRR)
             CALL DECOMP (STRR,ELR,QR,MR)
-     
+
 ***************
 *            For each Replacement, replace all Reference Sets
 *
@@ -778,7 +778,7 @@ CSUN            end if
 405     FORMAT (T5,'No Final Term as selected for ',I3,
      :' Replacements!')
         GOTO 500
-     
+
 ***********************************************************************
 *               PROCESS THE VIRTUAL SET
 *
@@ -787,7 +787,7 @@ CSUN            end if
 *
 *
 450     DO 451 NF=1,NREF
-     
+
 ***************
 *       Set the initial values of Reference Set
 *
@@ -800,9 +800,9 @@ CSUN            end if
                 QB(I) = Q(I)
                 RL(I) = MOD(LVAL(CH3(2:2)),2)
 452         CONTINUE
-     
+
             IF (SFLAG.EQ.0 .AND. DFLAG.NE.0) GOTO 460
-     
+
 ***************
 *       Preparation for the Single Replacement
 *
@@ -819,7 +819,7 @@ CSUN            end if
                     N = 0
                 ENDIF
                 DO 455 J=1,MV
-     
+
 ***************
 *       Replace Qi of Reference Set which has the same parity with Qj
 *    of Virtual Set
@@ -841,8 +841,8 @@ CSUN            end if
                     ENDIF
 455             CONTINUE
 454         CONTINUE
-     
-     
+
+
 **************
 *       Rreplace pairs of Q(i) and Q(j) by Double Virtual Set
 *
@@ -854,18 +854,18 @@ CSUN            end if
             QL(2) = 1
             DO 461 I=NVIR,LVIR-1
                 ELL(1) = EL(I)
-		LL1 = LVAL(ELL(1)(2:2))
+                LL1 = LVAL(ELL(1)(2:2))
                 DO 461 J=I+1,M
                     IF (Q(I).EQ.0 .OR. Q(J).EQ.0) GOTO 461
                     ELL(2) = EL(J)
-		    LL2 = LVAL(ELL(2)(2:2))
+                    LL2 = LVAL(ELL(2)(2:2))
                     TEMP = ELL(1)//'.'//ELL(2)//' = '
-		    LLMIN = IABS(LL1 - LL2)
-		    LLMAX = LL1 + LL2
+                    LLMIN = IABS(LL1 - LL2)
+                    LLMAX = LL1 + LL2
                     PL = MOD(LLMAX, 2)
                     CALL VPAIR (ELV,MV,PL,LLMIN,LLMAX,TEMP,*500)
 461         CONTINUE
-     
+
 ***************
 *       Replace pairs of (Qi)=2 by Double Virtual Set
 *
@@ -874,16 +874,16 @@ CSUN            end if
             DO 464 I=NVIR,LVIR
                 IF (Q(I) .GT. 1) THEN
                     ELL(1) = EL(I)
-		    LL1 = LVAL(ELL(1)(2:2))
-		    LLMIN = 0
-		    LLMAX = LL1 + LL1
+                    LL1 = LVAL(ELL(1)(2:2))
+                    LLMIN = 0
+                    LLMAX = LL1 + LL1
                     TEMP = ELL(1)//'(2) = '
                     PL = MOD(LLMAX, 2)
                     CALL VPAIR (ELV,MV,PL,LLMIN,LLMAX,TEMP,*500)
                 ENDIF
 464         CONTINUE
 451     CONTINUE
-     
+
 ***********************************************************************
 *                    THE END OF THE PROGRAM
 *
@@ -903,7 +903,7 @@ CSUN            end if
         SUBROUTINE DEL(STR)
         CHARACTER*(*)   STR
         CHARACTER*72 TEMP
-     
+
             LENGTH = LEN(STR)
             I = 0
 10          IF (STR(I+1:I+1) .EQ. ' ') THEN
@@ -924,7 +924,7 @@ CSUN            end if
         SUBROUTINE STRSH(STR,I)
         CHARACTER*(*)   STR
         CHARACTER*72 TEMP
-     
+
             TEMP = STR(I:)
             STR = TEMP
             RETURN
@@ -938,7 +938,7 @@ CSUN            end if
 *
         INTEGER FUNCTION ICTOI(STR)
         CHARACTER*(*)   STR
-     
+
             N = ICHAR(STR(1:1))-ICHAR('0')
             IF (STR(2:2) .NE. ' ') N = N*10+ICHAR(STR(2:2))-ICHAR('0')
             ICTOI = N
@@ -955,7 +955,7 @@ CSUN            end if
         CHARACTER      SYMBOL
         CHARACTER*22   SET
         DATA SET/'spdfghiklmnSPDFGHIKLMN'/
-     
+
             LOCATE = INDEX(SET,SYMBOL)
             IF (LOCATE .LE. 11) THEN
                 LVAL = LOCATE-1
@@ -974,7 +974,7 @@ CSUN            end if
         CHARACTER FUNCTION SYMB(L)
             CHARACTER*11   SET
             DATA SET/'SPDFGHIKLMN'/
-     
+
             SYMB = SET(L+1:L+1)
             RETURN
         END
@@ -990,19 +990,19 @@ CSUN            end if
             CHARACTER*72   HEADER,SHELLS,VIRTUL
             INTEGER        SFLAG,DFLAG,MARK
             COMMON         /BLK1/HEADER,SHELLS,ACT,VIRTUL
-     
+
 *   MAXSET  =  Maximum number of input elements
 *     NSET  =  Number of members in the set
 *      SET  =  Character array with NSET elements
 *       *1  =  Return label if input is 'B'
 *       *2  =  Return label if the set is empty
 *     MARK  =  1 if input is Replacement, 0 otherwise
-     
+
             NSET = 0
             SET(1) = '    '
 12          IF (NSET .LT. MAXSET) THEN
                 READ(5,'(A60)') TEMP
-     
+
 ***************
 *       If input is 'B' or 'b', go back one step
 *
@@ -1016,7 +1016,7 @@ CSUN            end if
                         GOTO 13
                     ENDIF
                 ENDIF
-     
+
 ***************
 *       Go to for next input if the input is empty
 *       Return if the input is finished
@@ -1029,7 +1029,7 @@ CSUN            end if
                     ENDIF
                 ENDIF
                 CALL DEL(TEMP)
-     
+
 ***************
 *       If Replacement is 's' or 'd' or 'sd', set single and
 *    double flag for Virtual Set
@@ -1048,7 +1048,7 @@ CSUN            end if
                         RETURN
                     ENDIF
                 ENDIF
-     
+
 ***************
 *       READ the input and delete the repeated member
 *
@@ -1074,9 +1074,9 @@ CSUN            end if
 *          This subroutine generates all possible couplings .
 *       First, compute Alpha value from the given configuration,
 *       then compute Beta from each value of Alpha .
-     
+
         SUBROUTINE COUPLD (EL,Q,M,ELC,NC,*)
-     
+
 *   INPUT :
 *       El  =  electron label
 *              where EL(I)(1=1)  ---  blank
@@ -1107,7 +1107,7 @@ CSUN            end if
      :                     /BLK2/REF,REPL,FTM
                 COMMON /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
-     
+
 ***************
 *           Number of possible terms for configurations P(1-3),
 *           D(1-5), F(1-2), G(1-2), ... M(1-2)
@@ -1117,12 +1117,12 @@ CSUN            end if
 ***************
 *           Starting position in term table for given L
 *
-	DATA  (LPOSIT(I), I=1,9)/1,4,9,11,13,15,17,19,21/
+        DATA  (LPOSIT(I), I=1,9)/1,4,9,11,13,15,17,19,21/
 
 ***************
 *        Possible terms for configurations P(1-3),D(1-5),F(1-2),G(1-2)
 *
-	DATA (TERM(I), I=1,22) /
+        DATA (TERM(I), I=1,22) /
      :'2P1',
      :'1S0 1D2 3P2',
      :'2P1 2D3 4S3',
@@ -1138,7 +1138,7 @@ CSUN            end if
      :'2K1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
      :'2L1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
      :'2M1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2' /
-     
+
 ***********************************************************************
 *               COMPUTE THE POSSIBLE VALUES FOR ALPHA
 *
@@ -1152,7 +1152,7 @@ CSUN            end if
 *             position = (L-1)*2+Q(i)        if 1 <= Qi <= HALF
 *             position = (L-1)*2+(FULL-Qi)   if Qi > HALF
 *
-     
+
             NALFA = 1
             DO 10 I=1,M
                 CH3 = EL(I)
@@ -1167,19 +1167,19 @@ CSUN            end if
                 L = LVAL(CH1)
                 FULL = 4*L+2
                 K = Q(I)
-     
+
 ***************
 *               If shell is full, ALFA(i) = 1S0
 *
                 IF (K.EQ.0 .OR. K.EQ.FULL) THEN
                     CH3 = '1S0'
-     
+
 ***************
 *               If Q(i) = 1,  then ALFA(i)=2<L-symbol>1
 *
                 ELSE IF (K .EQ. 1) THEN
                     CH3 = '2'//CH1//'1'
-     
+
 ***************
 *       Otherwise, get the possible value from array NTERM and TERM
 *
@@ -1203,7 +1203,7 @@ CSUN            end if
 *
                 CALFA(3*I-2:3*I) = CH3
 10          CONTINUE
-     
+
 ***************
 *            Assign values to all elements of ALFA
 *
@@ -1234,14 +1234,14 @@ CSUN            end if
                     NT = NT*N
                 ENDIF
 12          CONTINUE
-     
+
 ***********************************************************************
 *       GENERATE POSSIBLE VALUE OF BETA FROM ALFA
 *
-     
+
             NC = 0
             DO 20 NB=1,NALFA
-     
+
 ***************
 *       There is only one coupling if M = 1
 *
@@ -1251,7 +1251,7 @@ CSUN            end if
                     NBETA = 1
                     GOTO 37
                 ENDIF
-     
+
 ***************
 *       Define BETA(1)=ALFA(1), then the next basic coupling steps is :
 *       S1 = (BETA(1)(1:1)-1)/2 ,   S2 = (ALFA(2)(1:1)-1)/2 ;
@@ -1275,7 +1275,7 @@ CSUN            end if
                     L4 = ABS(L1+L2)
                     MBETA = (S4-S3+1)*(L4-L3+1)
 *
-     
+
 **************
 *       Generate Beta from each alpha .
 *       There are four scratch files for storing the information about
@@ -1302,7 +1302,7 @@ CSUN            end if
 22                  CONTINUE
 50                  BETA(J) = BETA(J)+MBETA
                     IF (J .EQ. 2) GOTO 23
-     
+
 ***************
 *       Correct the number of its children for Beta(j-1)
 *
@@ -1312,7 +1312,7 @@ CSUN            end if
                         WRITE (FBETA(K-1,LOCB),25) PTR,CH2,N+MBETA-1
                         LOCB = PTR
 24                  CONTINUE
-     
+
 ***************
 *       If pointer to the parent is the end of file for Beta(j-1),
 *    prepare to generate Beta(i+1) ; otherwise, generate next Beta(j)
@@ -1327,7 +1327,7 @@ CSUN            end if
                     ENDIF
 23                  READ (FBETA(J-1,1),25) PTR,B1,N
 21              CONTINUE
-     
+
 ***************
 *       Assign values to the couplings forward ,
 *       COUPLE(I) = Alpha(i) for coupling(j) if i <= M ;
@@ -1345,7 +1345,7 @@ CSUN            end if
                         COUPLE(K,J) = '   '
 32                  CONTINUE
 27              CONTINUE
-     
+
 ***************
 *       Assign values to the couplings backward ,
 *       COUPLE(i) = Beta(i-m) for coupling(j) if i > m
@@ -1362,18 +1362,18 @@ CSUN            end if
                                 STOP
                             END IF
 28              CONTINUE
-     
+
 ***************
 *    Selection from generated couplings according the following rules
 *
 37              DO 29 I=1,NBETA
                     N = 2*M-1
-     
+
 ***************
 *       If the first time to call COUPLD, not compute MAX and MIN
 *
                     IF (MAX .EQ. -5) GOTO 34
-     
+
 ***************
 *       Compute MAX and MIN value for each final term, keep it if
 *   intersection is non-empty
@@ -1386,7 +1386,7 @@ CSUN            end if
                     LMIN = 2*ABS(S-L)
                     LMAX = 2*ABS(S+L)
                     IF (LMIN.GT.MAX .OR. LMAX.LT.MIN) GOTO 29
-     
+
 ***************
 *       If Final Terms are given, do selection
 *
@@ -1397,18 +1397,18 @@ CSUN            end if
 40                      CONTINUE
 41                      GOTO 29
                     ENDIF
-     
+
 ***************
 *       Waining if the number of couplings > NSCOUP
 *
                     IF (NC .EQ. NSCOUP) THEN
                         WRITE(0,*)  '          WARNING !'
-                        WRITE(0,*)  '          The number of couplings', 
+                        WRITE(0,*)  '          The number of couplings',
      :                   ' is greater than 500 .',
      :                   '          Please select the Final Term .'
                         RETURN 1
                     ENDIF
-     
+
 ***************
 *       Write configurations and couplings to CI.LST
 *
@@ -1455,13 +1455,13 @@ CSUN            end if
      :                    (Q9,QA(9)),(Q10,QA(10)),(Q11,QA(11)),
      :                    (Q12,QA(12)),(Q13,QA(13)),(Q14,QA(14)),
      :                    (Q15,QA(15))
-     
+
 *   INPUT :
 *     Q,Qi  =  Occupation number
 *        L  =  L-value corresponding ELi
 *   OUTPUT :
 *       NQ  =  Number of configurations
-     
+
 ***************
 *       Return if the new configuration has different pairty
 *
@@ -1469,10 +1469,10 @@ CSUN            end if
             DO 11 I=1,MA
                 NEWP = NEWP+QA(I)*RL(I)
 11          CONTINUE
-     
+
             NEWP = MOD(NEWP,2)
             IF (NEWP .NE. PARITY) RETURN
-     
+
 ***************
 *   Return if the new condiguration is the same as the Reference Set
 *
@@ -1487,7 +1487,7 @@ CSUN            end if
 14              CONTINUE
                 IF (N .EQ. M) RETURN
 12          CONTINUE
-     
+
 ***************
 *       Otherwise, write them into the configuration file
 *
@@ -1511,7 +1511,7 @@ CSUN            end if
             INTEGER        Q(NELS),LEFT,RIGHT
             INTEGER        ORDLA,ORDLZ,ORDUA,ORDUZ,ORD0,ORD9
             COMMON         /BLK0/ORDLA,ORDLZ,ORDUA,ORDUZ,ORD0,ORD9
-     
+
 *
 *       INPUT  :
 *         STR  =  String to be decomposed
@@ -1525,10 +1525,10 @@ CSUN            end if
                     RETURN
                 ENDIF
                 CALL DEL(STR)
-     
+
                 LEFT = INDEX(STR,'(')
                 RIGHT = INDEX(STR,')')
-     
+
 ***************
 *       If the Replacement is like 2s.2p = 3s.3p
 *
@@ -1541,7 +1541,7 @@ CSUN            end if
                         J = 2
                     ENDIF
                     CH3 = STR(:J)
-     
+
 ***************
 *       If the Replacement is like 2p(2) = 3p(2)
 *
@@ -1550,7 +1550,7 @@ CSUN            end if
                     K = ICTOI(CH3)
                     CH3 = STR(:LEFT-1)
                 ENDIF
-     
+
 ***************
 *       Convert uppercase to lowercase, and assign value to ELi,Qi
 *
@@ -1573,10 +1573,10 @@ CSUN            end if
 * ----------------------------------------------------------------------
 *
         SUBROUTINE REPLAC(ELB,QB,MB,*)
-     
+
 *   OUTPUT :
 *       ELB,QB,MB
-     
+
         PARAMETER      (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
         PARAMETER      (NCFG=500,NSCOUP=500)
         CHARACTER*3    EL(NELS),ELL(NELS),ELR(NELS),ELS(NELS),
@@ -1596,13 +1596,13 @@ CSUN            end if
      :                       Q10,Q11,Q12,Q13,Q14,Q15
         COMMON         /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
-     
-     
+
+
             DO 10 I=1,NELS
                 ELC(I) = EL(I)
                 QC(I) = Q(I)
 10          CONTINUE
-     
+
 *
 **********     Correct Q(i) by subtraction
 *
@@ -1616,7 +1616,7 @@ CSUN            end if
                 ENDIF
 16          CONTINUE
 51          IF (MARK.NE.0) RETURN 1
-     
+
 *
 **********     Correct QC(i) by adding
 *
@@ -1636,7 +1636,7 @@ CSUN            end if
                     QC(MC) = QR(I)
                 ENDIF
 15          CONTINUE
-     
+
 ***************
 *       Delete EL(i) if Q(i) = 0
 *
@@ -1648,7 +1648,7 @@ CSUN            end if
                     QB(MB) = QC(I)
                 ENDIF
 30          CONTINUE
-     
+
 *
 **********     Check the input error after replacement
 *
@@ -1663,11 +1663,11 @@ CSUN            end if
                 J = J+QB(I)
                 K = K+QB(I)*L
 27          CONTINUE
-     
+
 53          IF (J .NE. CONST) RETURN 1
-     
+
             IF (MOD(K,2) .NE. PARITY) RETURN 1
-     
+
 *
 **********    If the replacement duplicates a configuration in the
 *           active set, it should not be sent to CI.LST
@@ -1683,7 +1683,7 @@ CSUN            end if
 35              CONTINUE
                 IF (N .EQ. MB) RETURN 1
 14          CONTINUE
-     
+
 ***************
 *       If the replacement duplicates a configuration in the
 *   Reference Set, it should not be sent to CI.LST
@@ -1699,7 +1699,7 @@ CSUN            end if
 36              CONTINUE
                 IF (N .EQ. MB) RETURN 1
 31          CONTINUE
-     
+
 ***************
 *       If the replacement duplicates a configuration in the previous
 *   replacement, it should not sent to CI.LST
@@ -1716,7 +1716,7 @@ CSUN            end if
 41              CONTINUE
                 IF (N .EQ. MB) RETURN 1
 40          CONTINUE
-     
+
             NP = NP+1
             PP(NP) = MB
             WRITE (FILE2(NP),37) (ELB(J),QB(J), J=1,MB)
@@ -1731,7 +1731,7 @@ CSUN            end if
 *       Generate occupied or virtual pairs for D-Replacement
 *
         SUBROUTINE VPAIR (ELV,MV,PL,LLMIN,LLMAX,STR,*)
-     
+
 *   INPUT :
 *       ELV  =  ELi for Virtual Set
 *        MV  =  Number of ELi for Virtual Set
@@ -1740,8 +1740,8 @@ CSUN            end if
 *     LLMAX  =  Maximum angular coupling of the pair
 *       STR  =  String to be packed as output for Replacement
 *
-     
-     
+
+
         PARAMETER     (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
         PARAMETER     (NCFG=500,NSCOUP=500)
         CHARACTER*72   HEADER,SHELLS,VIRTUL,STR,SSTR
@@ -1762,10 +1762,10 @@ CSUN            end if
      :                 /BLK4/Q,QL,ML,QR,MR,M,QS,MS,MA,RL,NREF,
      :                       Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,
      :                       Q10,Q11,Q12,Q13,Q14,Q15
-     
+
             N = INDEX(STR,'=')
             NR = NELS
-     
+
 ***************
 *       D-Replacement for the pair of two single ELi
 *
@@ -1774,16 +1774,16 @@ CSUN            end if
             QR(2) = 1
             DO 10 I = 1,MV-1
                 ELR(1) = ELV(I)
-		LR1 = LVAL(ELR(1)(2:2))
+                LR1 = LVAL(ELR(1)(2:2))
                 DO 10 J=I+1,MV
                     ELR(2) = ELV(J)
-		    LR2 = LVAL(ELR(2)(2:2))
-		    LRMIN = IABS(LR1 - LR2)
-		    LRMAX = LR1 + LR2
+                    LR2 = LVAL(ELR(2)(2:2))
+                    LRMIN = IABS(LR1 - LR2)
+                    LRMAX = LR1 + LR2
                     PR = MOD(LRMAX, 2)
 *
 *       If the pair has the same parity with the left side, and the
-*   angular coupling of the two pairs have values in common, replace 
+*   angular coupling of the two pairs have values in common, replace
 *   them, then generate couplings for the new configuration
 *
                     IF (PL .NE. PR .OR. LRMIN .GT. LLMAX .OR.
@@ -1800,7 +1800,7 @@ CSUN            end if
                         CALL PRINT (ELC,QB,K,NC,4)
                     ENDIF
 10          CONTINUE
-     
+
 ***************
 *       D-Replacement for the pairs which has the value Qi=2
 *
@@ -1808,8 +1808,8 @@ CSUN            end if
             QR(1) = 2
             DO 20 I=1,MV
                 ELR(1) = ELV(I)
-		LR1 = LVAL(ELR(1)(2:2))
-		LRMAX = LR1 + LR1
+                LR1 = LVAL(ELR(1)(2:2))
+                LRMAX = LR1 + LR1
                 PR = MOD(LRMAX, 2)
 *
 *       If it has the same parity with the left side, replace them,
@@ -1829,7 +1829,7 @@ CSUN            end if
                     ENDIF
                 ENDIF
 20          CONTINUE
-     
+
             RETURN
 25          RETURN 1
         END
@@ -1855,8 +1855,8 @@ CSUN            end if
      :                     /BLK2/REF,REPL,FTM
             COMMON       /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
-     
-     
+
+
 *   MARK  =  1 for Reference Set
 *         =  2 for Reference Set, Active Set
 *         =  3 for Reference Set, Replacement
@@ -1868,7 +1868,7 @@ CSUN            end if
             J = INDEX(HEADER,'          ')
             WRITE (6,11) HEADER(1:J)
 11          FORMAT (' '/T10,'-------------       ',A,'  --------',/)
-     
+
 ***************
 *               Print the input of Closed Shells
 *
@@ -1876,14 +1876,14 @@ CSUN            end if
             WRITE (6,12) SHELLS(:J)
 12          FORMAT ('          Closed Shells  :  ',A/)
             IF (MARK.EQ.1 .OR. MARK.EQ.2) GOTO 20
-     
+
 ***************
 *               Print the input of Reference Set
 *
             WRITE (6,10) REF(NF)
 10          FORMAT ('          Reference set  :  ',A60/)
             IF (MARK .EQ. 3) GOTO 21
-     
+
 ***************
 *               Print the input of Virtual Set
 *
@@ -1896,20 +1896,20 @@ CSUN            end if
 31              FORMAT ('          ',A1,'-Replacement  :  ',A60/)
                 GOTO 20
             ENDIF
-     
+
 ***************
 *               Print the input of Active Set
 *
             WRITE (6,19) ACT
 19          FORMAT ('             Active Set  :  ',A60/)
             IF (MARK .EQ. 2) GOTO 20
-     
+
 ***************
 *               Print the input of Replacement
 *
 21          WRITE (6,22) REPL(NR)
 22          FORMAT ('            Replacement  :  ',A60/)
-     
+
 ***************
 *       Print the new configuration by Replacement
 *
@@ -1921,7 +1921,7 @@ CSUN            end if
             WRITE (6,13) (EL(J),Q(J), J=1,M)
 13          FORMAT ('          Configuration  :',
      :          5(2X,A3,'(',I2,')')/)
-     
+
 ***************
 *       Print couplings generated from the configuration
 *
@@ -1956,7 +1956,7 @@ CSUN            end if
 *
         SUBROUTINE HELP ()
             CHARACTER*10   STR
-     
+
 10          WRITE(0,11)
 11          FORMAT(//,
      : 5X,'This program prompts for each required input.  The user'/
@@ -1981,10 +1981,10 @@ CSUN            end if
      : 5X,'Header and Closed Shells cannot exceed 72 characters and'/
      : 5X,'will be copied to the output file. The electrons are'/
      : 5X,'separated by blanks in the Closed Shells.')
-	    WRITE(0,13)
+            WRITE(0,13)
 13          FORMAT(5X,'Press RETURN for more... ')
             READ(5,'(A)') STR
-     
+
 20          WRITE(0,21)
 21          FORMAT(///////
      : 5X,'Items are separated by a blank in the Reference Set, by a'/
@@ -2007,7 +2007,7 @@ CSUN            end if
             WRITE(0,*) '           Replacement  ?  RETURN '
             WRITE(0,*) '            Final Term  ?  RETURN'
             WRITE(0,*)
-            WRITE(0,*) 
+            WRITE(0,*)
      : '     Where the Replacement and the Final Term are empty.'
             WRITE(0,*)
             WRITE(0,*)
@@ -2017,7 +2017,7 @@ CSUN            end if
             I = INDEX(STR,'B')
             J = INDEX(STR,'b')
             IF (I.NE.0 .OR. J.NE.0) GOTO 10
-     
+
 30          WRITE(0,31)
 31          FORMAT(///////
      : 5X,'By inputing "s" or "d" or "sd" you can compute the config-'/
@@ -2072,7 +2072,7 @@ CSUN            end if
             I = INDEX(STR,'B')
             J = INDEX(STR,'b')
             IF (I.NE.0 .OR. J.NE.0) GOTO 30
-     
+
 50          WRITE(0,51)
 51          FORMAT(///////
      : 5X,'Example 4 shows the procedure for going back four steps'/
@@ -2092,7 +2092,7 @@ CSUN            end if
             WRITE(0,*)
             WRITE(0,*)
             WRITE(0,*) '   Then reenter the data for the Reference Set',
-	    
+
      :                 ' and continue the input.'
             WRITE(0,*)
             WRITE(0,22)
@@ -2100,7 +2100,7 @@ CSUN            end if
             I = INDEX(STR,'B')
             J = INDEX(STR,'b')
             IF (I.NE.0 .OR. J.NE.0) GOTO 40
-     
+
 60          WRITE(0,61)
 61          FORMAT(///////
      : 5X,'When the following error conditions are detected,',

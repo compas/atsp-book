@@ -1,11 +1,11 @@
 *-----------------------------------------------------------------------
 *
-*	RELABEL  -- A PROGRAM TO RELABEL ORBITAL LABELS AND DELELTE
+*       RELABEL  -- A PROGRAM TO RELABEL ORBITAL LABELS AND DELELTE
 *                   ORBITALS
 *
-*	by C. Froese Fischer
-*	   Vanderbilt University
-*	   Nashville, TN 37235 USA
+*       by C. Froese Fischer
+*          Vanderbilt University
+*          Nashville, TN 37235 USA
 *
 *       May, 1983
 *

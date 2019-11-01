@@ -1,6 +1,6 @@
 #
 #  Script file for hyperfine program
-# 
+#
 #  Generate configuration list
 #
 rm -f cfg.inp Li1.out
@@ -72,7 +72,7 @@ cat cfg.inp
 n
 y
 S2
-#  
+#
 #  Get MCHF wave function
 #
 cp li1.w wfn.inp

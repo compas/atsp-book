@@ -1,12 +1,12 @@
 *
 *     ------------------------------------------------------------------
-*	O R T H
+*       O R T H
 *
 *     ------------------------------------------------------------------
 *
       SUBROUTINE ORTH
 *
-*	Determine the orthogonality between initial and final state
+*       Determine the orthogonality between initial and final state
 *
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
       PARAMETER (NWD=30,NCD=100,NCD4=4*NCD)

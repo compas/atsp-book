@@ -1,7 +1,7 @@
 *     ------------------------------------------------------------------
-     
+
 *       PROGRAM LINES  -- PROGRAM TO PRINT THE LINES IN THE
-*			  LSJ TRANSITION ARRAY
+*                         LSJ TRANSITION ARRAY
 *
 *                   C O P Y R I G H T --1994
 *
@@ -49,11 +49,11 @@ CTSS   CALL MPROMPT('>',1)
         IF (N .LE. (LINED)) GO TO 10
 999     N = N-1
         WRITE(0,*) 'Number of transitions =',N
- 
+
         DO 20 I = 1,N
            INDEX(I) = I
 20      CONTINUE
- 
+
         WRITE(0,'(A,7(/A))') ' Select the line list order:'
      :      , ' 1:  Energy (cm-1)'
      :      , ' 2:  Wavelength (Angstroms) in Vacuum'
@@ -63,7 +63,7 @@ CTSS   CALL MPROMPT('>',1)
      :      , ' 6:  Transition Probability'
      :      , ' Enter your selection: '
         READ(5,*) I
- 
+
         DO 30 IPOS = 1,N-1
            J = IPOS
            DO 32 JPOS = IPOS+1,N
@@ -125,7 +125,7 @@ CTSS   CALL MPROMPT('>',1)
                 ENDIF
             ENDIF
            IF (LAB1//LAB2 .NE. ' ') WRITE(6,35) LAB1,LAB2
-	   WRITE(6,36) TERM1,TERM2,JV(II,1)/2.,JV(II,2)/2.,
+           WRITE(6,36) TERM1,TERM2,JV(II,1)/2.,JV(II,2)/2.,
      :          TYPE(II),V(II,1),V(II,3),V(II,4),V(II,5),V(II,6)
 35         FORMAT(1X,A25,2X,A25)
 36         FORMAT(8X,A3,1X,A3,2X,F4.1,'-',F4.1,
@@ -139,7 +139,7 @@ CTSS   CALL MPROMPT('>',1)
         SUBROUTINE SEPAR(CONFIG,LAB,TERM)
 *
         CHARACTER CONFIG*66, LAB*25,TERM*2,CH2*2,CH1*1,COPY*66
- 
+
                 COPY = CONFIG
 *
 *       Delete the extra characters
@@ -148,27 +148,27 @@ CTSS   CALL MPROMPT('>',1)
                     J = INDEX(COPY,'.')
                     COPY = CONFIG(J+1:66)
                 ENDIF
- 
+
 *
 *       1. SEPARATE the final term
 *
                 N = INDEX(COPY,' ')-1
                 IF (COPY(N:N) .GE. '0' .AND. COPY(N:N) .LE.  '9') THEN
                     N = N-4
-		    K = 4
+                    K = 4
                 ELSE
                     N = N-3
-		    K = 3
+                    K = 3
                 ENDIF
                 TERM = COPY(N+2:N+3)
                COPY(N+1:N+K) = '   '
- 
+
 *
 *       2. Delete set subscript
 *
                 CH1 = COPY(N:N)
                 IF (CH1.GE.'0' .AND. CH1.LE.'9') COPY(N:N) = ' '
- 
+
 *
 *       3. If after removing the final term, there are no other
 *   intermediate couplings prefaced by '_' and the last coupling
@@ -182,4 +182,4 @@ CTSS   CALL MPROMPT('>',1)
                 ENDIF
                 LAB = COPY(1:30)
         END
- 
+

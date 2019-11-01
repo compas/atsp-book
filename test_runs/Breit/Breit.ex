@@ -3,12 +3,12 @@
 #
 #  Case 1.   Breit-Pauli interactions for the odd parity configuration
 #            states of the Al-like sequence
-#   
+#
 #   Step 1.  Create a configuration list
-#           
+#
 rm -f cfg.inp Breit.out
 cat >cfg.inp <<S1
-   al                                                        
+   al
   1s  2s  2p
   3s( 2)  3p( 1)
      1S0     2P1     2P0
@@ -20,7 +20,7 @@ cat >cfg.inp <<S1
      4S3
 S1
 #
-#   Step 2.  Derive the energy expression for the Breit-Pauli 
+#   Step 2.  Derive the energy expression for the Breit-Pauli
 #            interaction matrix
 time ../../bin/Breit >Breit.out  <<S2
 1

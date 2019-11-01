@@ -1,31 +1,31 @@
-#  
-#  Script (command) file illustrating the use of the MCHF
-#  Atomic Structure Package for the study of the isotope 
-#  shift of 1s(2)2s(1)3s(1)_1S in Be I and 3d(8)4p(1)_4G
-#  in Ni II.  
 #
-#  CASE I. Prepare <name>.w, <name>.c and int.lst files 
+#  Script (command) file illustrating the use of the MCHF
+#  Atomic Structure Package for the study of the isotope
+#  shift of 1s(2)2s(1)3s(1)_1S in Be I and 3d(8)4p(1)_4G
+#  in Ni II.
+#
+#  CASE I. Prepare <name>.w, <name>.c and int.lst files
 #          to run the MCHF_ISOTOPE program for Be I.
 #
 #  Step 1. Display a set of configuration state functions.
 #
 rm -f cfg.inp Be.out
 cat > cfg.inp << STOP1
-   Be    1S 
+   Be    1S
   1s
   2s( 1)  3s( 1)
      2S1     2S1     1S0
-  2s( 2)       
+  2s( 2)
      1S0
-  2p( 2)      
+  2p( 2)
      1S0
-  3p( 2)     
+  3p( 2)
      1S0
-  3d( 2)    
+  3d( 2)
      1S0
 STOP1
 #
-# Step 2. Compute angular integrals using the MCHF_nonh program. 
+# Step 2. Compute angular integrals using the MCHF_nonh program.
 #
 ../../bin/Nonh > Be.out << STOP2
 n
@@ -44,7 +44,7 @@ y
 n
 STOP3
 #
-# Save the results into Be.c and Be.w files. 
+# Save the results into Be.c and Be.w files.
 #
 echo ' '
 echo move cfg.out into Be.c

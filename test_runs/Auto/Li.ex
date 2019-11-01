@@ -7,8 +7,8 @@
 #
 rm -f cfg.inp
 cat >cfg.inp <<S1
- Li                                                          
- 
+ Li
+
   1s( 1)  2p( 2)
      2S1     1D2     2D0
   1s( 1)  3p( 2)
@@ -50,7 +50,7 @@ cat >cont.c << S4a
   1s( 2) kdc( 1)                         1.0
      1S0     2D1     2D0
 S4a
-rm -f cfg.inp 
+rm -f cfg.inp
 rm -f temp.c
 cat cfg.out cont.c > temp.c
 echo ' '
@@ -96,7 +96,7 @@ cat auto.dat >>Li.out
 rm -f cfg.inp
 cat >cfg.inp <<S5
   Li              -7.23694760
-                                                          
+
   1s( 1)  2p( 2)
      2S1     1S0     2S0
   1s( 1)  2p( 2)
@@ -186,7 +186,7 @@ cat >> cfg.inp <<S10
   1s( 2) kdc( 1)                            1.0
      1S0     2D1     2D0
 S10
-../../bin/Nonh >>Li.out <<S11 
+../../bin/Nonh >>Li.out <<S11
 n
 y
 S11

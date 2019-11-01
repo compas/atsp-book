@@ -3,7 +3,7 @@ set -x
 # CASE II. Prepare <name>.c, <name>.j, <name>.w and int.lst
 #          files to run the MCHF_ISOTOPE program for Ni II.
 #
-# Step 1.  Display a set of configuration state functions. 
+# Step 1.  Display a set of configuration state functions.
 #
 rm -f Ni.out Ni.c Ni.l Ni.j
 cat > cfg.inp << STOP5
@@ -20,7 +20,7 @@ n
 y
 STOP6
 #
-# Step 3. Run the MCHF_88 program 
+# Step 3. Run the MCHF_88 program
 #
 ../../bin/Mchf >>Ni.out << STOP7
 Ni,4G,28.0
@@ -39,8 +39,8 @@ echo ' '
 echo remove cfg.inp
 rm -f cfg.inp
 cat > cfg.inp <<STOP1
-  Ni                                                         
-  1s  2s  2p  3s  3p                                                     
+  Ni
+  1s  2s  2p  3s  3p
   3d( 8)  4p( 1)
      1D2     2P1     2D0
   3d( 8)  4p( 1)
@@ -65,7 +65,7 @@ cat > cfg.inp <<STOP1
      3F2     2P1     4G0
 STOP1
 #
-# Step 4. Compute angular integrals including relativistic 
+# Step 4. Compute angular integrals including relativistic
 #         shift operators using the MCHF_BREIT program.
 #
 ../../bin/Breit >>Ni.out << STOP8
@@ -75,7 +75,7 @@ y
 STOP8
 mv -f cfg.inp Ni.c
 #
-# Step 5. Run the CI program to generate expansion sets. 
+# Step 5. Run the CI program to generate expansion sets.
 #
 ../../bin/Ci >>Ni.out << STOP9
 Ni

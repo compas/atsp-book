@@ -3,7 +3,7 @@
 *           C O P Y R I G H T -- 1994
 *
 *    A. Bar-Shalom and Marcel Klapisch
-*    
+*
 *    Computer Physics Communications, Vol. 50, 375 (1988)
 *
 *    This version contains the corrections to errors found
@@ -132,7 +132,7 @@ c
 c
       logical fail
 c
-      character*6 name,namsub 
+      character*6 name,namsub
 c
       common/nam/namsub
 *
@@ -167,12 +167,12 @@ c..........putting the link to 0.sub zero changes nbtr
 c           write(*,*)jdif,' should be 0.Is :',j1(jdif),'recup ->0'
             return
             else
-	     call zero(1,jdif,fail)
+             call zero(1,jdif,fail)
              if (fail)return
            endif
           endif
       endif
-  10  continue 
+  10  continue
       if(jdif.ne.0)call printj(name,4)
       return
       end
@@ -1075,10 +1075,10 @@ c
                 endif
                enddo
 c
-		      endif !! endif(noel)
-		      jsum2(nsv)=jmin
-		      maxlp(nsv)=jmax
-		      if(ldiag(nsv))jsum3(nsv)=0
+                      endif !! endif(noel)
+                      jsum2(nsv)=jmin
+                      maxlp(nsv)=jmax
+                      if(ldiag(nsv))jsum3(nsv)=0
           enddo
 c
           already=.false.
@@ -2233,22 +2233,22 @@ c
       RETURN
       END
 cc
-c     *********************** 
-      subroutine search(find) 
+c     ***********************
+      subroutine search(find)
       implicit real*8(a-h,o-z)
-c     *********************** 
+c     ***********************
 c  ***this subroutine locates circuits or loops of order nc.npoint(nc)
 c  ***are the indices of the points(triads) pertaining to the first
 c  ***such loop found.
 c  ***npart is the number of separate parts(groups of contiguous points)
-c  ***on the axis of the flat graph.iparts is the number of points in 
-c  ***the smallest part.ipartl is the number of points in the largest 
+c  ***on the axis of the flat graph.iparts is the number of points in
+c  ***the smallest part.ipartl is the number of points in the largest
 c  ***part.
 c  ***this subroutine finds all the possible loops of order 3 and 4.for
 c  ***nc.ge.5,it looks for only those who are partitionned in npart.le.2
 c  ***which can eventually reduce tp a loop of order 4 without breaking
-c  ***the basic structure of the flat graph. icross=-1,if lines cross 
-c-------------------------------------------------------------------- 
+c  ***the basic structure of the flat graph. icross=-1,if lines cross
+c--------------------------------------------------------------------
 c
 c........corrected for free ends at last triad 11/23/93
 *
@@ -2292,7 +2292,7 @@ c
       jc=jdiag(i1,3)
 c
       if(ja.eq.jc) then
-        if(nc.gt.1) go to 800 
+        if(nc.gt.1) go to 800
         npoint(1)=i1
         go to 900
       endif
@@ -2312,7 +2312,7 @@ c
         jc=jdiag(i1,2)
 c
       if(ja.eq.jc) then
-        if(nc.gt.1) go to 800 
+        if(nc.gt.1) go to 800
         npoint(1)=i1
         go to 900
       endif
@@ -2322,7 +2322,7 @@ c.......11/23/93 correction for case of free ends
           if(i2.eq.i1) i2=tab1(ja,2)
           if(i3.eq.i1) i3=tab1(jc,2)
 c.......4/13/94 case of inactive triads before first
-	  if(i2.lt.ifirst.or.i3.lt.ifirst)go to 250
+          if(i2.lt.ifirst.or.i3.lt.ifirst)go to 250
       idist=iabs(il(i3)-il(i2))
       if(idist.lt.ncm) go to 800
 c.........inactive triads beyond ilast
@@ -2384,23 +2384,23 @@ c
         jc=jdiag(ilast,1)
       endif
 c
-      i3=tab1(jb,2) 
-      i4=tab1(jc,1) 
+      i3=tab1(jb,2)
+      i4=tab1(jc,1)
       idist=il(i4)-il(i3)
 c
       if(iabs(idist)-(ncm-1) .lt. 0) go to 800
       if(iabs(idist)-(ncm-1) .eq. 0) then
         npoint(1)= ilast
         npoint(2) = ifirst
-        icross=isign(1,idist) 
+        icross=isign(1,idist)
         ic=2
         i20=min0(i3,i4)
-        i21=il(i20) 
-        i31=i21+ncm 
+        i21=il(i20)
+        i31=i21+ncm
 c
         do 261 ii=i21,i31
           ic=ic+1
-          npoint(ic) = ih(ii) 
+          npoint(ic) = ih(ii)
   261   continue
 c
         if(ja.eq.jdiag(ifirst,1))call change(ifirst,3)
@@ -2422,7 +2422,7 @@ c
           i2=tab1(ja,2)
 c
           if(il(i2)-in-ncm1 .lt. 0) go to 800
-          if(il(i2)-in-ncm1 .eq. 0)then 
+          if(il(i2)-in-ncm1 .eq. 0)then
             i21=il(i2)
             ic=0
 c
@@ -2452,7 +2452,7 @@ c  ***search did not find loop nc.le.3
 c
       if(nc.le.3) return
 c
-c  ***general case of loop partitionned in 2 groups.do loop 
+c  ***general case of loop partitionned in 2 groups.do loop
 c  ***on iparts
 c
       npart=2
@@ -2478,11 +2478,11 @@ c
           ii2=tab1(jd,1)
         endif
 c
-        idist=il(ii1)-il(ii2) 
+        idist=il(ii1)-il(ii2)
 c
         if(iabs(idist)-(ncm-jps) .lt. 0) go to 800
         if(iabs(idist)-(ncm-jps) .gt. 0) go to 320
-  306   icross=isign(1,idist) 
+  306   icross=isign(1,idist)
         ic=0
         i21=il(i2)
 c
@@ -2502,7 +2502,7 @@ c
   311 continue
 c
       iparts=ips
-      ipartl=nc-ips 
+      ipartl=nc-ips
       if(jdiag(ifirst,3).eq.ja.or.jdiag(ifirst,3).eq.jd)call
      +change(ifirst,3)
       if(jdiag(ilast,2).eq.ja.or.jdiag(ilast,2).eq.jd)call
@@ -2512,10 +2512,10 @@ c
   320 if(i1.eq.1) then
         if(k3.eq.3) then
           k3=1
-          go to 301 
+          go to 301
         else
           k3=3
-          go to 302 
+          go to 302
       endif
       endif
 c
@@ -2546,7 +2546,7 @@ c
       call printj(name,8)
       stop
 c
-      end 
+      end
 
 ************************************************************************
       SUBROUTINE SETDM
@@ -3280,11 +3280,11 @@ c
       do 11 i=1,m
         if(j1(i).ne.1.or.free(i).or.ial(i).le.1)go to 11
         nzero=nzero+1
-	if (nzero .gt. kflz) then
-	   print 100, nzero, kflz
+        if (nzero .gt. kflz) then
+           print 100, nzero, kflz
   100      format(1x,'Dimension error in ZERO: nzero=',I5,' KFLZ=',I5)
-	   stop
-	endif
+           stop
+        endif
         jzero(nzero)=i
    11 continue
 *
@@ -3309,7 +3309,7 @@ c
 *
       if(jj1.eq.jj2)then
         j6c=j6c+1
-        j6(j6c)=jj1 
+        j6(j6c)=jj1
         lo1=lin
         lo2=lin
         lco1=l1

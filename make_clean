@@ -10,4 +10,3 @@ echo ... from atsp_src
 cd atsp_src
 
 rm -f *.o
-

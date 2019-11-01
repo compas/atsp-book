@@ -4,7 +4,7 @@
 #
 #   Case 1.  A non-relativistic transition probability calculation for
 #            3s(2)3p -- 3s(2)3d in Al, using the MCHF approximation.
-#  
+#
 #...To reproduce these results, there should be no wfn.inp file!
 #
 rm -f Al.out tr.lsj
@@ -24,7 +24,7 @@ S0
 # echo ' '
 # echo Move wfn.out wfn.inp
 mv -f wfn.out wfn.inp
-#   
+#
 #   Step 1.  Generate the configuration state list for the Al 2P
 #            state
 #
@@ -42,7 +42,7 @@ time ../../bin/Gencl >>Al.out <<S1
 S1
 # echo '  '
 # echo Display the cfg.inp file produced
-cat cfg.inp 
+cat cfg.inp
 #
 #   Step 2.  Determine the energy expression for the non-relativistic
 #            hamiltonian for this atomic state
@@ -72,7 +72,7 @@ mv -f cfg.out al2P.c
 # echo Move wfn.out to al2P.w
 mv -f wfn.out al2P.w
 #
-#   Step 4.  Derive the energy expression for the Breit-Pauli 
+#   Step 4.  Derive the energy expression for the Breit-Pauli
 #            interaction matrix
 #
 time ../../bin/Breit >>Al.out <<S4
@@ -82,8 +82,8 @@ y
 y
 S4
 # echo  ' '
-#   
-#   Step 5.  Determine eigenvalues and eigenvectors of the Breit-Pauli 
+#
+#   Step 5.  Determine eigenvalues and eigenvectors of the Breit-Pauli
 #            interaction matrix for a range of J values
 #
 time ../../bin/Ci >>Al.out  <<S5
@@ -96,7 +96,7 @@ n
 S5
 # echo '  '
 # echo Display the al2P.l file produced
-cat al2P.l 
+cat al2P.l
 # echo '  '
 # echo Display the al2P.j file produced
 cat al2P.j
@@ -117,7 +117,7 @@ time ../../bin/Gencl >>Al.out <<S6
 
 S6
 #
-#   Step 7.   Determine the non-relativistic interaction matrix for the 
+#   Step 7.   Determine the non-relativistic interaction matrix for the
 #             Al 2D atomic state
 #
 time ../../bin/Nonh >>Al.out  <<S7
@@ -127,7 +127,7 @@ S7
 # echo '  '
 # echo Display the int.lst file produced
 cat int.lst >>Al.out
-#   Step 8.   Determine radial functions for the Al 2D state with the 
+#   Step 8.   Determine radial functions for the Al 2D state with the
 #             same core are the Al 2P state
 #
 
@@ -152,7 +152,7 @@ n
 S8b
 # echo ' '
 # echo Display the cfg.out file produced
-cat cfg.out 
+cat cfg.out
 rm al2D.c al2D.w
 # echo ' '
 # echo Move the cfg.out file to al2D.c
@@ -161,7 +161,7 @@ mv -f cfg.out al2D.c
 # echo Move the wfn.out file to al2D.w
 mv -f wfn.out al2D.w
 #
-#   Step 9.  Determine the expressions for the Breit-Pauli interaction 
+#   Step 9.  Determine the expressions for the Breit-Pauli interaction
 #             matrix for the Al 2D atomic state
 #
 time ../../bin/Breit >>Al.out <<S9
@@ -174,7 +174,7 @@ S9
 # echo Display the int.lst produced
 cat int.lst >>Al.out
 #
-#   Step 10.  Determine eigenvalues and eigenvectors for the Al 2D 
+#   Step 10.  Determine eigenvalues and eigenvectors for the Al 2D
 #            states for a range of J values
 #
 time ../../bin/Ci >>Al.out <<S10
@@ -187,12 +187,12 @@ n
 S10
 # echo '  '
 # echo Display the al2D.l file produced
-cat al2D.l 
+cat al2D.l
 # echo '  '
 # echo Display the al2D.j file produced
-cat al2D.j 
+cat al2D.j
 #
-#   Step 11. Determine the expressions for the dipole operator for E1 
+#   Step 11. Determine the expressions for the dipole operator for E1
 #            transitions 2P Al -- 2D Al
 #
 time ../../bin/Mltpol >>Al.out <<S11
@@ -206,7 +206,7 @@ S11
 # echo '  '
 # echo Display the mltpol.lst file produced
 cat mltpol.lst >> Al.out
-#  
+#
 #   Step 12.  Determine the non-relativistic transition data
 #
 time ../../bin/Lstr >>Al.out  <<S12
@@ -240,7 +240,7 @@ S14
 # echo Concatenate the al2P.j and al2D.j files to form file al.j
 cat al2P.j al2D.j >al.j
 #
-#   Step 15.  Display a list of levels from the combined list of 
+#   Step 15.  Display a list of levels from the combined list of
 #             eigenvalues and eigenvectors of the two states.
 #
 #

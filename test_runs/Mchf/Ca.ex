@@ -37,7 +37,7 @@ echo '  '
 echo Display the cfg.inp file produced
 cat cfg.inp >>Ca.out
 #
-#..... Step 2.  Obtain the energy expression for the non-relativistic 
+#..... Step 2.  Obtain the energy expression for the non-relativistic
 #            hamiltonian for this atomic state expansion
 #
 time ../../bin/Nonh >>Ca.out  <<S2
@@ -106,7 +106,7 @@ mv -f cfg.out cfg.inp
 echo Display the cfg.inp file produced
 cat cfg.inp >>Ca.out
 #
-#..... Step 5.  Obtain the energy expression for the non-relativistic 
+#..... Step 5.  Obtain the energy expression for the non-relativistic
 #            hamiltonian
 #
 time ../../bin/Nonh >> Ca.out  <<S5

@@ -1,12 +1,12 @@
 #
-#  Case 2.  Script (command) file illustrating the use of the MCHF 
+#  Case 2.  Script (command) file illustrating the use of the MCHF
 #  Atomic Structure Package for the study of core excited quartets
 #  2p(5)3s3p in Sodium.
 #
-#  Step 1.  Obtain the Hartree-Fock orbitals for the core from 
+#  Step 1.  Obtain the Hartree-Fock orbitals for the core from
 #           a calculation for 2p(5)3s 3P.
 #
-# Remove both cfg.inp and wfn.inp 
+# Remove both cfg.inp and wfn.inp
 rm -f cfg.inp wfn.inp
 # Remove Naquart.c Naquart.w
 rm -f Naquart.c Naquart.w delete
@@ -26,8 +26,8 @@ echo '  '
 echo Move wfn.out wfn.inp
 mv -f wfn.out wfn.inp
 #
-#  Step 2. Perform a fixed core calculation for the 2p(5)3s1(3P)3p1 2S 
-#          state, first creating the cfg.inp file, then using NONH, 
+#  Step 2. Perform a fixed core calculation for the 2p(5)3s1(3P)3p1 2S
+#          state, first creating the cfg.inp file, then using NONH,
 #          followed by MCHF.
 #
 cat  >cfg.inp <<S2a
@@ -123,7 +123,7 @@ n
 y
 S5
 echo ' '
-echo Move int.lst file to int1.lst 
+echo Move int.lst file to int1.lst
 mv -f int.lst int1.lst
 #
 #  Step 6. Determine the relativistic corrections in the
@@ -144,7 +144,7 @@ echo Append the relativistic int.lst to int1.lst and delete int.lst
 cat int.lst >>int1.lst
 rm -f int.lst
 echo Delete lines  3264 to 3283 from int1.lst and copy to int.lst
-#  
+#
 # ... create a file containing the delete commands
 cat > delete <<D1
 3264,3283d

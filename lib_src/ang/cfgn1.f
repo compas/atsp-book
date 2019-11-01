@@ -1,10 +1,10 @@
 *
 *     ------------------------------------------------------------------
-*	C F G N 1
+*       C F G N 1
 *     ------------------------------------------------------------------
 *
-*	Read the configurations for a state and determine the
-*	non-orthogonal orbitals
+*       Read the configurations for a state and determine the
+*       non-orthogonal orbitals
 *
       SUBROUTINE CFGN1(INPUT)
       IMPLICIT DOUBLE PRECISION(A-H,O-Z)
@@ -29,12 +29,12 @@
 *
       DO 10 I = 1,MAXORB
          WRITE(BUFFER,'(A3)') IAJCMP(I)
-	 READ(BUFFER,'(3A1)') (JAJCMP(I,J),J=1,3)
-	 IF (JAJCMP(I,1) .EQ. ' ') THEN
-	    JAJCMP(I,1) = JAJCMP(I,2)
-	    JAJCMP(I,2) = JAJCMP(I,3)
-	    JAJCMP(I,3) = ' '
-	 END IF
+         READ(BUFFER,'(3A1)') (JAJCMP(I,J),J=1,3)
+         IF (JAJCMP(I,1) .EQ. ' ') THEN
+            JAJCMP(I,1) = JAJCMP(I,2)
+            JAJCMP(I,2) = JAJCMP(I,3)
+            JAJCMP(I,3) = ' '
+         END IF
 10    CONTINUE
 *
 *  ---  INITIALIZE THE ORTHOGONALITY ARRAY

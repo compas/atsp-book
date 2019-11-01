@@ -9,7 +9,7 @@
 *          Nashville, TN 37235 USA
 *
 *       July, 1984
-*       
+*
 *       Computer Physics Communication, Vol. 64, 399-405 (1991)
 *-----------------------------------------------------------------------
 *
@@ -27,7 +27,7 @@
       DIMENSION ET(NCD2),COEF(NCD2,NCD2)
       PARAMETER (IREAD=5,IWRITE=6)
       DATA ASTER/'*'/
- 
+
 *
       IU = 7
       DO 100 ICASE = 1,1
@@ -62,7 +62,7 @@ CSUN  end if
       END IF
       IF (NOCC .EQ. 0) GO TO 18
       CALL PACK(NOCC,EL,Q,COUPLE,LAB1)
- 
+
 *
 *       1. Separate the final term
 *
@@ -75,13 +75,13 @@ CSUN  end if
             ENDIF
             FIN1 = LAB1(J+2:J+3)
             LAB1(J+1:J+4) = '   '
- 
+
 *
 *       2. Delete set subscriP2
 *
 *           CH1 = LAB1(J:J)
 *           IF (CH1.GE.'0' .AND. CH1.LE.'9') LAB1(J:J) = ' '
- 
+
 *
 *       3. If after removing the final term, there are no other
 *   intermediate couplings prefaced by '_' and the last coupling
@@ -92,7 +92,7 @@ CSUN  end if
                 CH2 = LAB1(J-2:J-1)
                 IF (CH2 .EQ. FIN1) LAB1(J-2:J-1) = '  '
             ENDIF
- 
+
       CONFIG(M) = LAB1
       K = 45
    17 IF (CONFIG(M)(K:K) .EQ. ' ') THEN
@@ -110,22 +110,22 @@ CSUN  end if
    18 NCF(ICASE)= M-1
       CLOSE(UNIT=7)
 100   CONTINUE
- 
+
       WRITE(0,'(A/5X,A/5X,A/5X,A/A)') ' Compositions from:',
      :     '1  name.c','2  name.l','3  name.j',' Enter selection'
       READ(IREAD,*) ICASE
       IF (ICASE .EQ. 1) THEN
-	 NCFG(1) = NCF(1)
-	 IP(1) = 1
-	 JL(1) = 1
-	 IST(1) = 1
-	 JV(1) = 0
+         NCFG(1) = NCF(1)
+         IP(1) = 1
+         JL(1) = 1
+         IST(1) = 1
+         JV(1) = 0
          CALL OUTPUT(1,JV,JL,CONFIG,FINT,COEF,IP,TOL,ET)
       ELSE
       IF (ICASE .EQ. 2) THEN
-	 CFILE = NAME(1:JEND-1)//'.l'
-      ELSE 
-	 CFILE = NAME(1:JEND-1)//'.j'
+         CFILE = NAME(1:JEND-1)//'.l'
+      ELSE
+         CFILE = NAME(1:JEND-1)//'.j'
       END IF
 *
 *   ****  If LS format, read sets of coefficients
@@ -212,7 +212,7 @@ CSUN  end if
      :                  COEF(I,JS),CONFIG(J)(1:K),FINT(J)
                SECOND = .TRUE.
             END IF
- 
+
         END IF
 10      CONTINUE
 100    CONTINUE
@@ -223,13 +223,13 @@ CSUN  end if
 *     ------------------------------------------------------------------
 *
         SUBROUTINE SORT(M,ET,IP)
-	IMPLICIT DOUBLE PRECISION (A-H,O-Z)
+        IMPLICIT DOUBLE PRECISION (A-H,O-Z)
         DIMENSION ET(*),IP(*)
- 
+
         DO 1 I = 1,M
            IP(I) = I
 1       CONTINUE
- 
+
         DO 10 I = 1,M-1
            JP = I
            DO 12 J = I+1,M
@@ -243,4 +243,4 @@ CSUN  end if
            IP(JP) = ITEMP
 10      CONTINUE
         END
- 
+

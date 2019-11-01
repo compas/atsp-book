@@ -1,7 +1,7 @@
-*	Program to list wavefunctions
-*	
-*	Created by C. Froese Fischer June 30, 1987
-*	Vanderbilt University
+*       Program to list wavefunctions
+*
+*       Created by C. Froese Fischer June 30, 1987
+*       Vanderbilt University
 
       PROGRAM PLOTW
       IMPLICIT REAL*8(A-H,O-Z)
@@ -11,14 +11,14 @@
 *
       iarg = iargc()
 *     if (iarg .gt. 0) then
-*	 call getarg(1,INPUT)
+*        call getarg(1,INPUT)
 *     else
-	 INPUT = 'wfn.inp'
+         INPUT = 'wfn.inp'
 *     end if
 *     if (iarg .gt. 1) then
-*	 call getarg(1,OUTPUT)
+*        call getarg(1,OUTPUT)
 *     else
-	 OUTPUT = 'plot.dat'
+         OUTPUT = 'plot.dat'
 *     end if
       inc = 1
 *     if (iarg .gt. 3) call getarg(3,inc)
@@ -37,11 +37,11 @@
             EL1 = NEW
          ENDIF
          EL(NWF) = EL1
-	 NWF = NWF + 1
+         NWF = NWF + 1
          Z = ZT
-	 ATOM = AT
-	 TERM = TT
-	 MM = MAX(M,MM)
+         ATOM = AT
+         TERM = TT
+         MM = MAX(M,MM)
       END IF
       GO TO 2
 5     CLOSE(UNIT=3)
@@ -50,20 +50,20 @@
       R(1) = 0.d0
       R2(1) = 0.d0
       DO 10 J = 2,220
-	 R(J) = EXP(RHO)/Z
-	 R2(J) = SQRT(R(J))
-	 RHO = RHO + H
+         R(J) = EXP(RHO)/Z
+         R2(J) = SQRT(R(J))
+         RHO = RHO + H
 10    CONTINUE
 *
-*	LIST TABLES OF RADIAL FUNCTIONS
+*       LIST TABLES OF RADIAL FUNCTIONS
 *
       NWF = NWF -1
       write(4,*) ' sqrt(r)    P(nl;r)'
       DO 20 I = 1,NWF
-	 write(4,*) EL(I)
-	 DO 21 J = 1,MM,inc
-	    Pwave = P(J,I)*R2(J)
-	    IF (abs(Pwave) .gt. 0.0005 .OR. J.EQ.1) 	
+         write(4,*) EL(I)
+         DO 21 J = 1,MM,inc
+            Pwave = P(J,I)*R2(J)
+            IF (abs(Pwave) .gt. 0.0005 .OR. J.EQ.1)
      :         WRITE(4,'(F10.4,F12.3)') R2(J),Pwave
 21       CONTINUE
 20    CONTINUE

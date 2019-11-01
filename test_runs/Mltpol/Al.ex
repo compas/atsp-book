@@ -4,7 +4,7 @@
 #
 #   Case 1.  A non-relativistic transition probability calculation for
 #            3s(2)3p -- 3s(2)3d in Al restricted to the complex
-#  
+#
 #   Step 1.  Generate the configuration state list for the Al 2P
 #            state
 #
@@ -46,7 +46,7 @@ echo Move the cfg.inp file produced to al2D.c
 mv -f cfg.inp al2D.c
 #
 #
-#   Step 3. Determine the expressions for the dipole operator for E1 
+#   Step 3. Determine the expressions for the dipole operator for E1
 #            transitions 2P Al -- 2D Al
 #
 time ../../bin/Mltpol >>Al.out  <<S3

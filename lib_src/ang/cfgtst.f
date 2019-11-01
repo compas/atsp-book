@@ -1,6 +1,6 @@
 *
 *     ------------------------------------------------------------------
-*	C F G T S T
+*       C F G T S T
 *     ------------------------------------------------------------------
 *
       SUBROUTINE CFGTST(NCFG,LJCOMP,NOCCSH,NELCSH,NOCORB,J1QNRD,NCD)
@@ -47,11 +47,11 @@
             LQU=LJCOMP(NA)
             NC=NELCSH(J,I)
             NELSUM = NELSUM + NC
-	    JD = J1QNRD(J,I)
+            JD = J1QNRD(J,I)
             JA = MOD(JD,64)
-	    JD = JD/64
-	    JB = MOD(JD,64)
-	    JC = JD/64
+            JD = JD/64
+            JB = MOD(JD,64)
+            JC = JD/64
             LQUMAX = 4*LQU + 2
             IF (NC .GT. LQUMAX) THEN
                WRITE(IWRITE,15) I,J
@@ -94,12 +94,12 @@
                J2 = N+J-1
                J1 = J2-1
                IF (J.EQ.2) J1 = 1
-	       JE = J1QNRD(J1,I)/64
-	       JD = MOD(JE,64)
-	       JE = JE/64
-	       JG = J1QNRD(J2,I)/64
-	       JF = MOD(JG,64)
-	       JG = JG/64
+               JE = J1QNRD(J1,I)/64
+               JD = MOD(JE,64)
+               JE = JE/64
+               JG = J1QNRD(J2,I)/64
+               JF = MOD(JG,64)
+               JG = JG/64
                IF (JF.GE.(JB+JD) .OR. JF.LE.IABS(JB-JD) .OR.
      :             JG.GE.(JC+JE) .OR. JG.LE.IABS(JC-JE) .OR.
      :             MOD(JC+JE-JG,2).EQ.0 ) THEN

@@ -1,9 +1,9 @@
 *
 *     ------------------------------------------------------------------
-*	C F G O 1
+*       C F G O 1
 *     ------------------------------------------------------------------
 *
-*	Read configurations for one state, assuming orthogonality of
+*       Read configurations for one state, assuming orthogonality of
 *       the orbitals
 *
       SUBROUTINE CFGO1(NCFG,MAXORB,IAJCMP,LJCOMP,NJCOMP,NOCCSH,
@@ -90,8 +90,8 @@
    61 IF(NOCORB(J,I).EQ.IAJCMP(JJ)) NOCORB(J,I)=JJ
       M=2*N-1
       N1=N+1
-      READ(IREAD,6)    (J3QN(J),JCQN(J),J1QN(J),J=1,M) 
-      WRITE(IWRITE,26) (J3QN(J),JCQN(J),J1QN(J),J=1,N) 
+      READ(IREAD,6)    (J3QN(J),JCQN(J),J1QN(J),J=1,M)
+      WRITE(IWRITE,26) (J3QN(J),JCQN(J),J1QN(J),J=1,N)
       IF(N.GT.1) WRITE(IWRITE,27) (J3QN(J),JCQN(J),J1QN(J),J=N1,M)
       DO 62 J=1,M
       J2QN(J) = 2*LVAL(JCQN(J)) + 1

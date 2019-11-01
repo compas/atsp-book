@@ -5,17 +5,17 @@
 #   atomic structure package for the study of the E2 and M1
 #   transitions in Carbon.  This is the case where it may be
 #   necessary to have two copies of some files.
-#  
+#
 rm -f wfn.inp cfg.inp Iron.out
 rm -f iron.c iron.w tr.lsj
-#   
-#   Step 1.  Generate the configuration state list for the 2p(2) 1S 
+#
+#   Step 1.  Generate the configuration state list for the 2p(2) 1S
 #            complex.
 #
 time ../../bin/Gencl >Iron.out <<S1
 
- Carbon-like Iron 
- 1s  
+ Carbon-like Iron
+ 1s
 2s(2)2p(2)
 
 2s,2p
@@ -53,13 +53,13 @@ echo  ' '
 echo Move wfn.out to iron.w
 mv -f wfn.out iron.w
 #
-#   Step 4.  Generate the configuration state list for the 2p(2) LSJ 
+#   Step 4.  Generate the configuration state list for the 2p(2) LSJ
 #            terms that include single and double replacements
 #
 time ../../bin/Gencl >>Iron.out <<S4
 
  Carbon-like Iron
- 1s  
+ 1s
 2s(2)2p(2)
 2p(4)
 
@@ -72,7 +72,7 @@ echo '  '
 echo Display the cfg.inp file produced
 cat cfg.inp >>Iron.out
 #
-#   Step 5.  Derive the energy expression for the Breit-Pauli 
+#   Step 5.  Derive the energy expression for the Breit-Pauli
 #            interaction matrix
 #
 time ../../bin/Breit >>Iron.out  <<S5
@@ -87,8 +87,8 @@ cat int.lst >> Iron.out
 echo ' '
 echo Move cfg.inp to iron.c
 mv -f cfg.inp iron.c
-#   
-#   Step 6.  Determine eigenvalues and eigenvectors of the Breit-Pauli 
+#
+#   Step 6.  Determine eigenvalues and eigenvectors of the Breit-Pauli
 #            interaction matrix for a range of J values
 #
 time ../../bin/Ci >>Iron.out <<S6
@@ -107,7 +107,7 @@ echo Display the iron.j file produced
 cat iron.j
 #
 #   Step 7. Determine the expressions for the E2 and M1
-#            transitions operators 
+#            transitions operators
 #
 #   Make second copy of iron.c, iron.w, and iron.j
 cp -f iron.c iron2.c
@@ -145,7 +145,7 @@ Lines >>Iron.out  <<S9
 2
 S9
 #
-#   Step 10.  Display a list of levels 
+#   Step 10.  Display a list of levels
 #
 Levels >>Iron.out  <<S10
 iron.j

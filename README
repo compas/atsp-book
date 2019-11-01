@@ -35,28 +35,28 @@ This directory contains:
 
   Another file, make_clean will delete *.o files that were
   created during compilation
- 
+
 . seven subdirectories
   . bin -- a directory that will contain the library and
-	executables once the package is compiled. 
+	executables once the package is compiled.
   . bin_LINUX -- executables for an Intel Linux environment
-  . lib_ src - directory containing subdirectories with source files 
-	and a makefile for generating each library needed by the package. 
-	Suitable compiler options need to be selected in each makefile. 
+  . lib_ src - directory containing subdirectories with source files
+	and a makefile for generating each library needed by the package.
+	Suitable compiler options need to be selected in each makefile.
   . atsp_src - directory with source files for the different utilities
 	and applications. A makefile is present in which suitable compiler
 	options need to be selected
   . results -  a directory which contains a subdirectory
 	of results of the test runs for each major program.  i
   . test_runs - a subdirecotry for each major program contains
-	one or more <name>.ex file which is a script file for a 
+	one or more <name>.ex file which is a script file for a
 	complete calculation (it may have to been made excutable)
 	The output files may then be compared with the results in
 	the corresponding results directory
 
 I/O related matters.
 --------------------
- 
+
   The applications have been written for easy interactive use
 where the standard output can also be redirected to a file
 rather than the screen. In order that the prompts for input
@@ -67,7 +67,7 @@ the screen.
 
   standard input  -- unit 5
   standard output -- unit 6
-  standard error  -- unit 0 ( used here) 
+  standard error  -- unit 0 ( used here)
 
 However, Hewlett Packard uses unit=7 for standard error.  For
 files which used to be directed to the printer (long lines)
@@ -81,15 +81,15 @@ that the files defining the initial state and final state may
 be the same for transitions where parity does not change as
 for some forbidden transitions.  Most systems allow two unit
 numbers to be associated with the same file through extensions
-to standard F77, but not all. The present code does not use the 
-extensions, but various possibilities are included in the code and 
+to standard F77, but not all. The present code does not use the
+extensions, but various possibilities are included in the code and
 may be used to replace the present, more simplistic implementation.
 See the subroutine, CFGIN2, for possible extensions.
 
  For the LSTR and LSJTR, it is useful to collect results in one
 file by appending to an existing file.  Again, the append option
 is not standard, but can be implemented by choosing an
-appropriate statement.  The OPEN statements that position the 
+appropriate statement.  The OPEN statements that position the
 file pointer, again, are near the beginning of the main program.
 
 Application Installation
@@ -136,7 +136,7 @@ RAD3.f -- library for radial properties (single set)
 	 NOD   220     Maximum number of points in a radial function
 	 IWRITE  6     Unit number for output
 RAD6.f -- library for radial properties (two sets as in transitions)
-	  same as RAD3.f except that NWD2 = 2*NWD is used as 
+	  same as RAD3.f except that NWD2 = 2*NWD is used as
 	  dimension parameter.
 
 Application programs  -- in each application, PARAMETERS may be
@@ -147,4 +147,3 @@ since this parameter does not appear in any library.  Of course,
 it should be modified in the entire MCHF.f file.  But this
 parameter also appears in NONH.f, so it would be more consistent
 to change it in all applications.
-

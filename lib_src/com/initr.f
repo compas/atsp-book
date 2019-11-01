@@ -9,9 +9,9 @@
       PARAMETER (NOD=220)
       COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
      :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
-*         
+*
 * *****  SET THE COMMONLY USED DOUBLE PRECISION CONSTANTS
-*         
+*
       D0  =  0.D0
       D1  =  1.D0
       D2  =  2.D0
@@ -24,9 +24,9 @@
       D12 = 12.D0
       D16 = 16.D0
       D30 = 30.D0
-*         
+*
 * *****  SET THE STARTING POINT, STEP SIZE, AND RELATED PARAMETERS
-*         
+*
       RHO = -4.D0
       H   = 1./16.D0
       H1 = H/1.5

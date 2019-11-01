@@ -3,7 +3,7 @@
 #            used in solving the Mchf SCF equations for a core
 #            excited state in Sodium, namely 2p(5)3s3p 2S
 #
-#  Step 1.  Obtain the Hartree-Fock orbitals for the core from 
+#  Step 1.  Obtain the Hartree-Fock orbitals for the core from
 #           a calculation for 2p(5)3s 3P.
 #
 #
@@ -23,8 +23,8 @@ echo '  '
 echo Move wfn.out wfn.inp
 mv -f wfn.out wfn.inp
 #
-#  Step 2. Perform a fixed core calculation for the 2p(5)3s1(3P)3p1 2S 
-#          state, first creating the cfg.inp file, then using Nonh, 
+#  Step 2. Perform a fixed core calculation for the 2p(5)3s1(3P)3p1 2S
+#          state, first creating the cfg.inp file, then using Nonh,
 #          followed by Mchf.
 #
 rm -f cfg.inp
