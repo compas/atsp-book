@@ -49,49 +49,34 @@
 *  *****  DETERMINE DATA
 *
 999   WRITE(IWRITE,998)
-998   format(//20x,'============================'/
+998   FORMAT(//20x,'============================'/
      :         20X,'  LS - T R A N S I T I O N '/
      :         20X,'============================'/)
 *
-CSUN  i = iargc()
-1     continue
-CSUN  if (i .lt. 2) then
-         WRITE(0,*) ' Name of Initial State'
-         read(iread,'(A)') cfile(1)
-         WRITE(0,*) ' Name of Final State'
-         read(iread,'(A)') cfile(2)
-CSUN  else
-CSUN     call getarg(1,cfile(1))
-CSUN     call getarg(2,cfile(2))
-CSUN  end if
-CSUN  if (i .eq. 3) then
-CSUN     call getarg(3,dfile)
-CSUN  else
-         dfile = 'mltpol.lst'
-CSUN  end if
-      do 2 i = 1,2
-         j = index(cfile(i),' ')
-         if (j .eq. 1) then
+1     CONTINUE
+      WRITE(0,*) ' Name of Initial State'
+      READ(IREAD,'(A)') CFILE(1)
+      WRITE(0,*) ' Name of Final State'
+      READ(IREAD,'(A)') CFILE(2)
+      DFILE = 'mltpol.lst'
+      DO 2 I = 1,2
+         J = INDEX(CFILE(I),' ')
+         IF (J .EQ. 1) THEN
             WRITE(0,*) ' Names may not start with blanks'
-            go to 1
-         end if
-         cfile(i) = cfile(i)(1:j-1)//'.c'
-         wfile(i) = cfile(i)(1:j-1)//'.w'
-2     continue
+            GO TO 1
+         END IF
+         CFILE(I) = CFILE(I)(1:J-1)//'.c'
+         WFILE(I) = CFILE(I)(1:J-1)//'.w'
+2     CONTINUE
 *
 *     Some systems have options for having more than one unit
 *     number connected or for appending. Default is without.
-*     OPEN(UNIT=1,FILE=WFILE(1),STATUS='OLD',FORM='UNFORMATTED',
-*    :     READONLY)
-*     OPEN(UNIT=2,FILE=WFILE(2),STATUS='OLD',FORM='UNFORMATTED',
-*    :     READONLY)
-*     OPEN(UNIT=7,FILE=CFILE(1),STATUS='OLD',READONLY)
-*     OPEN(UNIT=8,FILE=CFILE(2),STATUS='OLD',READONLY)
       OPEN(UNIT=1,FILE=WFILE(1),STATUS='OLD',FORM='UNFORMATTED')
       OPEN(UNIT=2,FILE=WFILE(2),STATUS='OLD',FORM='UNFORMATTED')
       OPEN(UNIT=7,FILE=CFILE(1),STATUS='OLD')
       OPEN(UNIT=8,FILE=CFILE(2),STATUS='OLD')
       OPEN(UNIT=9,FILE=DFILE,STATUS='OLD')
+      
       WRITE(0,*) ' INTERMEDIATE PRINTING (Y OR N) ?  '
       READ(IREAD,'(A1)') PP
       IF ( PP .EQ. 'Y' .OR. PP .EQ. 'y') THEN
@@ -101,6 +86,7 @@ CSUN  end if
       ELSE
          PRINT = .FALSE.
       ENDIF
+
       DO 1000 III = 1,2
       READ(9,'(A)') HEADER
       I = 1
