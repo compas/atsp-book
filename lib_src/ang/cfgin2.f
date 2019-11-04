@@ -21,9 +21,9 @@
 *
     3 FORMAT(18(1X,A3))
     7 FORMAT(A72)
-   22 FORMAT(// 7H STATE ,' (WITH',I3,' CONFIGURATIONS):'/1H ,31(1H-)/)
-   23 FORMAT(/10H THERE ARE,I3,21H ORBITALS AS FOLLOWS://
-     1 5X,21(1X,A3):/5X,21(1X,A3))
+   22 FORMAT(// ' STATE  (WITH',I3,' CONFIGURATIONS):'/' ',31('-')/)
+   23 FORMAT(/' THERE ARE',I3,' ORBITALS AS FOLLOWS:'//
+     : 5X,21(1X,A3):/5X,21(1X,A3))
 *
 *     The "readonly" option is needed on some computers when the
 *     two files are in fact the same.  Others ignore the option
