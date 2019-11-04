@@ -1,4 +1,4 @@
-#
+#!/bin/bash -x
 #   Script (command) file illustrating the use of the LSTR and LSJTR
 #   programs in the MCHF Atomic Structure Package.
 #

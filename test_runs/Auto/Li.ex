@@ -19,6 +19,7 @@ cat >cfg.inp <<S1
      2S1     2S1     2D1     1S0     2D0
   1s( 1)  2s( 1) 3d3( 1)
      2S1     2S1     2D1     3S0     2D0
+*
 S1
 #
 #  Step 2. Compute Angular integrals for this case.
@@ -49,6 +50,7 @@ rm -f cont.c
 cat >cont.c << S4a
   1s( 2) kdc( 1)                         1.0
      1S0     2D1     2D0
+*
 S4a
 rm -f cfg.inp
 rm -f temp.c
@@ -61,13 +63,12 @@ cat >delete << S4b
 S4b
 sed -f delete temp.c >cfg.inp
 #
-#  display cfg.inp
+# Display cfg.inp
 #
 cat cfg.inp >>Li.out
 #
 #  Step 5. Run nonh to obtain the angular part of the interaction
 #          matrix element.
-#
 time ../../bin/Nonh >>Li.out << S5
 n
 n
@@ -79,7 +80,6 @@ mv -f cfg.inp Li2D.c
 #
 #  Step 6 Run auto to compute continuum orbitals and autoionization
 #         rate for 1s2p(2) 2D.
-#
 time ../../bin/Auto >>Li.out << S6
 Li2D
 1
@@ -88,10 +88,10 @@ Li,2D,3.
 -7.2364152
 y
 S6
-#
+
 #  Display the results
-#
 cat auto.dat >>Li.out
+cp auto.dat auto_0.dat
 #
 rm -f cfg.inp
 cat >cfg.inp <<S5
@@ -153,7 +153,10 @@ cat >cfg.inp <<S5
      2S1     3F2     4F0
   1s( 1)  2s( 2)
      2S1     1S0     2S0
+*
 S5
+
+# Add fine-structure (Breit-Pauli)
 ../../bin/Breit  >>Li.out <<S6
 2
 n
@@ -163,6 +166,8 @@ S6
 rm -f LiBP.c LiBP.w
 cp cfg.inp LiBP.c
 cp Li2D.w LiBP.w
+
+# Diagonalize (CI) for eigenstates
 ../../bin/Ci >>Li.out <<S7
 LiBP
 y
@@ -174,24 +179,37 @@ n
 5,1
 n
 S7
+
+# Print levels
 ../../bin/Levels <<S8
 LiBP.j
 S8
+
+# Print compontents
 ../../bin/Comp <<S9
 LiBP
 0.0001
 3
 S9
+
+# Remove last star before adding continuum state
+sed '/\*/d' cfg.inp > tmp
+mv tmp cfg.inp
 cat >> cfg.inp <<S10
   1s( 2) kdc( 1)                            1.0
      1S0     2D1     2D0
+*
 S10
+
+# Get angular coefficients
 ../../bin/Nonh >>Li.out <<S11
 n
 y
 S11
 rm LiBP.c
 mv -f cfg.inp LiBP.c
+
+# Autoionization
 echo Starting Auto
 ../../bin/Auto >>Li.out <<S12
 LiBP
@@ -200,3 +218,4 @@ Li,LSJ,3.
 y
 S12
 cat auto.dat >>Li.out
+rm -f cont

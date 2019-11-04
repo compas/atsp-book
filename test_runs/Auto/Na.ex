@@ -37,6 +37,7 @@ Na 2S
      2P1     2S1     2P1     3P0     2S0
   2p( 5) 3p2( 1) 3d2( 1)
      2P1     2P1     2D1     3D0     2S0
+*
 S2a
 rm -f Na.out
 time ../../bin/Nonh >Na.out <<S2b
@@ -206,9 +207,15 @@ rm -f delete
 cat >delete << S9c
 2d
 S9c
+
 # Apply deleting commands.
 sed -f delete temp.c >cfg.inp
-#
+
+# Remove old stars and add one to the end
+sed '/\*/d' cfg.inp > tmp
+echo '*' >> tmp
+mv tmp cfg.inp
+
 #  Display the cfg.inp file
 #
 cat cfg.inp
@@ -236,3 +243,4 @@ S11
 # Display the auto.dat file.
 #
 cat auto.dat >>Na.out
+rm -f cont ecore

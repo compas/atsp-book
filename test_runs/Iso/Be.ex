@@ -23,6 +23,7 @@ cat > cfg.inp << STOP1
      1S0
   3d( 2)
      1S0
+*
 STOP1
 #
 # Step 2. Compute angular integrals using the MCHF_nonh program.

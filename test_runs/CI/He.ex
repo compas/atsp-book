@@ -15,6 +15,7 @@ cat >cfg.inp <<S1
      2S1     2P1     1P0
  2p2( 1) 3d2( 1)
      2P1     2D1     1P0
+*
 S1
 #
 #   Step 2. Obtain the energy expression

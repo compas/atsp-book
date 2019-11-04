@@ -7,10 +7,11 @@ set -x
 #
 rm -f Ni.out Ni.c Ni.l Ni.j
 cat > cfg.inp << STOP5
- Ni II, 4G
+ NiII 4G
   1s  2s  2p  3s  3p
   3d( 8)  4p( 1)
      3F2     2P1     4G0
+*
 STOP5
 #
 # Step 2. Compute angular integrals using the MCHF_BREIT program.
@@ -28,6 +29,7 @@ all
 y
 y
 y
+n
 STOP7
 #
 # Save the results into Ni.c and Ni.w files.
@@ -39,7 +41,7 @@ echo ' '
 echo remove cfg.inp
 rm -f cfg.inp
 cat > cfg.inp <<STOP1
-  Ni
+ Ni II
   1s  2s  2p  3s  3p
   3d( 8)  4p( 1)
      1D2     2P1     2D0
@@ -63,6 +65,7 @@ cat > cfg.inp <<STOP1
      3F2     2P1     4F0
   3d( 8)  4p( 1)
      3F2     2P1     4G0
+*
 STOP1
 #
 # Step 4. Compute angular integrals including relativistic

@@ -1,3 +1,4 @@
+#!/bin/bash -x
 #
 #   MCHF Script file showing the importance of the method
 #            used in solving the Mchf SCF equations for a core
@@ -35,6 +36,7 @@ Na 2S
      2P1     2S1     2P1     3P0     2S0
   2p( 5) 3p2( 1) 3d2( 1)
      2P1     2P1     2D1     3D0     2S0
+*
 S2a
 time ../../bin/Nonh >>Na.out <<S2b
 n

@@ -40,6 +40,7 @@ cat >cfg.inp <<S1
      2S1     2S1     2D1     1S0     2D0
   1s( 1)  2s( 1) 3d3( 1)
      2S1     2S1     2D1     3S0     2D0
+*
 S1
 #
 #   Step 2.  Determine energy expression
@@ -85,6 +86,7 @@ cat >cfg.inp <<S4
      2S1     2S1     2D1     3S0     2D0
   1s( 2) kd4( 1)                           1.000000
      1S0     2D1     2D1
+*
 S4
 # echo  ' '
 #

@@ -23,6 +23,7 @@ cat >cfg.inp <<S0
      1S0
   3d( 2)
      1S0
+*
 S0
 #
 #   Step 1.  Determine energy expression
