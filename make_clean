@@ -1,12 +1,36 @@
-#   Remove all .o files
-echo  Removing all .o files
+#   Remove all output files
+echo " Removing compiled files and test run outputs..."
 
-echo ... from the lib_src
+echo "\n -- lib_src/"
 cd lib_src
-rm -f */*.o
+rm -fv */*.o
 cd ..
 
-echo ... from atsp_src
+echo "\n -- atsp_src/"
 cd atsp_src
+rm -fv *.o
+cd ..
 
-rm -f *.o
+echo "\n -- test_runs/"
+cd test_runs
+rm -fv   \
+*/*.out  \
+*/*.c    \
+*/*.lst  \
+*/*.inp  \
+*/*.w    \
+*/*.j    \
+*/*.l    \
+*/*.h    \
+*/*.log  \
+*/*.dat  \
+*/tr.lsj \
+*/summry \
+*/delete
+
+cd ..
+
+echo "\n -- bin/"
+cd bin
+rm -fv Auto Breit Ci Cmchf Comp Condens Gencl HF Hfs Iso Levels Lines Lsjtr Lstr Mchf Mltpol Nonh Photo Plotw Printw Relabel Terms *.a
+cd ..
