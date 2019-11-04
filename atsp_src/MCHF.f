@@ -48,8 +48,9 @@
         CHARACTER CONFIG*40,EL*3,ATOM*6,TERM*6,COUPLE*3
         COMMON /LABEL/CONFIG(NCD),EL(NWD),ATOM,TERM,COUPLE(NCD,9)
 *
-      COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
-     :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
+        COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,
+     :          ID,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,
+     :          NCLOSD,RMASS
 *
         LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
         COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
@@ -58,12 +59,11 @@
      :     ACC(NWD),METH(NWD),IEPTR(NWD),IJE(98),EIJ(98),VIJ(98),IPR
         LOGICAL PRINT,LD
         CHARACTER*24 ANS*1,NAME(7), FILE
-CSUN  REAL TIMES(2),DTIME
-      EQUIVALENCE (IUC,IOU(1)),(OUC,IOU(4))
-      DATA NAME/'cfg.inp','int.lst','wfn.inp','cfg.out',' ',
+
+        EQUIVALENCE (IUC,IOU(1)),(OUC,IOU(4))
+        DATA NAME/'cfg.inp','int.lst','wfn.inp','cfg.out',' ',
      :          'wfn.out',' '/
 *
-CSUN     RTIME = DTIME(TIMES)
 *  ***** Define unit numbers and open files *********************
 *                                                               *
 *        UNIT NUMBERS AND FILE NAMES MAY BE MACHINE             *
@@ -100,12 +100,6 @@ CSUN     RTIME = DTIME(TIMES)
 *  ***** IN THE OPEN STATEMENTS CHECK FOR VALID FILE NAMES ******
 *                                                               *
 1     WRITE(ERR,'(//A/A//)') ' START OF CASE',' ============='
-CSUN       i = iargc()
-CSUN       do 999 j = 1,i
-CSUN          call getarg(j,FILE)
-CSUN          jj = ichar(FILE(1:1)) - ichar('0')
-CSUN          name(jj) = FILE(3:)
-CSUN  999   continue
       OPEN(UNIT=PRI,FILE='summry',STATUS='UNKNOWN')
       DO 37 J = 1,7
          IOU(J) = 0
@@ -223,10 +217,6 @@ CSUN  999   continue
 *  *****  DETERMINE END OF CASE
 *
 6     CONTINUE
-CSUN  RTIME = DTIME(TIMES)
-CSUN  WRITE(ERR,'(//A/A//A/3F10.3//)') ' END OF CASE',' ===========',
-CSUN :  '    Real      User      System  Time (in minutes)',
-CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       END
 *
 *----------------------------------------------------------------------
@@ -375,8 +365,9 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
         CHARACTER CONFIG*40,EL*3,ATOM*6,TERM*6,COUPLE*3
         COMMON /LABEL/CONFIG(NCD),EL(NWD),ATOM,TERM,COUPLE(NCD,9)
 *
-      COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
-     :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
+        COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,
+     :          ID,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,
+     :          NCLOSD,RMASS
 *
         COMMON /RADIAL/R(NOD),RR(NOD),R2(NOD),P(NOD,NWD),YK(NOD),YR(NOD)
      :          ,X(NOD),AZ(NWD),L(NWD),MAX(NWD),N(NWD)
@@ -396,8 +387,8 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
         CHARACTER*3 EL1,EL2,ELCLSD(18),ELORT(10,2),
      :              ELI(5),ANS*1,STRING*40,LIST*72
 *
-    1 FORMAT(18(1X,A3))
-    7 FORMAT(A3,F6.0,I3,I3,F3.1)
+1     FORMAT(18(1X,A3))
+7     FORMAT(A3,F6.0,I3,I3,F3.1)
 *
 *  *****  READ 'ATOM' CARD
 *
@@ -436,7 +427,7 @@ CSUN : RTIME/60.,TIMES(1)/60., TIMES(2)/60.
       NCFG = 0
       WRITE(ERR,'(/A/A/)') ' Enter configurations followed by weights',
      :   ' Example:  1s(2)2s(2)2p(1),1.0 '
-    2 WRITE(ERR,'($,I6,A)') NCFG+1,'.  '
+    2 WRITE(ERR,'(I6,A,$)') NCFG+1,'.  '
       READ(IUC,'(A)',END=10)  STRING
       IF (STRING(1:1) .NE. '*' .AND. STRING(1:3) .NE. '   ') THEN
          ICOMMA = INDEX(STRING,',')
@@ -697,17 +688,23 @@ C     END IF
 *
       I = 0
       IF ( IUC .NE. IN) THEN
-   40    READ(IUC,1,END=50) EL1,EL2
-         IF ( EL1 .NE. '*  ' .AND. EL2 .NE. '   ') THEN
-            ELORT(I,1) = EL1
-            ELORT(I,2) = EL2
-            CALL EPTR(EL,EL1,I1,*99)
-            CALL EPTR(EL,EL2,I2,*99)
-            CALL EIJSET(I1,I2,1.D-5)
-            CALL EIJSET(I2,I1,1.D-5)
-            I = I +1
-            IF (I .GT. (10)) STOP ' TOO MANY ORTHOGONALITIES: MAX=(10)'
-            GO TO 40
+   40    READ(IUC,1,END=50,IOSTAT=IOSTATUS) EL1,EL2
+         IF (IOSTATUS > 0) THEN
+            STOP ' MCHF: SOMETHING WENT WRONG WHILE READING IUC'
+         ELSE IF (IOSTATUS == 0) THEN
+            IF ( EL1 .NE. '*  ' .AND. EL2 .NE. '   ') THEN
+               ELORT(I,1) = EL1
+               ELORT(I,2) = EL2
+               CALL EPTR(EL,EL1,I1,*99)
+               CALL EPTR(EL,EL2,I2,*99)
+               CALL EIJSET(I1,I2,1.D-5)
+               CALL EIJSET(I2,I1,1.D-5)
+               I = I +1
+               IF (I .GT. (10)) THEN
+                  STOP ' TOO MANY ORTHOGONALITIES: MAX=(10)'
+               END IF
+               GO TO 40
+            END IF
          END IF
          NORT = I
       END IF
@@ -3011,8 +3008,9 @@ C     END IF
 *
         COMMON /MATRIX/ETOTAL,W(NCD,NCD)
 *
-      COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,ID
-     :   ,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,NSCF,NCLOSD,RMASS
+        COMMON /PARAM/H,H1,H3,CH,EH,RHO,Z,TOL,NO,ND,NWF,MASS,NCFG,IB,IC,
+     :                ID,D0,D1,D2,D3,D4,D5,D6,D8,D10,D12,D16,D30,FINE,
+     :                NSCF,NCLOSD,RMASS
 *
         LOGICAL FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED
         COMMON /TEST/FAIL,OMIT,EZERO,REL,ALL,TRACE,VARIED(NWD)
