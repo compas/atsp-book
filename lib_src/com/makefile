@@ -9,7 +9,16 @@ LIB = ../../bin
 # Compiler and flags
 FC     = gfortran
 FFLAGS = -O2 -std=legacy
+#FFLAGS += -Wall -Wextra -Wno-unused -Wno-unused-dummy-argument
+#FFLAGS += -g -fcheck=all
 PFLAGS = $(FFLAGS)
+
+.PHONY : all clean
+
+all: libcom.a
+
+clean:
+	-rm -f *.o *.mod
 
 COMSRC  = acurat.f bisect.f bwint.f ca.f cb.f eptr.f factrl.f fk.f gk.f\
 	  gracah.f hnorm.f hwf.f inita.f initr.f intact.f lineqn.f\

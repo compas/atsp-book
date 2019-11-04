@@ -9,7 +9,16 @@ LIB = ../../bin
 # Compiler and flags
 FC     = gfortran
 FFLAGS = -O2 -std=legacy
+#FFLAGS += -Wall -Wextra -Wno-unused -Wno-unused-dummy-argument
+#FFLAGS += -g -fcheck=all
 PFLAGS = $(FFLAGS)
+
+.PHONY : all clean
+
+all: librad3.a
+
+clean:
+	-rm -f *.o *.mod
 
 #  ....  Make the RADial library for 30 orbitals
 #   ...  Definitions for the RAD Libraries

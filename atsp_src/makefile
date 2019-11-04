@@ -16,7 +16,13 @@ LIB = ../bin
 # Compiler and flags
 FC     = gfortran
 FFLAGS = -O2 -std=legacy
+#FFLAGS += -Wall -Wextra -Wno-unused -Wno-unused-dummy-argument
+#FFLAGS += -g -fcheck=all
 PFLAGS = $(FFLAGS)
+
+.PHONY : clean all
+clean:
+	-rm -f *.o *.mod
 
 all: \
 	Comp Condens Levels Lines Plotw Printw Relabel Terms \
@@ -120,3 +126,4 @@ Nonh :  NONH.o
 Photo:  PHOTO.o
 	$(FC) -o Photo $(PFLAGS) PHOTO.o -L$(LIB) $(LIB_COM_RAD6)
 	mv Photo $(LIB)
+

@@ -1,15 +1,21 @@
 #   Remove all output files
 echo " Removing compiled files and test run outputs..."
 
-echo "\n -- lib_src/"
-cd lib_src
-rm -fv */*.o
-cd ..
-
 echo "\n -- atsp_src/"
 cd atsp_src
-rm -fv *.o
+make clean
 cd ..
+
+echo "\n -- lib_src/"
+cd lib_src/ang
+make clean
+cd ../com
+make clean
+cd ../rad3
+make clean
+cd ../rad6
+make clean
+cd ../..
 
 echo "\n -- test_runs/"
 cd test_runs

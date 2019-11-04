@@ -8,7 +8,16 @@ LIB = ../../bin
 # Compiler and flags
 FC     = gfortran
 FFLAGS = -O2 -std=legacy
+#FFLAGS += -Wall -Wextra -Wno-unused -Wno-unused-dummy-argument
+#FFLAGS += -g -fcheck=all
 PFLAGS = $(FFLAGS)
+
+.PHONY : all clean
+
+all: libang.a
+
+clean:
+	-rm -f *.o *.mod
 
 #    ... Definitions for the ANGular library
 ANGSRC  = analy1.f analy2.f cfgin2.f cfgn1.f cfgo1.f cfgtst.f \
