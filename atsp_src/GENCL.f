@@ -1,6 +1,6 @@
 *     ------------------------------------------------------------------
 
-        PROGRAM GENCL
+        PROGRAM GENCLF
 *
 *                C O P Y R I G H T -- 1994
 *
@@ -12,6 +12,9 @@
 *                Written: May, 1983
 *
 *     Computer Physics Communications, Vol. 64, 406--416 (1991).
+*
+*     Modified   By G. Gaigalas for f-shells  (1997)
+*
 *     ------------------------------------------------------------------
 *
 *
@@ -32,8 +35,8 @@
 *     Output :
 *       i )   Header ;
 *       ii)   List of closed shells ;
-*      iii)   Configurations (FORMAT(5(1X,A3,'(',I2,')'))
-*               and their couplings (FORMAT(9(5X,A3))
+*      iii)   Configurations (FORMAT(8(1X,A3,'(',I2,')'))
+*               and their couplings (FORMAT(15(1X,A3))
 
 
 *   I/O allocation
@@ -46,15 +49,18 @@
 *  FBETA(2,.)  :  Information of Beta3          (internal file )
 *  FBETA(3,.)  :  Information of Beta4          (internal file )
 *  FBETA(4,.)  :  Information of Beta5          (internal file )
-*
+*  FBETA(5,.)  :  Information of Beta6          (internal file )
+*  FBETA(6,.)  :  Information of Beta7          (internal file )
+*  FBETA(7,.)  :  Information of Beta8          (internal file )
 *
 *
 * ---------------------------------------------------------------------
 *               M A I N         P R O G R A M
 * ---------------------------------------------------------------------
 *
-        PARAMETER      (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-        PARAMETER      (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+        PARAMETER      (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+        PARAMETER      (NCFG=10000,NSCOUP=10000)
         CHARACTER*60   REF(NELS),REPL(NELS),FINAL(NELS),ACT
         CHARACTER*60   STRL,STRR
         CHARACTER*72   HEADER,SHELLS,VIRTUL,TEMP
@@ -71,7 +77,7 @@
         INTEGER        F(NELS),PL,QA(NELS),QB(NELS),VL(NELS)
         INTEGER        H(NELS)
         INTEGER        LEFT,RIGHT,PARITY,CONST,SFLAG,DFLAG
-        COMMON         NF,NR,NFTM,MAX,MIN,PARITY,CONST,NQ
+        COMMON         NF,NR,NFTM,MAX,MIN,PARITY,cONST,NQ
      :                 /BLK0/ORDLA,ORDLZ,ORDUA,ORDUZ,ORD0,ORD9
      :                 /BLK1/HEADER,SHELLS,ACT,VIRTUL
      :                 /BLK2/REF,REPL,FTM
@@ -79,7 +85,7 @@
      :                 /BLK4/Q,QL,ML,QR,MR,M,QS,MS,MA,RL,NREF,
      :                       Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,
      :                       Q10,Q11,Q12,Q13,Q14,Q15
-                COMMON /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
+                COMMON /FILES/FBETA(7,nscoup),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
 
 
@@ -552,7 +558,7 @@ CSUN            end if
 *       Decompose the input of Active Set, Conver the input of uppercase
 *    to lowercase, assign values to ELA,QA,RL,F .
 *
-301     IF (MA .LT. 15) THEN
+301     IF (MA .LT. NELS) THEN
             IF (TEMP(1:5) .EQ. '     ') GOTO 302
             CALL DEL(TEMP)
             MA = MA+1
@@ -577,7 +583,7 @@ CSUN            end if
 ****************
 *       NELS is maximun value of active electrons
 *
-302     DO 303 I=MA+1,15
+302     DO 303 I=MA+1,NELS
             F(I) = 0
 303     CONTINUE
 
@@ -653,7 +659,7 @@ CSUN            end if
         WRITE (6,*) '         Configurations  :'
         DO 325 I=1,NQ
             READ (FILE1(I),326) (QA(J), J=1,MA)
-326         FORMAT (15(I2))
+326         FORMAT (21(I2))
             IF (ELA(1)(1:1) .EQ. ' ') THEN
                 N = 27
             ELSE
@@ -669,7 +675,7 @@ CSUN            end if
                 ENDIF
 370         CONTINUE
             WRITE (6,327) (ELB(J),QB(J), J=1,K)
-327         FORMAT (T28,5(1X,A3,'(',I2,')'))
+327         FORMAT (T28,8(1X,A3,'(',I2,')'))
 325     CONTINUE
 
 ****************
@@ -693,9 +699,9 @@ CSUN            end if
 350         CONTINUE
 
 ****************
-*       Omit configurations which have more than 5 shells
+*       Omit configurations which have more than 8 shells
 *
-            IF (K .LE. 5) THEN
+            IF (K .LE. 8) THEN
                 CALL COUPLD (ELB,QB,K,ELC,NC,*500)
                 IF (NC .GT. 0) THEN
                     WRITE (6,343)
@@ -887,7 +893,8 @@ CSUN            end if
 ***********************************************************************
 *                    THE END OF THE PROGRAM
 *
-500     CLOSE (7)
+500     WRITE (7,'(A1)') '*'
+        CLOSE (7)
         WRITE(0,*)
         WRITE(0,*) '         OK !'
         WRITE(0,*) '         List of configurations and their couplings'
@@ -901,6 +908,7 @@ CSUN            end if
 *       Delete the leading space of the string
 *
         SUBROUTINE DEL(STR)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
         CHARACTER*(*)   STR
         CHARACTER*72 TEMP
 
@@ -922,6 +930,7 @@ CSUN            end if
 *       Shift the string left
 *
         SUBROUTINE STRSH(STR,I)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
         CHARACTER*(*)   STR
         CHARACTER*72 TEMP
 
@@ -953,14 +962,14 @@ CSUN            end if
 *
         INTEGER FUNCTION LVAL(SYMBOL)
         CHARACTER      SYMBOL
-        CHARACTER*22   SET
-        DATA SET/'spdfghiklmnSPDFGHIKLMN'/
+        CHARACTER*40   SET
+        DATA SET/'spdfghiklmnopqrstuvwSPDFGHIKLMNOPQRSTUVW'/
 
             LOCATE = INDEX(SET,SYMBOL)
-            IF (LOCATE .LE. 11) THEN
+            IF (LOCATE .LE. 20) THEN
                 LVAL = LOCATE-1
             ELSE
-                LVAL = LOCATE-12
+                LVAL = LOCATE-21
             ENDIF
             RETURN
          END
@@ -972,8 +981,8 @@ CSUN            end if
 *       Convert the quantum number into its corresponding symbol
 *
         CHARACTER FUNCTION SYMB(L)
-            CHARACTER*11   SET
-            DATA SET/'SPDFGHIKLMN'/
+            CHARACTER*20   SET
+            DATA SET/'SPDFGHIKLMNOPQRSTUVW'/
 
             SYMB = SET(L+1:L+1)
             RETURN
@@ -986,6 +995,7 @@ CSUN            end if
 *       Process the input set and check the input error
 *
         SUBROUTINE INPUT (MAXSET,NSET,SET,MARK,SFLAG,DFLAG,*,*)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
             CHARACTER*60   SET(*),TEMP,CH1,ACT
             CHARACTER*72   HEADER,SHELLS,VIRTUL
             INTEGER        SFLAG,DFLAG,MARK
@@ -1090,55 +1100,167 @@ CSUN            end if
 *       NC  =  number of couplings
 *        *  =  Return label if the maximun number of couplings > NSCOUP
 *
-            PARAMETER      (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-            PARAMETER      (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+            PARAMETER      (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+            PARAMETER      (NCFG=10000,NSCOUP=10000)
             CHARACTER*60   REF(NELS),REPL(NELS)
-            CHARACTER*65   TERM(22)
+            CHARACTER*65   TERM(27),TERM2(27),TERM3(27),TERM4(27),
+     :                     TERM5(27),TERM6(27),TERMQ3
             CHARACTER*3    EL(*),ELC(*),ALFA(NSHEL,NSCOUP)
             CHARACTER*3    COUPLE(NCOUPL,NSCOUP),CH3,CCH3
             CHARACTER*2    CH2,A2,FTM(NELS)
             CHARACTER      CH1,CCH1,CALFA*15,SYMB,B1*2
             CHARACTER      FBETA*8, FILE1*32, FILE2*40, FILE3*32
             INTEGER        ORDLA,ORDLZ,ORDUA,ORDUZ,ORD0,ORD9
-            INTEGER        Q(*),NTERM(22),LPOSIT(9),POSIT(NELS)
+            INTEGER        Q(*),NTERM(27),LPOSIT(10),POSIT(NELS)
             INTEGER        PTR,PARENT,CHILD,BETA(NELS),PARITY,CONST
             COMMON         NF,NR,NFTM,MAX,MIN,PARITY,CONST,NQ
      :                     /BLK0/ORDLA,ORDLZ,ORDUA,ORDUZ,ORD0,ORD9
      :                     /BLK2/REF,REPL,FTM
-                COMMON /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
+                COMMON /FILES/FBETA(7,nscoup),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
 
 ***************
 *           Number of possible terms for configurations P(1-3),
 *           D(1-5), F(1-2), G(1-2), ... M(1-2)
 *
-        DATA  (NTERM(I), I=1,22) / 1,3,3,1,5,8,16,16,1,7,1,9,
-     :                             1,9,1,9,1,9,1,9,1,9 /
+        DATA  (NTERM(I), I=1,27) / 1,3,3,1,5,8,16,16,1,7,17,47,
+     :                      73,119,119,1,9,1,9,1,9,1,9,1,9,1,9 /
 ***************
 *           Starting position in term table for given L
 *
-        DATA  (LPOSIT(I), I=1,9)/1,4,9,11,13,15,17,19,21/
+        DATA  (LPOSIT(I), I=1,9)/1,4,9,16,18,20,22,24,26/
 
 ***************
 *        Possible terms for configurations P(1-3),D(1-5),F(1-2),G(1-2)
 *
-        DATA (TERM(I), I=1,22) /
+        DATA (TERM(I), I=1,27) /
      :'2P1',
-     :'1S0 1D2 3P2',
-     :'2P1 2D3 4S3',
+     :'1S01D23P2',
+     :'2P12D34S3',
      :'2D1',
-     :'1S0 1D2 1G2 3P2 3F2',
-     :'2D1 2P3 2D3 2F3 2G3 2H3 4P3 4F3',
-     :'1S0 1D2 1G2 3P2 3F2 1S4 1D4 1F4 1G4 1I4 3P4 3D4 3F4 3G4 3H4 5D4',
-     :'2D1 2P3 2D3 2F3 2G3 2H3 4P3 4F3 2S5 2D5 2F5 2G5 2I5 4D5 4G5 6S5',
-     :'2F1', '1S0 1D2 1G2 1I2 3P2 3F2 3H2',
-     :'2G1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
-     :'2H1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
-     :'2I1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
-     :'2K1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
-     :'2L1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2',
-     :'2M1', '1S0 1D2 1G2 1I2 1L2 3P2 3F2 3H2 3K2' /
-
+     :'1S01D21G23P23F2',
+     :'2D12P32D32F32G32H34P34F3',
+     :'1S01D21G23P23F21S41D41F41G41I43P43D43F43G43H45D4',
+     :'2D12P32D32F32G32H34P34F32S52D52F52G52I54D54G56S5',
+     :'2F1', '1S01D21G21I23P23F23H2',
+     :'2P12D12D22F12F22G12G22H12H22I12K12L14S14D14F14G14I1',
+     :'1S11S21D11D21D31D41F11G11G21G31G41H11H21I11I21I31K11L11L21N13P1',
+     :'2P12P22P32P42D12D22D32D42D52F12F22F32F42F52F62F72G12G22G32G42G5',
+     :'1S11S21S31S41P01D11D21D31D41D51D61F11F21F31F41G11G21G31G41G51G6',
+     :'2S12S22P12P22P32P42P52D12D22D32D42D52D62D72F12F22F32F42F52F62F7',
+     :'2G1', '1S01D21G21I21L23P23F23H23K2',
+     :'2H1', '1S01D21G21I21L23P23F23H23K2',
+     :'2I1', '1S01D21G21I21L23P23F23H23K2',
+     :'2K1', '1S01D21G21I21L23P23F23H23K2',
+     :'2L1', '1S01D21G21I21L23P23F23H23K2',
+     :'2M1', '1S01D21G21I21L23P23F23H23K2' /
+        DATA (TERM2(I), I=1,27) /
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR', 'ERROR',
+     :'ERROR',
+     :'3P23P33D13D23F13F23F33F43G13G23G33H13H23H33H43I13I23K13K23L13M1',
+     :'2G62H12H22H32H42H52H62H72I12I22I32I42I52K12K22K32K42K52L12L22L3',
+     :'1G71G81H11H21H31H41I11I21I31I41I51I61I71K11K21K31L11L21L31L41M1',
+     :'2F82F92FA2G12G22G32G42G52G62G72G82G92GA2H12H22H32H42H52H62H72H8',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR' /
+        DATA (TERM3(I), I=1,27) /
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR', 'ERROR',
+     :'ERROR',
+     :'5S05D15F15G15I1',
+     :'2M12M22N12O04S14P14P24D14D24D34F14F24F34F44G14G24G34G44H14H24H3',
+     :'1M21N11N21Q03P13P23P33P43P53P63D13D23D33D43D53F13F23F33F43F53F6',
+     :'2H92I12I22I32I42I52I62I72I82I92K12K22K32K42K52K62K72L12L22L32L4',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR' /
+        DATA (TERM4(I), I=1,27) /
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR', 'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'4I14I24I34K14K24L14M06P06F06H0',
+     :'3F73F83F93G13G23G33G43G53G63G73H13H23H33H43H53H63H73H83H93I13I2',
+     :'2L52M12M22M32M42N12N22O02Q04S14S24P14P24D14D24D34D44D54D64F14F2',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR' /
+        DATA (TERM5(I), I=1,27) /
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR', 'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'3I33I43I53I63K13K23K33K43K53K63L13L23L33M13M23M33N03O07F05S05P0',
+     :'4F34F44F54G14G24G34G44G54G64G74H14H24H34H44H54I14I24I34I44I54K1',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR' /
+        DATA (TERM6(I), I=1,27) /
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERR', 'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'ERROR',
+     :'5D15D25D35F15F25G15G25G35H15H25I15I25K05L0',
+     :'4K24K34L14L24L34M04N06P06D06F06G06H06I08S0',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR',
+     :'ERR', 'ERROR' /
+        DATA TERMQ3 /'1S11D11G11I13P13F13H1'/
 ***********************************************************************
 *               COMPUTE THE POSSIBLE VALUES FOR ALPHA
 *
@@ -1224,7 +1346,32 @@ CSUN            end if
                     LOCA = 1
 15                  IF (LOCA .LE. NALFA) THEN
                         DO 13 J=1,N
-                            CH3 = TERM(LOCT)(J*4-3:J*4-1)
+C                            CH3 = TERM(LOCT)(J*4-3:J*4-1)
+                            IF(LOCT.EQ.10 .AND. Q(I).EQ.12) THEN
+C  The Case f(12)
+                              CH3 = TERMQ3(J*3-2:J*3)
+C
+                            ELSE
+C  Other Cases
+                              IF(J.LT.22) THEN
+                                CH3 = TERM(LOCT)(J*3-2:J*3)
+                              ELSEIF(J.LT.43) THEN
+                                JJ=J-21
+                                CH3 = TERM2(LOCT)(JJ*3-2:JJ*3)
+                              ELSEIF(J.LT.64) THEN
+                                JJ=J-42
+                                CH3 = TERM3(LOCT)(JJ*3-2:JJ*3)
+                              ELSEIF(J.LT.85) THEN
+                                JJ=J-63
+                                CH3 = TERM4(LOCT)(JJ*3-2:JJ*3)
+                              ELSEIF(J.LT.106) THEN
+                                JJ=J-84
+                                CH3 = TERM5(LOCT)(JJ*3-2:JJ*3)
+                              ELSEIF(J.LT.120) THEN
+                                JJ=J-105
+                                CH3 = TERM6(LOCT)(JJ*3-2:JJ*3)
+                              ENDIF
+                            ENDIF
                             DO 13 K=1,NT
                                 ALFA(I,LOCA) = CH3
                                 LOCA = LOCA+1
@@ -1404,7 +1551,7 @@ CSUN            end if
                     IF (NC .EQ. NSCOUP) THEN
                         WRITE(0,*)  '          WARNING !'
                         WRITE(0,*)  '          The number of couplings',
-     :                   ' is greater than 500 .',
+     :                   ' is greater than 2500 .',
      :                   '          Please select the Final Term .'
                         RETURN 1
                     ENDIF
@@ -1418,7 +1565,7 @@ CSUN            end if
                     WRITE (7,35) (ELC(J),Q(J), J=1,M)
 35                  FORMAT (5(1X,A3,'(',I2,')'))
                     WRITE (7,36) (COUPLE(J,I), J=1,N)
-36                  FORMAT (9(5X,A3))
+36                  FORMAT (15(5X,A3))
 29              CONTINUE
 20          CONTINUE
             RETURN
@@ -1432,8 +1579,9 @@ CSUN            end if
 *       electron number and parity .
 *
         SUBROUTINE CONFIG
-        PARAMETER     (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-        PARAMETER      (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+        PARAMETER     (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+        PARAMETER      (NCFG=10000,NSCOUP=10000)
         CHARACTER*3    EL(NELS),ELL(NELS),ELR(NELS),ELS(NELS),
      :                 ELA(NELS)
         CHARACTER*3    CH3
@@ -1448,7 +1596,7 @@ CSUN            end if
      :                 /BLK4/Q,QL,ML,QR,MR,M,QS,MS,MA,RL,NREF,
      :                       Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,
      :                       Q10,Q11,Q12,Q13,Q14,Q15
-        COMMON         /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
+        COMMON         /FILES/FBETA(7,nscoup),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
         EQUIVALENCE    (Q1,QA(1)),(Q2,QA(2)),(Q3,QA(3)),(Q4,QA(4)),
      :                    (Q5,QA(5)),(Q6,QA(6)),(Q7,QA(7)),(Q8,QA(8)),
@@ -1504,8 +1652,9 @@ CSUN            end if
 *       Decompose the string of Replacement
 *
         SUBROUTINE DECOMP (STR,EL,Q,MR)
-            PARAMETER      (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-            PARAMETER      (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+            PARAMETER      (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+            PARAMETER      (NCFG=10000,NSCOUP=10000)
             CHARACTER*60   STR
             CHARACTER*3    CH3,EL(NELS)
             INTEGER        Q(NELS),LEFT,RIGHT
@@ -1576,9 +1725,9 @@ CSUN            end if
 
 *   OUTPUT :
 *       ELB,QB,MB
-
-        PARAMETER      (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-        PARAMETER      (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+        PARAMETER      (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+        PARAMETER      (NCFG=10000,NSCOUP=10000)
         CHARACTER*3    EL(NELS),ELL(NELS),ELR(NELS),ELS(NELS),
      :                 ELA(NELS)
         CHARACTER*3    ELB(NELS),ELC(NELS),CH3
@@ -1594,7 +1743,7 @@ CSUN            end if
      :                 /BLK4/Q,QL,ML,QR,MR,M,QS,MS,MA,RL,NREF,
      :                       Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,
      :                       Q10,Q11,Q12,Q13,Q14,Q15
-        COMMON         /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
+        COMMON         /FILES/FBETA(7,nscoup),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
 
 
@@ -1741,9 +1890,9 @@ CSUN            end if
 *       STR  =  String to be packed as output for Replacement
 *
 
-
-        PARAMETER     (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-        PARAMETER     (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+        PARAMETER     (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+        PARAMETER     (NCFG=10000,NSCOUP=10000)
         CHARACTER*72   HEADER,SHELLS,VIRTUL,STR,SSTR
         CHARACTER*60   REF(NELS),ACT,REPL(NELS)
         CHARACTER*2    FTM(NELS)
@@ -1841,8 +1990,9 @@ CSUN            end if
 *       Print out the values of couplings
 *
         SUBROUTINE PRINT (EL,Q,M,NC,MARK)
-            PARAMETER      (NELS=15,NSHEL=5,NCOUPL=2*NSHEL-1)
-            PARAMETER      (NCFG=500,NSCOUP=500)
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
+            PARAMETER      (NELS=21,NSHEL=8,NCOUPL=2*NSHEL-1)
+            PARAMETER      (NCFG=10000,NSCOUP=10000)
             CHARACTER*60   REF(NELS),REPL(NELS),ACT
             CHARACTER*72   HEADER,SHELLS,VIRTUL
             CHARACTER*3    EL(NELS),COUPLE(NCOUPL)
@@ -1853,7 +2003,7 @@ CSUN            end if
             COMMON         NF,NR,NFTM,MAX,MIN,PARITY,CONST,NQ
      :                     /BLK1/HEADER,SHELLS,ACT,VIRTUL
      :                     /BLK2/REF,REPL,FTM
-            COMMON       /FILES/FBETA(4,NSCOUP),FILE1(NCFG),FILE2(NCFG),
+            COMMON       /FILES/FBETA(7,nscoup),FILE1(NCFG),FILE2(NCFG),
      :                        FILE3(NSCOUP)
 
 
@@ -1955,6 +2105,7 @@ CSUN            end if
 *       Explanation of the input format
 *
         SUBROUTINE HELP ()
+        IMPLICIT DOUBLE PRECISION(A-H,O-Z)
             CHARACTER*10   STR
 
 10          WRITE(0,11)
