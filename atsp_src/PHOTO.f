@@ -352,7 +352,7 @@ cxi
 *
         convert(2) = 27.2113961*ratio
 
-100     format(1x, ' Atomic Weight = ', I3 )
+100     format(1x, ' Atomic Weight = ', F3.0)
 101     format(1x, ' 1  Hartree    = ', F15.7, '  cm^-1 ' )
 102     format(1x, '               = ', F15.7, '  eV    ' )
 
