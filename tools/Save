@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+    echo "No argument supplied - please run 'Save <name>' to save your ATSP files."
+ else
+   mv int.lst $1.i
+   mv wfn.out $1.w
+   mv cfg.out $1.c
+   mv summry  $1.sum
+fi
