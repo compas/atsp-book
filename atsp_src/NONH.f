@@ -92,7 +92,7 @@ CDBG  WRITE(IWRITE,1) IBUG1,IBUG2,IBUG3
       IF ( ANS .EQ. 'Y' .OR. ANS .EQ. 'y') IFULL = 1
 *
       NEW = 0
-      NZER0 = 0
+      NZERO = 0
       NONE = 0
       IALL = 1
 *
