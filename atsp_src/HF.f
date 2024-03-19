@@ -3050,7 +3050,7 @@ CGG
 *   iterated appear last in the list.
 *
         SUBROUTINE REORD(OF, ELC, NWF, IERR)
-        CHARACTER*3 OF(30), ELC
+        CHARACTER*3 OF(NWFD), ELC
 *
         IERR = 1
         CALL EPTR(OF, ELC, I, *99)
